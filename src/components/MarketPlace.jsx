@@ -204,7 +204,7 @@ const MarketPlace = () => {
                                 />
                                 {/* Иконка поиска */}
                                 <img
-                                    src="./images/icons/search.png"
+                                    src="./images/icons/Search.png"
                                     alt="search"
                                     className="absolute left-3 top-4 transform-translate-y-1/2 w-4 h-4 cursor-pointer"
                                 />
