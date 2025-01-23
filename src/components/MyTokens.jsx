@@ -325,7 +325,7 @@ useEffect(() => {
               </div>
              
               <div className="flex flex-col gap-3 mb-12">
-              <div className="bg-[#AEB9E114] sm20:w-[265px] sm75:w-[315px] sm25:w-[365px] h-16 p-4 rounded-md flex flex-row justify-between items-center border border-[#FFFFFF3D]">
+              <div className="bg-transparent hover:opacity-80 sm20:w-[265px] sm75:w-[315px] sm25:w-[365px] h-16 p-4 rounded-md flex flex-row justify-between items-center border border-[#FFFFFF3D]">
                 <div className="flex flex-row gap-4 items-center">
                     <div className="h-2 w-2 rounded-full bg-[#CB3CFF]"></div>
                     <div className="flex flex-col">
@@ -337,7 +337,7 @@ useEffect(() => {
                     <p className="text-white text-lg">55.9%</p>    
                 </div>            
                 </div>
-                <div className="bg-transparent sm20:w-[265px] sm75:w-[315px] sm25:w-[365px] sm75:w-[315px] h-16 p-4 rounded-md flex flex-row justify-between items-center border border-[#FFFFFF3D]">
+                <div className="bg-transparent hover:opacity-80 sm20:w-[265px] sm75:w-[315px] sm25:w-[365px] sm75:w-[315px] h-16 p-4 rounded-md flex flex-row justify-between items-center border border-[#FFFFFF3D]">
                 <div className="flex flex-row gap-4 items-center">
                     <div className="h-2 w-2 rounded-full bg-[#0E43FB]"></div>
                     <div className="flex flex-col">
@@ -348,7 +348,7 @@ useEffect(() => {
                     <p className="text-white text-lg">37.0%</p>    
                 </div>            
                 </div>
-                <div className="bg-transparent sm20:w-[265px] sm75:w-[315px] sm25:w-[365px] h-16 p-4 rounded-md flex flex-row justify-between items-center border border-[#FFFFFF3D]">
+                <div className="bg-transparent hover:opacity-80 sm20:w-[265px] sm75:w-[315px] sm25:w-[365px] h-16 p-4 rounded-md flex flex-row justify-between items-center border border-[#FFFFFF3D]">
                 <div className="flex flex-row gap-4 items-center">
                     <div className="h-2 w-2 rounded-full bg-[#00C2FF]"></div>
                     <div className="flex flex-col">
