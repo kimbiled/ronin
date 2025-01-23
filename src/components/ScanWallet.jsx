@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import HeaderMobileScan from './HeaderMobileScan'
+import SidebarMobile from './SidebarMobile';
 import FooterMobile from './FooterMobile'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -8,6 +9,11 @@ const ScanWallet = () => {
 
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const toggleMenu = () => {
+      setIsMenuOpen((prev) => !prev); // Переключение состояния меню
+    };
+  
 useEffect(() => {
       AOS.init({ duration: 1000, once:true });
     }, []);
@@ -23,18 +29,37 @@ useEffect(() => {
     navigate("/profile")
   }
 
+  const style = isMenuOpen
+  ? {
+     
+    }
+  : {
+      backgroundImage: "url('/images/backgrounds/grid-closed.png')",
+      backgroundSize: "80%",
+      backgroundPosition: "top",
+      backgroundRepeat: "repeat",
+      backgroundColor: "#081028",
+    };
+
   return (
     <div>
       {isMobile? (
-         <div className="  fonts-mono flex flex-col items-center h-auto bg-[#081028] overflow-x-hidden max-w-[425px]"
+         <div
+         className={`${
+           isMenuOpen
+             ? "bg-[#0A1330] flex flex-col items-center"
+             : "fonts-mono flex flex-col items-center h-auto bg-[#081028] overflow-x-hidden max-w-[425px]"
+         }`}
          style={{
-           backgroundImage: "url('/images/backgrounds/grid.png')",
-           backgroundSize: "100%", // Уменьшение размера фона (например, 120% от исходного размера) // Центрирование фона
-           backgroundPosition: "center",
-           backgroundRepeat: "no-repeat"
-         }}>
-           <HeaderMobileScan />
-           <div className='flex flex-col items-center justify-center gap-4' >
+           ...style,
+           overflowX: isMenuOpen ? "hidden" : "auto", // Включаем горизонтальную прокрутку, если меню закрыто
+         }}
+       >
+       
+                 <HeaderMobileScan isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
+                 <SidebarMobile isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          {!isMenuOpen && (
+             <div className='flex flex-col items-center justify-center gap-4' >
              <div className='flex flex-row items-center mb-4'>
                <a href='https://degenai.ai/'>
                <img
@@ -183,18 +208,81 @@ Exclusive NFTs</h1>
                       </div>
                     </div>
                     <div>
-             <button
-                className="fonts-mono mt-4 flex flex-row items-center justify-center sm20:w-[282px] sm25:w-[373px] sm75:w-[330px] h-11  text-[10px] rounded-lg border border-[#343B4F] text-[#AEB9E1] bg-no-repeat bg-cover bg-center"
-                style={{
-                  backgroundImage: "url('/images/backgrounds/button.png')",
-                backgroundSize: "100%", // Уменьшение размера фона (например, 120% от исходного размера)
-                backgroundPosition: "bottom", // Центрирование фона
-                backgroundRepeat: "no-repeat"// Укажите путь к вашему изображению
-                }}
-              >
-                Other Coins <img src="./images/icons/active-arrow.png" alt="active-arrow" width={10} height={10} className='ml-2'/> 
-              </button>
+                    <button
+  className="relative fonts-mono mt-4 flex flex-row items-center justify-center sm20:w-[282px] sm25:w-[373px] sm75:w-[330px] h-11 text-[10px] rounded-lg border border-[#343B4F] text-[#AEB9E1] bg-no-repeat bg-cover bg-center relative overflow-hidden"
+>
+  {/* Контейнер для анимации */}
+  <div className="absolute inset-0 flex items-center overflow-hidden">
+    {/* Лента с логотипами */}
+    <div className="flex animate-scroll gap-1 absolute top-[15px]">
+      <img
+        src="./images/icons/i1.png"
+        alt="logo1"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i2.png"
+        alt="logo2"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i3.png"
+        alt="logo3"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i4.png"
+        alt="logo4"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i5.png"
+        alt="logo5"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      {/* Дублируем логотипы для бесконечного скролла */}
+      <img
+        src="./images/icons/i1.png"
+        alt="logo1-duplicate"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i2.png"
+        alt="logo2-duplicate"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i3.png"
+        alt="logo3-duplicate"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i4.png"
+        alt="logo4-duplicate"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i5.png"
+        alt="logo5-duplicate"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+    </div>
+  </div>
+  {/* Текст и стрелка */}
+  <span className="z-10">Other Coins</span>
+  <img
+    src="./images/icons/active-arrow.png"
+    alt="active-arrow"
+    width={10}
+    height={10}
+    className="ml-2 z-10"
+  />
+</button>
 
+
+
+
+              <div className='relative group'>
               <button className="fonts-mono flex flex-row items-center justify-center mx-auto px-4 py-2 rounded-lg text-[#AEB9E1] mt-3 text-[10px] sm20:w-[282px] sm25:w-[373px] sm75:w-[330px] h-11 rounded-lg border border-[#343B4F] ">
                 <div className="w-6 h-6 flex items-center justify-center mr-2">
                   <img
@@ -205,6 +293,11 @@ Exclusive NFTs</h1>
                 </div>
                 How to improve the quality of NFTs
               </button>
+              <div className="py-2 px-2 absolute top-full mt-2 sm20:w-[282px] sm25:w-[373px] sm75:w-[330px] h-auto p-4 rounded-lg bg-[#1A233A] text-[#AEB9E1] text-xs shadow-lg border border-[#343B4F] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              The level and rarity of the NFT increase
+              linearly with the number of tokens in the wallet
+  </div>
+</div>
 
               <button
                     className="mt-8 w-56 h-14 mx-auto text-white py-3 rounded-lg flex items-center justify-center "
@@ -214,17 +307,6 @@ Exclusive NFTs</h1>
                     onClick={onClickConnect}
                     >
                     Generate My NFT →
-              </button>
-
-                    <button className="fonts-mono flex flex-row items-center mx-auto px-4 py-2 rounded-lg text-[#AEB9E1] mt-3 text-[10px] sm20:w-[282px] h-11">
-                <div className="w-6 h-6 flex items-center justify-center mr-2">
-                  <img
-                    src="./images/icons/question.png"
-                    alt="?"
-                    className="w-6 h-6"
-                  />
-                </div>
-                How to improve the quality of NFTs
               </button>
               </div>
              </div>
@@ -281,6 +363,7 @@ Exclusive NFTs</h1>
 </div>
          <FooterMobile />
            </div>
+          )}
          </div>
       ) : 
       (
@@ -291,7 +374,7 @@ Exclusive NFTs</h1>
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
         }}>
-        <div className='h-[635px] w-[560px] flex flex-col justify-between gap-4'  data-aos="fade-right">
+        <div className='h-[635px] w-[560px] flex flex-col justify-between gap-4'>
             <div className="flex items-center justify-evenly space-x-4 text-sm text-gray-400">
                 <button className="px-4 py-2 rounded-lg border border-gray-600 bg-[#AEB9E103] w-40 backdrop-blur-[24px]">
                     Connect Wallet
@@ -382,9 +465,9 @@ Exclusive NFTs</h1>
                 <h3 className="text-[#AEB9E1] mb-4 fonts-mono">TOP 3 Tokens</h3>
                 <div className="rounded-lg shadow-lg">
   {/* Список монет */}
-  <div className="space-y-2 fonts-mono"  data-aos="fade-left">
+  <div className="space-y-2 fonts-mono" >
     {/* PepeCoin */}
-    <div className='flex flex-row gap-2' data-aos="fade-left">
+    <div className='flex flex-row gap-2'>
     <div className="flex flex-row h-20 items-center justify-between p-4 rounded-lg bg-transparent border border-[#343B4F] gap-4 w-[360px]">
       {/* Основная часть (токены и информация) */}
       <div className="flex flex-row items-center space-x-4">
@@ -422,7 +505,7 @@ Exclusive NFTs</h1>
     </div>
 
     {/* DogeCoin */}
-    <div className='flex flex-row gap-2' data-aos="fade-left">
+    <div className='flex flex-row gap-2' >
     <div className="flex flex-row h-20 items-center justify-between p-4 rounded-lg bg-transparent border border-[#343B4F] gap-4 w-[360px]">
       {/* Основная часть (токены и информация) */}
       <div className="flex flex-row items-center space-x-4">
@@ -460,7 +543,7 @@ Exclusive NFTs</h1>
     </div>
 
     {/* Shiba Inu */}
-    <div className='flex flex-row gap-2' data-aos="fade-left">
+    <div className='flex flex-row gap-2' >
     <div className="flex flex-row h-20 items-center justify-between p-4 rounded-lg bg-transparent border border-[#343B4F] gap-4 w-[360px]">
       {/* Основная часть (токены и информация) */}
       <div className="flex flex-row items-center space-x-4">
@@ -499,22 +582,75 @@ Exclusive NFTs</h1>
   </div>
 </div>
 
-<div className="flex justify-between space-x-4 mt-2" data-aos="fade-left">
+<div className="flex justify-between space-x-4 mt-2" >
   {/* Кнопка "Other Coins" */}
   <button
-    className="flex items-center justify-center w-[205px] px-4 py-2 rounded-lg border border-[#343B4F] text-[#AEB9E1] bg-no-repeat bg-cover bg-center"
-    style={{
-      backgroundImage: "url('/images/backgrounds/button.png')",
-    backgroundSize: "100%", // Уменьшение размера фона (например, 120% от исходного размера)
-    backgroundPosition: "bottom", // Центрирование фона
-    backgroundRepeat: "no-repeat"// Укажите путь к вашему изображению
-    }}
-  >
-    Other Coins →
-  </button>
+  className="relative flex items-center justify-center w-[205px] px-4 py-2 rounded-lg border border-[#343B4F] text-[#AEB9E1] bg-no-repeat bg-cover bg-center overflow-hidden"
+>
+  {/* Контейнер для анимации */}
+  <div className="absolute inset-0 flex items-center overflow-hidden">
+    {/* Лента с логотипами */}
+    <div className="flex animate-scroll gap-1 absolute top-[15px]">
+      <img
+        src="./images/icons/i1.png"
+        alt="logo1"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i2.png"
+        alt="logo2"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i3.png"
+        alt="logo3"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i4.png"
+        alt="logo4"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i5.png"
+        alt="logo5"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      {/* Дублируем логотипы для бесконечного скролла */}
+      <img
+        src="./images/icons/i1.png"
+        alt="logo1-duplicate"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i2.png"
+        alt="logo2-duplicate"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i3.png"
+        alt="logo3-duplicate"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i4.png"
+        alt="logo4-duplicate"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+      <img
+        src="./images/icons/i5.png"
+        alt="logo5-duplicate"
+        className="h-[55px] w-[55px] filter brightness-50 opacity-50"
+      />
+    </div>
+  </div>
+  {/* Текст и стрелка */}
+  <span className="relative z-10">Other Coins →</span>
+</button>
+
 
   {/* Кнопка "? Generation Fee" */}
-  <button className="flex items-center w-[205px] px-4 py-2 rounded-lg border border-[#343B4F] text-[#AEB9E1] bg-transparent xl40:text-sm" data-aos="fade-left">
+  <button className="flex items-center w-[205px] px-4 py-2 rounded-lg border border-[#343B4F] text-[#AEB9E1] bg-transparent xl40:text-sm" >
     {/* Вопросительный знак как изображение */}
     <div className="w-6 h-6 flex items-center justify-center mr-2">
       <img
@@ -528,7 +664,7 @@ Exclusive NFTs</h1>
 </div>
 
                   <button
-                    className="mt-4 w-56 h-14 mx-auto text-white py-3 rounded-lg flex items-center justify-center text-lg" data-aos="fade-left"
+                    className="mt-4 w-56 h-14 mx-auto text-white py-3 rounded-lg flex items-center justify-center text-lg" 
                     style={{
                         background: 'linear-gradient(128.49deg, #CB3CFF 19.86%, #7F25FB 68.34%)',
                     }}
@@ -538,7 +674,7 @@ Exclusive NFTs</h1>
                     </button>
                     <div className="relative group">
   {/* Кнопка */}
-  <button className="flex flex-row items-center mx-auto rounded-lg text-[#AEB9E1] mt-3 text-sm " data-aos="fade-left">
+  <button className="flex flex-row items-center mx-auto rounded-lg text-[#AEB9E1] mt-3 text-sm " >
     <div className="w-6 h-6 flex items-center justify-center mr-2">
       <img
         src="./images/icons/question.png"
@@ -550,7 +686,7 @@ Exclusive NFTs</h1>
   </button>
 
   {/* Всплывающий элемент */}
-  <div className="py-2 px-2 absolute left-[150px] top-full mt-2 w-[390px] h-14 p-4 rounded-lg bg-[#1A233A] text-[#AEB9E1] text-sm shadow-lg border border-[#343B4F] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+  <div className="py-2 px-2 absolute left-[30px] top-full mt-2 w-[430px] h-18 p-4 rounded-lg bg-[#1A233A] text-[#AEB9E1] text-sm shadow-lg border border-[#343B4F] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
     The level and rarity of the NFT increase linearly with the number of tokens in the wallet.
   </div>
 </div>

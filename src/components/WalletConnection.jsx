@@ -58,20 +58,30 @@ const WalletConnection = () => {
     <div>
       {isMobile? (
         
-        <div className={`${isMenuOpen ? 'bg-[#0A1330] flex flex-col items-center' : 'fonts-mono flex flex-col items-center h-auto bg-[#081028] overflow-x-hidden max-w-[425px]'}`}
-        style={style}>
+        <div
+  className={`${
+    isMenuOpen
+      ? "bg-[#0A1330] flex flex-col items-center"
+      : "fonts-mono flex flex-col items-center h-auto bg-[#081028] overflow-x-hidden max-w-[425px]"
+  }`}
+  style={{
+    ...style,
+    overflowX: isMenuOpen ? "hidden" : "auto", // Включаем горизонтальную прокрутку, если меню закрыто
+  }}
+>
+
           <HeaderMobile isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
           <SidebarMobile isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           {!isMenuOpen && (
             <div className='flex flex-col items-center justify-center gap-4'>
             <div className='flex flex-row items-center mb-4'>
               <a href='https://degenai.ai/'>
-              <img
-                  src="./images/icons/logo.png" // Замените на ваш логотип
-                  alt="Logo"
-                  className="w-[5%] h-[5%] mx-auto"
-              />
-              </a>
+               <img
+                   src="./images/icons/logo.png" // Замените на ваш логотип
+                   alt="Logo"
+                   className="w-[70px] h-[20px] mx-auto"
+               />
+               </a>
             </div>
             <div className='w-[280px] flex flex-col gap-5 mb-8'>
               <h1 className='text-[28px] text-white mx-auto text-center'>Generate your unique NFT based on your tokens</h1>
@@ -85,12 +95,20 @@ const WalletConnection = () => {
                 <p className="text-[#AEB9E1] text-center mb-6 fonts-mono">Choose your wallet<br/> to log in</p>
         
                 {/* Что такое Wallet */}
-                <div className="text-[#AEB9E1] mb-6 flex flex-row justify-center">
-                <a href="#" className="flex items-center space-x-2 hover:text-white">
+                <div className="relative group">
+  {/* Кнопка */}
+  <div className="text-[#AEB9E1] mb-6 flex flex-row justify-center">
+                <a href="#" className="flex items-center space-x-1 hover:text-white">
                     <img src="./images/icons/question.png" alt="question" className='w-6 h-6'/>
-                    <span className='fonts-mono text-sm'>What Is Wallet?</span>
+                    <span className='fonts-mono'>What Is Wallet?</span>
                 </a>
                 </div>
+
+  {/* Всплывающий элемент */}
+  <div className="py-2 px-2 absolute top-full left-[6px] mt-2 sm20:w-[270px] sm75:w-[320px] sm25:w-[360px] h-auto p-4 rounded-lg bg-[#1A233A] text-[#AEB9E1] text-xs shadow-lg border border-[#343B4F] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+  A wallet is a digital tool that allows you to store, send, and receive cryptocurrencies and NFTs. It also securely manages your private keys, which are essential for accessing and using your assets
+  </div>
+</div>
         
                 {/* Список популярных Wallet */}
                 <h3 className="text-[#AEB9E1] mb-4 fonts-mono text-sm ml-2">Popular</h3>
@@ -197,8 +215,8 @@ const WalletConnection = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
         }}>
-        <div className='h-[635px] w-[560px] flex flex-col justify-between' data-aos="fade-right">
-            <div className=" flex items-center justify-evenly space-x-4 text-sm text-gray-400" data-aos="fade-left">
+        <div className='h-[635px] w-[560px] flex flex-col justify-between'>
+            <div className=" flex items-center justify-evenly space-x-4 text-sm text-gray-400">
                 <button className="px-4 py-2 rounded-lg border border-[#AEB9E1] bg-[#AEB9E13D] text-[#AEB9E1] w-40 cursor-text">
                     Connect Wallet
                 </button>
@@ -211,7 +229,7 @@ const WalletConnection = () => {
                     NFT Generation
                 </button>
             </div>
-            <div className="bg-transparent p-8 rounded-lg shadow-lg border border-gray-700 h-[300px]" data-aos="fade-right">
+            <div className="bg-transparent p-8 rounded-lg shadow-lg border border-gray-700 h-[300px]" >
                 <h2 className="text-5xl 2xl:text-5xl sm:text-4xl mb-4 ">
                     Generate your<br/>unique NFT based<br/> on your tokens
                 </h2>
@@ -224,19 +242,28 @@ const WalletConnection = () => {
             </div>
         </div>
 
-        <div className='h-[635px] w-[470px] bg-home-ellipse border border-[#343B4F] rounded-md' data-aos="fade-left">
+        <div className='h-[635px] w-[470px] bg-home-ellipse border border-[#343B4F] rounded-md' data-aos="fade-up">
             <div className="bg-[#0A1330] p-8 rounded-lg shadow-lg  w-full h-full max-w-md">
                 {/* Заголовок */}
                 <h2 className="text-4xl text-white mb-2 text-center ">Connect Wallet</h2>
                 <p className="text-[#AEB9E1] text-center mb-6 fonts-mono">Choose your wallet to log in</p>
         
                 {/* Что такое Wallet */}
-                <div className="text-[#AEB9E1] mb-6 flex flex-row justify-center">
+                
+                <div className="relative group">
+  {/* Кнопка */}
+  <div className="text-[#AEB9E1] mb-6 flex flex-row justify-center">
                 <a href="#" className="flex items-center space-x-1 hover:text-white">
                     <img src="./images/icons/question.png" alt="question" className='w-6 h-6'/>
                     <span className='fonts-mono'>What Is Wallet?</span>
                 </a>
                 </div>
+
+  {/* Всплывающий элемент */}
+  <div className="py-2 px-2 absolute left-[150px] top-full mt-2 w-[430px] h-auto p-4 rounded-lg bg-[#1A233A] text-[#AEB9E1] text-sm shadow-lg border border-[#343B4F] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+  A wallet is a digital tool that allows you to store, send, and receive cryptocurrencies and NFTs. It also securely manages your private keys, which are essential for accessing and using your assets
+  </div>
+</div>
         
                 {/* Список популярных Wallet */}
                 <h3 className="text-[#AEB9E1] mb-4 fonts-mono">Popular</h3>

@@ -73,17 +73,20 @@ code {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 20px; /* ширина затемнённого края */
+  width: 20px;
   pointer-events: none;
+  z-index: 10;
 }
 
 .fade-effect-left {
   left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+  background: linear-gradient(to right, #0B1120, transparent);
 }
 
 .fade-effect-right {
   right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
+  background: linear-gradient(to left, #0B1120, transparent);
 }
+
+
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-const SidebarMobile = ({ isMenuOpen, setIsMenuOpen }) => {
+const SidebarMobileMarket = ({ isMenuOpen, setIsMenuOpen }) => {
 const navigate = useNavigate()
   const goToMarketplace = () => {
-    navigate('/marketplace')
+    navigate('/profile')
   }
 
   if (!isMenuOpen) return null;
@@ -12,7 +12,7 @@ const navigate = useNavigate()
         <aside className="bg-[#0A1330] text-[#AEB9E1] flex flex-col h-full 2xl:h-[950px] xl:h-[950px] 2xl:w-[300px] xl40:w-[260px] sm75:w-[350px]">
       {/* Return to site */}
         <div className="p-4 relative">
-            <a href="https://degenai.ai/" className="flex flex-row items-center space-x-2 text-sm text-white mb-4 mt-4 fonts-mono">
+            <a href="/" className="flex flex-row items-center space-x-2 text-sm text-white mb-4 mt-4 fonts-mono">
                 <span>←</span>
                 <span>Return to site</span>
             </a>
@@ -69,8 +69,8 @@ const navigate = useNavigate()
         </div>
 
         {/* My Tokens */}
-        <div>
-        <div className="group flex items-center justify-between hover:text-[#CB3CFF]  h-[40px]">
+        <div className="group flex items-center justify-between hover:text-[#CB3CFF]  h-[40px]"
+        onClick={goToMarketplace}>
             <div className="flex items-center space-x-2">
                 {/* SVG Иконка */}
                 <svg
@@ -79,7 +79,7 @@ const navigate = useNavigate()
                 viewBox="0 0 14 15"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="fill-current text-[#AEB9E1] group text-[#CB3CFF]"
+                className="fill-current text-[#AEB9E1] group-hover:text-[#CB3CFF]"
                 >
                 <path
                     fillRule="evenodd"
@@ -88,15 +88,39 @@ const navigate = useNavigate()
                 />
                 </svg>
                 {/* Текст */}
-                <p className="group text-[#CB3CFF]">My Tokens</p>
+                <p className="group-hover:text-[#CB3CFF]">My Tokens</p>
             </div>
             {/* Стрелка */}
-            <span className="group text-[#CB3CFF] text-2xl">›</span>
+            <span className="group-hover:text-[#CB3CFF] text-2xl">›</span>
         </div>
 
 
           {/* Submenu */}
-          <div className="ml-6 mt-2 space-y-2">
+
+        {/* Marketplace */}
+        <div>
+        <div className="group flex items-center justify-between hover:text-[#CB3CFF]  h-[40px]"
+             >
+            <div className="flex items-center space-x-2">
+                {/* SVG Иконка */}
+                <svg
+                    width="12"
+                    height="13"
+                    viewBox="0 0 12 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="fill-current text-[#AEB9E1] group text-[#CB3CFF]"
+                    >
+                    <path d="M11.6067 11.4919L10.0232 3.59132C10.0012 3.38778 9.90406 3.19961 9.75055 3.06326C9.59704 2.9269 9.39811 2.85206 9.19229 2.85323H8.27773C8.17712 2.27373 7.87392 1.74819 7.42164 1.36938C6.96936 0.990573 6.39709 0.782837 5.8058 0.782837C5.21452 0.782837 4.64224 0.990573 4.18996 1.36938C3.73769 1.74819 3.43449 2.27373 3.33387 2.85323H2.41931C2.2135 2.85206 2.01457 2.9269 1.86105 3.06326C1.70754 3.19961 1.61037 3.38778 1.58837 3.59132L0.00487428 11.4919C-0.00778301 11.6087 0.00427698 11.7269 0.0402788 11.8388C0.0762807 11.9507 0.135428 12.0538 0.213917 12.1416C0.292144 12.2286 0.388008 12.2982 0.495199 12.3456C0.60239 12.3931 0.718477 12.4175 0.835818 12.4171H10.7758C10.8931 12.4175 11.0092 12.3931 11.1164 12.3456C11.2236 12.2982 11.3195 12.2286 11.3977 12.1416C11.4762 12.0538 11.5353 11.9507 11.5713 11.8388C11.6073 11.7269 11.6194 11.6087 11.6067 11.4919ZM5.8058 1.60577C6.17647 1.60647 6.53646 1.72925 6.82956 1.95494C7.12266 2.18062 7.33235 2.4965 7.42588 2.85323H4.18572C4.27925 2.4965 4.48895 2.18062 4.78204 1.95494C5.07514 1.72925 5.43513 1.60647 5.8058 1.60577Z" />
+                </svg>
+
+                {/* Текст */}
+                <p className="group text-[#CB3CFF]">Marketplace</p>
+            </div>
+            {/* Стрелка */}
+            <span className="group text-[#CB3CFF] text-2xl">›</span>
+        </div>
+        <div className="ml-6 mt-2 space-y-2">
                 <a
                     href="#"
                     className="block text-sm text-white relative w-[225px] xl40:w-[200px] h-[40px] bg-[#081028] border border-[#081028] rounded-md">
@@ -128,30 +152,6 @@ const navigate = useNavigate()
                     <span className="pl-4 flex items-center h-full">Wallets</span>
                 </a>
                 </div>
-
-        </div>
-
-        {/* Marketplace */}
-        <div className="group flex items-center justify-between hover:text-[#CB3CFF]  h-[40px]"
-             onClick={goToMarketplace}>
-            <div className="flex items-center space-x-2">
-                {/* SVG Иконка */}
-                <svg
-                    width="12"
-                    height="13"
-                    viewBox="0 0 12 13"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="fill-current text-[#AEB9E1] group-hover:text-[#CB3CFF]"
-                    >
-                    <path d="M11.6067 11.4919L10.0232 3.59132C10.0012 3.38778 9.90406 3.19961 9.75055 3.06326C9.59704 2.9269 9.39811 2.85206 9.19229 2.85323H8.27773C8.17712 2.27373 7.87392 1.74819 7.42164 1.36938C6.96936 0.990573 6.39709 0.782837 5.8058 0.782837C5.21452 0.782837 4.64224 0.990573 4.18996 1.36938C3.73769 1.74819 3.43449 2.27373 3.33387 2.85323H2.41931C2.2135 2.85206 2.01457 2.9269 1.86105 3.06326C1.70754 3.19961 1.61037 3.38778 1.58837 3.59132L0.00487428 11.4919C-0.00778301 11.6087 0.00427698 11.7269 0.0402788 11.8388C0.0762807 11.9507 0.135428 12.0538 0.213917 12.1416C0.292144 12.2286 0.388008 12.2982 0.495199 12.3456C0.60239 12.3931 0.718477 12.4175 0.835818 12.4171H10.7758C10.8931 12.4175 11.0092 12.3931 11.1164 12.3456C11.2236 12.2982 11.3195 12.2286 11.3977 12.1416C11.4762 12.0538 11.5353 11.9507 11.5713 11.8388C11.6073 11.7269 11.6194 11.6087 11.6067 11.4919ZM5.8058 1.60577C6.17647 1.60647 6.53646 1.72925 6.82956 1.95494C7.12266 2.18062 7.33235 2.4965 7.42588 2.85323H4.18572C4.27925 2.4965 4.48895 2.18062 4.78204 1.95494C5.07514 1.72925 5.43513 1.60647 5.8058 1.60577Z" />
-                </svg>
-
-                {/* Текст */}
-                <p className="group-hover:text-[#CB3CFF]">Marketplace</p>
-            </div>
-            {/* Стрелка */}
-            <span className="group-hover:text-[#CB3CFF] text-2xl">›</span>
         </div>
 
         {/* My Collection */}
@@ -266,4 +266,4 @@ const navigate = useNavigate()
   );
 };
 
-export default SidebarMobile;
+export default SidebarMobileMarket;

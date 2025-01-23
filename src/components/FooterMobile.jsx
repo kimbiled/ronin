@@ -12,7 +12,7 @@ const FooterMobile = () => {
       <div className="flex items-center justify-between mb-6 mt-8 ">
         {/* Кнопка "Return to site" */}
         <button className="w-[160px] h-[45px] flex items-center justify-center space-x-2 border border-[#343B4F] rounded-lg hover:bg-gray-700 text-white"
-                onClick={onClickHome}
+            onClick={() => window.location.href = 'https://degenai.ai/'}    
         >
           <span>←</span>
           <span className='text-xs'>Return to site</span>

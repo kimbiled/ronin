@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import HeaderMobileScan from "./HeaderMobileScan";
 import FooterMobile from "./FooterMobile";
+import SidebarMobileMarket from "./SidebarMobileMarket";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 const MarketPlace = () => {
@@ -21,6 +22,10 @@ const MarketPlace = () => {
     const [selectedTime, setSelectedTime] = useState("24H");
     const [selectedFilter, setSelectedFilter] = useState("All");
     const [selectedStatus, setSelectedStatus] = useState("All");
+     const [isMenuOpen, setIsMenuOpen] = useState(false);
+        const toggleMenu = () => {
+          setIsMenuOpen((prev) => !prev); // Переключение состояния меню
+        };
     const nfts = [
         { id: 1, name: "Pepe of the Moon", user: "CryptoWizard87", price: "8.5 ETH", bid: "No Bids Yet", image: "./images/avatars/a1.png" },
         { id: 2, name: "Shiba Samurai", user: "PixelPepeX", price: "1 ETH", bid: "No Bids Yet", image: "./images/avatars/a2.png" },
@@ -31,18 +36,37 @@ const MarketPlace = () => {
         { id: 7, name: "Frogchain Legend", user: "RareMinter23", price: "3 ETH", bid: "No Bids Yet", image: "./images/avatars/a7.png" },
         { id: 8, name: "Ponke 2R", user: "ApeLordNFT", price: "4 ETH", bid: "No Bids Yet", image: "./images/avatars/a8.png" },
     ];
+    const style = isMenuOpen
+      ? {
+         
+        }
+      : {
+          backgroundImage: "url('/images/backgrounds/grid-closed.png')",
+          backgroundSize: "80%",
+          backgroundPosition: "top",
+          backgroundRepeat: "repeat",
+          backgroundColor: "#081028",
+        };
+
   return (
     <div>
         {isMobile? 
-        (<div className="flex flex-col items-center h-auto bg-[#081028] overflow-x-hidden max-w-[425px] fonts-mono"
-                    style={{
-                    backgroundImage: "url('/images/backgrounds/grid.png')",
-                    backgroundSize: "100%", // Уменьшение размера фона (например, 120% от исходного размера) // Центрирование фона
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat"
-                    }}>
-                    <HeaderMobileScan />
-                    <div data-aos="fade-right" className='flex flex-col items-center justify-center gap-4'>
+        (<div
+            className={`${
+              isMenuOpen
+                ? "bg-[#0A1330] flex flex-col items-center"
+                : "fonts-mono flex flex-col items-center h-auto bg-[#081028] overflow-x-hidden max-w-[425px]"
+            }`}
+            style={{
+              ...style,
+              overflowX: isMenuOpen ? "hidden" : "auto", // Включаем горизонтальную прокрутку, если меню закрыто
+            }}
+          >
+          
+                    <HeaderMobileScan isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
+                    <SidebarMobileMarket isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+                    {!isMenuOpen && (
+                    <div className='flex flex-col items-center justify-center gap-4'>
                         <div className="text-white p-4 fonts-mono sm20:w-[320px]">
                             {/* Overview */}
                             <div className="text-[#AEB9E1] text-xs mb-6 text-center opacity-50">/ Overview</div>
@@ -50,8 +74,7 @@ const MarketPlace = () => {
                             {/* Title */}
                             <h1 className="text-center text-3xl mb-4">My tokens</h1>
                         </div>
-                    </div>
-                    <div data-aos="fade-left" className="flex items-center gap-2 rounded-lg h-11 sm20:w-[300px] sm75:w-[350px] sm25:w-[400px]">
+                    <div className="flex items-center gap-2 rounded-lg h-11 sm20:w-[300px] sm75:w-[350px] sm25:w-[400px]">
                       {/* Trending Dropdown */}
                       <button className="flex items-center justify-center gap-2 border border-[#343B4F] bg-[#AEB9E103] bg-opacity-50 rounded-lg hover:bg-[#1A233A] h-11 w-32 sm25:w-48 sm75:w-48">
                           <span className="text-[#AEB9E1] text-sm text-opacity-50">Trending</span>
@@ -120,40 +143,58 @@ const MarketPlace = () => {
                             </button>
                         </div>
                       </div>
-                      <div data-aos="fade-right" className="fonts-mono w-full overflow-x-auto no-scrollbar mt-8">
-                        <div className="flex flex-row gap-3 w-[2000px] ml-4">
-                            {nfts.map((nft) => (
-                                <div
-                                    key={nft.id}
-                                    className="border border-[#343B4F] rounded-lg  p-4  hover:shadow-lg transition-shadow w-[235px] h-[425px] text-white"
-                                >
-                                    <img
-                                        src={nft.image}
-                                        alt={nft.name}
-                                        className="object-cover rounded-lg mb-4 w-[200px] h-[200px] mx-auto"
-                                    />
-                                    <div className="flex items-center space-x-2">
-                                    <img src="./images/icons/tick.png" alt="tick" className="w-3 h-3" />
-                                    <h3 className="text-sm text-[#AEB9E1]">{nft.name}</h3>
-                                    </div>
-                                    <p className="text-lg mt-2 mb-6">{nft.user}</p>
-                                    <div className=" border-b-[#FFFFFF] border-b-[1px] border-opacity-20"> </div>
-                                    <div className="flex justify-between mt-6 items-center">
-                                        <div className="flex flex-col gap-2">
-                                            <p className="text-[#AEB9E1] text-sm">Price</p>
-                                            <p>{nft.price}</p>
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            <p className="text-[#AEB9E1] text-sm">Highest Bid</p>
-                                            <p>{nft.bid}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                            </div>
-                        </div>
+                      <div
+  data-aos="fade-right"
+  className="fonts-mono w-full overflow-x-auto no-scrollbar mt-8"
+  style={{
+    display: "flex",
+    gap: "1rem", // Отступ между карточками
+    overflowX: "auto", // Горизонтальная прокрутка
+    scrollBehavior: "smooth", // Гладкая прокрутка
+    WebkitOverflowScrolling: "touch", // Инерционная прокрутка на мобильных устройствах
+    width: "100%", // Ширина контейнера
+    maxWidth: "100vw", // Ограничение ширины
+    paddingLeft: "1rem", // Внутренний отступ слева
+    paddingRight: "1rem", // Внутренний отступ справа
+  }}
+>
+  {nfts.map((nft) => (
+    <div
+      key={nft.id}
+      className="flex flex-col border border-[#343B4F] rounded-lg p-4 hover:shadow-lg transition-shadow flex-shrink-0 text-white"
+      style={{
+        minWidth: "235px", // Фиксированная минимальная ширина карточки
+        height: "425px", // Высота карточки
+        flexShrink: "0", // Убираем сжатие карточек
+      }}
+    >
+      <img
+        src={nft.image}
+        alt={nft.name}
+        className="object-cover rounded-lg mb-4 w-[200px] h-[200px] mx-auto"
+      />
+      <div className="flex items-center space-x-2">
+        <img src="./images/icons/tick.png" alt="tick" className="w-3 h-3" />
+        <h3 className="text-sm text-[#AEB9E1]">{nft.name}</h3>
+      </div>
+      <p className="text-lg mt-2 mb-6">{nft.user}</p>
+      <div className="border-b-[#FFFFFF] border-b-[1px] border-opacity-20"></div>
+      <div className="flex justify-between mt-6 items-center">
+        <div className="flex flex-col gap-2">
+          <p className="text-[#AEB9E1] text-sm">Price</p>
+          <p>{nft.price}</p>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p className="text-[#AEB9E1] text-sm">Highest Bid</p>
+          <p>{nft.bid}</p>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
 
-                    <div data-aos="fade-left" className="flex flex-row items-center justify-center sm20:w-[300px] sm75:w-[350px] sm25:w-[400px] h-11 gap-4 mt-12  mb-8">
+
+                    <div className="flex flex-row items-center justify-center sm20:w-[300px] sm75:w-[350px] sm25:w-[400px] h-11 gap-4 mt-12  mb-8">
                         <div className="relative flex flex-row justify-center sm20:w-[300px] sm75:w-[350px] sm25:w-[400px]">
                             {/* Поле ввода */}
                             <input
@@ -205,7 +246,7 @@ const MarketPlace = () => {
               <div data-aos="fade-left" className="flex flex-col gap-4 text-[#AEB9E1] sm20:w-[300px] sm75:w-[350px] sm25:w-[400px]">
                   {/* Первый блок */}
                   <div className="space-y-4 border border-[#343B4F] rounded-lg p-6 mb-8">
-                      <div className="flex justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
+                      <div className=" flex justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
                           <span className="mb-3">Blockchain</span>
                           <span className="mb-3">›</span>
                       </div>
@@ -304,18 +345,20 @@ const MarketPlace = () => {
                         </div>
                         <FooterMobile />
                     </div>
+                    )}
+                    </div>
         )
         :
         (  <div className="p-10 space-y-6 bg-[#0A1330] h-full fonts-mono">
             {/* Header */}
-            <div className="relative flex justify-between items-center mb-14" data-aos="fade-left">
+            <div className="relative flex justify-between items-center mb-14" >
               <h1 className="text-3xl fonts-mono500 text-white">Marketplace</h1>
               <p className="text-lg text-[#AEB9E1] fonts-mono">/ Explore</p>
               <div className="absolute w-full bottom-[-30px] h-[1px] bg-[#FFFFFF] opacity-20"></div>
             </div>
       
             {/* Tabs */}
-          <div data-aos="fade-right" className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center justify-between">
                   <div className="flex items-center bg-[#0A1330] 2xl:w-2/5 h-[50px] gap-4">
                       <div className="bg-[#FFFFFF14] cursor-pointer w-10 h-10 rounded-lg flex flex-row items-center justify-center">
                           <img src="./images/icons/setting.png" alt="filter" className="w-6 h-6" />
@@ -421,15 +464,15 @@ const MarketPlace = () => {
             {/* Main Content */}
             <div className="flex flex-row gap-4">
               {/* NFT Card */}
-              <div data-aos="fade-right" className="flex flex-col gap-4 p-4 text-[#AEB9E1] 2xl:w-1/6 xl40:w-3/8">
+              <div  className="flex flex-col gap-4 p-4 text-[#AEB9E1] 2xl:w-1/6 xl40:w-3/8">
                   {/* Первый блок */}
                   <div className="space-y-4 border border-[#343B4F] rounded-lg p-4 w-">
-                      <div className="flex justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
+                      <div className="hover:opacity-80 flex justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
                           <span className="mb-3">Blockchain</span>
                           <span className="mb-3">›</span>
                       </div>
                       <div className="flex flex-col justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
-                          <div className="flex flex-row w-full justify-between items-center cursor-pointer">
+                          <div className="hover:opacity-80 flex flex-row w-full justify-between items-center cursor-pointer">
                               <span className="mb-3">Status</span>
                               <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -464,19 +507,19 @@ const MarketPlace = () => {
       
                       
                       </div>
-                      <div className="flex justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
+                      <div className="hover:opacity-80 flex justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
                           <span className="mb-3">Price</span>
                           <span className="mb-3">›</span>
                       </div>
-                      <div className="flex justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
+                      <div className="hover:opacity-80 flex justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
                           <span className="mb-3">Type</span>
                           <span className="mb-3">›</span>
                       </div>
-                      <div className="flex justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
+                      <div className="hover:opacity-80 flex justify-between items-center cursor-pointer border-b-[#FFFFFF] border-opacity-20 border-b-[1px]">
                           <span className="mb-3">Options</span>
                           <span className="mb-3">›</span>
                       </div>
-                      <div className="flex justify-between items-center cursor-pointer">
+                      <div className="hover:opacity-80 flex justify-between items-center cursor-pointer">
                           <span className="mb-3">Collections</span>
                           <span className="mb-3">›</span>
                       </div>
@@ -494,11 +537,11 @@ const MarketPlace = () => {
                   </div>
               </div>
       
-              <div data-aos="fade-left" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-[#AEB9E1] 2xl:w-[65%] xl40:w-[85%]">
+              <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-[#AEB9E1] 2xl:w-[65%] xl40:w-[85%]">
           {nfts.map((nft) => (
               <div
                   key={nft.id}
-                  className="border border-[#343B4F] rounded-lg p-4  hover:shadow-lg transition-shadow "
+                  className="border border-[#343B4F] rounded-lg p-4  hover:shadow-lg transition-shadow transition-transform transform hover:scale-105 hover:shadow-lg hover:shadow-[#1E2B4D] duration-300"
               >
                   <img
                       src={nft.image}
