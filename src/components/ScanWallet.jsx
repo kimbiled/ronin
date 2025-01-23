@@ -514,7 +514,7 @@ Exclusive NFTs</h1>
   </button>
 
   {/* Кнопка "? Generation Fee" */}
-  <button className="flex items-center w-[205px] px-4 py-2 rounded-lg border border-[#343B4F] text-[#AEB9E1] bg-transparent" data-aos="fade-left">
+  <button className="flex items-center w-[205px] px-4 py-2 rounded-lg border border-[#343B4F] text-[#AEB9E1] bg-transparent xl40:text-sm" data-aos="fade-left">
     {/* Вопросительный знак как изображение */}
     <div className="w-6 h-6 flex items-center justify-center mr-2">
       <img

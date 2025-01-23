@@ -6,6 +6,8 @@ import HeaderMobile from './HeaderMobile'
 import CarouselMobile from './CarouselMobile'
 import FooterMobile from './FooterMobile'
 
+
+import SidebarMobile from './SidebarMobile';
 //transitions
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -13,7 +15,10 @@ import 'aos/dist/aos.css';
 const WalletConnection = () => {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev); // Переключение состояния меню
+  };
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true, });
@@ -36,19 +41,29 @@ const WalletConnection = () => {
     navigate("/marketplace"); // Переход на страницу /about
   };
 
+
+  const style = isMenuOpen
+  ? {
+     
+    }
+  : {
+      backgroundImage: "url('/images/backgrounds/grid-closed.png')",
+      backgroundSize: "80%",
+      backgroundPosition: "top",
+      backgroundRepeat: "repeat",
+      backgroundColor: "#081028",
+    };
+
   return (
     <div>
       {isMobile? (
         
-        <div className=" fonts-mono flex flex-col items-center h-auto bg-[#081028] overflow-x-hidden max-w-[425px]"
-        style={{
-          backgroundImage: "url('/images/backgrounds/grid.png')",
-          backgroundSize: "100%", // Уменьшение размера фона (например, 120% от исходного размера) // Центрирование фона
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
-        }}>
-          <HeaderMobile/>
-          <div className='flex flex-col items-center justify-center gap-4'>
+        <div className={`${isMenuOpen ? 'bg-[#0A1330] flex flex-col items-center' : 'fonts-mono flex flex-col items-center h-auto bg-[#081028] overflow-x-hidden max-w-[425px]'}`}
+        style={style}>
+          <HeaderMobile isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
+          <SidebarMobile isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          {!isMenuOpen && (
+            <div className='flex flex-col items-center justify-center gap-4'>
             <div className='flex flex-row items-center mb-4'>
               <a href='https://degenai.ai/'>
               <img
@@ -171,6 +186,7 @@ const WalletConnection = () => {
         </div>
         <FooterMobile/>
           </div>
+          )}
         </div>
       ) : 
       (
@@ -204,7 +220,7 @@ const WalletConnection = () => {
                 </p>
             </div>
             <div className="bg-transparent p-8 rounded-lg shadow-lg border border-gray-700 h-[250px]">
-                <Carousel data-aos="fade-left"/>
+                <Carousel/>
             </div>
         </div>
 

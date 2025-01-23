@@ -4,13 +4,28 @@ import HeaderMobileScan from "./HeaderMobileScan";
 import Card from './Card'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
 const MyTokens = () => {
 useEffect(() => {
       AOS.init({ duration: 1000, once:true });
     }, []);
      const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
      const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-     const [isOpen, setIsOpen] = useState(false);
+     const data1 = [{ name: 'Filled', value: 55 }, { name: 'Remaining', value: 45 }];
+const data2 = [{ name: 'Filled', value: 70 }, { name: 'Remaining', value: 30 }];
+const data3 = [{ name: 'Filled', value: 100 }, { name: 'Remaining', value: 0 }];
+
+const COLORS = ['#CB3CFF', '#D9D9D9']; // Цвета для первого круга
+const COLORS2 = ['#0E43FB', '#D9D9D9']; // Цвета для второго круга
+const COLORS3 = ['#AEB9E10A', '#D9D9D9']; // Цвета для третьего круга
+
+
      const cards = [
       {
         rarity: "Legendary",
@@ -587,9 +602,69 @@ useEffect(() => {
                   <img src="./images/icons/download.png" alt="copy" className="w-4 h-4"/>
               </div>
               </div>
-            <div className="w-full h-[250px] mb-4 flex justify-center items-center flex-col">
-              <img src="./images/avatars/circle.png" alt="circlePepe" width={209} height={209}/>
-            </div>
+              {/* <div className="w-full h-[250px] mb-4 flex justify-center items-center flex-col">
+                <img src="./images/avatars/circle.png" alt="circlePepe" width={209} height={209} />
+              </div> */}
+              <div className="flex justify-center items-center flex-col">
+              <ResponsiveContainer width="100%" height={400}>
+        <PieChart>
+          <Tooltip />
+          <Pie
+            data={data1}
+            cx="50%"
+            cy="50%"
+            outerRadius={90} // Внешний радиус первого круга
+            innerRadius={70} // Внутренний радиус первого круга
+            fill="#8884d8"
+            dataKey="value"
+            animationBegin={0}
+            animationDuration={800}
+            animationEasing="ease-out"
+          >
+            {data1.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index]} />
+            ))}
+          </Pie>
+          <Pie
+            data={data2}
+            cx="50%"
+            cy="50%"
+            outerRadius={70} // Внешний радиус второго круга
+            innerRadius={50} // Внутренний радиус второго круга
+            fill="#8884d8"
+            dataKey="value"
+            animationBegin={0}
+            animationDuration={800}
+            animationEasing="ease-out"
+          >
+            {data2.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS2[index]} />
+            ))}
+          </Pie>
+          <Pie
+            data={data3}
+            cx="50%"
+            cy="50%"
+            outerRadius={50} // Внешний радиус третьего круга
+            innerRadius={30} // Внутренний радиус третьего круга
+            fill="#8884d8"
+            dataKey="value"
+            animationBegin={0}
+            animationDuration={800}
+            animationEasing="ease-out"
+          >
+            {data3.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS3[index]} />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
+      <img
+        src="./images/avatars/circle.png" // Замените на ваш путь к изображению
+        alt="Central Image"
+        className="absolute w-20 h-20"
+      />
+    </div>
            
             <div className="flex flex-col gap-3 mb-12">
             <div className="bg-[#AEB9E114] 2xl:w-[265px] xl40:w-56 h-16 p-4 rounded-md flex flex-row justify-between items-center border border-[#FFFFFF3D]">
