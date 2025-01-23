@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+@font-face {
+  font-family: 'Violet Sans';
+  src: url('./assets/fonts/VioletSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fonts-violet {
+  font-family: 'Violet Sans', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.fonts-mono {
+  font-family: "Roboto Mono", serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fonts-mono500 {
+  font-family: "Roboto Mono", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Для Chrome, Safari и Edge */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* Для IE и Edge */
+  scrollbar-width: none; /* Для Firefox */
+}
+
+.parent-container {
+  position: relative;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.parent-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.fade-effect {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20px; /* ширина затемнённого края */
+  pointer-events: none;
+}
+
+.fade-effect-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+}
+
+.fade-effect-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
+}
+
+
