@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 const Header = () => {
   return (
-    <header className="fonts-mono bg-[#0A1330] text-white shadow-md border-b-[#343B4F] border-b overflow-hidden flex flex-row justify-center items-center">
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 xl40:max-w-[1180px] xl40:mx-auto xl40:px-0 xl40:ml-8 xl40:justify-around w-full 2xl:mr-12">
+    <header className="fonts-mono bg-[#0A1330] text-white shadow-md border-b-[#343B4F] border-b overflow-hidden flex flex-row items-center">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 xl40:max-w-[1180px] xl40:mx-auto xl40:px-0 xl40:ml-8 xl40:justify-between 2xl:justify-between w-full 2xl:px-0">
         <div className="flex items-center space-x-4 justify-between">
           <div className='flex flex-row items-center'>
             <img

@@ -14,7 +14,7 @@ const Sidebar = () => {
         <aside className="bg-[#0A1330] text-[#AEB9E1] flex flex-col border border-[#343B4F] rounded-lg h-full 2xl:h-[950px] xl:h-[950px] 2xl:w-[300px] xl40:w-[260px] overflow-hidden">
       {/* Return to site */}
         <div className="p-4 relative">
-            <a href="https://degenai.ai/ " className="flex flex-row items-center space-x-2 text-sm text-white mb-4 mt-4 fonts-mono">
+            <a href="https://degenai.ai/ " className="flex flex-row items-center space-x-2 text-sm text-white mb-3 mt-4 fonts-mono">
                 <span>←</span>
                 <span>Return to site</span>
             </a>
