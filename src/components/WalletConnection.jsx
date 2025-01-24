@@ -98,7 +98,7 @@ const WalletConnection = () => {
                 <div className="relative group">
   {/* Кнопка */}
   <div className="text-[#AEB9E1] mb-6 flex flex-row justify-center">
-                <a href="#" className="flex items-center space-x-1 hover:text-white">
+                <a className="flex items-center space-x-1 hover:text-white">
                     <img src="./images/icons/question.png" alt="question" className='w-6 h-6'/>
                     <span className='fonts-mono'>What Is Wallet?</span>
                 </a>

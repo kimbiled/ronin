@@ -114,7 +114,7 @@ const Sidebar = () => {
                     {/* Submenu */}
                     <div className="ml-6 mt-2 space-y-2">
                             <a
-                                href="#"
+                                
                                 className="block text-sm text-white relative 2xl:w-[225px] xl40:w-[200px] h-[40px] bg-[#081028] border border-[#081028] rounded-md">
                                 <span
                                 className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#CB3CFF] rounded-md"
@@ -124,22 +124,22 @@ const Sidebar = () => {
                             
                             {/* Остальные элементы без линии */}
                             <a
-                                href="#"
+                                
                                 className="block text-sm text-[#AEB9E1] hover:text-white w-[225px] h-[40px]">
                                 <span className="pl-4 flex items-center h-full">Auctions</span>
                             </a>
                             <a
-                                href="#"
+                                
                                 className="block text-sm text-[#AEB9E1] hover:text-white w-[225px] h-[40px]">
                                 <span className="pl-4 flex items-center h-full">Top Sellers</span>
                             </a>
                             <a
-                                href="#"
+                                
                                 className="block text-sm text-[#AEB9E1] hover:text-white w-[225px] h-[40px]">
                                 <span className="pl-4 flex items-center h-full">Categories</span>
                             </a>
                             <a
-                                href="#"
+                                
                                 className="block text-sm text-[#AEB9E1] hover:text-white w-[225px] h-[40px]">
                                 <span className="pl-4 flex items-center h-full">Search</span>
                             </a>

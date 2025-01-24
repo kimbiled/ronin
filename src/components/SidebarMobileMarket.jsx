@@ -122,7 +122,7 @@ const navigate = useNavigate()
         </div>
         <div className="ml-6 mt-2 space-y-2">
                 <a
-                    href="#"
+                    
                     className="block text-sm text-white relative w-[225px] xl40:w-[200px] h-[40px] bg-[#081028] border border-[#081028] rounded-md">
                     <span
                     className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#CB3CFF] rounded-md"
@@ -132,22 +132,22 @@ const navigate = useNavigate()
                 
                 {/* Остальные элементы без линии */}
                 <a
-                    href="#"
+                    
                     className="block text-sm text-[#AEB9E1] hover:text-white w-[225px] h-[40px]">
                     <span className="pl-4 flex items-center h-full">Token Details</span>
                 </a>
                 <a
-                    href="#"
+                    
                     className="block text-sm text-[#AEB9E1] hover:text-white w-[225px] h-[40px]">
                     <span className="pl-4 flex items-center h-full">Transfer Tokens</span>
                 </a>
                 <a
-                    href="#"
+                    
                     className="block text-sm text-[#AEB9E1] hover:text-white w-[225px] h-[40px]">
                     <span className="pl-4 flex items-center h-full">Boost Rarity</span>
                 </a>
                 <a
-                    href="#"
+                    
                     className="block text-sm text-[#AEB9E1] hover:text-white w-[225px] h-[40px]">
                     <span className="pl-4 flex items-center h-full">Wallets</span>
                 </a>
