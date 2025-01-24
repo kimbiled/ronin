@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import HeaderMobileScan from "./HeaderMobileScan";
 import FooterMobile from "./FooterMobile";
 import SidebarMobileMarket from "./SidebarMobileMarket";
@@ -17,6 +17,27 @@ const MarketPlace = () => {
         
             window.addEventListener("resize", handleResize);
             return () => window.removeEventListener("resize", handleResize);
+          }, []);
+
+          const containerRef = useRef(null);
+
+          useEffect(() => {
+            const scrollSpeed = 0.5; // Скорость прокрутки (в пикселях)
+            const scrollInterval = setInterval(() => {
+              if (containerRef.current) {
+                const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+                
+                // Прокручиваем контейнер с заданной скоростью
+                containerRef.current.scrollBy({ left: scrollSpeed, behavior: 'smooth' });
+        
+                // Если дошли до конца, плавно прокручиваем в начало
+                if (scrollLeft + clientWidth >= scrollWidth) {
+                  containerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+                }
+              }
+            }, 30); // Интервал для плавной прокрутки (каждые 30 миллисекунд)
+        
+            return () => clearInterval(scrollInterval); // Очистка интервала при размонтировании
           }, []);
 
     const [selectedTime, setSelectedTime] = useState("24H");
@@ -59,7 +80,7 @@ const MarketPlace = () => {
             }`}
             style={{
               ...style,
-              overflowX: isMenuOpen ? "hidden" : "auto", // Включаем горизонтальную прокрутку, если меню закрыто
+              overflowX: isMenuOpen ? "hidden" : "hidden", // Включаем горизонтальную прокрутку, если меню закрыто
             }}
           >
           
@@ -67,12 +88,12 @@ const MarketPlace = () => {
                     <SidebarMobileMarket isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
                     {!isMenuOpen && (
                     <div className='flex flex-col items-center justify-center gap-4'>
-                        <div className="text-white p-4 fonts-mono sm20:w-[320px]">
+                        <div className="text-white p-4 fonts-mono sm20:w-[320px]  mt-[-15px]">
                             {/* Overview */}
-                            <div className="text-[#AEB9E1] text-xs mb-6 text-center opacity-50">/ Overview</div>
+                            <div className="text-[#AEB9E1] text-xs mb-3 text-center opacity-50">/ Overview</div>
                         
                             {/* Title */}
-                            <h1 className="text-center text-3xl mb-4">My tokens</h1>
+                            <h1 className="text-center text-3xl">My tokens</h1>
                         </div>
                     <div className="flex items-center gap-2 rounded-lg h-11 sm20:w-[300px] sm75:w-[350px] sm25:w-[400px]">
                       {/* Trending Dropdown */}
@@ -144,54 +165,55 @@ const MarketPlace = () => {
                         </div>
                       </div>
                       <div
-  data-aos="fade-right"
-  className="fonts-mono w-full overflow-x-auto no-scrollbar mt-8"
-  style={{
-    display: "flex",
-    gap: "1rem", // Отступ между карточками
-    overflowX: "auto", // Горизонтальная прокрутка
-    scrollBehavior: "smooth", // Гладкая прокрутка
-    WebkitOverflowScrolling: "touch", // Инерционная прокрутка на мобильных устройствах
-    width: "100%", // Ширина контейнера
-    maxWidth: "100vw", // Ограничение ширины
-    paddingLeft: "1rem", // Внутренний отступ слева
-    paddingRight: "1rem", // Внутренний отступ справа
-  }}
->
-  {nfts.map((nft) => (
-    <div
-      key={nft.id}
-      className="flex flex-col border border-[#343B4F] rounded-lg p-4 hover:shadow-lg transition-shadow flex-shrink-0 text-white"
+      ref={containerRef}
+      data-aos="fade-right"
+      className="fonts-mono w-full overflow-x-auto no-scrollbar mt-8"
       style={{
-        minWidth: "235px", // Фиксированная минимальная ширина карточки
-        height: "425px", // Высота карточки
-        flexShrink: "0", // Убираем сжатие карточек
+        display: "flex",
+        gap: "1rem", // Отступ между карточками
+        overflowX: "auto", // Горизонтальная прокрутка
+        scrollBehavior: "smooth", // Гладкая прокрутка
+        WebkitOverflowScrolling: "touch", // Инерционная прокрутка на мобильных устройствах
+        width: "100%", // Ширина контейнера
+        maxWidth: "100vw", // Ограничение ширины
+        paddingLeft: "1rem", // Внутренний отступ слева
+        paddingRight: "1rem", // Внутренний отступ справа
       }}
     >
-      <img
-        src={nft.image}
-        alt={nft.name}
-        className="object-cover rounded-lg mb-4 w-[200px] h-[200px] mx-auto"
-      />
-      <div className="flex items-center space-x-2">
-        <img src="./images/icons/tick.png" alt="tick" className="w-3 h-3" />
-        <h3 className="text-sm text-[#AEB9E1]">{nft.name}</h3>
-      </div>
-      <p className="text-lg mt-2 mb-6">{nft.user}</p>
-      <div className="border-b-[#FFFFFF] border-b-[1px] border-opacity-20"></div>
-      <div className="flex justify-between mt-6 items-center">
-        <div className="flex flex-col gap-2">
-          <p className="text-[#AEB9E1] text-sm">Price</p>
-          <p>{nft.price}</p>
+      {nfts.map((nft) => (
+        <div
+          key={nft.id}
+          className="flex flex-col border border-[#343B4F] rounded-lg p-4 hover:shadow-lg transition-shadow flex-shrink-0 text-white"
+          style={{
+            minWidth: "235px", // Фиксированная минимальная ширина карточки
+            height: "425px", // Высота карточки
+            flexShrink: "0", // Убираем сжатие карточек
+          }}
+        >
+          <img
+            src={nft.image}
+            alt={nft.name}
+            className="object-cover rounded-lg mb-4 w-[200px] h-[200px] mx-auto"
+          />
+          <div className="flex items-center space-x-2">
+            <img src="./images/icons/tick.png" alt="tick" className="w-3 h-3" />
+            <h3 className="text-sm text-[#AEB9E1]">{nft.name}</h3>
+          </div>
+          <p className="text-lg mt-2 mb-6">{nft.user}</p>
+          <div className="border-b-[#FFFFFF] border-b-[1px] border-opacity-20"></div>
+          <div className="flex justify-between mt-6 items-center">
+            <div className="flex flex-col gap-2">
+              <p className="text-[#AEB9E1] text-sm">Price</p>
+              <p>{nft.price}</p>
+            </div>
+            <div className="flex flex-col gap-2">
+              <p className="text-[#AEB9E1] text-sm">Highest Bid</p>
+              <p>{nft.bid}</p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <p className="text-[#AEB9E1] text-sm">Highest Bid</p>
-          <p>{nft.bid}</p>
-        </div>
-      </div>
+      ))}
     </div>
-  ))}
-</div>
 
 
                     <div className="flex flex-row items-center justify-center sm20:w-[300px] sm75:w-[350px] sm25:w-[400px] h-11 gap-4 mt-12  mb-8">
@@ -349,7 +371,7 @@ const MarketPlace = () => {
                     </div>
         )
         :
-        (  <div className="p-10 space-y-6 bg-[#0A1330] h-full fonts-mono">
+        (  <div className="p-6 space-y-6 bg-[#0A1330] h-full fonts-mono">
             {/* Header */}
             <div className="relative flex justify-between items-center mb-14" >
               <h1 className="text-3xl fonts-mono500 text-white">Marketplace</h1>
@@ -368,7 +390,7 @@ const MarketPlace = () => {
                   <div className="relative w-full">
                           {/* Иконка поиска */}
                           <img
-                              src="./images/icons/search.png"
+                              src="./images/icons/Search.png"
                               alt="search"
                               className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 cursor-pointer"
                           />
@@ -526,12 +548,12 @@ const MarketPlace = () => {
                   </div>
       
                   {/* Второй блок */}
-                  <div className="space-y-4 border border-[#343B4F] rounded-lg p-4">
+                  <div className="space-y-4 border border-[#343B4F] rounded-lg p-4 h-full">
                       <h3 className="text-lg font-bold">Transaction analysis</h3>
                       <p>In the last 24 hours</p>
-                      <div className="flex items-center justify-center sm20:w-[220px] mx-auto">
+                      <div className="flex items-center justify-center sm20:w-[220px] mx-auto 2xl:w-[200px] xl:w-[180px]">
                           <div className="relative">
-                                  <img src="./images/backgrounds/7k.png" alt="7k" />
+                                  <img src="./images/backgrounds/7k.png" alt="7k" className="w-full h-full"/>
                           </div>
                       </div>
                   </div>

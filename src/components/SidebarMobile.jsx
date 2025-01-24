@@ -4,11 +4,12 @@ const SidebarMobile = ({ isMenuOpen, setIsMenuOpen }) => {
 const navigate = useNavigate()
   const goToMarketplace = () => {
     navigate('/marketplace')
+    window.scrollTo(0, 0); 
   }
 
   if (!isMenuOpen) return null;
   return (
-    <div className="h-full bg-transparent">
+    <div className="fonts-mono h-full bg-transparent">
         <aside className="bg-[#0A1330] text-[#AEB9E1] flex flex-col h-full 2xl:h-[950px] xl:h-[950px] 2xl:w-[300px] xl40:w-[260px] sm75:w-[350px]">
       {/* Return to site */}
         <div className="p-4 relative">

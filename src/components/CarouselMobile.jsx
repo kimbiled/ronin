@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const CarouselMobile = () => {
   const items = [
@@ -8,29 +8,51 @@ const CarouselMobile = () => {
     { id: 4, username: "alexdev", name: "MemeSpace", img: "./images/avatars/fourth.png" },
   ];
 
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    const container = carouselRef.current;
+    const scrollSpeed = 0.5; // Скорость прокрутки (чем меньше, тем медленнее)
+    const interval = setInterval(() => {
+      if (container) {
+        container.scrollLeft += scrollSpeed; // Прокручиваем карусель
+        // Если достигнут конец, возвращаемся к началу
+        if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+          container.scrollLeft = 0; // Мгновенный перенос в начало
+        }
+      }
+    }, 16); // Интервал обновления (60 кадров в секунду)
+
+    return () => clearInterval(interval); // Очистка таймера при размонтировании
+  }, []);
+
+  // Клонируем элементы для бесшовной карусели
+  const extendedItems = [...items, ...items];
+
   return (
     <div
+      ref={carouselRef}
       className="w-full overflow-x-auto no-scrollbar"
       style={{
         display: "flex",
         gap: "1rem",
-        overflowX: "auto", // Прокрутка по оси X
-        scrollBehavior: "smooth", // Гладкая прокрутка
-        WebkitOverflowScrolling: "touch", // Поддержка инерционной прокрутки на мобильных устройствах
-        width: "100%", // Убедитесь, что ширина родительского контейнера задана
-        maxWidth: "100vw", // Ограничиваем ширину контейнера для прокрутки
-        paddingLeft: "1rem", // Отступ слева
-        paddingRight: "1rem", // Отступ справа
+        overflowX: "scroll",
+        scrollBehavior: "auto", // Убираем плавную прокрутку для мгновенного переноса
+        WebkitOverflowScrolling: "touch",
+        width: "100%",
+        maxWidth: "100vw",
+        paddingLeft: "1rem",
+        paddingRight: "1rem",
       }}
     >
-      {items.map((item) => (
+      {extendedItems.map((item, index) => (
         <div
-          key={item.id}
+          key={`${item.id}-${index}`} // Уникальный ключ для клонированных элементов
           className="flex flex-col bg-[#0B173903] p-4 rounded-lg border border-[#343B4F] flex-shrink-0"
           style={{
-            minWidth: "150px", // Устанавливаем фиксированную минимальную ширину карточек
-            height: "210px",   // Высота карточек
-            flexShrink: "0",    // Убираем растягивание карточек
+            minWidth: "150px",
+            height: "210px",
+            flexShrink: "0",
           }}
         >
           <img
@@ -42,7 +64,7 @@ const CarouselMobile = () => {
             <img src="./images/icons/tick.png" alt="tick" className="w-3 h-3" />
             <p className="text-xs text-[#AEB9E1]">{item.username}</p>
           </div>
-          <p className="text-sm text-white mt-1 text-left">{item.name}</p> {/* Текст выравнивается по левому краю */}
+          <p className="text-sm text-white mt-1 text-left">{item.name}</p>
         </div>
       ))}
     </div>

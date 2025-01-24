@@ -35,10 +35,12 @@ const WalletConnection = () => {
 
   const goToScan = () => {
     navigate("/scan"); // Переход на страницу /about
+    window.scrollTo(0, 0); 
   };
 
   const goToExplore = () => {
     navigate("/marketplace"); // Переход на страницу /about
+    window.scrollTo(0, 0); 
   };
 
 

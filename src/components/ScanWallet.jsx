@@ -13,6 +13,12 @@ const ScanWallet = () => {
     const toggleMenu = () => {
       setIsMenuOpen((prev) => !prev); // Переключение состояния меню
     };
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const toggleModal = () => {
+      setIsModalOpen(!isModalOpen);
+    };
   
 useEffect(() => {
       AOS.init({ duration: 1000, once:true });
@@ -27,6 +33,7 @@ useEffect(() => {
   }, []);
   const onClickConnect= () => {
     navigate("/profile")
+    window.scrollTo(0, 0); 
   }
 
   const style = isMenuOpen
@@ -282,22 +289,26 @@ Exclusive NFTs</h1>
 
 
 
-              <div className='relative group'>
-              <button className="fonts-mono flex flex-row items-center justify-center mx-auto px-4 py-2 rounded-lg text-[#AEB9E1] mt-3 text-[10px] sm20:w-[282px] sm25:w-[373px] sm75:w-[330px] h-11 rounded-lg border border-[#343B4F] ">
-                <div className="w-6 h-6 flex items-center justify-center mr-2">
-                  <img
-                    src="./images/icons/question.png"
-                    alt="?"
-                    className="w-6 h-6"
-                  />
-                </div>
-                How to improve the quality of NFTs
-              </button>
-              <div className="py-2 px-2 absolute top-full mt-2 sm20:w-[282px] sm25:w-[373px] sm75:w-[330px] h-auto p-4 rounded-lg bg-[#1A233A] text-[#AEB9E1] text-xs shadow-lg border border-[#343B4F] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-              The level and rarity of the NFT increase
-              linearly with the number of tokens in the wallet
-  </div>
-</div>
+<div className="relative">
+      <button
+        onClick={toggleModal}
+        className="fonts-mono flex flex-row items-center justify-center mx-auto px-4 py-2 rounded-lg text-[#AEB9E1] mt-3 text-[10px] sm20:w-[282px] sm25:w-[373px] sm75:w-[330px] h-11 rounded-lg border border-[#343B4F]"
+      >
+        <div className="w-6 h-6 flex items-center justify-center mr-2">
+          <img
+            src="./images/icons/question.png"
+            alt="?"
+            className="w-6 h-6"
+          />
+        </div>
+        How to improve the quality of NFTs
+      </button>
+      {isModalOpen && (
+        <div className="py-2 px-2 absolute top-full mt-2 sm20:w-[282px] sm25:w-[373px] sm75:w-[330px] h-auto p-4 rounded-lg bg-[#1A233A] text-[#AEB9E1] text-xs shadow-lg border border-[#343B4F] z-10">
+          The level and rarity of the NFT increase linearly with the number of tokens in the wallet
+        </div>
+      )}
+    </div>
 
               <button
                     className="mt-8 w-56 h-14 mx-auto text-white py-3 rounded-lg flex items-center justify-center "
@@ -650,17 +661,27 @@ Exclusive NFTs</h1>
 
 
   {/* Кнопка "? Generation Fee" */}
-  <button className="flex items-center w-[205px] px-4 py-2 rounded-lg border border-[#343B4F] text-[#AEB9E1] bg-transparent xl40:text-sm" >
-    {/* Вопросительный знак как изображение */}
-    <div className="w-6 h-6 flex items-center justify-center mr-2">
-      <img
-        src="./images/icons/question.png" // Укажите путь к вашему вопросительному знаку
-        alt="?"
-        className="w-6 h-6"
-      />
+  <div className="relative">
+      <button
+        className="flex items-center w-[205px] px-4 py-2 rounded-lg border border-[#343B4F] text-[#AEB9E1] bg-transparent xl40:text-sm"
+        onClick={toggleModal}
+      >
+        <div className="w-6 h-6 flex items-center justify-center mr-2">
+          <img
+            src="./images/icons/question.png" // Убедитесь, что путь к изображению верный
+            alt="?"
+            className="w-6 h-6"
+          />
+        </div>
+        Generation Fee
+      </button>
+
+      {isModalOpen && (
+        <div className="py-2 px-2 absolute left-0 top-full mt-2 w-[430px] rounded-lg bg-[#1A233A] text-[#AEB9E1] text-sm shadow-lg border border-[#343B4F] z-10">
+          The generation fee for NFTs scales linearly based on the number of tokens in the wallet, ensuring proportional contributions from all holders.
+        </div>
+      )}
     </div>
-    Generation Fee
-  </button>
 </div>
 
                   <button

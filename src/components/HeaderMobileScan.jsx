@@ -18,7 +18,7 @@ const HeaderMobileScan = ({ isMenuOpen, toggleMenu }) => {
       className={
         isMenuOpen
           ? 'text-white flex flex-row justify-around items-center mt-6 w-[90%] h-[70px] rounded-lg bg-[#AEB9E103] border border-[#343B4F47] backdrop-blur-[24px]'
-          : 'text-white flex flex-row justify-around items-center mt-6 w-[90%] h-[70px] rounded-lg bg-[#AEB9E103] border border-[#343B4F47] backdrop-blur-[24px] mb-12'
+          : 'text-white flex flex-row justify-around items-center mt-6 w-[90%] h-[70px] rounded-lg bg-[#AEB9E103] border border-[#343B4F47] backdrop-blur-[24px] mb-6'
       }
     >
       {/* Секция контента */}

@@ -18,7 +18,7 @@ module.exports = {
         },
       },
       animation: {
-        scroll: 'scroll 90s linear infinite', // Анимация автоскролла
+        scroll: 'scroll 40s linear infinite', // Анимация автоскролла
       },
     },
   },

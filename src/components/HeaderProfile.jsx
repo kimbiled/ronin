@@ -1,20 +1,17 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+
 const Header = () => {
   return (
-    <header className="fonts-mono bg-[#0A1330] text-white shadow-md border-b-[#343B4F] border-b overflow-hidden flex flex-row items-center">
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 xl40:max-w-[1180px] xl40:mx-auto xl40:px-0 xl40:ml-8 xl40:justify-between 2xl:justify-between w-full 2xl:px-0">
-        <div className="flex items-center space-x-4 justify-between">
-          <div className='flex flex-row items-center'>
-            <img
-                src="./images/icons/logo.png" // Замените на ваш логотип
-                alt="Logo"
-                className="w-8 h-5"
-            />
-          </div>
-
-          {/* Back Button */}
-         <div>
-         <button className="flex items-center space-x-2 px-4 py-2 border border-[#343B4F] rounded-md hover:bg-gray-700 ml-8">
+    <header className="font-mono bg-[#0A1330] text-white shadow-md border-b-[#343B4F] border-b overflow-hidden">
+      <div className="container mx-auto flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8 xl40:max-w-[1440px] xl40:px-6">
+        {/* Логотип и кнопка "Back" */}
+        <div className="flex items-center space-x-6">
+          <img
+            src="./images/icons/logo.png"
+            alt="Logo"
+            className="w-8 h-5"
+          />
+          <button className="flex items-center space-x-2 px-4 py-2 border border-[#343B4F] rounded-md hover:bg-gray-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"
@@ -31,43 +28,34 @@ const Header = () => {
             </svg>
             <span>Back</span>
           </button>
-         </div>
         </div>
-        {/* Center Section: Navigation */}
-        <nav className="hidden md:flex space-x-10 text-sm mr-8">
+
+        {/* Навигация */}
+        <nav className="hidden md:flex space-x-10 text-sm">
           <button className="hover:text-gray-400">Generate</button>
           <div className="relative group">
             <button className="hover:text-gray-400">Explore ▾</button>
-            {/* Dropdown */}
-            <div className="absolute left-0 hidden group-hover:block bg-[#0a0e17] border border-gray-700 rounded-lg shadow-lg mt-2 w-40">
-              <a href="#" className="block px-4 py-2 hover:bg-gray-700">
-                Option 1
-              </a>
-              <a href="#" className="block px-4 py-2 hover:bg-gray-700">
-                Option 2
-              </a>
+            <div className="absolute left-0 hidden group-hover:block bg-[#0A0E17] border border-gray-700 rounded-lg shadow-lg mt-2 w-40">
+              <a href="#" className="block px-4 py-2 hover:bg-gray-700">Option 1</a>
+              <a href="#" className="block px-4 py-2 hover:bg-gray-700">Option 2</a>
             </div>
           </div>
           <button className="hover:text-gray-400">How it works</button>
           <button className="hover:text-gray-400">FAQ</button>
         </nav>
 
-        {/* Right Section: Icons and Mobile Menu */}
-        <div className="flex items-center space-x-2">
-          {/* Icons */}
-          <button className="hover:text-gray-400 hidden md:block  border border-[#343B4F] rounded-md hover:bg-gray-700 px-2 py-2">
-            <img src="./images/icons/bell.png" alt='bell' className='w-5 h-5' />
+        {/* Иконки и кнопка "Explore" */}
+        <div className="flex items-center space-x-4">
+          <button className="hidden md:block border border-[#343B4F] rounded-md hover:bg-gray-700 px-2 py-2">
+            <img src="./images/icons/bell.png" alt="bell" className="w-5 h-5" />
           </button>
-          <button className="hover:text-gray-400 hidden md:block  border border-[#343B4F] rounded-md hover:bg-gray-700 px-2 py-2">
-            <img src="./images/icons/crystal.png" alt='crystal' className='w-5 h-5' />
+          <button className="hidden md:block border border-[#343B4F] rounded-md hover:bg-gray-700 px-2 py-2">
+            <img src="./images/icons/crystal.png" alt="crystal" className="w-5 h-5" />
           </button>
-          {/* Explore Button */}
-          <button className="hidden md:flex hover:text-gray-400 text-[#AEB9E1] hidden border border-[#343B4F] rounded-md hover:bg-gray-700 px-4 py-2 flex flex-row justify-between items-center w-32">
+          <button className="hidden md:flex items-center justify-between border border-[#343B4F] rounded-md hover:bg-gray-700 px-4 py-2 w-32">
             Explore
-            <img src="./images/icons/bag.png" alt='bag' className='w-4 h-4' />
+            <img src="./images/icons/bag.png" alt="bag" className="w-4 h-4" />
           </button>
-
-          {/* Mobile Menu Button */}
           <button className="block md:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"

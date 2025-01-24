@@ -29,16 +29,16 @@ useEffect(() => {
 
     const cardsData = [
       {
-        title: 'Uncommon',
-        subtitle: 'Accessories',
+        title: 'Legendary',
+        subtitle: 'Glasses',
         image: './images/icons/d1.png',
         rarity: '55%',
         description: "The slick, scale-styled 'hairstyle' on its head, glowing with confidence and attitude.",
         background: 'linear-gradient(90deg, rgba(156, 145, 105, 0.2) 0%, rgba(156, 145, 105, 0) 100%)',
       },
       {
-        title: 'Regular',
-        subtitle: 'Haircut',
+        title: 'Rare',
+        subtitle: 'Skin Color',
         image: './images/icons/d2.png',
         rarity: '75%',
         description: "The slick, scale-styled 'hairstyle' on its head, glowing with confidence and attitude.",
@@ -62,7 +62,7 @@ useEffect(() => {
       },
       {
         title: 'Regular',
-        subtitle: 'Haircut',
+        subtitle: 'Shirt',
         image: './images/icons/d4.png',
         rarity: '75%',
         description: "The slick, scale-styled 'hairstyle' on its head, glowing with confidence and attitude.",
@@ -117,12 +117,12 @@ useEffect(() => {
       <div
       className={`${
         isMenuOpen
-          ? "bg-[#0A1330] flex flex-col items-center"
-          : "fonts-mono flex flex-col items-center h-auto bg-[#081028] overflow-x-hidden max-w-[425px]"
+          ? "bg-[#0A1330] flex flex-col items-center fonts-mono"
+          : "fonts-mono flex flex-col items-center h-auto bg-[#081028] overflow-x-hidden max-w-[425px] fonts-mono"
       }`}
       style={{
         ...style,
-        overflowX: isMenuOpen ? "hidden" : "auto", // Включаем горизонтальную прокрутку, если меню закрыто
+        overflowX: isMenuOpen ? "hidden" : "hidden", // Включаем горизонтальную прокрутку, если меню закрыто
       }}
     >
     
@@ -130,9 +130,9 @@ useEffect(() => {
               <SidebarMobile isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           {!isMenuOpen && (
             <div className='flex flex-col items-center justify-center gap-4'>
-            <div className="text-white p-4 fonts-mono sm20:w-[320px]" data-aos="fade-right">
+            <div className="text-white p-4 fonts-mono sm20:w-[320px] mt-[-15px]">
         {/* Overview */}
-        <div className="text-[#AEB9E1] text-xs mb-6 text-center opacity-50">/ Overview</div>
+        <div className="text-[#AEB9E1] text-xs mb-3 text-center opacity-50">/ Overview</div>
   
         {/* Title */}
         <h1 className="text-center text-3xl mb-4">My tokens</h1>
@@ -228,7 +228,7 @@ useEffect(() => {
       {cardsData.map((card, index) => (
         <div
           key={index}
-          className={`bg-[#0A1330] rounded-md w-[350px] sm20:w-[270px] sm75:w-[315px] sm25:w-[355px] border border-[#7E89AC3D] transition-all duration-300 overflow-hidden ${
+          className={`flex flex-col justify-center bg-[#0A1330] rounded-md w-[350px] sm20:w-[270px] sm75:w-[315px] sm25:w-[355px] border border-[#7E89AC3D] transition-all duration-300 overflow-hidden ${
             expandedCardIndex === index ? 'h-auto py-4' : 'h-20'
           }`}
           style={{ background: card.background }}
@@ -236,7 +236,7 @@ useEffect(() => {
         >
           <div className="flex items-center gap-4 px-4 relative">
   {/* Иконка */}
-  <div className="w-16 h-16 flex-shrink-0 mt-3">
+  <div className="w-16 h-16 flex-shrink-0">
     <img src={card.image} alt="Icon" className="w-[150px] full object-contain" />
   </div>
 
@@ -272,16 +272,16 @@ useEffect(() => {
   {/* Иконка раскрытия */}
   <div className="absolute top-6 right-4 text-[#AEB9E1] hover:text-white">
   {expandedCardIndex === index ? (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-5 h-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+      </svg>
   ) : (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -291,7 +291,7 @@ useEffect(() => {
       stroke="currentColor"
       strokeWidth={2}
     >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
     </svg>
   )}
 </div>
@@ -303,16 +303,16 @@ useEffect(() => {
     </div>
             </div>
   
-            <div data-aos="fade-left" className="mt-8 relative bg-[#0B1739] justify-center p-4 rounded-lg flex flex-col h-[870px] sm20:w-[300px] sm75:w-[350px] sm25:w-[400px] border border-[#343B4F] fonts-mono">
+            <div data-aos="fade-left" className="mt-8 relative bg-[#0B1739] p-4 rounded-lg flex flex-col sm20:h-[830px] sm75:h-[870px] sm25:h-[920px] sm20:w-[300px] sm75:w-[350px] sm25:w-[400px] border border-[#343B4F] fonts-mono">
                 <div className="relative group">
-                <div className="absolute top-[-40px] right-0">
+                <div className="absolute top-1 right-0">
                     <img src="./images/icons/question.png" alt="question" className="w-6 h-6"/>
                 </div>
-                <div className="py-2 px-2 absolute left-[-6px] top-full mt-2 sm20:w-[280px] sm75:w-[320px] sm25:w-[360px] h-auto p-4 rounded-lg bg-[#1A233A] text-[#AEB9E1] text-sm shadow-lg border border-[#343B4F] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <div className="py-2 px-2 absolute left-[-6px] sm20:w-[280px] sm75:w-[320px] sm25:w-[360px] h-auto p-4 rounded-lg bg-[#1A233A] text-[#AEB9E1] text-sm shadow-lg border border-[#343B4F] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
   A wallet is a digital tool that allows you to store, send, and receive cryptocurrencies and NFTs.
   </div>
                 </div>
-                <div className="relative flex flex-col gap-4 mb-8 mt-6">
+                <div className="relative flex flex-col gap-4 mb-8 mt-12">
                   
                     <h2 className="text-2xl text-white">Token Ratio</h2>
                     <p className="text-[#AEB9E1]">Your Top Tokens</p>
@@ -321,7 +321,7 @@ useEffect(() => {
                 </div>
                 </div>
               <div className="w-full mb-12  flex justify-center items-center flex-col">
-                <img src="./images/avatars/circle.png" alt="circlePepe" className="w-[260px] h-[260px]"/>
+                <img src="./images/avatars/circle.png" alt="circlePepe" className="w-full h-full"/>
               </div>
              
               <div className="flex flex-col gap-3 mb-12">
@@ -492,82 +492,92 @@ useEffect(() => {
       ))}
             </div> */}
             <div className="flex flex-col gap-4 mx-auto">
-      {cardsData.map((card, index) => (
+  {cardsData.map((card, index) => (
+    <div
+      key={index}
+      className={`flex flex-col justify-center transition-transform transform hover:scale-105 hover:shadow-lg hover:shadow-[#1E2B4D] duration-300 bg-[#0A1330] rounded-md 2xl:w-[360px] xl40:w-[260px] border border-[#7E89AC3D] transition-all duration-300 overflow-hidden ${
+        expandedCardIndex === index ? 'h-auto py-4' : 'h-20'
+      }`}
+      style={{ background: card.background }}
+      onClick={() => toggleCard(index)}
+    >
+      <div className="flex items-center gap-4 px-4 relative">
+        {/* Иконка */}
+        <div className="w-16 h-16 flex-shrink-0">
+          <img
+            src={card.image}
+            alt="Icon"
+            className="w-[150px] object-contain transition-opacity duration-300"
+            style={{
+              opacity: expandedCardIndex === index ? 1 : 0.8,
+            }}
+          />
+        </div>
+
+        {/* Контент */}
         <div
-          key={index}
-          className={`transition-transform transform hover:scale-105 hover:shadow-lg hover:shadow-[#1E2B4D] duration-300 bg-[#0A1330] rounded-md 2xl:w-[360px] xl40:w-[260px] border border-[#7E89AC3D] transition-all duration-300 overflow-hidden ${
-            expandedCardIndex === index ? 'h-auto py-4' : 'h-20'
+          className={`flex flex-col text-left transition-all duration-300 ${
+            expandedCardIndex === index ? 'opacity-100 translate-y-0' : ''
           }`}
-          style={{ background: card.background }}
-          onClick={() => toggleCard(index)}
         >
-          <div className="flex items-center gap-4 px-4 relative">
-  {/* Иконка */}
-  <div className="w-16 h-16 flex-shrink-0 mt-3">
-    <img src={card.image} alt="Icon" className="w-[150px] full object-contain" />
-  </div>
+          <p className="text-sm text-[#AEB9E1]">{card.title}</p>
+          <p className="text-lg text-white font-semibold leading-tight">{card.subtitle}</p>
 
-  {/* Контент */}
-  <div className="flex flex-col text-left">
-    <p className="text-sm text-[#AEB9E1]">{card.title}</p>
-    <p className="text-lg text-white font-semibold leading-tight">{card.subtitle}</p>
+          {expandedCardIndex === index && card.rarity && (
+            <div className="mt-2">
+              {/* Rarity и процент */}
+              <div className="flex items-center gap-3 mb-2">
+                <div className="text-sm bg-[#FFFFFF14] text-[#7E89AC] flex items-center justify-center gap-2 rounded-md border border-[#7E89AC] w-[50px] h-8">
+                  {card.rarity}
+                </div>
+                <div className="flex items-center gap-2">
+                  <p className="text-sm text-[#7E89AC]">Rarity</p>
+                  <img src="./images/icons/question.png" alt="question" className="w-5 h-5" />
+                </div>
+              </div>
 
-    {expandedCardIndex === index && card.rarity && (
-      <div className="mt-2">
-        {/* Rarity и процент */}
-        <div className="flex items-center gap-3 mb-2">
-          <div className="text-sm bg-[#FFFFFF14] text-[#7E89AC] flex items-center justify-center gap-2 rounded-md border border-[#7E89AC] w-[50px] h-8">
-            {card.rarity}
-          </div>
-          <div className="flex items-center gap-2">
-            <p className="text-sm text-[#7E89AC]">Rarity</p>
-            <img src="./images/icons/question.png" alt="question" className="w-5 h-5" />
-          </div>
+              {/* Описание */}
+              {card.description && (
+                <div className="mt-2">
+                  <p className="text-white text-sm mb-1">Description</p>
+                  <p className="text-xs text-[#7E89AC] leading-tight">{card.description}</p>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
-        {/* Описание */}
-        {card.description && (
-          <div className="mt-2">
-            <p className="text-white text-sm mb-1">Description</p>
-            <p className="text-xs text-[#7E89AC] leading-tight">{card.description}</p>
-          </div>
-        )}
+        {/* Иконка раскрытия */}
+        <div className="absolute top-6 right-4 text-[#AEB9E1] hover:text-white">
+          {expandedCardIndex === index ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          )}
+        </div>
       </div>
-    )}
-  </div>
-
-  {/* Иконка раскрытия */}
-  <div className="absolute top-6 right-4 text-[#AEB9E1] hover:text-white">
-  {expandedCardIndex === index ? (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
-  ) : (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-    </svg>
-  )}
-</div>
-
-</div>
-
-        </div>
-      ))}
     </div>
+  ))}
+</div>
+
           </div>
   
           {/* Token Ratio */}
