@@ -10,20 +10,26 @@ const CarouselMobile = () => {
 
   const carouselRef = useRef(null);
 
-  useEffect(() => {
-    const container = carouselRef.current;
-    const scrollSpeed = 0.5; // Скорость прокрутки (чем меньше, тем медленнее)
-    const interval = setInterval(() => {
-      if (container) {
-        container.scrollLeft += scrollSpeed; // Прокручиваем карусель
-        // Если достигнут конец, возвращаемся к началу
-        if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-          container.scrollLeft = 0; // Мгновенный перенос в начало
-        }
-      }
-    }, 16); // Интервал обновления (60 кадров в секунду)
 
-    return () => clearInterval(interval); // Очистка таймера при размонтировании
+  useEffect(() => {
+     if (typeof window === "undefined") return;
+
+  const container = carouselRef.current;
+    if (!container) return;
+  
+    const scrollSpeed = 0.5;
+    const interval = setInterval(() => {
+      try {
+        container.scrollLeft += scrollSpeed;
+        if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+          container.scrollLeft = 0;
+        }
+      } catch (error) {
+        console.error("Error during scroll:", error);
+      }
+    }, 16);
+  
+    return () => clearInterval(interval);
   }, []);
 
   // Клонируем элементы для бесшовной карусели
