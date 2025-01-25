@@ -97,7 +97,7 @@ const navigate = useNavigate()
 
 
           {/* Submenu */}
-          <div className="ml-6 mt-2 space-y-2">
+          <div className="ml-6 mt-2 space-y-2 fonts-mono">
                 <a
                     
                     className="block text-sm text-white relative w-[225px] xl40:w-[200px] h-[40px] bg-[#081028] border border-[#081028] rounded-md">

@@ -21,23 +21,42 @@ const MarketPlace = () => {
 
           const containerRef = useRef(null);
 
-          useEffect(() => {
-            const scrollSpeed = 0.5; // Скорость прокрутки (в пикселях)
-            const scrollInterval = setInterval(() => {
-              if (containerRef.current) {
-                const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+        //   useEffect(() => {
+        //     const scrollSpeed = 0.5; // Скорость прокрутки (в пикселях)
+        //     const scrollInterval = setInterval(() => {
+        //       if (containerRef.current) {
+        //         const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
                 
-                // Прокручиваем контейнер с заданной скоростью
-                containerRef.current.scrollBy({ left: scrollSpeed, behavior: 'smooth' });
+        //         Прокручиваем контейнер с заданной скоростью
+        //         containerRef.current.scrollBy({ left: scrollSpeed, behavior: 'smooth' });
         
-                // Если дошли до конца, плавно прокручиваем в начало
-                if (scrollLeft + clientWidth >= scrollWidth) {
-                  containerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        //         Если дошли до конца, плавно прокручиваем в начало
+        //         if (scrollLeft + clientWidth >= scrollWidth) {
+        //           containerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        //         }
+        //       }
+        //     }, 30); // Интервал для плавной прокрутки (каждые 30 миллисекунд)
+        
+        //     return () => clearInterval(scrollInterval); // Очистка интервала при размонтировании
+        //   }, []);
+
+          useEffect(() => {
+            const interval = setInterval(() => {
+              if (containerRef.current) {
+                const scrollWidth = containerRef.current.scrollWidth;
+                const clientWidth = containerRef.current.clientWidth;
+                const scrollPosition = containerRef.current.scrollLeft;
+        
+                // Прокручиваем на 1 шаг (ширина карточки)
+                if (scrollPosition + clientWidth < scrollWidth) {
+                  containerRef.current.scrollLeft += 235; // Плавная прокрутка
+                } else {
+                  containerRef.current.scrollLeft = 0; // Сброс на начало
                 }
               }
-            }, 30); // Интервал для плавной прокрутки (каждые 30 миллисекунд)
+            }, 3000); // Интервал автопрокрутки (каждые 3 секунды)
         
-            return () => clearInterval(scrollInterval); // Очистка интервала при размонтировании
+            return () => clearInterval(interval); // Очистка интервала при размонтировании компонента
           }, []);
 
     const [selectedTime, setSelectedTime] = useState("24H");
@@ -165,54 +184,54 @@ const MarketPlace = () => {
                         </div>
                       </div>
                       <div
-      ref={containerRef}
-      data-aos="fade-right"
-      className="fonts-mono w-full overflow-x-auto no-scrollbar mt-8"
+      className="fonts-mono w-full overflow-x-hidden mt-8"
       style={{
-        display: "flex",
-        gap: "1rem", // Отступ между карточками
-        overflowX: "auto", // Горизонтальная прокрутка
-        scrollBehavior: "smooth", // Гладкая прокрутка
-        WebkitOverflowScrolling: "touch", // Инерционная прокрутка на мобильных устройствах
-        width: "100%", // Ширина контейнера
-        maxWidth: "100vw", // Ограничение ширины
-        paddingLeft: "1rem", // Внутренний отступ слева
-        paddingRight: "1rem", // Внутренний отступ справа
+        position: "relative",
+        width: "100%",
+        maxWidth: "100vw",
       }}
     >
-      {nfts.map((nft) => (
-        <div
-          key={nft.id}
-          className="flex flex-col border border-[#343B4F] rounded-lg p-4 hover:shadow-lg transition-shadow flex-shrink-0 text-white"
-          style={{
-            minWidth: "235px", // Фиксированная минимальная ширина карточки
-            height: "425px", // Высота карточки
-            flexShrink: "0", // Убираем сжатие карточек
-          }}
-        >
-          <img
-            src={nft.image}
-            alt={nft.name}
-            className="object-cover rounded-lg mb-4 w-[200px] h-[200px] mx-auto"
-          />
-          <div className="flex items-center space-x-2">
-            <img src="./images/icons/tick.png" alt="tick" className="w-3 h-3" />
-            <h3 className="text-sm text-[#AEB9E1]">{nft.name}</h3>
-          </div>
-          <p className="text-lg mt-2 mb-6">{nft.user}</p>
-          <div className="border-b-[#FFFFFF] border-b-[1px] border-opacity-20"></div>
-          <div className="flex justify-between mt-6 items-center">
-            <div className="flex flex-col gap-2">
-              <p className="text-[#AEB9E1] text-sm">Price</p>
-              <p>{nft.price}</p>
+      <div
+        className="carousel-inner"
+        style={{
+          display: "flex",
+          gap: "1rem",
+          animation: "scroll 30s linear infinite", // Плавная анимация
+        }}
+      >
+        {nfts.concat(nfts).map((nft) => ( // Дублируем массив для бесшовной прокрутки
+          <div
+            key={nft.id}
+            className="flex flex-col border border-[#343B4F] rounded-lg p-4 hover:shadow-lg transition-shadow flex-shrink-0 text-white"
+            style={{
+              minWidth: "235px", // Фиксированная минимальная ширина карточки
+              height: "425px", // Высота карточки
+            }}
+          >
+            <img
+              src={nft.image}
+              alt={nft.name}
+              className="object-cover rounded-lg mb-4 w-[200px] h-[200px] mx-auto"
+            />
+            <div className="flex items-center space-x-2">
+              <img src="./images/icons/tick.png" alt="tick" className="w-3 h-3" />
+              <h3 className="text-sm text-[#AEB9E1]">{nft.name}</h3>
             </div>
-            <div className="flex flex-col gap-2">
-              <p className="text-[#AEB9E1] text-sm">Highest Bid</p>
-              <p>{nft.bid}</p>
+            <p className="text-lg mt-2 mb-6">{nft.user}</p>
+            <div className="border-b-[#FFFFFF] border-b-[1px] border-opacity-20"></div>
+            <div className="flex justify-between mt-6 items-center">
+              <div className="flex flex-col gap-2">
+                <p className="text-[#AEB9E1] text-sm">Price</p>
+                <p>{nft.price}</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <p className="text-[#AEB9E1] text-sm">Highest Bid</p>
+                <p>{nft.bid}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
 

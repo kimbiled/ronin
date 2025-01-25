@@ -89,7 +89,7 @@ const Sidebar = () => {
 
 
           {/* Submenu */}
-          <div className="ml-6 mt-2 space-y-2">
+          <div className="fonts-mono ml-6 mt-2 space-y-2">
                 <a
                     href="#"
                     className="block text-sm text-white relative w-[225px] xl40:w-[200px] h-[40px] bg-[#081028] border border-[#081028] rounded-md">

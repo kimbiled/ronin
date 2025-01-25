@@ -28,19 +28,20 @@ const Carousel = () => {
 
     cloneContent();
 
+    let scrollPos = 0;
+
     const scrollCarousel = () => {
-      if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
-        // Возврат к началу
-        carousel.scrollLeft = 0;
-      } else {
-        // Плавный сдвиг
-        carousel.scrollLeft += 0.5; // Уменьшили шаг прокрутки
+      scrollPos += 0.4;
+      if (scrollPos >= carousel.scrollWidth / 2) {
+        scrollPos = 0; // Возврат к началу
       }
+      carousel.scrollLeft = scrollPos;
+      requestAnimationFrame(scrollCarousel); // Повторяем анимацию с использованием requestAnimationFrame
     };
 
-    const interval = setInterval(scrollCarousel, 30); // Увеличили интервал времени
+    requestAnimationFrame(scrollCarousel); // Стартуем анимацию
 
-    return () => clearInterval(interval);
+    return () => cancelAnimationFrame(scrollCarousel); // Очистка при размонтировании
   }, []);
 
   return (
@@ -52,9 +53,6 @@ const Carousel = () => {
       <div
         ref={carouselRef}
         className="flex space-x-4 w-full overflow-x-hidden scrollbar-none"
-        style={{
-          scrollBehavior: "smooth",
-        }}
       >
         {items.map((item, index) => (
           <div

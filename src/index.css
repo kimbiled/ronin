@@ -89,5 +89,12 @@ code {
   background: linear-gradient(to left, #0B1120, transparent);
 }
 
+/* Safari-специфичные стили */
+@supports (-webkit-overflow-scrolling: touch) {
+  .no-scrollbar {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 
 
