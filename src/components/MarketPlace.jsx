@@ -20,7 +20,9 @@ const MarketPlace = () => {
           }, []);
 
           const containerRef = useRef(null);
-
+          const [isDragging, setIsDragging] = useState(false);
+          const [startX, setStartX] = useState(0);
+          const [scrollLeft, setScrollLeft] = useState(0);
         //   useEffect(() => {
         //     const scrollSpeed = 0.5; // Скорость прокрутки (в пикселях)
         //     const scrollInterval = setInterval(() => {
@@ -40,24 +42,83 @@ const MarketPlace = () => {
         //     return () => clearInterval(scrollInterval); // Очистка интервала при размонтировании
         //   }, []);
 
-          useEffect(() => {
-            const interval = setInterval(() => {
-              if (containerRef.current) {
-                const scrollWidth = containerRef.current.scrollWidth;
-                const clientWidth = containerRef.current.clientWidth;
-                const scrollPosition = containerRef.current.scrollLeft;
+
+  // Управление автопрокруткой
+  useEffect(() => {
+    if (containerRef.current) {
+      // Устанавливаем начальную позицию в середину
+      const scrollWidth = containerRef.current.scrollWidth;
+      const visibleWidth = containerRef.current.offsetWidth;
+      const initialPosition = (scrollWidth - visibleWidth) / 2;
+      containerRef.current.scrollLeft = initialPosition;
+    }
+  }, []);
+
+  useEffect(() => {
+    let animationFrame;
+    const scrollSpeed = 1; // Скорость прокрутки
+
+    const autoScroll = () => {
+      if (!isDragging && containerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+        const maxScroll = scrollWidth - clientWidth;
+
+        // Если дошли до конца, переносим в начало (или середину)
+        if (scrollLeft >= maxScroll - 1) {
+          containerRef.current.scrollLeft = clientWidth; // Плавно переносим в середину
+        } else if (scrollLeft <= 0) {
+          containerRef.current.scrollLeft = maxScroll - clientWidth; // Возвращаем в конец
+        } else {
+          containerRef.current.scrollLeft += scrollSpeed; // Прокрутка
+        }
+      }
+
+      animationFrame = requestAnimationFrame(autoScroll);
+    };
+
+    animationFrame = requestAnimationFrame(autoScroll);
+
+    return () => cancelAnimationFrame(animationFrame); // Чистка интервала
+  }, [isDragging]); 
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true); // Включаем ручное прокручивание
+    setStartX(e.clientX);
+    setScrollLeft(containerRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false); // Закрываем ручное прокручивание
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false); // Закрываем ручное прокручивание
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    const distance = e.clientX - startX;
+    containerRef.current.scrollLeft = scrollLeft - distance;
+  };
+
+  const handleTouchStart = (e) => {
+    setIsDragging(true); // Включаем ручное прокручивание
+    setStartX(e.touches[0].clientX);
+    setScrollLeft(containerRef.current.scrollLeft);
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false); // Закрываем ручное прокручивание
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const distance = e.touches[0].clientX - startX;
+    containerRef.current.scrollLeft = scrollLeft - distance;
+  };
+
+
         
-                // Прокручиваем на 1 шаг (ширина карточки)
-                if (scrollPosition + clientWidth < scrollWidth) {
-                  containerRef.current.scrollLeft += 235; // Плавная прокрутка
-                } else {
-                  containerRef.current.scrollLeft = 0; // Сброс на начало
-                }
-              }
-            }, 3000); // Интервал автопрокрутки (каждые 3 секунды)
-        
-            return () => clearInterval(interval); // Очистка интервала при размонтировании компонента
-          }, []);
 
     const [selectedTime, setSelectedTime] = useState("24H");
     const [selectedFilter, setSelectedFilter] = useState("All");
@@ -184,29 +245,44 @@ const MarketPlace = () => {
                         </div>
                       </div>
                       <div
+      ref={containerRef}
       className="fonts-mono w-full overflow-x-hidden mt-8"
       style={{
-        position: "relative",
-        width: "100%",
-        maxWidth: "100vw",
+        display: 'flex',
+        gap: '1rem',
+        scrollBehavior: 'smooth', // Плавная прокрутка
+        WebkitOverflowScrolling: 'touch', // Инерционная прокрутка на мобильных устройствах
+        width: '100%',
+        maxWidth: '100vw',
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
+        position: 'relative',
       }}
+      onMouseDown={handleMouseDown}
+      onMouseLeave={handleMouseLeave}
+      onMouseUp={handleMouseUp}
+      onMouseMove={handleMouseMove}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
     >
       <div
         className="carousel-inner"
         style={{
-          display: "flex",
-          gap: "1rem",
-          animation: "scroll 30s linear infinite", // Плавная анимация
+          display: 'flex',
+          gap: '1rem',
         }}
       >
-        {nfts.concat(nfts).map((nft) => ( // Дублируем массив для бесшовной прокрутки
+        {/* Дублируем карусель для бесконечной прокрутки */}
+        {[...nfts, ...nfts, ...nfts, ...nfts].map((nft) => (
           <div
             key={nft.id}
             className="flex flex-col border border-[#343B4F] rounded-lg p-4 hover:shadow-lg transition-shadow flex-shrink-0 text-white"
             style={{
-              minWidth: "235px", // Фиксированная минимальная ширина карточки
-              height: "425px", // Высота карточки
-            }}
+                width:"235px",
+                height: "400px",
+                flexShrink: 0,
+              }}
           >
             <img
               src={nft.image}
