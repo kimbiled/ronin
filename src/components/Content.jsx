@@ -31,7 +31,7 @@ const Content = () => {
                     </summary>
                     <p class="group-open:animate-fadeIn mt-3 text-white">Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions
                     </p>
-                    <img src="./images/icons/item.png" alt="item" />
+                    <img src="./images/icons/item.png" alt="item" className="w-36 h-36 mt-2"/>
                 </details>
             </div>
             <div class="py-5">
@@ -48,7 +48,7 @@ const Content = () => {
                     </summary>
                     <p class="group-open:animate-fadeIn mt-3 text-white">Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions
                     </p>
-                    <img src="./images/icons/item.png" alt="item" />
+                    <img src="./images/icons/item.png" alt="item" className="w-36 h-36 mt-2"/>
                 </details>
             </div>
             <div class="py-5">
@@ -65,7 +65,7 @@ const Content = () => {
                     </summary>
                     <p class="group-open:animate-fadeIn mt-3 text-white">Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions
                     </p>
-                    <img src="./images/icons/item.png" alt="item" />
+                    <img src="./images/icons/item.png" alt="item" className="w-36 h-36 mt-2"/>
                 </details>
             </div>
             <div class="py-5 mb-6">
@@ -82,7 +82,7 @@ const Content = () => {
                     </summary>
                     <p class="group-open:animate-fadeIn mt-3 text-white">Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions
                     </p>
-                    <img src="./images/icons/item.png" alt="item" />
+                    <img src="./images/icons/item.png" alt="item" className="w-36 h-36 mt-2"/>
                 </details>
             </div>
         </div>
