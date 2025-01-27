@@ -21,8 +21,13 @@ code {
 
 details summary {
   list-style: none; /* Убирает системную стрелку */
+  appearance: none; /* Убирает стили платформы */
+  -webkit-appearance: none; /* Для Safari */
 }
 
+details summary::-webkit-details-marker {
+  display: none; /* Убирает дефолтную стрелку в Safari */
+}
 
 
 
