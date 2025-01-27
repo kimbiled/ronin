@@ -1,106 +1,183 @@
-import React from 'react';
-import {useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 const Header = () => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-    const navigate = useNavigate()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const goToExplore = () => {
-      navigate("/marketplace")
-    }
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-    useEffect(() => {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth <= 768);
-      };
-  
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-  
+  const socialLinks = [
+    { title: "Dribbble", href: "#" },
+    { title: "Behance", href: "#" },
+    { title: "Instagram", href: "#" },
+  ];
+
+  const menuLinks = [
+    { title: "About Us", href: "#" },
+    { title: "What We Do", href: "#" },
+    { title: "Our Works", href: "#" },
+    { title: "Contact Us", href: "#" },
+  ];
+
   return (
-    <div>
-      {isMobile? (
-        <div> </div>
-      ) :
-      (
-      <header className="fonts-mono bg-[#0A1330] text-white shadow-md border-b-[#343B4F] border-b">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-evenly h-20">
-          {/* Left Section: Logo */}
-          <div className="flex items-center space-x-4 justify-between">
-            <div className='flex flex-row items-center'>
-              <a href='https://degenai.ai/'>
-              <img
-                  src="./images/icons/logo.png" // Замените на ваш логотип
-                  alt="Logo"
-                  className="w-8 h-5"
-              />
-              </a>
-            </div>
-  
-            {/* Back Button */}
-           <div>
-           <button className="flex items-center space-x-2 px-4 py-2 border border-[#343B4F] rounded-md hover:bg-gray-700 ease-in ml-8"
-           onClick={() => window.location.href = 'https://degenai.ai/'}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              <span>Back</span>
-            </button>
-           </div>
-          </div>
-          {/* Center Section: Navigation */}
-          <nav className="hidden md:flex space-x-10 text-sm mr-8">
-            <button className="hover:text-gray-400">Generate</button>
-            <div className="relative group">
-              <button className="hover:text-gray-400">Explore ▾</button>
-              {/* Dropdown */}
-              <div className="absolute left-0 hidden group-hover:block bg-[#0a0e17] border border-gray-700 rounded-lg shadow-lg mt-2 w-40">
-                <a href="#" className="block px-4 py-2 hover:bg-gray-700">
-                  Option 1
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-700">
-                  Option 2
-                </a>
+    <div className="relative h-32 text-white flex flex-col items-center w-full">
+      {/* Меню */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="fixed inset-0 bg-gray-800 text-white z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="flex flex-col justify-between h-full px-8 py-8">
+              {/* Логотип и кнопка закрытия */}
+              <div className="flex justify-between items-center">
+                <motion.div
+                  className="text-2xl font-bold"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  <img
+                    src="./images/icons/LogoBurger.png"
+                    alt="logo"
+                    width={34}
+                    height={28}
+                  />
+                </motion.div>
+                <motion.button
+                  className="text-2xl p-2 focus:outline-none"
+                  onClick={toggleMenu}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
+                >
+                  <img
+                    src="./images/icons/close.png"
+                    alt="close"
+                    className="h-10 w-10"
+                  />
+                </motion.button>
               </div>
+
+              <div className="flex flex-row justify-between">
+                {/* Социальные ссылки */}
+                <div>
+                  <motion.h2
+                    className="text-base text-gray-400 mb-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut", delay: 0.4 }}
+                  >
+                    Social
+                  </motion.h2>
+                  <ul className="space-y-6">
+                    {socialLinks.map((link, index) => (
+                      <motion.li
+                        key={link.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          delay: 0.5 + index * 0.1,
+                          duration: 0.3,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <a
+                          href={link.href}
+                          className="hover:text-blue-400 text-lg"
+                        >
+                          {link.title}
+                        </a>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Основное меню */}
+                <div>
+                  <motion.h2
+                    className="text-base text-gray-400 mb-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut", delay: 0.7 }}
+                  >
+                    Menu
+                  </motion.h2>
+                  <ul className="space-y-6">
+                    {menuLinks.map((link, index) => (
+                      <motion.li
+                        key={link.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          delay: 0.8 + index * 0.1,
+                          duration: 0.3,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <a
+                          href={link.href}
+                          className="text-[34px] font-semibold hover:text-blue-400"
+                        >
+                          {link.title}
+                        </a>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Футер */}
+              <motion.div
+                className="text-base text-gray-400 flex flex-row justify-between"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut", delay: 1.2 }}
+              >
+                <div>
+                  <p>Get in touch</p>
+                  <p className="text-white">hi@ronindsgn.com</p>
+                </div>
+                <div className="text-sm flex flex-col gap-2">
+                  <p className="text-white">Privacy Policy & Cookies</p>
+                  <p>© Ronin Design 2025</p>
+                </div>
+              </motion.div>
             </div>
-            <button className="hover:text-gray-400">How it works</button>
-            <button className="hover:text-gray-400">FAQ</button>
-          </nav>
-  
-          {/* Right Section: Icons and Mobile Menu */}
-          <div className="flex items-center space-x-2">
-            {/* Icons */}
-            <button className="hover:text-gray-400  border border-[#343B4F] rounded-md hover:bg-gray-700 px-2 py-2">
-              <img src="./images/icons/bell.png" alt='bell' className='w-5 h-5' />
-            </button>
-            <button className="hover:text-gray-400 border border-[#343B4F] rounded-md hover:bg-gray-700 px-2 py-2">
-              <img src="./images/icons/crystal.png" alt='crystal' className='w-5 h-5' />
-            </button>
-            {/* Explore Button */}
-            <button className="hover:text-gray-400 text-[#AEB9E1] border border-[#343B4F] rounded-md hover:bg-gray-700 px-4 py-2 flex flex-row justify-between items-center w-32"
-                    onClick={goToExplore}
-            >
-              Explore
-              <img src="./images/icons/bag.png" alt='bag' className='w-4 h-4' />
-            </button>
-  
-            {/* Mobile Menu Button */}
-          </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Заголовок и кнопка меню */}
+      {!isMenuOpen && (
+        <div className="flex items-center justify-between px-8 py-8 rounded-lg fixed top-4 sm20:w-[280px] sm75:w-[340px] sm25:w-[380px] h-16 z-50 bg-[#F7F7F6]">
+          <motion.div
+            className="text-2xl font-bold"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <img src="./images/icons/Logo.png" alt="logo" width={34} height={28} />
+          </motion.div>
+          <motion.button
+            className="text-2xl p-2 focus:outline-none"
+            onClick={toggleMenu}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
+          >
+            <img
+              src="./images/icons/burger.png"
+              alt="burger"
+              className="h-10 w-10"
+            />
+          </motion.button>
         </div>
-      </header>
-    )}
+      )}
     </div>
   );
 };
