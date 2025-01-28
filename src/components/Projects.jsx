@@ -1,6 +1,5 @@
 import ProjectItem from "./ProjectItem";
 
-
 const profiles = [
     {
     id: 1,

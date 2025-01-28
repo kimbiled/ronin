@@ -10,23 +10,20 @@ const Header = () => {
 
   const [isVisible, setIsVisible] = useState(true); // State to control visibility
 const [prevScrollY, setPrevScrollY] = useState(0); // Previous scroll position
-const [scrolling, setScrolling] = useState(false); // Flag to track scrolling state
 
 useEffect(() => {
   const handleScroll = () => {
-    if (window.scrollY < prevScrollY && !scrolling) {
-      // Scrolling up and the navbar is not already scheduled to appear
-      setScrolling(true);
-      setTimeout(() => {
-        setIsVisible(true); // Show navbar with a slight delay
-        setScrolling(false); // Reset scrolling flag
-      }, 300); // 300ms delay to ensure smooth animation
-    } else if (window.scrollY > prevScrollY && isVisible) {
-      // Scrolling down and the navbar is visible, hide immediately
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY < prevScrollY) {
+      // Scrolling up, show the navbar immediately
+      setIsVisible(true);
+    } else if (currentScrollY > prevScrollY) {
+      // Scrolling down, hide the navbar immediately
       setIsVisible(false);
     }
 
-    setPrevScrollY(window.scrollY); // Update previous scroll position
+    setPrevScrollY(currentScrollY); // Update previous scroll position
   };
 
   window.addEventListener('scroll', handleScroll);
@@ -34,7 +31,8 @@ useEffect(() => {
   return () => {
     window.removeEventListener('scroll', handleScroll);
   };
-}, [prevScrollY, isVisible, scrolling]);
+}, [prevScrollY]);
+
 
 
 
@@ -184,42 +182,42 @@ useEffect(() => {
 
       {/* Заголовок и кнопка меню */}
       {!isMenuOpen && (
-           <motion.div
-           className={`fixed top-0 left-0 w-full px-4 py-4 transition-all duration-300 ${isVisible ? 'opacity-100 bg-white' : 'opacity-0 bg-transparent'}`}
-           initial={{ opacity: 0, y: -20 }}
-           animate={{ opacity: isVisible ? 1 : 0, y: 0 }}
-           transition={{ duration: 0.5, ease: 'easeInOut' }}
-           style={{ zIndex: 1000 }} // Ensure navbar stays on top
-         >
-           <div className="flex justify-between items-center w-full">
-             <motion.div
-               className="text-2xl font-bold"
-               initial={{ opacity: 0, y: -20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.5, ease: 'easeInOut' }}
-             >
-               <img
-                 src="./images/icons/logo.png"
-                 alt="logo"
-                 width={34}
-                 height={28}
-               />
-             </motion.div>
-             <motion.button
-               className="text-2xl p-2 focus:outline-none"
-               onClick={toggleMenu}
-               initial={{ opacity: 0, y: -20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
-             >
-               <img
-                 src="./images/icons/burger.png"
-                 alt="close"
-                 className="h-10 w-10"
-               />
-             </motion.button>
-           </div>
-         </motion.div>
+        <motion.div
+        className={`fixed top-0 left-0 w-full px-4 py-4 transition-all duration-300 ${isVisible ? 'opacity-100 bg-white' : 'opacity-0 bg-transparent'}`}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        style={{ zIndex: 1000 }} // Ensure navbar stays on top
+      >
+        <div className="flex justify-between items-center w-full">
+          <motion.div
+            className="text-2xl font-bold"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <img
+              src="./images/icons/logo.png"
+              alt="logo"
+              width={34}
+              height={28}
+            />
+          </motion.div>
+          <motion.button
+            className="text-2xl p-2 focus:outline-none"
+            onClick={toggleMenu}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.2 }}
+          >
+            <img
+              src="./images/icons/burger.png"
+              alt="close"
+              className="h-10 w-10"
+            />
+          </motion.button>
+        </div>
+      </motion.div>
       )}
     </div>
   );
