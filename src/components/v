@@ -1,0 +1,121 @@
+const profiles = [
+    {
+    id: 1,
+    profile: {
+      name: "Antix",
+      role: "Website design and development",
+      tags: ["Web design", "Development", "WEB 3"],
+      followers: "$5.8M+ Raised",
+      verified: true,
+      stared:false,
+      location: "./iamges/icons/usa.png",
+    },
+    avatars: [
+      "/images/icons/i1.png",
+      "/images/icons/i1.png",
+      "/images/icons/i1.png",
+    ],
+  },
+  {
+    id: 2,
+    profile: {
+      name: "Dr Berg",
+      role: "Social media content",
+      tags: ["SMM", "Graphic design", "Content creation"],
+      followers: "20M+ Followers",
+      verified: true,
+      stared: false
+      location: "./iamges/icons/usa.png",
+    },
+    avatars: [
+      "/images/icons/i2.png",
+      "/images/icons/i2.png",
+      "/images/icons/i2.png",
+    ],
+  },
+  {
+    id: 3,
+    profile: {
+      name: "HashCats",
+      role: "UX/UI Design",
+      tags: ["Prototyping", "Design System", "Mobile Design"],
+      followers: "900.000+ Users",
+      verified: true,
+      stared: false
+      location: "./iamges/icons/uk.png",
+    },
+    avatars: [
+      "/images/icons/i3.png",
+      "/images/icons/i3.png",
+      "/images/icons/i3.png",
+    ],
+  },
+  {
+    id: 4,
+    profile: {
+      name: "Orbital7",
+      role: "Website development",
+      tags: ["Frontend Development", "Custom Web Solutions", "Web3"],
+      followers: "100.000+ Users",
+      verified: true,
+      stared: false
+      location: "./iamges/icons/australia.png",
+    },
+    avatars: [
+      "/images/icons/i4.png",
+      "/images/icons/i4.png",
+      "/images/icons/i4.png",
+    ],
+  },
+  {
+    id: 5,
+    profile: {
+      name: "Sharique",
+      role: "Branding",
+      tags: ["Brand Strategy", "Visual Identity", "Fintech"],
+      followers: false,
+      verified: false,
+      stared: false
+      location: "./iamges/icons/qatar.png",
+    },
+    avatars: [
+      "/images/icons/i3.png",
+      "/images/icons/i3.png",
+      "/images/icons/i3.png",
+    ],
+  },
+  {
+    id: 6,
+    profile: {
+      name: "Glenbotal",
+      role: "Website development",
+      tags: ["Full-Stack Development", "UI/UX", "E-commerce"],
+      followers: "4.7 Trustpilot",
+      verified: false,
+      stared: true
+      location: "./iamges/icons/uk.png",
+    },
+    avatars: [
+      "/images/icons/i6.png",
+      "/images/icons/i6.png",
+      "/images/icons/i6.png",
+    ],
+  },
+  {
+    id: 7,
+    profile: {
+      name: "Language learning app",
+      role: "Branding",
+      tags: ["Brand Positioning", "Visual Identity", "Edutech"],
+      followers: false,
+      verified: false,
+      stared: false
+      location: "./iamges/icons/kz.png",
+    },
+    avatars: [
+      "/images/icons/i7.png",
+      "/images/icons/i7.png",
+      "/images/icons/i7.png",
+    ],
+  }
+];

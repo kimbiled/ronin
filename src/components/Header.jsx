@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
@@ -7,6 +7,27 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const [isVisible, setIsVisible] = useState(true); // State to control visibility
+  const [prevScrollY, setPrevScrollY] = useState(0); // Previous scroll position
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < prevScrollY) {
+        setIsVisible(true); // Scroll up, show the navbar
+      } else {
+        setIsVisible(false); // Scroll down, hide the navbar
+      }
+      setPrevScrollY(window.scrollY); // Update the previous scroll position
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollY]);
+
 
   const socialLinks = [
     { title: "Dribbble", href: "#" },
@@ -32,7 +53,7 @@ const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <div className="flex flex-col justify-between h-full px-8 py-8">
+            <div className="flex flex-col justify-between h-full px-4 py-4">
               {/* Логотип и кнопка закрытия */}
               <div className="flex justify-between items-center">
                 <motion.div
@@ -154,29 +175,42 @@ const Header = () => {
 
       {/* Заголовок и кнопка меню */}
       {!isMenuOpen && (
-        <div className="flex items-center justify-between px-8 py-8 rounded-lg fixed top-4 sm20:w-[280px] sm75:w-[340px] sm25:w-[380px] h-16 z-50 bg-[#F7F7F6]">
-          <motion.div
-            className="text-2xl font-bold"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-          >
-            <img src="./images/icons/logo.png" alt="logo" width={34} height={28} />
-          </motion.div>
-          <motion.button
-            className="text-2xl p-2 focus:outline-none"
-            onClick={toggleMenu}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
-          >
-            <img
-              src="./images/icons/burger.png"
-              alt="burger"
-              className="h-10 w-10"
-            />
-          </motion.button>
-        </div>
+              <motion.div
+              className={`fixed top-0 left-0 w-full px-4 py-4 transition-all duration-300 ${isVisible ? 'opacity-100 bg-white' : 'opacity-0 bg-transparent'}`}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: 0 }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+              style={{ zIndex: 1000 }} // Ensure navbar stays on top
+            >
+              <div className="flex justify-between items-center w-full">
+                <motion.div
+                  className="text-2xl font-bold"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                >
+                  <img
+                    src="./images/icons/logo.png"
+                    alt="logo"
+                    width={34}
+                    height={28}
+                  />
+                </motion.div>
+                <motion.button
+                  className="text-2xl p-2 focus:outline-none"
+                  onClick={toggleMenu}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
+                >
+                  <img
+                    src="./images/icons/burger.png"
+                    alt="close"
+                    className="h-10 w-10"
+                  />
+                </motion.button>
+              </div>
+            </motion.div>
       )}
     </div>
   );

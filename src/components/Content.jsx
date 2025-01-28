@@ -29,9 +29,10 @@ const Content = () => {
                                 </svg>
                             </span>
                     </summary>
-                    <p class="group-open:animate-fadeIn mt-3 text-white">Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions
+                    <p class="group-open:animate-fadeIn mt-3 text-white">Social posts, ad banners, content plans, video editing, and YouTube thumbnails — all tailored
+                    to grow your brand
                     </p>
-                    <img src="./images/icons/item.png" alt="item" className="w-36 h-36 mt-2"/>
+                    <img src="./images/icons/item1.png" alt="item" className="w-36 h-36 mt-2"/>
                 </details>
             </div>
             <div class="py-5">
@@ -48,7 +49,7 @@ const Content = () => {
                     </summary>
                     <p class="group-open:animate-fadeIn mt-3 text-white">Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions
                     </p>
-                    <img src="./images/icons/item.png" alt="item" className="w-36 h-36 mt-2"/>
+                    <img src="./images/icons/item2.png" alt="item" className="w-36 h-36 mt-2"/>
                 </details>
             </div>
             <div class="py-5">
@@ -63,9 +64,9 @@ const Content = () => {
                                 </svg>
                             </span>
                     </summary>
-                    <p class="group-open:animate-fadeIn mt-3 text-white">Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions
+                    <p class="group-open:animate-fadeIn mt-3 text-white">Logotypes, brand guidelines, pitch decks, and corporate reports — we craft identities that make your business stand out
                     </p>
-                    <img src="./images/icons/item.png" alt="item" className="w-36 h-36 mt-2"/>
+                    <img src="./images/icons/item3.png" alt="item" className="w-36 h-36 mt-2"/>
                 </details>
             </div>
             <div class="py-5 mb-6">
@@ -80,9 +81,12 @@ const Content = () => {
                                 </svg>
                             </span>
                     </summary>
-                    <p class="group-open:animate-fadeIn mt-3 text-white">Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions
+                    <p class="group-open:animate-fadeIn mt-3 text-white">Have a unique project in mind? Let's discuss
+it and create a tailored solution that meets
+your specific needs
                     </p>
-                    <img src="./images/icons/item.png" alt="item" className="w-36 h-36 mt-2"/>
+                    <img src="./images/icons/item4.png" alt="item" className="w-36 h-36 mt-2"/>
+                    <button className="text-[#0F55E0] font-medium h-12 w-52 rounded-lg bg-white mt-4">Book a quick session</button>
                 </details>
             </div>
         </div>
