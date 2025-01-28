@@ -18,7 +18,23 @@ const Leaders = () => {
                         <img src="./images/icons/Stars.png" alt="stars" className="w-14 h-2"/>
                     </div>
                     <div className="bg-[#F7F7F6] h-auto sm75:w-[175px] rounded-lg sm25:w-[200px] sm20:w-[150px] flex flex-col items-center justify-center">
-                        <p className="text-[38px]">859</p>
+                    <motion.p
+        className="text-[38px]"
+        initial={{ number: 829 }}
+        animate={{ number: 859 }}
+        transition={{
+          duration: 3, // Продолжительность анимации
+          ease: "easeOut", // Эффект easing
+          onUpdate: (latest) => {
+            // Конвертируем число в строку
+            // Обновляем текст на основе анимации
+            document.querySelector("#counter").textContent = Math.floor(latest.number);
+          },
+        }}
+        id="counter"
+      >
+        829
+      </motion.p>
                         <p className="text-sm text-center">Projects completed
                         successfuly</p>
                     </div>
