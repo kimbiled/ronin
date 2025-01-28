@@ -9,24 +9,40 @@ const Header = () => {
   };
 
   const [isVisible, setIsVisible] = useState(true); // State to control visibility
-  const [prevScrollY, setPrevScrollY] = useState(0); // Previous scroll position
+const [prevScrollY, setPrevScrollY] = useState(0); // Previous scroll position
+const [timeoutId, setTimeoutId] = useState(null); // To store timeout ID
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY < prevScrollY) {
-        setIsVisible(true); // Scroll up, show the navbar
-      } else {
-        setIsVisible(false); // Scroll down, hide the navbar
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY < prevScrollY) {
+      // If scrolling up, show navbar with a delay
+      if (timeoutId) {
+        clearTimeout(timeoutId); // Clear the previous timeout if exists
       }
-      setPrevScrollY(window.scrollY); // Update the previous scroll position
-    };
+      const newTimeoutId = setTimeout(() => {
+        setIsVisible(true); // Show navbar after delay
+      }, 1000); // 1-second delay
+      setTimeoutId(newTimeoutId);
+    } else {
+      // If scrolling down, hide navbar immediately
+      if (timeoutId) {
+        clearTimeout(timeoutId); // Clear any existing timeout
+      }
+      setIsVisible(false); // Hide navbar immediately
+    }
+    setPrevScrollY(window.scrollY); // Update previous scroll position
+  };
 
-    window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [prevScrollY]);
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+    if (timeoutId) {
+      clearTimeout(timeoutId); // Clean up on component unmount
+    }
+  };
+}, [prevScrollY, timeoutId]);
+
 
 
   const socialLinks = [
@@ -157,7 +173,7 @@ const Header = () => {
                 className="text-base text-gray-400 flex flex-row justify-between"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut", delay: 1.2 }}
+                transition={{ duration: 0.5, ease: "easeInOut", delay: 0.7 }}
               >
                 <div>
                   <p>Get in touch</p>
@@ -175,42 +191,42 @@ const Header = () => {
 
       {/* Заголовок и кнопка меню */}
       {!isMenuOpen && (
-              <motion.div
-              className={`fixed top-0 left-0 w-full px-4 py-4 transition-all duration-300 ${isVisible ? 'opacity-100 bg-white' : 'opacity-0 bg-transparent'}`}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: isVisible ? 1 : 0, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              style={{ zIndex: 1000 }} // Ensure navbar stays on top
-            >
-              <div className="flex justify-between items-center w-full">
-                <motion.div
-                  className="text-2xl font-bold"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, ease: 'easeInOut' }}
-                >
-                  <img
-                    src="./images/icons/logo.png"
-                    alt="logo"
-                    width={34}
-                    height={28}
-                  />
-                </motion.div>
-                <motion.button
-                  className="text-2xl p-2 focus:outline-none"
-                  onClick={toggleMenu}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
-                >
-                  <img
-                    src="./images/icons/burger.png"
-                    alt="close"
-                    className="h-10 w-10"
-                  />
-                </motion.button>
-              </div>
-            </motion.div>
+             <motion.div
+             className={`fixed top-0 left-0 w-full px-4 py-4 transition-all duration-300 ${isVisible ? 'opacity-100 bg-white' : 'opacity-0 bg-transparent'}`}
+             initial={{ opacity: 0, y: -20 }}
+             animate={{ opacity: isVisible ? 1 : 0, y: 0 }}
+             transition={{ duration: 0.5, ease: 'easeInOut' }}
+             style={{ zIndex: 1000 }} // Ensure navbar stays on top
+           >
+             <div className="flex justify-between items-center w-full">
+               <motion.div
+                 className="text-2xl font-bold"
+                 initial={{ opacity: 0, y: -20 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.5, ease: 'easeInOut' }}
+               >
+                 <img
+                   src="./images/icons/logo.png"
+                   alt="logo"
+                   width={34}
+                   height={28}
+                 />
+               </motion.div>
+               <motion.button
+                 className="text-2xl p-2 focus:outline-none"
+                 onClick={toggleMenu}
+                 initial={{ opacity: 0, y: -20 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
+               >
+                 <img
+                   src="./images/icons/burger.png"
+                   alt="close"
+                   className="h-10 w-10"
+                 />
+               </motion.button>
+             </div>
+           </motion.div>
       )}
     </div>
   );
