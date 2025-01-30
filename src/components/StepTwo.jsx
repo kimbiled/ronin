@@ -16,7 +16,7 @@ export default function StepTwo({ onNext, onPrev, onComplete }) {
   }, [onComplete]);
 
   return (
-    <div className="flex flex-col w-[95%] mx-auto gap-6">
+    <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
       {/* Заголовок */}
       <p className="font-medium text-black">I'm interested in...</p>
 
@@ -26,7 +26,7 @@ export default function StepTwo({ onNext, onPrev, onComplete }) {
           <button
             key={label}
             onClick={() => setSelectedInterest(label)}
-            className={`${width} ${height} border rounded-full text-sm font-medium flex items-center justify-center transition-all ${
+            className={`${width} ${height} border rounded-full text-sm font-book flex items-center justify-center transition-all ${
               selectedInterest === label
                 ? "border-black text-black"
                 : "border-[#090C21] border-opacity-10 text-gray-700 hover:border-black"

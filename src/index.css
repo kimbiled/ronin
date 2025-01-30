@@ -43,6 +43,25 @@ details summary::-webkit-details-marker {
   font-style: normal;
 }
 
-.bbbb{
-  text-align: center;
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 45s linear infinite;
 }

@@ -25,7 +25,7 @@ const News = () => {
     ];
   
     return (
-      <div className="flex flex-col w-full rounded-3xl h-auto bg-[#090C21]">
+      <div className="font-ppneue flex flex-col w-full rounded-3xl h-auto bg-[#090C21]">
         <div className="flex flex-col mx-auto gap-8 w-[85%] mb-12">
           <p className="text-white font-medium text-[40px] mt-16">Featured News</p>
           <div className="flex flex-col gap-8 w-full max-w-md mx-auto">
@@ -46,7 +46,7 @@ const News = () => {
                 </div>
   
                 {/* Категория */}
-                <p className="text-gray-400 text-sm mt-4">{article.category}</p>
+                <p className="text-[#9CA3AF] text-sm mt-4 font-book">{article.category}</p>
   
                 {/* Заголовок */}
                 <h2 className="text-white text-[25px] font-medium leading-tight mt-4">
@@ -59,13 +59,13 @@ const News = () => {
   
                 {/* Дата и время чтения */}
                 <div className="flex flex-row justify-between items-center mt-4">
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-[#9CA3AF] text-sm font-book">
                     {article.date} • {article.readTime}
                   </p>
   
                   {/* Кнопка "Read More" */}
                   <div className="flex flex-row items-center gap-2">
-                    <p className="text-[#F9A826] text-sm font-medium">Read More</p>
+                    <p className="text-[#F9A826] text-sm font-book">Read More</p>
                     <img src="./images/icons/orangeArrow.png" alt="Arrow" className="w-[14px] h-[10px]" />
                   </div>
                 </div>

@@ -4,7 +4,7 @@ export default function StepFour({ onPrev, onSubmit }) {
   const [description, setDescription] = useState("");
 
   return (
-    <div className="flex flex-col w-[95%] mx-auto gap-6">
+    <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
       {/* Заголовок */}
       <p className="ont-medium text-black">Tell us more about your project</p>
 

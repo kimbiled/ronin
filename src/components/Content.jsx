@@ -1,95 +1,104 @@
+import { useState } from "react";
+
+const services = [
+    {
+      title: "Content Marketing",
+      description:
+        "Social posts, ad banners, content plans, video editing, and YouTube thumbnails — all tailored to grow your brand",
+      img: "./images/icons/item1.png",
+    },
+    {
+      title: "Website Design",
+      description:
+        "Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions",
+      img: "./images/icons/item2.png",
+    },
+    {
+      title: "Branding",
+      description:
+        "Logotypes, brand guidelines, pitch decks, and corporate reports — we craft identities that make your business stand out",
+      img: "./images/icons/item3.png",
+    },
+    {
+      title: "Custom Request",
+      description:
+        "Have a unique project in mind? Let's discuss it and create a tailored solution that meets your specific needs",
+      img: "./images/icons/item4.png",
+      button: true,
+    },
+  ];
+
 
 const Content = () => {
+    const [openIndex, setOpenIndex] = useState(null);
+
+    const handleToggle = (index) => {
+      setOpenIndex(openIndex === index ? null : index);
+    };
     return (
-        <div className="flex flex-col w-full rounded-3xl h-auto"
+        <div className="font-ppneue flex flex-col w-full rounded-3xl h-auto"
         style={{
             background: "radial-gradient(271.63% 217.5% at 169.59% -28.68%, #22AFFF 0%, #1261FC 100%)"
           }}
         >
-            <div className="flex flex-col  mx-auto gap-8 w-[85%]">
+            <div className="flex flex-col mx-auto gap-8 w-[85%]">
                 <div>
-                    <img src="./images/icons/phone.png" alt="phone" className="w-full h-full mt-4"/>
+                    <img src="./images/icons/phone.png" alt="phone" className="w-full h-full mt-6"/>
                 </div>
                 <div className="flex flex-col gap-3 text-white">
                     <h3 className="font-medium text-[40px]">Design That
                     Drives Growth</h3>
-                    <h5>With over 800 projects and 6 years of experience, we deliver tailored solutions that help brands succeed</h5>
+                    <h5 className="font-book">With over <span className="font-medium">800 projects and 6 years of experience,</span> we deliver tailored solutions that help brands succeed</h5>
                 </div>
 
-                <div class="mt-2 grid text-white">
-            <div class="py-5">
-                <details class="group">
-                    <summary class="flex cursor-pointer list-none items-center gap-2 font-medium">
-                        <span className="text-[20px]">Content Marketing</span>
-                        <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision"
-                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="1.5" viewBox="0 0 24 24" width="24">
-                                    <path d="M6 9l6 6 6-6"></path>
-                                </svg>
-                            </span>
-                    </summary>
-                    <p class="group-open:animate-fadeIn mt-3 text-white">Social posts, ad banners, content plans, video editing, and YouTube thumbnails — all tailored
-                    to grow your brand
-                    </p>
-                    <img src="./images/icons/item1.png" alt="item" className="w-36 h-36 mt-2"/>
-                </details>
-            </div>
-            <div class="py-5">
-                <details class="group">
-                    <summary class="flex cursor-pointer list-none items-center gap-2 font-medium">
-                        <span className="text-[20px]"> Website Design</span>
-                        <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision"
-                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="1.5" viewBox="0 0 24 24" width="24">
-                                    <path d="M6 9l6 6 6-6"></path>
-                                </svg>
-                            </span>
-                    </summary>
-                    <p class="group-open:animate-fadeIn mt-3 text-white">Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions
-                    </p>
-                    <img src="./images/icons/item2.png" alt="item" className="w-36 h-36 mt-2"/>
-                </details>
-            </div>
-            <div class="py-5">
-                <details class="group">
-                    <summary class="flex cursor-pointer list-none items-center gap-2 font-medium">
-                        <span className="text-[20px]">Branding</span>
-                        <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision"
-                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="1.5" viewBox="0 0 24 24" width="24">
-                                    <path d="M6 9l6 6 6-6"></path>
-                                </svg>
-                            </span>
-                    </summary>
-                    <p class="group-open:animate-fadeIn mt-3 text-white">Logotypes, brand guidelines, pitch decks, and corporate reports — we craft identities that make your business stand out
-                    </p>
-                    <img src="./images/icons/item3.png" alt="item" className="w-36 h-36 mt-2"/>
-                </details>
-            </div>
-            <div class="py-5 mb-6">
-                <details class="group">
-                    <summary class="flex cursor-pointer list-none items-center gap-2 font-medium">
-                        <span className="text-[20px]"> Custom Request</span>
-                        <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision"
-                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="1.5" viewBox="0 0 24 24" width="24">
-                                    <path d="M6 9l6 6 6-6"></path>
-                                </svg>
-                            </span>
-                    </summary>
-                    <p class="group-open:animate-fadeIn mt-3 text-white">Have a unique project in mind? Let's discuss
-it and create a tailored solution that meets
-your specific needs
-                    </p>
-                    <img src="./images/icons/item4.png" alt="item" className="w-36 h-36 mt-2"/>
-                    <button className="text-[#0F55E0] font-medium h-12 w-52 rounded-lg bg-white mt-4">Book a quick session</button>
-                </details>
-            </div>
+                <div className="mt-2 grid text-white mb-8">
+      {services.map((service, index) => (
+        <div key={index} className="py-5">
+          <div open={openIndex === index} className="group">
+            <summary
+              className="flex cursor-pointer list-none items-center gap-2 font-medium"
+              onClick={() => handleToggle(index)}
+            >
+              <span className="text-[20px] font-medium">{service.title}</span>
+              <span
+                className={`transition ${
+                  openIndex === index ? "rotate-180" : ""
+                }`}
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  shapeRendering="geometricPrecision"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </span>
+            </summary>
+            {openIndex === index && (
+              <div className="group-open:animate-fadeIn mt-3 text-white">
+                <p className="font-book">{service.description}</p>
+                <img
+                  src={service.img}
+                  alt={service.title}
+                  className="w-36 h-36 mt-2"
+                />
+                {service.button && (
+                  <button className="text-[#0F55E0] font-medium h-12 w-52 rounded-lg bg-white mt-4">
+                    Book a quick session
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
         </div>
+      ))}
+    </div>
             </div>
         </div>
     );

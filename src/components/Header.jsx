@@ -8,34 +8,6 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const [isVisible, setIsVisible] = useState(true); // State to control visibility
-const [prevScrollY, setPrevScrollY] = useState(0); // Previous scroll position
-
-useEffect(() => {
-  const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY < prevScrollY) {
-      // Scrolling up, show the navbar immediately
-      setIsVisible(true);
-    } else if (currentScrollY > prevScrollY) {
-      // Scrolling down, hide the navbar immediately
-      setIsVisible(false);
-    }
-
-    setPrevScrollY(currentScrollY); // Update previous scroll position
-  };
-
-  window.addEventListener('scroll', handleScroll);
-
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-  };
-}, [prevScrollY]);
-
-
-
-
   const socialLinks = [
     { title: "Dribbble", href: "#" },
     { title: "Behance", href: "#" },
@@ -49,13 +21,25 @@ useEffect(() => {
     { title: "Contact Us", href: "#" },
   ];
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   return (
-    <div className="relative h-32 text-white flex flex-col items-center w-full">
+    <div className="font-ppneue relative h-32 text-white flex flex-col items-center w-full">
       {/* Меню */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-gray-800 text-white z-40"
+            className="fixed inset-0 bg-[#090C21] text-white z-40 overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -95,7 +79,7 @@ useEffect(() => {
                 {/* Социальные ссылки */}
                 <div>
                   <motion.h2
-                    className="text-base text-gray-400 mb-4"
+                    className="text-base text-[#637695] mb-4 leading-[22px] font-book"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut", delay: 0.4 }}
@@ -116,7 +100,7 @@ useEffect(() => {
                       >
                         <a
                           href={link.href}
-                          className="hover:text-blue-400 text-lg"
+                          className="hover:underline text-lg leading-[28px] font-book"
                         >
                           {link.title}
                         </a>
@@ -128,7 +112,7 @@ useEffect(() => {
                 {/* Основное меню */}
                 <div>
                   <motion.h2
-                    className="text-base text-gray-400 mb-4"
+                    className="text-base text-[#637695] mb-4 font-book leading-[22px]"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut", delay: 0.7 }}
@@ -149,7 +133,7 @@ useEffect(() => {
                       >
                         <a
                           href={link.href}
-                          className="text-[34px] font-semibold hover:text-blue-400"
+                          className="text-[34px] font-semibold hover:underline font-ppneue font-book leading-[44px]"
                         >
                           {link.title}
                         </a>
@@ -161,16 +145,16 @@ useEffect(() => {
 
               {/* Футер */}
               <motion.div
-                className="text-base text-gray-400 flex flex-row justify-between"
+                className="text-base text-gray-400 flex flex-row justify-between mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut", delay: 0.7 }}
               >
-                <div>
+                <div className="font-book">
                   <p>Get in touch</p>
                   <p className="text-white">hi@ronindsgn.com</p>
                 </div>
-                <div className="text-sm flex flex-col gap-2">
+                <div className="text-xs flex flex-col gap-3 font-book mt-[2px]">
                   <p className="text-white">Privacy Policy & Cookies</p>
                   <p>© Ronin Design 2025</p>
                 </div>
@@ -183,38 +167,29 @@ useEffect(() => {
       {/* Заголовок и кнопка меню */}
       {!isMenuOpen && (
         <motion.div
-        className={`fixed top-0 left-0 w-full px-4 py-4 transition-all duration-300 ${isVisible ? 'opacity-100 bg-white' : 'opacity-0 bg-transparent'}`}
+        className="fixed top-0 left-0 w-full px-4 py-4 bg-white transition-all duration-300"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: isVisible ? 1 : 0, y: 0 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
-        style={{ zIndex: 1000 }} // Ensure navbar stays on top
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        style={{ zIndex: 1000 }}
       >
         <div className="flex justify-between items-center w-full">
           <motion.div
             className="text-2xl font-bold"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <img
-              src="./images/icons/logo.png"
-              alt="logo"
-              width={34}
-              height={28}
-            />
+            <img src="./images/icons/logo.png" alt="logo" width={34} height={28} />
           </motion.div>
           <motion.button
             className="text-2xl p-2 focus:outline-none"
             onClick={toggleMenu}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.2 }}
+            transition={{ duration: 0.3, ease: "easeInOut", delay: 0.2 }}
           >
-            <img
-              src="./images/icons/burger.png"
-              alt="close"
-              className="h-10 w-10"
-            />
+            <img src="./images/icons/burger.png" alt="menu" className="h-10 w-10" />
           </motion.button>
         </div>
       </motion.div>

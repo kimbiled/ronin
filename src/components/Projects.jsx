@@ -10,7 +10,7 @@ const profiles = [
       followers: "$5.8M+ Raised",
       verified: true,
       stared:false,
-      location: "./images/icons/usa.png",
+      location: "./images/icons/usa.svg",
     },
     avatars: [
       "/images/icons/i1.png",
@@ -27,7 +27,7 @@ const profiles = [
       followers: "20M+ Followers",
       verified: true,
       stared: false,
-      location: "./images/icons/usa.png",
+      location: "./images/icons/usa.svg",
     },
     avatars: [
       "/images/icons/i2.png",
@@ -44,7 +44,7 @@ const profiles = [
       followers: "900.000+ Users",
       verified: true,
       stared: false,
-      location: "./images/icons/uk.png",
+      location: "./images/icons/uk.svg",
     },
     avatars: [
       "/images/icons/i3.png",
@@ -61,7 +61,7 @@ const profiles = [
       followers: "100.000+ Users",
       verified: true,
       stared: false,
-      location: "./images/icons/australia.png",
+      location: "./images/icons/australia.svg",
     },
     avatars: [
       "/images/icons/i4.png",
@@ -78,7 +78,7 @@ const profiles = [
       followers: false,
       verified: false,
       stared: false,
-      location: "./images/icons/qatar.png",
+      location: "./images/icons/qatar.svg",
     },
     avatars: [
       "/images/icons/i5.png",
@@ -95,7 +95,7 @@ const profiles = [
       followers: "4.7 Trustpilot",
       verified: false,
       stared: true,
-      location: "./images/icons/uk.png",
+      location: "./images/icons/uk.svg",
     },
     avatars: [
       "/images/icons/i6.png",
@@ -112,7 +112,7 @@ const profiles = [
       followers: false,
       verified: false,
       stared: false,
-      location: "./images/icons/kz.png",
+      location: "./images/icons/kz.svg",
     },
     avatars: [
       "/images/icons/i7.png",
@@ -130,11 +130,11 @@ const Projects = () => {
     : null;
 
     return (
-        <div className="flex flex-col w-[85%] mx-auto gap-8">
+        <div className="font-ppneue flex flex-col w-[85%] mx-auto gap-8">
         {/* Заголовок */}
         <div className="flex flex-col text-center mt-12 items-center">
           <p className="sm25:text-[40px] sm75:text-[40px] font-medium sm20:text-[36px]">Recent projects</p>
-          <p className="sm25:text-sm sm75:text-sm sm20:text-xs sm75:w-[330px] sm20:w-[300px] text-gray-500">
+          <p className="sm25:text-base sm75:text-[15px] sm20:text-[13px] sm75:w-[330px] sm20:w-[300px] sm25:w-[360px] text-[#090C21] font-book">
             Custom B2C, B2B, and eCommerce solutions optimized for traffic,
             engagement, and conversion
           </p>

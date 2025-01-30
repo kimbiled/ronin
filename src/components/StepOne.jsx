@@ -31,7 +31,7 @@ export default function StepOne({ onComplete, onNext }) {
   };
 
   return (
-    <div className="flex flex-col w-[95%] mx-auto gap-6">
+    <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
       {/* Full Name Input */}
       <div className="flex flex-col">
         <label className="font-medium text-black">Full Name</label>

@@ -15,7 +15,7 @@ export default function StepThree({ onNext, onPrev, onComplete }) {
   }, [onComplete]);
 
   return (
-    <div className="flex flex-col w-[95%] mx-auto gap-6">
+    <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
       {/* Заголовок */}
       <p className="ont-medium text-black">Project budget (USD)</p>
 
@@ -25,7 +25,7 @@ export default function StepThree({ onNext, onPrev, onComplete }) {
           <button
             key={label}
             onClick={() => setSelectedBudget(label)}
-            className={`${width} ${height} border rounded-full text-sm font-medium flex items-center justify-center transition-all ${
+            className={`${width} ${height} border rounded-full text-sm font-book flex items-center justify-center transition-all ${
               selectedBudget === label
                 ? "border-black text-black"
                 : "border-gray-300 text-gray-700 hover:border-black"

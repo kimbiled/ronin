@@ -20,6 +20,16 @@ module.exports = {
       animation: {
         scroll: 'scroll 40s linear infinite', // Анимация автоскролла
       },
+      fontFamily: {
+        ppneue: ["PP Neue Montreal", "sans-serif"],
+      },
+      fontWeight: {
+        thin: "100",
+        book: "400",
+        medium: "500",
+        bold: "700",
+        semibolditalic: "600",
+      },
     },
   },
   plugins: [],

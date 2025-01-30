@@ -36,18 +36,18 @@ export default function Form() {
   };
 
   return (
-    <div className="flex flex-col w-[85%] mx-auto gap-8 h-[650px]">
+    <div className="font-ppneue flex flex-col w-[85%] mx-auto gap-8 h-[650px]">
       {!isSubmitted ? (
         <>
           <div>
-            <p className="text-[40px] font-medium">
-              <span className="text-[#1261FC]">Let's</span> create together
+            <p className="text-[40px] font-medium leading-[48px]">
+              <span className="text-[#1261FC]">Let's</span> create<br /> together
             </p>
-            <p>Got a project? Let's bring it to life<br /> with design and innovation</p>
+            <p className="font-book mt-2">Got a project? Let's bring it to life<br /> with design and innovation</p>
           </div>
 
           {/* Step Progress Indicator */}
-          <div className="flex w-[95%] items-center justify-between mt-10">
+          <div className="flex w-[95%] items-center justify-between ">
             {steps.map((step, index) => {
               const isCompleted = step < currentStep;
               const isActive = step === currentStep;

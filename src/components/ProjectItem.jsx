@@ -23,7 +23,7 @@ const ProjectItem = ({ profile, avatars, isLast }) => {
 
   return (
     <div
-      className={`relative flex flex-col gap-4 pb-6 ${!isLast ? "border-b-[1px]" : ""}`}
+      className={`font-ppneue relative flex flex-col gap-4 pb-6 ${!isLast ? "border-b-[1px]" : ""}`}
     >
       {/* Слайдер для изображений */}
       <div className="relative w-full">
@@ -60,11 +60,11 @@ const ProjectItem = ({ profile, avatars, isLast }) => {
           <img
             src={profile.location}
             alt={profile.name}
-            className="w-5 h-auto rounded-[4px]"
+            
           />
         </div>
-        <p className="text-sm text-gray-700">{profile.role}</p>
-        <p className="text-xs text-[#637695]">
+        <p className="text-sm text-gray-700 font-book">{profile.role}</p>
+        <p className="text-xs text-[#637695] font-book">
           {profile.tags.join(" • ")}
         </p>
       </div>

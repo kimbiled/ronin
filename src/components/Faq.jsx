@@ -39,7 +39,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-md  text-white">
+    <div className="font-ppneue flex flex-col w-full max-w-md  text-white">
       <h2 className="text-[40px] font-medium mb-6">FAQ</h2>
       <div className="flex flex-col divide-y divide-white divide-opacity-10">
         {faqData.map((item, index) => (
@@ -52,7 +52,7 @@ export default function FAQ() {
                 {openIndex === index ? <img src="./images/icons/arrow-up.png" className="w-6 h-6" alt="arrowUp"/> : <img src="./images/icons/arrow-down2.png" className="w-6 h-6" alt="arrowDown"/>}
             </button>
             {openIndex === index && (
-              <p className="text-gray-300 mt-2 leading-relaxed whitespace-pre-line">
+              <p className="text-gray-300 mt-2 leading-relaxed whitespace-pre-line font-book">
                 {item.answer}
               </p>
             )}
