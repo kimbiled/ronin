@@ -1,10 +1,12 @@
+import foot from '../assets/icons/footer.png'
+
 export default function Footer() {
     return (
       <footer className="font-ppneue flex flex-col mx-auto gap-8 w-[85%] mb-12 bg-white items-center mt-40">
         <div className="flex flex-col gap-8">
           {/* Логотип */}
           <div className="mx-auto">
-            <img src="./images/icons/footer.png" alt="footer" className=""/>  
+            <img src={foot} alt="footer" className=""/>  
           </div> {/* Место для лого */}
   
           {/* Заголовок и описание */}

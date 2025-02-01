@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import logo from '../assets/icons/logo.png';
+import logoBurger from '../assets/icons/LogoBurger.png';
+import close from '../assets/icons/close.png';
+import burger from '../assets/icons/burger.png';
+
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -54,7 +60,7 @@ const Header = () => {
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                   <img
-                    src="./images/icons/LogoBurger.png"
+                    src={logoBurger}
                     alt="logo"
                     width={34}
                     height={28}
@@ -68,7 +74,7 @@ const Header = () => {
                   transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
                 >
                   <img
-                    src="./images/icons/close.png"
+                    src={close}
                     alt="close"
                     className="h-10 w-10"
                   />
@@ -180,7 +186,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <img src="./images/icons/logo.png" alt="logo" width={34} height={28} />
+            <img src={logo} alt="logo" width={34} height={28} />
           </motion.div>
           <motion.button
             className="text-2xl p-2 focus:outline-none"
@@ -189,7 +195,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut", delay: 0.2 }}
           >
-            <img src="./images/icons/burger.png" alt="menu" className="h-10 w-10" />
+            <img src={burger} alt="menu" className="h-10 w-10" />
           </motion.button>
         </div>
       </motion.div>
