@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import arrow from '../assets/icons/45deg.svg'
 import threeD from '../assets/icons/3d.svg'
 import logoPhone from '../assets/icons/logoPhone.svg'
@@ -23,28 +23,49 @@ const logos = [
 
 const Leaders = () => {
     const [counter, setCounter] = useState(829);
+    const [isCounting, setIsCounting] = useState(false);
+  const counterRef = useRef(null);
 
     useEffect(() => {
-      const start = 829;
-      const end = 859;
-      let currentValue = start;
-  
-      const updateCounter = () => {
-        if (currentValue < end) {
-          currentValue++;
-          setCounter(currentValue);
-  
-          // Увеличиваем задержку с каждым шагом
-          const delay = 50 + Math.pow(currentValue - start, 2); // Чем ближе к концу, тем дольше
-          setTimeout(updateCounter, delay);
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setIsCounting(true);
+              observer.disconnect(); // Отключаем после первого появления
+            }
+          },
+          { threshold: 0.5 } // Запускаем, когда 50% блока в зоне видимости
+        );
+    
+        if (counterRef.current) {
+          observer.observe(counterRef.current);
         }
-      };
-  
-      updateCounter(); // Запускаем обновление
-    }, []);
+    
+        return () => observer.disconnect();
+      }, []);
+    
+      useEffect(() => {
+        if (!isCounting) return;
+    
+        const start = 829;
+        const end = 859;
+        let currentValue = start;
+    
+        const updateCounter = () => {
+          if (currentValue < end) {
+            currentValue++;
+            setCounter(currentValue);
+    
+            const delay = 50 + Math.pow(currentValue - start, 2);
+            setTimeout(updateCounter, delay);
+          }
+        };
+    
+        updateCounter();
+      }, [isCounting]);
 
     return (
-        <div className="font-ppneue flex flex-col w-[85%] mx-auto gap-8 mb-16">
+        <div ref={counterRef} className="font-ppneue flex flex-col w-[85%] mx-auto gap-8 mb-16">
             <div className="flex flex-col text-center mt-12 items-center">
                 <p className="sm25:text-[40px] sm75:text-[40px] sm20:text-[36px] font-medium leading-[48px]"><span className="text-[#1261FC]">Trusted </span>by<br />
                 Industry Leaders </p>

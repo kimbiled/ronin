@@ -46,24 +46,21 @@ const Hero = () => {
         <div className="font-ppneue flex flex-col w-[85%] mx-auto">
             <div className="flex flex-col items-center">
             
-<div className="flex flex-row items-center ml-2">
+            <div className="flex flex-row items-center ml-2">
   {avatars.map((src, index) => (
     <motion.img
       key={index}
       src={src}
       alt={`Avatar${index + 1}`}
-      className="w-14 h-14 -ml-2"
-      initial={{ opacity: 0, x: 0 }}
+      className="-ml-2"
       animate={{
-        opacity: 1, 
-        x: 0, 
         y: [0, -10, 0] // Двигаем вверх на -10px, затем обратно
       }}
       transition={{
-        delay: index * 0.3, 
+        delay: index * 0.3, // Добавляем задержку для эффекта плавности
         duration: 2, // Длительность одного цикла
-        repeat: Infinity, 
-        repeatType: "reverse", 
+        repeat: Infinity, // Зацикливаем анимацию
+        repeatType: "reverse", // Плавное возвращение в начальное положение
         ease: "easeInOut"
       }}
     />
