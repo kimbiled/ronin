@@ -186,7 +186,9 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
+            <a href="/">
             <img src={logo} alt="logo" width={34} height={28} />
+            </a>
           </motion.div>
           <motion.button
             className="text-2xl p-2 focus:outline-none"
