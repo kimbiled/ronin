@@ -1,5 +1,25 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+
 const Proposal = () => {
-   
+    const [isVisible, setIsVisible] = useState(false);
+    useEffect(() => {
+      const handleClose = (event) => {
+        if (!event.target || !(event.target instanceof Element)) return; // Проверка на null и правильный тип
+        if (!event.target.closest(".popup-container")) {
+          setIsVisible(false);
+        }
+      };
+        
+        document.addEventListener("click", handleClose);
+        document.addEventListener("scroll", handleClose);
+    
+        return () => {
+          document.removeEventListener("click", handleClose);
+          document.removeEventListener("scroll", handleClose);
+        };
+      }, []);
 
     return (
         <div className="font-ppneue flex flex-col w-[90%] mx-auto rounded-xl gap-8">
@@ -21,10 +41,36 @@ const Proposal = () => {
                     <div>
                         <img src="./images/icons/star.png" alt="star"  className="w-12 h-12 absolute top-[-22px] left-5"/>
                     </div>
-                    <div>
-                        <img src="./images/icons/question.svg" alt="question" className="w-6 h-6 absolute top-3 right-4 hover:opacity-80"/>
-                    </div>
-                    <div className="mt-4 flex flex-col p-4">
+                    <div className="inline-block popup-container">
+      {/* Иконка вопроса */}
+      <img
+        src="./images/icons/question.svg"
+        alt="question"
+        className="w-6 h-6 absolute top-3 right-4 hover:opacity-80 cursor-pointer"
+        onMouseEnter={() => setIsVisible(true)} // Открывает при ховере (для ПК)
+        onClick={(e) => {
+          e.stopPropagation(); // Блокируем закрытие при клике на саму иконку
+          setIsVisible(!isVisible);
+        }}
+      />
+
+      {/* Pop-up с плавной анимацией */}
+      <AnimatePresence>
+        {isVisible && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="absolute top-10 right-4 w-[297px] h-[98px] p-4 rounded-lg bg-[#090C21] text-[#FFFFFF] shadow-lg popup-container text-center text-xs font-book flex flex-row items-center justify-center"
+            onClick={(e) => e.stopPropagation()} // Блокируем закрытие при клике внутри попапа
+          >
+            We are limited by the number of our talents. We don't chase quantity, but prefer engagement and commitment. Same as you
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+                    <div className="flex flex-col p-4">
                        <div className="flex flex-row gap-3 items-center font-book">
                             <p className="text-[34px]">2/5</p>
                             <p className="text-lg">client slots available</p>
@@ -46,23 +92,23 @@ const Proposal = () => {
                             <p className="text-[34px] font-medium leading-[38px]">Each plan contains</p>
                        </div>
                        <div className="flex flex-col gap-3 mt-3 font-book">
-                            <div className="flex flex-row gap-2 rounded-2xl sm20:w-[230px] sm75:w-[260px] sm25:w-[275px] p-1 h-8 bg-[#F7F7F6] items-center">
+                            <div className="flex flex-row gap-2 rounded-2xl sm20:w-[208px] sm75:w-[238px] sm25:w-[238px] p-1 h-8 bg-[#F7F7F6] items-center">
                                 <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
                                 <p className="sm75:text-sm sm25:text-sm sm20:text-xs">2-3 business days delivery time</p>
                             </div>
-                            <div className="flex flex-row gap-2 rounded-2xl sm20:w-[148px] sm75:w-[168px] sm25:w-[168px] p-1 h-8 bg-[#F7F7F6] items-center">
+                            <div className="flex flex-row gap-2 rounded-2xl sm20:w-[142px] sm75:w-[157px] sm25:w-[157px] p-1 h-8 bg-[#F7F7F6] items-center">
                                 <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
                                 <p className="sm75:text-sm sm25:text-sm sm20:text-xs">Whole team input</p>
                             </div>
-                            <div className="flex flex-row gap-2 rounded-2xl sm20:w-[148px] sm75:w-[168px] sm25:w-[168px] p-1 h-8 bg-[#F7F7F6] items-center">
+                            <div className="flex flex-row gap-2 rounded-2xl sm20:w-[138px] sm75:w-[157px] sm25:w-[157px] p-1 h-8 bg-[#F7F7F6] items-center">
                                 <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
                                 <p className="sm75:text-sm sm25:text-sm sm20:text-xs">Unlimited brands</p>
                             </div>
-                            <div className="flex flex-row gap-2 rounded-2xl sm20:w-[148px] sm75:w-[175px] sm25:w-[175px] p-1 h-8 bg-[#F7F7F6] items-center">
+                            <div className="flex flex-row gap-2 rounded-2xl sm20:w-[148px] sm75:w-[164px] sm25:w-[164px] p-1 h-8 bg-[#F7F7F6] items-center">
                                 <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
                                 <p className="sm75:text-sm sm25:text-sm sm20:text-xs">Unlimited revisions</p>
                             </div>
-                            <div className="flex flex-row gap-2 rounded-2xl sm20:w-[180px] sm75:w-[200px] sm25:w-[200px] p-1 h-8 bg-[#F7F7F6] items-center">
+                            <div className="flex flex-row gap-2 rounded-2xl sm20:w-[166px] sm75:w-[186px] sm25:w-[186px] p-1 h-8 bg-[#F7F7F6] items-center">
                                 <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
                                 <p className="sm75:text-sm sm25:text-sm sm20:text-xs">Satisfaction guarantee</p>
                             </div>

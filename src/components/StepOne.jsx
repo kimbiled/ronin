@@ -14,19 +14,21 @@ export default function StepOne({ onComplete, onNext }) {
 
   const handleNextStep = () => {
     let hasError = false;
-
-    if (!fullName.trim()) {
-      setIsFullNameTouched(true);
-      fullNameRef.current.focus();
-      hasError = true;
-    }
-
+  
     if (!email.trim()) {
       setIsEmailValid(false);
-      if (!hasError) emailRef.current.focus(); // Фокус на email, если fullName заполнено
-      return;
+      emailRef.current.focus(); // Сразу фокусируемся на email, если пустой
+      hasError = true;
     }
-
+  
+    if (!fullName.trim()) {
+      setIsFullNameTouched(true);
+      if (!hasError) fullNameRef.current.focus(); // Фокус на fullName только если email заполнен
+      hasError = true;
+    }
+  
+    if (hasError) return; // Останавливаем выполнение, если есть ошибки
+  
     onNext(); // Переход к следующему шагу
   };
 
@@ -55,7 +57,7 @@ export default function StepOne({ onComplete, onNext }) {
           <label className={`font-medium ${isEmailValid ? "text-black" : "text-red-600"}`}>
             Your Email*
           </label>
-          <span className={`text-sm font-medium ${isEmailValid ? "text-[#9CA3AF]" : "text-red-600"}`}>
+          <span className={`text-sm font-medium ${isEmailValid ? "text-[#9CA3AF] opacity-50" : "text-red-600"}`}>
             *Required field
           </span>
         </div>
@@ -77,7 +79,7 @@ export default function StepOne({ onComplete, onNext }) {
       {/* Next Step Button */}
       <button
         onClick={handleNextStep}
-        className={`mt-4 px-4 py-2 sm25:text-lg sm75:text-lg sm20:text-base rounded-lg mb-12 h-12 sm25:w-[345px] sm75:w-[305px] sm20:w-[260px] ${
+        className={`font-medium mt-4 px-4 py-2 sm25:text-base sm75:text-base sm20:text-base rounded-lg mb-12 h-12 sm25:w-[345px] sm75:w-[305px] sm20:w-[260px] ${
           fullName.trim() && email.trim()
             ? "bg-[#1261FC] hover:bg-blue-600 text-white"
             : "bg-[#A3C4FD] text-white cursor-not-allowed"

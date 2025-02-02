@@ -106,7 +106,7 @@ const Header = () => {
                       >
                         <a
                           href={link.href}
-                          className="hover:underline text-lg leading-[28px] font-book"
+                          className=" text-lg leading-[28px] font-book"
                         >
                           {link.title}
                         </a>
@@ -139,7 +139,7 @@ const Header = () => {
                       >
                         <a
                           href={link.href}
-                          className="text-[34px] font-semibold hover:underline font-ppneue font-book leading-[44px]"
+                          className="text-[34px]  font-ppneue font-book leading-[44px]"
                         >
                           {link.title}
                         </a>

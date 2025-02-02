@@ -36,7 +36,7 @@ export default function Form() {
   };
 
   return (
-    <div className="font-ppneue flex flex-col w-[85%] mx-auto gap-8 h-[650px]">
+    <div id="form-section" className=" font-ppneue flex flex-col w-[85%] mx-auto gap-8 h-[650px]">
       {!isSubmitted ? (
         <>
           <div>
@@ -75,7 +75,7 @@ export default function Form() {
                   </motion.div>
                   {index < steps.length - 1 && (
                     <motion.div
-                      className="h-[1px] sm25:w-[70px] sm75:w-[57px] mx-[2px] sm20:w-[48px]"
+                      className="h-[1px] sm25:w-[70px] sm75:w-[57px] sm20:w-[48px] sm60:w-[64px] sm80:w-[68px]"
                       animate={{ backgroundColor: isCompleted ? "#3b82f6" : "#D4E0ED" }}
                       transition={{ duration: 0.5 }}
                     />

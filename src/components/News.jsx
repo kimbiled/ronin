@@ -70,10 +70,14 @@ const News = () => {
               </h2>
 
               {/* Дата и время чтения */}
-              <div className="flex flex-row justify-between items-center mt-4">
-                <p className="text-[#9CA3AF] text-sm font-book">
-                  {article.date} • {article.readTime}
-                </p>
+              <div className="flex flex-row justify-between items-center mt-[18px]">
+               <div className="flex flex-row gap-2 text-[#9CA3AF] text-sm font-book">
+                  <p>
+                      {article.date}
+                  </p>
+                  <span>•</span>
+                  <span>{article.readTime}</span>
+               </div>
 
                 {/* Кнопка "Read More" */}
                 <div

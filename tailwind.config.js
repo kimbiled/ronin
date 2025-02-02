@@ -9,6 +9,10 @@ module.exports = {
         'sm20': '320px',  // Экраны шириной от 320px
         'sm75': '375px',  // Экраны шириной от 375px
         'sm25': '425px',  // Экраны шириной от 425px
+        'sm60': '360px',  // Экраны шириной от 375px
+        'sm80': '380px',
+        'sm00': '400px',  // Экраны шириной от 375px
+        'sm10': '410px', 
         'xl40': '1440px', // Экраны шириной от 1440px
       },
       keyframes: {
@@ -18,7 +22,7 @@ module.exports = {
         },
       },
       animation: {
-        scroll: 'scroll 40s linear infinite', // Анимация автоскролла
+        scroll: 'scroll 40s linear infinite', 
       },
       fontFamily: {
         ppneue: ["PP Neue Montreal", "sans-serif"],
@@ -33,4 +37,10 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: [
+    "bg-gradient-to-r",
+    "bg-gradient-to-l",
+    "from-white",
+    "to-transparent",
+  ],
 };

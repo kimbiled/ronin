@@ -11,23 +11,23 @@ From crafting intuitive interfaces to producing stunning visuals, we bring every
   },
   {
     question: "How much do you charge for a design project?",
-    answer: "Our pricing depends on the complexity and scope of the project. We offer tailored solutions that fit different budgets and requirements.",
+    answer: "We prioritize flexibility to accommodate our partners' budgets. Our services are offered at a blended rate, and we collaborate with clients to tailor support based on their financial needs. We work under three engagement models: time & materials, fixed fee, and retainer. After discovery sessions and project briefings, we recommend the most suitable model and provide a customized proposal with a timeline and cost estimate. Our goal is to deliver solutions that align with each partner’s specific needs and budget, ensuring the best possible outcome for their projects.",
   },
   {
     question: "What sets Ronin apart from other design agencies?",
-    answer: "Our approach is deeply rooted in strategy, design thinking, and collaboration, ensuring that our solutions are both innovative and effective.",
+    answer: "In a competitive market of top-tier UX and branding agencies, we stand out by prioritizing partnerships built on trust and mutual growth. Your success is our success, and we go beyond delivering exceptional design to ensure long-term impact. When you work with us, you collaborate directly with a dedicated team deeply invested in your goals. Our cofounders oversee every project, while a design director ensures top-quality work through detailed reviews and hands-on involvement. We emphasize clear communication and transparency, combining the agility of startup experience with the structured management of enterprise projects. Unlike traditional agencies, we unite branding and product expertise under one roof, delivering seamless solutions that align with your brand and provide exceptional user experiences. Our designs are built to scale with your business, offering lasting value. Many of our projects remain effective for years, demonstrating our commitment to creating future-proof products that grow with you.",
   },
   {
     question: "Are you open to working with startups?",
-    answer: "Absolutely! We love working with startups and helping them bring their ideas to life with a strong brand identity and user-friendly design.",
+    answer: "We work with clients of all sizes, from startups to enterprise-level organizations. Our expertise lies in helping startups transform their ideas into reality through innovative design and technology. We also specialize in scaling products and marketing efforts to reach new markets and audiences. For example, we designed the game HashCats, which has over 900,000 users, and the Web3 platform Orbital7, now exceeding 100,000 users. These projects demonstrate our ability to create engaging, scalable products that drive growth. We frequently help SaaS startups prepare for enterprise clients by revamping their brand, product, and marketing site. Whether you're launching a new idea or entering new markets, we offer tailored solutions to meet your goals. If you'd like to discuss your project, reach out to us at hi@ronindsgn.com. Let’s bring your vision to life.",
   },
   {
     question: "Do you work with clients in different time zones?",
-    answer: "Yes, we have experience collaborating with clients from around the world and can adjust our working hours accordingly.",
+    answer: "We have extensive experience collaborating with clients across the globe, including the USA, Europe, Australia, Singapore, Qatar, the UAE, and Indonesia. Our team is well-versed in managing projects across time zones, ensuring smooth communication and timely delivery. Over the past 6 years, we’ve worked with clients from diverse regions, perfecting a remote-first approach that adapts to various time zones and cultural contexts. Whether it’s scheduling meetings or coordinating project milestones, we prioritize efficient communication and seamless collaboration. This global experience has not only enhanced our understanding of international markets but also enabled us to deliver solutions tailored to our clients’ unique needs, wherever they are.",
   },
   {
     question: "Can you assist us in redesigning our B2B/enterprise software?",
-    answer: "Yes, we specialize in redesigning complex B2B and enterprise software to improve usability and overall user experience.",
+    answer: "We are one of the few agencies specializing in enterprise UX design and the digital transformation of legacy business software. With years of experience, we have refined our process to revitalize B2B platforms, delivering scalable and user-centric solutions. Using an ultra-collaborative process and a design thinking approach, we create consumer-grade experiences for business users. Our focus on scalability and longevity ensures continuity by equipping in-house teams with robust design systems, enabling seamless evolution and growth. We often operate as an independent unit within the organizational structure, bringing agility and fresh perspectives to navigate complex hierarchies efficiently. This approach allows us to deliver innovative solutions tailored to the needs of enterprise clients.",
   },
 ];
 

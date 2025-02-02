@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { motion, AnimatePresence } from "framer-motion";
 const services = [
     {
       title: "Content Marketing",
@@ -52,53 +52,62 @@ const Content = () => {
                 </div>
 
                 <div className="mt-2 grid text-white mb-8">
-      {services.map((service, index) => (
-        <div key={index} className="py-5">
-          <div open={openIndex === index} className="group">
-            <summary
-              className="flex cursor-pointer list-none items-center gap-2 font-medium"
-              onClick={() => handleToggle(index)}
+  {services.map((service, index) => (
+    <div key={index} className="py-5">
+      <div className="group">
+        <summary
+          className="flex cursor-pointer list-none items-center gap-2 font-medium"
+          onClick={() => handleToggle(index)}
+        >
+          <span className="text-[20px] font-medium">{service.title}</span>
+          <span
+            className={`transition-transform duration-300 ${
+              openIndex === index ? "rotate-180" : ""
+            }`}
+          >
+            <svg
+              fill="none"
+              height="24"
+              shapeRendering="geometricPrecision"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.5"
+              viewBox="0 0 24 24"
+              width="24"
             >
-              <span className="text-[20px] font-medium">{service.title}</span>
-              <span
-                className={`transition ${
-                  openIndex === index ? "rotate-180" : ""
-                }`}
-              >
-                <svg
-                  fill="none"
-                  height="24"
-                  shapeRendering="geometricPrecision"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <path d="M6 9l6 6 6-6"></path>
-                </svg>
-              </span>
-            </summary>
-            {openIndex === index && (
-              <div className="group-open:animate-fadeIn mt-3 text-white">
-                <p className="font-book">{service.description}</p>
-                <img
-                  src={service.img}
-                  alt={service.title}
-                  className="w-36 h-36 mt-2"
-                />
-                {service.button && (
-                  <button className="text-[#0F55E0] font-medium h-12 w-52 rounded-lg bg-white mt-4">
-                    Book a quick session
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      ))}
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </summary>
+
+        <AnimatePresence>
+          {openIndex === index && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="mt-3 text-white overflow-hidden"
+            >
+              <p className="font-book">{service.description}</p>
+              <img
+                src={service.img}
+                alt={service.title}
+                className="w-36 h-36 mt-2"
+              />
+              {service.button && (
+                <button className="text-[#0F55E0] font-medium h-12 w-52 rounded-lg bg-white mt-4">
+                  Book a quick session
+                </button>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
+  ))}
+</div>
             </div>
         </div>
     );

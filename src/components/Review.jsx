@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const avatars = [
@@ -10,6 +10,21 @@ const avatars = [
   "/images/icons/3.png",
   "/images/icons/5.png",
 ];
+
+const logos = [
+    "./images/icons/antix.svg",
+    "./images/icons/drberg.svg",
+    "./images/icons/disney.svg",
+    "./images/icons/forbes.svg",
+    "./images/icons/gorilla.svg",
+    "./images/icons/bigroup.svg",
+    "./images/icons/jusanbank.svg",
+    "./images/icons/weproject.svg",
+    "./images/icons/capital.svg",
+    "./images/icons/motiva.svg",
+    "./images/icons/astanahub.svg",
+    "./images/icons/team.svg",
+  ];
 
 const Review = () => {
     const [inView, setInView] = useState(false);
@@ -28,6 +43,17 @@ const Review = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setIndex((prev) => (prev + 1) % logos.length); // Переключаем логотипы
+      }, 2000); // Менять каждые 2 секунды
+  
+      return () => clearInterval(interval);
+    }, []);
+  
 
     return (
         <div id="reviews" className="font-ppneue flex flex-col w-[85%] mx-auto mt-8">
@@ -59,9 +85,20 @@ const Review = () => {
                 <p className="font-medium sm25:text-[38px] sm75:text-[32px]  sm20:text-[24px] text-[#090C21]">& 859 Completed</p>
             </div>
             <div className="flex flex-row items-center gap-4">
-                <button className="h-10 w-48 border border-[#090C21] rounded-md">
-                    <img src="./images/icons/antix.png" alt="antix" className="w-16 h-6 mx-auto"/>
-                </button>
+            <button className="h-10 w-48 border border-[#090C21] rounded-md overflow-hidden flex items-center justify-center relative">
+                <AnimatePresence mode="wait">
+                    <motion.img
+                    key={index}
+                    src={logos[index]}
+                    alt="logo"
+                    className="absolute"
+                    initial={{ y: "100%", opacity: 0 }}
+                    animate={{ y: "0%", opacity: 1 }}
+                    exit={{ y: "-100%", opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    />
+                </AnimatePresence>
+            </button>
                 <p className="font-medium sm25:text-[38px] sm75:text-[32px]  sm20:text-[24px] text-[#090C21]">Projects</p>
             </div>
         </div>
