@@ -130,7 +130,7 @@ const Projects = () => {
     : null;
 
     return (
-      <div className="font-ppneue flex flex-col items-center w-full mx-auto ">
+      <div className="font-ppneue flex flex-col items-center w-full mx-auto " id="recentProjects">
       {/* Заголовок */}
       <div className="flex flex-col text-center mt-12 items-center">
         <p className="sm25:text-[40px] sm75:text-[40px] font-medium sm20:text-[36px]">
@@ -162,11 +162,14 @@ const Projects = () => {
             <div className="relative">
               <ProjectItem avatars={item.avatars} />
               {item.profile.followers && (
-                <div className={`font-book absolute bottom-3 right-8 ${backgroundColor} pt-[4px] pb-[4px] pl-[4px] pr-[18px] rounded-full flex items-center text-sm w-[155px] h-8 ${
-    item.profile.stared ? "w-[135px] bg-opacity-60 font-medium" : ""}`}>
-                  {footerIcon && <img src={footerIcon} className="w-6 h-6 mr-2" alt="icon" />}
-                  {item.profile.followers}
-                </div>
+                <div className={`font-book absolute bottom-3 sm20:right-2 sm75:right-6 sm25:right-8 ${backgroundColor} 
+                pt-[4px] pb-[4px] pl-[4px] pr-[18px] rounded-full flex items-center text-sm w-[155px] h-8 
+                ${item.profile.stared ? "w-[150px] bg-opacity-60 font-bold justify-center text-center" : ""}`}>
+                
+                {footerIcon && <img src={footerIcon} className="w-6 h-6 mr-2" alt="icon" />}
+                
+                {item.profile.followers}
+            </div>
               )}
             </div>
             <div className={`mt-4 text-[#090C21] w-[95%] mx-auto ${index !== profiles.length - 1 ? "border-b border-[#090C21] border-opacity-10 pb-[34px]" : ""}`}>

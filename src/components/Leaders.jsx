@@ -78,7 +78,7 @@ const Leaders = () => {
                         alt="3D"
                         className="absolute -top-14 -right-10"
                         animate={{ x: [-10, 10, -10] }} // Двигаем влево и вправо
-                        transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+                        transition={{ duration: 30, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                         />
                     <div className="flex justify-end items-center gap-3 mt-auto">
                     <p className="text-right font-medium uppercase leading-tight text-[14px]">

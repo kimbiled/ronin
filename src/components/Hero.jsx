@@ -24,24 +24,6 @@ const logos = [
   ];
 
 const Hero = () => {
-
-    const [inView, setInView] = useState(false);
-    
-        useEffect(() => {
-            const handleScroll = () => {
-                const section = document.getElementById("reviews");
-                if (section) {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top < window.innerHeight * 0.75) {
-                        setInView(true);
-                    }
-                }
-            };
-    
-            window.addEventListener("scroll", handleScroll);
-            return () => window.removeEventListener("scroll", handleScroll);
-        }, []);
-
     return (
         <div className="font-ppneue flex flex-col w-[85%] mx-auto">
             <div className="flex flex-col items-center">
@@ -79,10 +61,26 @@ const Hero = () => {
                 </p>
             </div>
             <div className="flex gap-4 flex-row justify-around font-medium mt-9">
-                <button className=" bg-[#1261FC] text-white rounded-lg w-48 h-12">
+                <button className=" bg-[#1261FC] text-white rounded-lg w-48 h-12"
+                onClick={() => {
+                    const element = document.getElementById("recentProjects");
+                    if (element) {
+                      const offset = 100;
+                      const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+                      window.scrollTo({ top: elementPosition, behavior: "smooth" });
+                    }
+                  }}>
                     View Portfolio
                 </button>
-                <button className="bg-transparent border border-[#1261FC] text-[#1261FC] rounded-lg w-48 h-12">
+                <button className="bg-transparent border border-[#1261FC] text-[#1261FC] rounded-lg w-48 h-12"
+                onClick={() => {
+                    const element = document.getElementById("form-section");
+                    if (element) {
+                      const offset = 100;
+                      const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+                      window.scrollTo({ top: elementPosition, behavior: "smooth" });
+                    }
+                  }}>
                     Get a Proposal
                 </button>
             </div>

@@ -41,7 +41,7 @@ const Content = () => {
             background: "radial-gradient(271.63% 217.5% at 169.59% -28.68%, #22AFFF 0%, #1261FC 100%)"
           }}
         >
-            <div className="flex flex-col mx-auto gap-8 w-[85%]">
+            <div className="flex flex-col mx-auto gap-8 w-[90%]">
                 <div>
                     <img src="./images/icons/phone.png" alt="phone" className="w-full h-full mt-6"/>
                 </div>

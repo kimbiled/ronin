@@ -66,7 +66,7 @@ export default function Form() {
                         isCompleted
                           ? "./images/icons/done.png"
                           : isActive
-                          ? "./images/icons/active.png"
+                          ? "./images/icons/active.svg"
                           : "./images/icons/n-completed.png"
                       }
                       alt={`Step ${step}`}

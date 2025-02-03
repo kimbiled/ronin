@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
 const StickyBanner = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const formElement = document.getElementById("form-section");
+    const reviewsElement = document.getElementById("reviews");
     const handleScroll = () => {
-      if (formElement) {
-        const formTop = formElement.getBoundingClientRect().top;
-        setIsVisible(formTop > window.innerHeight);
+      if (reviewsElement) {
+        const reviewsTop = reviewsElement.getBoundingClientRect().top;
+        setIsVisible(reviewsTop < window.innerHeight * 0.75);
       }
     };
 
@@ -34,9 +34,8 @@ const StickyBanner = () => {
     <div
       className={`font-ppneue fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[85%] h-[85px] rounded-lg p-4 flex justify-between items-center transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`
-    }
-    style={{
+      }`}
+      style={{
         background: "radial-gradient(271.63% 217.5% at 169.59% -28.68%, #22AFFF 0%, #1261FC 100%)"
       }}
     >
