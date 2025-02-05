@@ -33,7 +33,7 @@ const Hero = () => {
                             key={index}
                             src={src}
                             alt={`Avatar${index + 1}`}
-                            className="-ml-2 w-16 h-16 object-cover"
+                            className="-ml-2 w-16 h-16"
                             animate={{
                                 y: [0, -10, 0], // Двигаем вверх и вниз плавно
                             }}
