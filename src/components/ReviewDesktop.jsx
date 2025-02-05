@@ -29,6 +29,21 @@ const logos = [
     "./images/icons/team.svg",
   ];
 
+  const logoSizes = {
+    "./images/icons/antix.svg": { width: "156px", height: "58px" },
+    "./images/icons/drberg.svg": { width: "150px", height: "58px" },
+    "./images/icons/disney.svg": { width: "150px", height: "58px" },
+    "./images/icons/forbes.svg": { width: "120px", height: "58px" },
+    "./images/icons/gorilla.svg": { width: "80px", height: "58px" },
+    "./images/icons/bigroup.svg": { width: "125px",height: "58px" },
+    "./images/icons/jusanbank.svg": { width: "150px",height: "58px" },
+    "./images/icons/weproject.svg": { width: "135px", height: "58px" },
+    "./images/icons/capital.svg": { width: "150px", height: "58px" },
+    "./images/icons/motiva.svg": { width: "120px", height: "58px" },
+    "./images/icons/astanahub.svg": { width: "150px", height: "58px" },
+    "./images/icons/team.svg": { width: "50px", height: "58px" },
+  };
+
 const ReviewDesktop = () => {
     const [inView, setInView] = useState(false);
     
@@ -85,19 +100,25 @@ const ReviewDesktop = () => {
                     & 859 Completed
                 </p>
                 <div className="flex flex-row items-center justify-center gap-6">
-                    <button className="h-[90px] w-[515px] border border-[#090C21] rounded-[18px] overflow-hidden flex items-center justify-center relative">
+                    <button className="h-[90px] w-[515px] border border-[#090C21] rounded-[18px] overflow-hidden flex items-center justify-center relative" onClick={() => window.location.href = "https://drive.google.com/file/d/1FizTso9ZKKUooa-Rl6n0Sz6khVYuJCa1/view?usp=sharing"}>
                         <AnimatePresence mode="wait">
-                            <motion.img
-                                key={index}
-                                src={logos[index]}
-                                alt="logo"
-                                className="absolute"
-                                initial={{ y: "100%", opacity: 0 }}
-                                animate={{ y: "0%", opacity: 1 }}
-                                exit={{ y: "-100%", opacity: 0 }}
-                                transition={{ duration: 0.6, ease: "easeInOut" }}
-                            />
-                        </AnimatePresence>
+        {logos[index] && (
+          <motion.img
+            key={logos[index]}
+            src={logos[index]}
+            alt="logo"
+            className="absolute"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            exit={{ y: "-100%", opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            style={{
+              width: logoSizes[logos[index]]?.width ,
+              height: logoSizes[logos[index]]?.height ,
+            }}
+          />
+        )}
+      </AnimatePresence>
                     </button>
                     <p className="font-medium text-[128px] text-[#090C21] leading-none">
                         Projects

@@ -15,9 +15,9 @@ export default function StepThree({ onNext, onPrev, onComplete }) {
   }, [onComplete]);
 
   return (
-    <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
+    <div className="font-ppneue flex flex-col w-full mx-auto gap-6">
       {/* Заголовок */}
-      <p className="ont-medium text-black">Project budget (USD)</p>
+      <p className="font-medium text-black">Project budget (USD)</p>
 
       {/* Выбор бюджета */}
       <div className="flex flex-wrap gap-4">

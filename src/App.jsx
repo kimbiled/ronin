@@ -9,6 +9,10 @@ import FirstNews from "./pages/FirstNews";
 import SecondNews from "./pages/SecondNews";
 import ThirdNews from "./pages/ThirdNews";
 import NotFound from "./pages/NotFound";
+import NotFoundDesktop from "./pages/NotFoundDesktop";
+import FirstNewsDesktop from "./pages/FirstNewsDesktop";
+import SecondNewsDesktop from "./pages/SecondNewsDesktop";
+import ThirdNewsDesktop from "./pages/ThirdNewsDesktop";
 
 function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 430);
@@ -29,7 +33,10 @@ function App() {
         <Route path="/news/inclusive-design" element={<FirstNews />} />
         <Route path="/news/ux-trends-2025" element={<SecondNews />} />
         <Route path="/news/design-system-need" element={<ThirdNews />} />
-        <Route path="/*" element={<NotFound />} />
+        <Route path="/news/desktop/inclusive-design" element={<FirstNewsDesktop />} />
+        <Route path="/news/desktop/ux-trends-2025" element={<SecondNewsDesktop />} />
+        <Route path="/news/desktop/design-system-need" element={<ThirdNewsDesktop />} />
+        <Route path="/*" element={isMobile ? <NotFound /> : <NotFoundDesktop />} />
       </Routes>
     </Router>
   );

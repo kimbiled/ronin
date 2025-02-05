@@ -6,14 +6,14 @@ export default function StepFour({ onPrev, onSubmit }) {
   return (
     <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
       {/* Заголовок */}
-      <p className="ont-medium text-black">Tell us more about your project</p>
+      <p className="font-medium text-black">Tell us more about your project</p>
 
       {/* Текстовое поле для описания */}
       <textarea
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         className="w-full p-3 border-b border-gray-300 focus:outline-none resize-none text-lg"
-        placeholder="Describe your project..."
+        placeholder="Something about your great idea"
         rows="1"
       />
 

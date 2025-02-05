@@ -3,13 +3,13 @@ import HeroDesktop from "../components/HeroDesktop";
 import ContentDesktop from "../components/ContentDesktop";
 import CompanyDesktop from "../components/CompanyDesktop";
 import ReviewDesktop from "../components/ReviewDesktop";
-import Projects from "../components/Projects";
+import ProjectsDesktop from "../components/ProjectsDesktop";
 import ProposalDesktop from "../components/ProposalDesktop";
 import LeadersDesktop from "../components/LeadersDesktop";
 import CommentsDesktop from "../components/CommentsDesktop";
-import Form from "../components/Form";
-import News from "../components/News";
-import Footer from "../components/Footer";
+import FormDesktop from "../components/FormDesktop";
+import NewsDesktop from "../components/NewsDesktop";
+import FooterDesktop from "../components/FooterDesktop";
 import StickyBanner from "../components/StickyBanner";
 
 import c1 from "../assets/icons/c1.svg";
@@ -174,9 +174,13 @@ const profiles = [
          <ContentDesktop />
          <CompanyDesktop />
          <ReviewDesktop />
+         <ProjectsDesktop />
          <ProposalDesktop />
          <LeadersDesktop />
          <CommentsDesktop />
+         <FormDesktop />
+         <NewsDesktop />
+         <FooterDesktop />
          {/*
          <Projects />
          

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import CallModal from "./CallModalDesktop";
 import ready from "../assets/desktop/ready.svg";
 import item1 from "../assets/desktop/i1.svg"
 import item2 from "../assets/desktop/i2.svg"
 import item3 from "../assets/desktop/i3.svg"
 import item4 from "../assets/desktop/i4.svg"
+import CallModalDesktop from "./CallModalDesktop";
 const services = [
   {
     title: "Content Marketing",
@@ -36,6 +37,7 @@ const services = [
 
 const ContentDesktop = () => {
   const [openIndex, setOpenIndex] = useState(1); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -126,7 +128,8 @@ const ContentDesktop = () => {
                     {service.description}
                   </p>
                   {service.button && (
-                <button className="text-[#FFFFFF] font-medium h-12 w-[232px] text-lg leading-[22px] rounded-lg bg-[#1261FC] mt-12">
+                <button className="text-[#FFFFFF] font-medium h-12 w-[232px] text-lg leading-[22px] rounded-lg bg-[#1261FC] mt-12"
+                onClick={() => setIsModalOpen(true)}>
                   Book a quick session
                 </button>
               )}
@@ -138,6 +141,7 @@ const ContentDesktop = () => {
       ))}
     </div>
       </div>
+      <CallModalDesktop isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };

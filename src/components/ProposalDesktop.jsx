@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import star from "../assets/desktop/star.svg"
 const ProposalDesktop = () => {
     const [isVisible, setIsVisible] = useState(false);
-
+    const [timer, setTimer] = useState(null);
     useEffect(() => {
         const handleClose = (event) => {
             if (!event.target || !(event.target instanceof Element)) return;
@@ -20,6 +20,18 @@ const ProposalDesktop = () => {
             document.removeEventListener("scroll", handleClose);
         };
     }, []);
+
+    const handleMouseEnter = () => {
+      if (timer) clearTimeout(timer); // Очищаем предыдущий таймер
+      setIsVisible(true);
+    };
+  
+    const handleMouseLeave = () => {
+      const newTimer = setTimeout(() => {
+        setIsVisible(false);
+      }, 100); // Добавляем задержку в 300 мс перед исчезновением
+      setTimer(newTimer);
+    };
 
     return (
         <div className="font-ppneue flex flex-col w-[85%] items-center mt-20">
@@ -84,8 +96,10 @@ const ProposalDesktop = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute top-10 right-4 w-[297px] h-[98px] p-4 rounded-lg bg-[#090C21] text-[#FFFFFF] shadow-lg popup-container text-center text-xs font-book flex flex-row items-center justify-center"
-            onClick={(e) => e.stopPropagation()} // Блокируем закрытие при клике внутри попапа
+            className="absolute top-10 w-[340px] right-[5px] h-40 pl-[48px] pr-[48px] pt-[24px] pb-[24px] rounded-lg bg-[#090C21] text-[#FFFFFF] shadow-lg popup-container text-center text-lg font-book flex flex-row items-center justify-center"
+            onClick={(e) => e.stopPropagation()} 
+            onMouseEnter={handleMouseEnter} // Если навелись обратно – не исчезает
+            onMouseLeave={handleMouseLeave} // Если убрали – начнет исчезать// Блокируем закрытие при клике внутри попапа
           >
             We are limited by the number of our talents. We don't chase quantity, but prefer engagement and commitment. Same as you
           </motion.div>
