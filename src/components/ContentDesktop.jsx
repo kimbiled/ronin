@@ -36,7 +36,7 @@ const services = [
 ];
 
 const ContentDesktop = () => {
-  const [openIndex, setOpenIndex] = useState(1); 
+  const [openIndex, setOpenIndex] = useState(); 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleToggle = (index) => {

@@ -14,6 +14,10 @@ export default function StepThree({ onNext, onPrev, onComplete }) {
     onComplete(true); // Разрешаем переход, так как выбор бюджета не обязателен
   }, [onComplete]);
 
+  const handleSelect = (label) => {
+    setSelectedBudget((prev) => (prev === label ? "" : label)); // Если уже выбрано — снимаем выделение
+  };
+
   return (
     <div className="font-ppneue flex flex-col w-full mx-auto gap-6">
       {/* Заголовок */}
@@ -24,11 +28,11 @@ export default function StepThree({ onNext, onPrev, onComplete }) {
         {budgets.map(({ label, width, height }) => (
           <button
             key={label}
-            onClick={() => setSelectedBudget(label)}
+            onClick={() => handleSelect(label)}
             className={`${width} ${height} border rounded-full text-sm font-book flex items-center justify-center transition-all ${
               selectedBudget === label
-                ? "border-black text-black"
-                : "border-gray-300 text-gray-700 hover:border-black"
+              ? "border-black text-black bg-white"  // Выбранный элемент
+              : "border-[#090C21] border-opacity-10 text-gray-700 hover:bg-gray-100" // Стандартный hover
             }`}
           >
             {label}

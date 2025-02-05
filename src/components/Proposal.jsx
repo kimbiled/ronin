@@ -152,7 +152,15 @@ const Proposal = () => {
             </div>
 
             <div className="bg-white hover:bg-gray-100 rounded-xl sm20:w-[260px] sm75:w-[300px] sm25:w-[340px] h-12 mx-auto mb-6 flex flex-col items-center justify-center">
-  <div className="flex flex-row items-center gap-2">
+  <div className="flex flex-row items-center gap-2" 
+  onClick={() => {
+    const element = document.getElementById("form-section");
+    if (element) {
+        const offset = 100;
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: elementPosition, behavior: "smooth" });
+    }
+}}>
     <p className="font-medium">Get Proposal</p>
     <img
       src="./images/icons/arrow-right.png"

@@ -56,7 +56,7 @@ export default function Form() {
                 <div key={step} className="flex items-center">
                   <motion.div
                     className={`flex items-center justify-center rounded-full ${
-                      isActive ? "sm25:w-11 sm25:h-11 sm75:w-10 sm75:h-10 sm20:w-8 sm20:h-8" : isCompleted ? "sm25:w-8 sm25:h-8 sm75:w-8 sm75:h-8 sm20:w-7 sm20:h-7" : "sm25:w-8 sm25:h-8 sm75:w-8 sm75:h-8 sm20:w-7 sm20:h-7"
+                      isActive ? "sm25:w-11 sm25:h-11 sm75:w-10 sm75:h-10 sm20:w-8 sm20:h-8 mx-1" : isCompleted ? "sm25:w-8 sm25:h-8 sm75:w-8 sm75:h-8 sm20:w-7 sm20:h-7" : "sm25:w-8 sm25:h-8 sm75:w-8 sm75:h-8 sm20:w-7 sm20:h-7"
                     }`}
                     animate={{ scale: isActive ? 1.2 : 1 }}
                     transition={{ type: "spring", stiffness: 300 }}

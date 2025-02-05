@@ -30,9 +30,9 @@ const profiles = [
       location: "./images/icons/usa.svg",
     },
     avatars: [
-      "/images/icons/i2.png",
-      "/images/icons/i2.png",
-      "/images/icons/i2.png",
+      "/images/icons/berg3.svg",
+      "/images/icons/berg1.svg",
+      "/images/icons/berg2.svg",
     ],
   },
   {
@@ -47,9 +47,9 @@ const profiles = [
       location: "./images/icons/uk.svg",
     },
     avatars: [
-      "/images/icons/i3.png",
-      "/images/icons/i3.png",
-      "/images/icons/i3.png",
+      "/images/icons/cat3.svg",
+      "/images/icons/cat1.svg",
+      "/images/icons/cat2.svg",
     ],
   },
   {
@@ -64,9 +64,12 @@ const profiles = [
       location: "./images/icons/australia.svg",
     },
     avatars: [
-      "/images/icons/i4.png",
-      "/images/icons/i4.png",
-      "/images/icons/i4.png",
+      "/images/icons/orb6.svg",
+      "/images/icons/orb1.svg",
+      "/images/icons/orb2.svg",
+      "/images/icons/orb3.svg",
+      "/images/icons/orb4.svg",
+      "/images/icons/orb5.svg",
     ],
   },
   {
@@ -81,9 +84,10 @@ const profiles = [
       location: "./images/icons/qatar.svg",
     },
     avatars: [
-      "/images/icons/i5.png",
-      "/images/icons/i5.png",
-      "/images/icons/i5.png",
+      "/images/icons/shar4.svg",
+      "/images/icons/shar1.svg",
+      "/images/icons/shar2.svg",
+      "/images/icons/shar3.svg",
     ],
   },
   {
@@ -98,9 +102,9 @@ const profiles = [
       location: "./images/icons/uk.svg",
     },
     avatars: [
-      "/images/icons/i6.png",
-      "/images/icons/i6.png",
-      "/images/icons/i6.png",
+      "/images/icons/glen3.svg",
+      "/images/icons/glen1.svg",
+      "/images/icons/glen2.svg",
     ],
   },
   {
@@ -115,9 +119,11 @@ const profiles = [
       location: "./images/icons/kz.svg",
     },
     avatars: [
-      "/images/icons/i7.png",
-      "/images/icons/i7.png",
-      "/images/icons/i7.png",
+      "/images/icons/kz5.svg",
+      "/images/icons/kz1.svg",
+      "/images/icons/kz2.svg",
+      "/images/icons/kz3.svg",
+      "/images/icons/kz4.svg",
     ],
   }
 ];
@@ -162,9 +168,9 @@ const Projects = () => {
             <div className="relative">
               <ProjectItem avatars={item.avatars} />
               {item.profile.followers && (
-                <div className={`font-book absolute bottom-3 sm20:right-2 sm75:right-6 sm25:right-8 ${backgroundColor} 
+                <div className={`font-book absolute sm20:bottom-8 sm75:bottom-7 sm25:bottom-5 sm20:right-2 sm75:right-6 sm25:right-10 ${backgroundColor} 
                 pt-[4px] pb-[4px] pl-[4px] pr-[18px] rounded-full flex items-center text-sm w-[155px] h-8 
-                ${item.profile.stared ? "w-[150px] bg-opacity-60 font-bold justify-center text-center" : ""}`}>
+                ${item.profile.stared ? "sm75:w-[140px] sm25:w-[140px] sm20:w-[140px] bg-opacity-60 font-medium justify-between text-center pl-[4px] pb-[4px] pt-[4px] pr-[18px]" : ""}`}>
                 
                 {footerIcon && <img src={footerIcon} className="w-6 h-6 mr-2" alt="icon" />}
                 
@@ -180,10 +186,10 @@ const Projects = () => {
               <p className="text-sm mt-1 font-book">{item.profile.role}</p>
               <div className="flex gap-2 text-xs text-[#637695] mt-1 font-book">
   {item.profile.tags.map((tag, i) => (
-    <div key={i} className="flex items-center">
+    <div key={i} className="flex items-center gap-2">
       <span>{tag}</span>
       {i !== item.profile.tags.length - 1 && (
-        <span className="mx-2 text-[#637695]">•</span> // Равный отступ по бокам
+        <span className="text-[#637695]">•</span> // Равный отступ по бокам
       )}
     </div>
   ))}

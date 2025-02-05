@@ -15,6 +15,10 @@ export default function StepTwo({ onNext, onPrev, onComplete }) {
     onComplete(true); // Позволяет переходить
   }, [onComplete]);
 
+  const handleSelect = (label) => {
+    setSelectedInterest((prev) => (prev === label ? "" : label)); // Если уже выбрано — снимаем выделение
+  };
+  
   return (
     <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
       {/* Заголовок */}
@@ -25,11 +29,12 @@ export default function StepTwo({ onNext, onPrev, onComplete }) {
         {interests.map(({ label, width, height }) => (
           <button
             key={label}
-            onClick={() => setSelectedInterest(label)}
+            onClick={() => handleSelect(label)}
+            
             className={`${width} ${height} border rounded-full text-sm font-book flex items-center justify-center transition-all ${
               selectedInterest === label
-                ? "border-black text-black"
-                : "border-[#090C21] border-opacity-10 text-gray-700 hover:border-black"
+              ? "border-black text-black bg-white"  // Выбранный элемент
+              : "border-[#090C21] border-opacity-10 text-gray-700 hover:bg-gray-100" // Стандартный hover
             }`}
           >
             {label}

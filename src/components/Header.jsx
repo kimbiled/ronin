@@ -173,7 +173,7 @@ const Header = () => {
       {/* Заголовок и кнопка меню */}
       {!isMenuOpen && (
         <motion.div
-        className="fixed top-0 left-0 w-full px-4 py-4 bg-white transition-all duration-300"
+        className="fixed top-0 left-0 w-full px-4 py-4 bg-white transition-all duration-300 z-10"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
