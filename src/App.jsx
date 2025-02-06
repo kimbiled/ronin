@@ -21,6 +21,16 @@ function App() {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
+  // 🔹 Глобально добавляем `loading="lazy"` для всех изображений
+  useEffect(() => {
+    const images = document.querySelectorAll("img");
+    images.forEach((img) => {
+      if (!img.hasAttribute("loading")) {
+        img.setAttribute("loading", "lazy");
+      }
+    });
+  }, []);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 430);
