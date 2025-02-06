@@ -1,16 +1,52 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
-const ProjectItem = ({ avatars, options }) => {
-  const [emblaRef] = useEmblaCarousel(options);
+const ProjectItem = ({ item }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const footerIcon = item.profile.stared
+    ? "./images/icons/stared.png"
+    : item.profile.verified
+    ? "./images/icons/Icon.png"
+    : null;
+
+  const backgroundColor = item.id === 2 ? "bg-[#F7F7F6] bg-opacity-80 text-black" : "bg-black bg-opacity-80 text-white";
+
+  // Функция обновления индекса активного слайда
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  // Подписываемся на изменение активного слайда
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    onSelect(); // Устанавливаем начальный индекс
+  }, [emblaApi, onSelect]);
 
   return (
     <section className="emblas">
-      <div className="emblas__viewport " ref={emblaRef}>
+      <div className="emblas__viewport" ref={emblaRef}>
         <div className="emblas__container">
-          {avatars.map((src, index) => (
+          {item.avatars.map((src, index) => (
             <div className="emblas__slide" key={index}>
-              <img src={src} alt={`Avatar ${index}`} className="emblas__slide__image" />
+              <div className="relative">
+                <img src={src} alt={`Avatar ${index}`} className="emblas__slide__image" />
+
+                {/* followers показывается только на активном слайде */}
+                {selectedIndex === index && item.profile.followers && (
+                  <div className={`font-book absolute bottom-4 right-2 ${backgroundColor} 
+                      pt-[4px] pb-[4px] pl-[4px] pr-[18px] rounded-[100px] flex items-center text-sm w-[155px] h-8 
+                      ${item.profile.stared ? "w-[135px] bg-opacity-60 font-medium justify-between text-center" : ""}`}>
+                    
+                    {footerIcon && <img src={footerIcon} className="w-6 h-6 mr-2" alt="icon" />}
+                    
+                    {item.profile.followers}
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>

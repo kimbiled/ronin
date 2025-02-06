@@ -46,7 +46,7 @@ const Proposal = () => {
       <img
         src="./images/icons/question.svg"
         alt="question"
-        className="w-6 h-6 absolute top-3 right-4 hover:opacity-80 cursor-pointer"
+        className="w-6 h-6 absolute top-[14px] right-[14px] opacity-50 cursor-pointer"
         onMouseEnter={() => setIsVisible(true)} // Открывает при ховере (для ПК)
         onClick={(e) => {
           e.stopPropagation(); // Блокируем закрытие при клике на саму иконку
@@ -163,9 +163,9 @@ const Proposal = () => {
 }}>
     <p className="font-medium">Get Proposal</p>
     <img
-      src="./images/icons/arrow-right.png"
+      src="./images/icons/arrow-right.svg"
       alt="arrow-right"
-      className="w-4 h-3 mt-1"
+      
     />
   </div>
 </div>

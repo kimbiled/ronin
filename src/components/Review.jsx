@@ -23,7 +23,6 @@ const logos = [
     "./images/icons/capital.svg",
     "./images/icons/motiva.svg",
     "./images/icons/astanahub.svg",
-    "./images/icons/team.svg",
   ];
 
 const Review = () => {

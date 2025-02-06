@@ -10,10 +10,11 @@ import CommentsDesktop from "../components/CommentsDesktop";
 import FormDesktop from "../components/FormDesktop";
 import NewsDesktop from "../components/NewsDesktop";
 import FooterDesktop from "../components/FooterDesktop";
-
+import CookieBanner from "../components/CookieBanner";
 const DesktopLayout = () => {
     return(
        <div className="flex flex-col items-center gap-8">
+         <CookieBanner/>
          <HeaderDesktop />
          <HeroDesktop />
          <ContentDesktop />

@@ -26,7 +26,6 @@ const logos = [
     "./images/icons/capital.svg",
     "./images/icons/motiva.svg",
     "./images/icons/astanahub.svg",
-    "./images/icons/team.svg",
   ];
 
   const logoSizes = {
@@ -41,7 +40,6 @@ const logos = [
     "./images/icons/capital.svg": { width: "150px", height: "58px" },
     "./images/icons/motiva.svg": { width: "120px", height: "58px" },
     "./images/icons/astanahub.svg": { width: "150px", height: "58px" },
-    "./images/icons/team.svg": { width: "50px", height: "58px" },
   };
 
 const ReviewDesktop = () => {

@@ -47,39 +47,39 @@ const SecondNewsDesktop = () => {
                 </div>
 
                 <div className="flex flex-row gap-12 mt-16">
-                    <div className="flex flex-col max-w-[370px] w-full">
-                        {sections.map((section) => (
-                            <button
-                            key={section.id}
-                            className="w-full flex items-center justify-start py-4 text-[22px] font-medium text-[#090C21] focus:outline-none border-b border-[#090C21] border-opacity-10"
-                            onClick={() => scrollToSection(section.id)}
-                            >
-                            <img src={arrow} alt="arrow" className="mr-2" />
-                            {section.title}
-                            </button>
-                        ))}
-                    </div>
-                    <div className="max-w-[985px] w-full flex flex-col gap-[68px]">
-                        <h4 className="text-[44px] font-medium mb-5">
+                <div className="flex flex-col max-w-[335px] w-full">
+    {sections.map((section) => (
+        <button
+            key={section.id}
+            className="w-full flex items-center text-left py-4 text-[22px] font-medium text-[#090C21] focus:outline-none border-b border-[#090C21] border-opacity-10"
+            onClick={() => scrollToSection(section.id)}
+        >
+            <img src={arrow} alt="arrow" className="mr-2 flex-shrink-0" />
+            <span className="flex-1">{section.title}</span>
+        </button>
+    ))}
+</div>
+                    <div className="max-w-[985px] w-full flex flex-col gap-[40px]">
+                        <h4 className="text-[44px] font-medium mb-5 leading-[44px]">
                             As we step into 2025, here are the key UX trends that will shape the industry in the coming year:
                         </h4>
                         <div className="text-[#090C21]" ref={(el) => (sectionRefs.current["ai-personalization"] = el)}>
                             <h2 className="text-[44px] font-medium">1. AI-Driven Personalization</h2>
-                            <p className="mt-6 text-[24px] leading-[38px] font-book">
+                            <p className="mt-4 text-[24px] leading-[38px] font-book">
                             Artificial intelligence continues to revolutionize how users interact with digital products. By analyzing user behavior and preferences, AI enables hyper-personalized experiences that feel intuitive and engaging. From dynamic content to tailored recommendations, personalization powered by AI will become a baseline expectation for users </p>
                         </div>
                         <div className="mt-6 text-[#090C21]" ref={(el) => (sectionRefs.current["ar-vr-experiences"] = el)}>
                             <h2 className="text-[44px] font-medium">2. Immersive Experiences with AR/VR</h2>
-                            <p className="mt-6 text-[24px] leading-[38px] font-book">
+                            <p className="mt-4 text-[24px] leading-[38px] font-book">
                             Augmented and virtual reality are no longer niche technologies. In 2025, they’ll take center stage in UX design, especially in gaming, e-commerce, and education. Designers will need to craft seamless, immersive interfaces that merge the digital and physical worlds
                             </p>
-                            <p className="mt-12 text-[24px] leading-[38px] font-book">
+                            <p className="mt-8 text-[24px] leading-[38px] font-book">
                                 As inclusivity becomes a priority, designing for accessibility will be non-negotiable. From color contrast to keyboard navigation, every aspect of UX will need to accommodate diverse user needs, ensuring no one is left behind
                             </p>
                         </div>
                         <div className="mt-6" ref={(el) => (sectionRefs.current["data-driven-design"] = el)}>
                             <h2 className="text-[44px] font-medium">3. Data-Driven Design Decisions</h2>
-                            <p className="mt-6 text-[24px] leading-[38px] font-book">
+                            <p className="mt-4 text-[24px] leading-[38px] font-book">
                             With advanced analytics tools, designers can now rely on data to inform their decisions. Metrics like heatmaps, user behavior tracking, and A/B testing will guide design iterations, making user experiences more intuitive and effective
                             </p>
                         </div>
@@ -87,32 +87,32 @@ const SecondNewsDesktop = () => {
                         {/* Sustainability in UX */}
                         <div className="mt-6" ref={(el) => (sectionRefs.current["sustainability-ux"] = el)}>
                             <h2 className="text-[44px] font-medium">4. Sustainability in UX</h2>
-                            <p className="mt-6 text-[24px] leading-[38px] font-book">
+                            <p className="mt-4 text-[24px] leading-[38px] font-book">
                             As sustainability becomes a global focus, digital products will follow suit. Designers will look for ways to reduce the energy consumption of websites and apps, prioritize eco-friendly hosting, and highlight sustainable practices through thoughtful design</p>
                         </div>
 
                         <div className="mt-6" ref={(el) => (sectionRefs.current["why-trends-matter"] = el)}>
                             <h2 className="text-[44px] font-medium">Why These Trends Matter</h2>
-                            <p className="mt-6 text-[24px] leading-[38px] font-book">
+                            <p className="mt-4 text-[24px] leading-[38px] font-book">
                             Embracing these trends means not only staying relevant but also meeting user expectations in an increasingly competitive digital landscape.
                             </p>
-                            <p className="mt-12 text-[24px] leading-[38px] font-book">
+                            <p className="mt-8 text-[24px] leading-[38px] font-book">
                             By focusing on personalization, inclusivity, and emerging technologies, UX designers can create products that stand out and truly connect with their audiences.
                             </p>
                         </div>
 
                         <div className="mt-10 text-[#090C21]" ref={(el) => (sectionRefs.current["why-it-matters"] = el)}>
                             <h2 className="text-[44px] font-medium">Why It Matters:</h2>
-                            <p className="mt-[18px] text-[24px] leading-[38px] font-book">
+                            <p className="mt-4 text-[24px] leading-[38px] font-book">
                             Studies show that inclusive websites not only improve user satisfaction but also boost SEO rankings. Search engines prioritize websites that are accessible, making inclusive design a win-win for both users and businesses.
                             </p>
-                            <p className="mt-12 text-[24px] leading-[38px] font-book">
+                            <p className="mt-8 text-[24px] leading-[38px] font-book">
                             Don’t let your design leave anyone behind. Learn practical steps to make your projects more inclusive—because great design is for everyone.
                             </p>
                         </div>
                         <div className="mt-6">
                             <h2 className="text-[44px] font-medium">Are you ready for 2025?</h2>
-                            <p className="mt-[18px] text-[24px] leading-[38px] font-book">
+                            <p className="mt-4 text-[24px] leading-[38px] font-book">
                             Whether you’re updating your product or building something new, keeping these trends in mind will ensure your UX stays innovative and user-centric. For more insights, follow our blog or get in touch with us directly</p>
                         </div>
                     </div>

@@ -84,7 +84,8 @@ const Leaders = () => {
                     <p className="text-right font-medium uppercase leading-tight text-[14px]">
                         Projects completed<br /> successfully
                     </p>
-                    <div className="h-12 w-12 bg-[#1261FC] rounded-lg flex justify-center items-center">
+                    <div className="h-12 w-12 bg-[#1261FC] rounded-lg flex justify-center items-center"
+                   onClick={() => window.location.href = "https://drive.google.com/file/d/1FizTso9ZKKUooa-Rl6n0Sz6khVYuJCa1/view?usp=sharing"}>
                         <img src={arrow} alt="arrow-45deg" />
                     </div>
                     </div>

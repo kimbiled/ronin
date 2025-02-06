@@ -59,12 +59,12 @@ const Content = () => {
             <h3 className="font-medium text-[40px]">
               Design That Drives Growth
             </h3>
-            <h5 className="font-book">
+            <h5 className="font-book max-w-[330px] w-full">
               With over <span className="font-medium">800 projects and 6 years of experience,</span> we deliver tailored solutions that help brands succeed
             </h5>
           </div>
 
-          <div className="mt-2 grid text-white mb-8">
+          <div className="grid text-white mb-8">
             {services.map((service, index) => (
               <div key={index} className="py-5">
                 <div className="group">
@@ -103,7 +103,7 @@ const Content = () => {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="mt-3 text-white overflow-hidden"
+                        className="mt-3 text-white overflow-hidden max-w-[345px] w-full"
                       >
                         <p className="font-book">{service.description}</p>
                         <img

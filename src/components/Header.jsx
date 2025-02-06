@@ -17,7 +17,7 @@ const Header = () => {
   const socialLinks = [
     { title: "Dribbble", href: "#" },
     { title: "Behance", href: "#" },
-    { title: "Instagram", href: "#" },
+    { title: "Instagram", href: "https://www.instagram.com/ronin.dsgn/" },
   ];
 
   const menuLinks = [
@@ -172,35 +172,56 @@ const Header = () => {
 
       {/* Заголовок и кнопка меню */}
       {!isMenuOpen && (
+      <motion.div
+      className="fixed top-0 left-0 w-full px-4 py-4 bg-white transition-all duration-300 z-10"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      style={{ zIndex: 1000 }}
+    >
+      <div className="flex items-center justify-center w-full relative">
+        {/* Логотип слева */}
         <motion.div
-        className="fixed top-0 left-0 w-full px-4 py-4 bg-white transition-all duration-300 z-10"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        style={{ zIndex: 1000 }}
-      >
-        <div className="flex justify-between items-center w-full">
-          <motion.div
-            className="text-2xl font-bold"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <a href="/">
+          className="absolute left-0"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <a href="/">
             <img src={logo} alt="logo" width={34} height={28} />
-            </a>
-          </motion.div>
-          <motion.button
-            className="text-2xl p-2 focus:outline-none"
-            onClick={toggleMenu}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut", delay: 0.2 }}
-          >
-            <img src={burger} alt="menu" className="h-10 w-10" />
-          </motion.button>
-        </div>
-      </motion.div>
+          </a>
+        </motion.div>
+
+        {/* Кнопка в центре */}
+        <motion.button
+          className="border-[1px] border-[#1261FC] text-[#1261FC] font-medium w-[138px] h-12 pt-[8px] pb-[8px] pl-[16px] pr-[16px] rounded-[8px] "
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut"}}
+          onClick={() => {
+            const element = document.getElementById("form-section");
+            if (element) {
+                const offset = 100;
+                const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: elementPosition, behavior: "smooth" });
+            }
+        }}
+        >
+          Let’s chat!
+        </motion.button>
+
+        {/* Бургер-меню справа */}
+        <motion.button
+          className="absolute right-0"
+          onClick={toggleMenu}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <img src={burger} alt="menu" className="h-10 w-10" />
+        </motion.button>
+      </div>
+    </motion.div>
       )}
     </div>
   );
