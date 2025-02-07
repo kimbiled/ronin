@@ -191,7 +191,7 @@ const Header = () => {
       {/* Заголовок и кнопка меню */}
       {!isMenuOpen && (
    <motion.div
-   className={`fixed top-0 left-0 w-full px-6 bg-white transition-all duration-200 z-50 ${isScrolled ? 'py-3 rounded-[48px]  border-[0.5px] border-gray-400 top-6 w-[84%] inset-x-0 mx-auto' : 'py-4'}`}
+   className={`fixed top-0 left-0 w-full px-6 bg-white transition-all duration-200 z-50 ${isScrolled ? 'py-3 rounded-[48px]  border-[0.5px] border-gray-400 top-6 w-[83%] inset-x-0 mx-auto' : 'py-4'}`}
    initial={{ opacity: 0, y: -20 }}
    animate={{ opacity: 1, y: 0 }}
    transition={{ duration: 0.2, ease: "easeOut" }}
