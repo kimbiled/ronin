@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
 
 import logo from '../assets/icons/logo.png';
 import logoBurger from '../assets/icons/LogoBurger.png';
@@ -30,14 +30,32 @@ const Header = () => {
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+      document.body.style.position = "fixed";
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+      document.body.style.position = "static";
     }
   
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+      document.body.style.position = "static";
     };
   }, [isMenuOpen]);
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   return (
     <div className="font-ppneue relative h-32 text-white flex flex-col items-center w-full">
@@ -172,56 +190,41 @@ const Header = () => {
 
       {/* Заголовок и кнопка меню */}
       {!isMenuOpen && (
-      <motion.div
-      className="fixed top-0 left-0 w-full px-4 py-4 bg-white transition-all duration-300 z-10"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      style={{ zIndex: 1000 }}
-    >
-      <div className="flex items-center justify-center w-full relative">
-        {/* Логотип слева */}
-        <motion.div
-          className="absolute left-0"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          <a href="/">
-            <img src={logo} alt="logo" width={34} height={28} />
-          </a>
-        </motion.div>
+   <motion.div
+   className={`fixed top-0 left-0 w-full px-6 bg-white transition-all duration-200 z-50 ${isScrolled ? 'py-3 rounded-[48px]  border-[0.5px] border-gray-400 top-6 w-[84%] inset-x-0 mx-auto' : 'py-4'}`}
+   initial={{ opacity: 0, y: -20 }}
+   animate={{ opacity: 1, y: 0 }}
+   transition={{ duration: 0.2, ease: "easeOut" }}
+ >
+   <div className="flex items-center justify-between w-full">
+     {/* Логотип и бургер-меню в одном блоке */}
+     <div className="flex items-center gap-[28px]">
+       <button onClick={toggleMenu}> 
+         <img src={burger} alt="Menu" className="h-10 w-10" />
+       </button>
+       <div>
+         <a href="/">
+           <img src={logo} alt="Logo" width={34} height={28} />
+         </a>
+       </div>
+     </div>
 
-        {/* Кнопка в центре */}
-        <motion.button
-          className="border-[1px] border-[#1261FC] text-[#1261FC] font-medium w-[138px] h-12 pt-[8px] pb-[8px] pl-[16px] pr-[16px] rounded-[8px] "
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut"}}
-          onClick={() => {
-            const element = document.getElementById("form-section");
-            if (element) {
-                const offset = 100;
-                const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top: elementPosition, behavior: "smooth" });
-            }
-        }}
-        >
-          Let’s chat!
-        </motion.button>
-
-        {/* Бургер-меню справа */}
-        <motion.button
-          className="absolute right-0"
-          onClick={toggleMenu}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          <img src={burger} alt="menu" className="h-10 w-10" />
-        </motion.button>
-      </div>
-    </motion.div>
+     {/* Кнопка в отдельном блоке */}
+     <button
+       className="border border-[#1261FC] text-[#1261FC] font-medium px-6 py-2 rounded-[48px]"
+       onClick={() => {
+         const element = document.getElementById("form-section");
+         if (element) {
+           const offset = 100;
+           const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+           window.scrollTo({ top: elementPosition, behavior: "smooth" });
+         }
+       }}
+     >
+       Let’s chat!
+     </button>
+   </div>
+ </motion.div>
       )}
     </div>
   );

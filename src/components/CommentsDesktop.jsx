@@ -2,41 +2,43 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import comment from '../assets/desktop/comment.svg'
 import c1 from '../assets/desktop/c1.svg'
+import c2 from '../assets/desktop/c2.svg'
 import c3 from '../assets/desktop/c3.svg'
 import c4 from '../assets/desktop/c4.svg'
 import c5 from '../assets/desktop/c5.svg'
 
 const testimonials = [
+
     {
       image: c1,
+      name: "Ethan Reynolds",
+      position: "Head of Marketing · PrimePath Systems",
+      text: "We had a tight deadline for a 3D project, and they delivered ahead of schedule. The quality of their work added a whole new level of professionalism to our presentation"
+    },
+    {
+      image: c2,
       name: "James Patel",
       position: "Digital Product Lead · Arcadia Insights",
       text: "They completely transformed our customer portal into an intuitive and beautiful platform. The team’s creativity and ability to deliver under tight deadlines were remarkable."
     },
     {
       image: c3,
-      name: "Sophia Lee",
-      position: "Head of UX · Nexus Solutions",
-      text: "The experience was seamless, and their ability to execute complex design projects was impressive. Our product now stands out in the market."
+      name: "Emily Novak",
+      position: "Project Manager · Lumio Group",
+      text: "TOur project required a mix of branding, UX design, and app development. They handled every aspect with precision, delivering a cohesive digital experience that’s now central to our business"
     },
     {
       image: c4,
-      name: "Michael Chen",
-      position: "CEO · Orion Technologies",
-      text: "Their innovative approach to UX/UI design has been a game-changer for our platform. We highly recommend them to any company looking for top-tier design."
+      name: "Hiroshi Tanaka",
+      position: "Lead Designer · Kaito Innovations",
+      text: "The team delivered a visually stunning and highly functional website for our brand. Their expertise in UX/UI design made navigation effortless, and our customers love the new look!"
     },
     {
       image: c5,
-      name: "Anna Roberts",
-      position: "Product Manager · Lunar AI",
-      text: "They not only delivered a beautiful product but also improved our conversion rates significantly. Truly a team of experts."
+      name: "Daniel Hughes",
+      position: "Marketing Director · Visionary Solutions",
+      text: "From concept to execution, they exceeded our expectations. Their innovative approach and attention to detail made our digital campaign a huge success, attracting more clients than we anticipated"
     },
-    {
-      image: c5,
-      name: "Anna Roberts",
-      position: "Product Manager · Lunar AI",
-      text: "They not only delivered a beautiful product but also improved our conversion rates significantly. Truly a team of experts."
-    }
   ];
 
 const Comments = () => {

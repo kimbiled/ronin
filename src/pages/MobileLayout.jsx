@@ -14,33 +14,49 @@ import StickyBanner from "../components/StickyBanner";
 import c1 from "../assets/icons/c1.svg";
 import c2 from "../assets/icons/c2.svg";
 import c3 from "../assets/icons/c3.svg";
-
+import c4 from "../assets/icons/c4.svg";
+import c5 from "../assets/icons/c5.svg";
 
 const MobileLayout = () => {
   const OPTIONS = { loop: true }
   const testimonials = [
     {
-      text: "They completely transformed our customer portal into an intuitive and beautiful platform. The team’s creativity and ability to deliver under tight deadlines were remarkable",
+      text: "We had a tight deadline for a 3D project, and they delivered ahead of schedule. The quality of their work added a whole new level of professionalism to our presentation",
+      name: "Ethan Reynolds",
+      job: "Head of Marketing",
+      company: "PrimePath Systems",
+      avatar: c1,
+    },
+    {
+      text: "They completely transformed our customer portal into an intuitive and beautiful platform. The team’s creativity and ability to deliver under tight deadlines were remarkable.",
       name: "James Patel",
       job: "Digital Product Lead",
-      company:"Arcadia Insights",
-      avatar: c1,
+      company: "Arcadia Insights",
+      avatar: c2,
     },
     {
       text: "Our project required a mix of branding, UX design, and app development. They handled every aspect with precision, delivering a cohesive digital experience that’s now central to our business",
       name: "Emily Novak",
       job: "Project Manager",
-      company:"Lumio Group",
-      avatar: c2,
+      company: "Lumio Group",
+      avatar: c3,
     },
     {
-      text: "We had a tight deadline for a 3D project, and they delivered ahead of schedule. The quality of their work added a whole new level of professionalism to our presentation",
-      name: "Ethan Reynolds",
-      job: "Head of Marketing",
-      company:"PrimePath Systems",
-      avatar: c3,
-    }
-  ];
+      text: "The team delivered a visually stunning and highly functional website for our brand. Their expertise in UX/UI design made navigation effortless, and our customers love the new look!",
+      name: "Hiroshi Tanaka",
+      job: "Lead Designer",
+      company: "Kaito Innovations",
+      avatar: c4,
+    },
+    {
+      text: "From concept to execution, they exceeded our expectations. Their innovative approach and attention to detail made our digital campaign a huge success, attracting more clients than we anticipated",
+      name: "Daniel Hughes",
+      job: "Marketing Director",
+      company: "Visionary Solutions",
+      avatar: c5,
+    },
+];
+
 
 const profiles = [
     {
@@ -174,7 +190,7 @@ const profiles = [
          <Proposal />
          <Leaders />
          <Comments slides={testimonials} options={OPTIONS} />
-         <StickyBanner />
+         {/* <StickyBanner /> */}
          <Form />
          <News />
          <Footer />
