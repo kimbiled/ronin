@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import star from "../assets/desktop/star.svg"
+import tick from "../assets/desktop/tick.png"
+import question from "../assets/desktop/question.svg"
 const ProposalDesktop = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [timer, setTimer] = useState(null);
@@ -34,7 +36,7 @@ const ProposalDesktop = () => {
     };
 
     return (
-        <div className="font-ppneue flex flex-col w-[85%] items-center mt-20">
+        <div id="what-we-do" className="font-ppneue flex flex-col w-[85%] items-center mt-20">
             <div className="mt-[100px] flex flex-row max-w-[1200px] w-full justify-between">
                 <div className="w-[833px] h-[633px] bg-[#1261FC] rounded-[24px] flex flex-col justify-between">
                     <div className="p-12 flex flex-col gap-6 mb-22">
@@ -78,7 +80,7 @@ const ProposalDesktop = () => {
                     <div className="inline-block popup-container">
       {/* Иконка вопроса */}
       <img
-        src="./images/icons/question.svg"
+        src={question}
         alt="question"
         className="w-6 h-6 absolute top-3 right-4 hover:opacity-80 cursor-pointer"
         onMouseEnter={() => setIsVisible(true)} // Открывает при ховере (для ПК)
@@ -129,23 +131,23 @@ const ProposalDesktop = () => {
                        </div>
                        <div className="flex flex-col gap-3 mt-3 font-book">
                             <div className="flex flex-row gap-3 rounded-2xl w-[268px] p-1 h-8 bg-[#FFFFFF] items-center">
-                                <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
+                                <img src={tick} alt="tick"  className="h-6 w-6"/>
                                 <p>2-3 business days delivery time</p>
                             </div>
                             <div className="flex flex-row gap-3 rounded-2xl  w-[176px] p-1 h-8 bg-[#FFFFFF] items-center">
-                                <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
+                                <img src={tick} alt="tick"  className="h-6 w-6"/>
                                 <p>Whole team input</p>
                             </div>
                             <div className="flex flex-row gap-3 rounded-2xl   w-[171px] p-1 h-8 bg-[#FFFFFF] items-center">
-                                <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
+                                <img src={tick} alt="tick"  className="h-6 w-6"/>
                                 <p>Unlimited brands</p>
                             </div>
                             <div className="flex flex-row gap-3 rounded-2xl p-1  w-[183px] h-8 bg-[#FFFFFF] items-center">
-                                <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
+                                <img src={tick} alt="tick"  className="h-6 w-6"/>
                                 <p>Unlimited revisions</p>
                             </div>
                             <div className="flex flex-row gap-3 rounded-2xl p-1  w-[208px] h-8 bg-[#FFFFFF] items-center">
-                                <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
+                                <img src={tick} alt="tick"  className="h-6 w-6"/>
                                 <p>Satisfaction guarantee</p>
                             </div>
 

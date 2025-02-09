@@ -8,12 +8,44 @@ const HeaderDesktop = () => {
         <img src={logo} alt="logo" />
       </a>
 
-      <nav className="hidden lg:flex gap-12 text-[#090C21] text-lg font-book">
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">What We Do</a>
-        <a href="#">Our Works</a>
-        <a href="#">Contact Us</a>
+      <nav className="hidden lg:flex gap-12 text-[#090C21] text-lg font-book cursor-pointer">
+        <a href="/" >Home</a>
+        <a 
+         onClick={() => {
+          const element = document.getElementById("about-us");
+          if (element) {
+            const offset = 100;
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: elementPosition, behavior: "smooth" });
+          }
+        }}>About Us</a>
+        <a 
+         onClick={() => {
+          const element = document.getElementById("what-we-do");
+          if (element) {
+            const offset = 100;
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: elementPosition, behavior: "smooth" });
+          }
+        }}>What We Do</a>
+        <a href="#"
+         onClick={() => {
+          const element = document.getElementById("recentProjects");
+          if (element) {
+            const offset = 100;
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: elementPosition, behavior: "smooth" });
+          }
+        }}>Our Works</a>
+        <a href="#"
+         onClick={() => {
+          const element = document.getElementById("form-section");
+          if (element) {
+            const offset = 100;
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: elementPosition, behavior: "smooth" });
+          }
+        }}>Contact Us</a>
       </nav>
 
       <a href="#contact" className="border border-[#090C21] flex items-center justify-center rounded-[12px] text-lg font-medium w-[140px] h-12">

@@ -4,21 +4,31 @@ import threeD from '../assets/desktop/3d.svg';
 import arrow from '../assets/icons/45deg.svg';
 import logoPhone from '../assets/icons/logoPhone.svg';
 import stars from '../assets/icons/Stars.png';
+import berg from "../assets/desktop/berg.png"
+import disney from "../assets/desktop/disney.png"
+import forbes from "../assets/desktop/forbes.png"
+import gorilla from "../assets/desktop/gorilla.png"
+import bigroup from "../assets/desktop/bigroup.png"
+import jusanbank from "../assets/desktop/jusanbank.png"
+import gold from "../assets/desktop/gold.png"
+import weproject from "../assets/desktop/weproject.png"
+import capital from "../assets/desktop/capital.png"
+import motiva from "../assets/desktop/motiva.png"
+import astanahub from "../assets/desktop/astanahub.png"
 
 const logos = [
-    { src: "./images/icons/berg.png", alt: "berg", height: "h-[47px]" },
-    { src: "./images/icons/disney.png", alt: "disney", height: "h-[38px]" },
-    { src: "./images/icons/forbes.png", alt: "forbes", height: "h-[25px]" },
-    { src: "./images/icons/gorilla.png", alt: "gorilla", height: "h-[63px]" },
-    { src: "./images/icons/bigroup.png", alt: "bigroup", height: "h-[40px]" },
-    { src: "./images/icons/jusanbank.png", alt: "jusanbank", height: "h-[38px]" },
-    { src: "./images/icons/gold.png", alt: "gold", height: "h-[56px]" },
-    { src: "./images/icons/weproject.png", alt: "weporject", height: "h-10" },
-    { src: "./images/icons/capital.png", alt: "capital", height: "h-[32px]" },
-    { src: "./images/icons/motiva.png", alt: "motiva", height: "h-10" },
-    { src: "./images/icons/astanahub.png", alt: "astanahub", height: "h-[42px]" },
-    { src: "./images/icons/team.png", alt: "team", height: "h-[52px]" },
-];
+    { src: berg, alt: "berg", height: "h-[47px]" },
+    { src: disney, alt: "disney", height: "h-[38px]" },
+    { src: forbes, alt: "forbes", height: "h-[25px]" },
+    { src: gorilla, alt: "gorilla", height: "h-[63px]" },
+    { src: bigroup, alt: "bigroup", height: "h-[40px]" },
+    { src: jusanbank, alt: "jusanbank", height: "h-[38px]" },
+    { src: gold, alt: "gold", height: "h-[56px]" },
+    { src: weproject, alt: "weporject", height: "h-10" },
+    { src: capital, alt: "capital", height: "h-[32px]" },
+    { src: motiva, alt: "motiva", height: "h-10" },
+    { src: astanahub, alt: "astanahub", height: "h-[42px]" },
+  ];
 
 const ContentDesktop = () => {
     const [counter, setCounter] = useState(829);
@@ -63,6 +73,10 @@ const ContentDesktop = () => {
       updateCounter();
     }, [isCounting]);
 
+    const handleClick = () => {
+        window.location.href = "https://drive.google.com/file/d/1FizTso9ZKKUooa-Rl6n0Sz6khVYuJCa1/view?usp=sharing"; // Вставь свою ссылку
+      };
+
     return (
         <div className="font-ppneue flex flex-col w-[85%] items-center mt-20">
             <div className="mt-[100px] flex flex-row max-w-[1200px] w-full justify-between">
@@ -80,7 +94,7 @@ const ContentDesktop = () => {
                             <p className="text-right font-medium uppercase leading-[22px] text-lg">
                                 Projects completed<br /> successfully
                             </p>
-                            <div className="h-12 w-12 bg-[#1261FC] rounded-lg flex justify-center items-center">
+                            <div className="h-12 w-12 bg-[#1261FC] rounded-lg flex justify-center items-center cursor-pointer" onClick={handleClick}>
                                 <img src={arrow} alt="arrow-45deg" />
                             </div>
                         </div>

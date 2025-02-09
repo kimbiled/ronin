@@ -1,16 +1,30 @@
+import berg from "../assets/desktop/berg.png"
+import disney from "../assets/desktop/disney.png"
+import forbes from "../assets/desktop/forbes.png"
+import gorilla from "../assets/desktop/gorilla.png"
+import bigroup from "../assets/desktop/bigroup.png"
+import jusanbank from "../assets/desktop/jusanbank.png"
+import gold from "../assets/desktop/gold.png"
+import weproject from "../assets/desktop/weproject.png"
+import capital from "../assets/desktop/capital.png"
+import motiva from "../assets/desktop/motiva.png"
+import astanahub from "../assets/desktop/astanahub.png"
+import team from "../assets/desktop/team.png"
+
+
 const logos = [
-    { src: "./images/icons/berg.png", alt: "berg", height: "h-[47px]" },
-    { src: "./images/icons/disney.png", alt: "disney", height: "h-[38px]" },
-    { src: "./images/icons/forbes.png", alt: "forbes", height: "h-[25px]" },
-    { src: "./images/icons/gorilla.png", alt: "gorilla", height: "h-[63px]" },
-    { src: "./images/icons/bigroup.png", alt: "bigroup", height: "h-[40px]" },
-    { src: "./images/icons/jusanbank.png", alt: "jusanbank", height: "h-[38px]" },
-    { src: "./images/icons/gold.png", alt: "gold", height: "h-[56px]" },
-    { src: "./images/icons/weproject.png", alt: "weproject", height: "h-10" },
-    { src: "./images/icons/capital.png", alt: "capital", height: "h-[32px]" },
-    { src: "./images/icons/motiva.png", alt: "motiva", height: "h-10" },
-    { src: "./images/icons/astanahub.png", alt: "astanahub", height: "h-[42px]" },
-    { src: "./images/icons/team.png", alt: "team", height: "h-[52px]" },
+    { src: berg, alt: "berg", height: "h-[47px]" },
+    { src: disney, alt: "disney", height: "h-[38px]" },
+    { src: forbes, alt: "forbes", height: "h-[25px]" },
+    { src: gorilla, alt: "gorilla", height: "h-[63px]" },
+    { src: bigroup, alt: "bigroup", height: "h-[40px]" },
+    { src: jusanbank, alt: "jusanbank", height: "h-[38px]" },
+    { src: gold, alt: "gold", height: "h-[56px]" },
+    { src: weproject, alt: "weporject", height: "h-10" },
+    { src: capital, alt: "capital", height: "h-[32px]" },
+    { src: motiva, alt: "motiva", height: "h-10" },
+    { src: astanahub, alt: "astanahub", height: "h-[42px]" },
+    { src: team, alt: "astanahub", height: "h-[53px]" },
   ];
 
 const ContentDesktop = () => {

@@ -5,8 +5,9 @@ import StepTwoDesktop from "./StepTwoDesktop";
 import StepThreeDesktop from "./StepThreeDesktop";
 import StepFourDesktop from "./StepFourDesktop";
 import StepFinalDesktop from "./StepFinalDesktop";
-
-
+import done from '../assets/desktop/done.png'
+import active from '../assets/desktop/active.svg'
+import ncompleted from '../assets/desktop/n-completed.png'
 const FormDesktop = () => {
     const steps = [1, 2, 3, 4];
     const [currentStep, setCurrentStep] = useState(1);
@@ -71,10 +72,10 @@ const FormDesktop = () => {
                                     <img
                                       src={
                                         isCompleted
-                                          ? "./images/icons/done.png"
+                                          ? done
                                           : isActive
-                                          ? "./images/icons/active.svg"
-                                          : "./images/icons/n-completed.png"
+                                          ? active
+                                          : ncompleted
                                       }
                                       alt={`Step ${step}`}
                                       className="w-full h-full"

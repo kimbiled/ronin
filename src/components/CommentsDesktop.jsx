@@ -25,7 +25,7 @@ const testimonials = [
       image: c3,
       name: "Emily Novak",
       position: "Project Manager · Lumio Group",
-      text: "TOur project required a mix of branding, UX design, and app development. They handled every aspect with precision, delivering a cohesive digital experience that’s now central to our business"
+      text: "Our project required a mix of branding, UX design, and app development. They handled every aspect with precision, delivering a cohesive digital experience that’s now central to our business"
     },
     {
       image: c4,
@@ -42,37 +42,47 @@ const testimonials = [
   ];
 
 const Comments = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isUserInteraction, setIsUserInteraction] = useState(false);
 
   useEffect(() => {
+    if (isUserInteraction) return; // Если пользователь выбрал вручную, не меняем автоматически
+
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }, 15000); // 15 секунд на каждого
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isUserInteraction, testimonials.length]);
+
+  const handleSelect = (index) => {
+    setCurrentIndex(index);
+    setIsUserInteraction(true); // Останавливаем авто-прокрутку после выбора
+    setTimeout(() => setIsUserInteraction(false), 30000); // Возобновляем через 30 сек
+  };
   return (
     <section className="font-ppneue w-full bg-[#EAF8FF] h-[720px] mt-[180px]">
          <div className="font-ppneue flex flex-col w-[85%] items-center mt-20 mx-auto">
-            <div className="mt-[55px] flex flex-col max-w-[1200px] w-full justify-between">
+            <div className="flex flex-col max-w-[1200px] w-full justify-between">
                 <div className='flex flex-row justify-between items-center w-full'>
                     <div className='font-medium text-[84px] leading-[92px]'>
                         <p className='text-[#090C21]'><span className='text-[#1261FC]'>Ronin</span> – a digital<br/>
                         agency that delivers</p>
                     </div>
                     <div>
-                        <img src={comment} alt="comment" />
+                        <img src={comment} alt="comment"className="w-[340px] h-auto ml-24" />
                     </div>
                 </div>
-                <div className="flex flex-row justify-between mt-12">
+                <div className="flex flex-row justify-between mt-12 items-start">
       {/* Аватарки */}
       <div className="flex gap-6 relative">
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={index}
-            className="relative flex items-center justify-center"
+            className="relative flex items-center justify-center cursor-pointer"
             animate={index === currentIndex ? { scale: 1.2 } : { scale: 1 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
+            onClick={() => handleSelect(index)} // Позволяет выбрать отзыв по клику
           >
             {index === currentIndex && (
               <svg
@@ -88,7 +98,7 @@ const Comments = () => {
                   stroke="#1261FC"
                   strokeWidth="4"
                   fill="none"
-                  strokeDasharray="301.6" // 2 * π * r
+                  strokeDasharray="301.6"
                   strokeDashoffset="301.6"
                   strokeLinecap="round"
                 >
@@ -105,14 +115,14 @@ const Comments = () => {
             <img
               src={testimonial.image}
               alt={testimonial.name}
-              className={`rounded-full object-cover border-2 border-transparent ${index === currentIndex ? "w-[100px] h-[100px]" : "w-[68px] h-[68px]"}`}
+              className={`${index === currentIndex ? "w-[100px] h-[100px]" : "w-[68px] h-[68px] brightness-120"}`}
             />
           </motion.div>
         ))}
       </div>
       
       {/* Текст */}
-      <div className="w-1/2">
+      <div className="w-1/2 font-ppneue">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -120,11 +130,17 @@ const Comments = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="w-[475px]"
+            className="w-[475px] font-ppneue"
           >
-            <p className="text-[24px] leading-[38px] font-book text-[#090C21] mb-12">{testimonials[currentIndex].text}</p>
-            <h3 className="text-[38px] leading-[44px] font-medium text-[#090C21]">{testimonials[currentIndex].name}</h3>
-            <p className="text-[24px] font-book text-[#090C21]">{testimonials[currentIndex].position}</p>
+            <p className="text-[24px] leading-[38px] font-book text-[#090C21] mb-12">
+              {testimonials[currentIndex].text}
+            </p>
+            <h3 className="text-[38px] leading-[44px] font-medium text-[#090C21]">
+              {testimonials[currentIndex].name}
+            </h3>
+            <p className="text-[24px] font-book text-[#090C21]">
+              {testimonials[currentIndex].position}
+            </p>
           </motion.div>
         </AnimatePresence>
       </div>

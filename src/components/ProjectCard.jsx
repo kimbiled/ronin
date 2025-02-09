@@ -1,8 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-export default function ProjectCard({ image, logo, title, description, description2, country, tags, highlight, isMain, verified, starred, badgeImage }) {
+export default function ProjectCard({ images, logo, title, description, description2, country, tags, highlight, isMain, verified, starred, badgeImage }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    let interval;
+    if (isHovered && images.length > 1) {
+      interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 2000); // Меняем картинку каждые 2 секунды
+    }
+    
+    return () => clearInterval(interval);
+  }, [isHovered, images.length]);
+
+  useEffect(() => {
+    if (!isHovered) {
+      setCurrentImageIndex(0); // Сбрасываем на первую картинку
+    }
+  }, [isHovered]);
+
   const getBadgeStyles = () => {
     if (verified && (title === "p1" || title === "p2")) {
       return "font-ppneue bg-[#F7F7F6] bg-opacity-[5%] text-white  border-[#FFFFFF] border-opacity-20 border-[0.5px] bg-backdrop-blur-[24px] rounded-[100px] pl-[4px] pb-[4px] pt-[4px] pr-[18px] font-book";
@@ -15,7 +33,7 @@ export default function ProjectCard({ image, logo, title, description, descripti
   };
   return (
     <div
-      className=" font-ppneue relative cursor-pointer rounded-lg overflow-hidden"
+      className="font-ppneue relative cursor-pointer rounded-lg overflow-hidden w-full h-auto" // h-auto позволяет контенту адаптироваться
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -24,17 +42,26 @@ export default function ProjectCard({ image, logo, title, description, descripti
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 0.5 : 0 }}
         transition={{ duration: 0.3 }}
-        className="absolute inset-0 bg-black rounded-[48px]"
+        className="absolute inset-0 bg-black rounded-[48px] z-10"
       />
 
-      {/* Основное изображение с затемнением */}
-      <motion.div
-        animate={{ filter: `brightness(${isHovered ? 50 : 100}%)` }}
-        transition={{ duration: 0.3 }}
-        className="relative z-10"
-      >
-        <img src={image} alt={title} />
-      </motion.div>
+      {/* Контейнер для изображений */}
+      <div className="relative w-full h-auto">
+        {images.map((image, index) => (
+          <motion.img
+            key={index}
+            src={image}
+            alt={title}
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            style={{ position: index === 0 ? "relative" : "absolute" }} // Первая картинка "relative", остальные "absolute"
+            animate={{
+              opacity: index === currentImageIndex ? 1 : 0,
+              filter: `brightness(${isHovered ? 70 : 100}%)`,
+            }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          />
+        ))}
+      </div>
 
       {/* Анимированные элементы при наведении */}
       <AnimatePresence>
@@ -60,7 +87,7 @@ export default function ProjectCard({ image, logo, title, description, descripti
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.4, delay: 0.3 }}
-                src={`/images/icons/${country}.svg`}
+                src={country}
                 alt="Country Flag"
                 className="absolute top-9 right-9 z-20 w-12 h-9"
               />

@@ -44,7 +44,7 @@ const ContentDesktop = () => {
   };
 
   return (
-    <div className="font-ppneue flex flex-col w-[85%] items-center mt-20">
+    <div id="about-us" className="font-ppneue flex flex-col w-[85%] items-center mt-20">
      
       <div>
         <img src={ready} alt="ready" />

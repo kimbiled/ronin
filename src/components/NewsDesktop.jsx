@@ -6,7 +6,7 @@ import FAQDesktop from './FaqDesktop';
 import n1 from "../assets/desktop/n1.svg";
 import n2 from "../assets/desktop/n2.svg";
 import n3 from "../assets/desktop/n3.svg";
-
+import orangearrow from '../assets/desktop/orangeArrow.png'
 
 const NewsDesktop = () => {
   const navigate = useNavigate();
@@ -92,7 +92,7 @@ const NewsDesktop = () => {
             >
               <p className="text-[#F9A826] font-book">Read More</p>
               <img
-                src="./images/icons/orangeArrow.png"
+                src={orangearrow}
                 alt="Arrow"
                 className="w-[14px] h-[10px]"
               />
