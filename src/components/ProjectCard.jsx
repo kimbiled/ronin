@@ -73,7 +73,7 @@ export default function ProjectCard({ images, logo, title, description, descript
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, delay: 0.3 }}
-              className="absolute top-9 left-9 flex flex-col text-white z-20"
+              className="absolute top-[38px] left-[38px] flex flex-col text-white z-20"
             >
               {logo && <img src={logo} alt="Logo" className="mb-[18px]" />}
               <p className="text-lg font-book">{description}</p>
@@ -89,7 +89,7 @@ export default function ProjectCard({ images, logo, title, description, descript
                 transition={{ duration: 0.4, delay: 0.3 }}
                 src={country}
                 alt="Country Flag"
-                className="absolute top-9 right-9 z-20 w-12 h-9"
+                className="absolute top-[38px] right-[38px] z-20 w-12 h-9"
               />
             )}
             
@@ -100,7 +100,7 @@ export default function ProjectCard({ images, logo, title, description, descript
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.4, delay: 0.3 }}
-                className={`absolute bottom-9 left-9 flex ${isMain ? 'flex-row items-center' : 'flex-col'} gap-2 text-white z-20`}
+                className={`absolute bottom-[38px] left-[38px] flex ${isMain ? 'flex-row items-center' : 'flex-col'} gap-2 text-white z-20`}
               >
                 {tags.map((tag, index) => (
                   <div key={index} className="flex items-center gap-2">
@@ -118,7 +118,7 @@ export default function ProjectCard({ images, logo, title, description, descript
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.4, delay: 0.3 }}
-                className={`absolute bottom-9 right-9 ${getBadgeStyles()} flex items-center z-20`}
+                className={`absolute bottom-[38px] right-[38px] ${getBadgeStyles()} flex items-center z-20`}
               >
                 {badgeImage && <img src={badgeImage} alt="Badge" className="w-8 h-8 mr-2" />}
                 <span className="text-[22px] leading-[28px]">{highlight}</span>

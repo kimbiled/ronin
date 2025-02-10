@@ -11,11 +11,11 @@ import News from "../components/News";
 import Footer from "../components/Footer";
 import StickyBanner from "../components/StickyBanner";
 
-import c1 from "../assets/icons/c1.svg";
-import c2 from "../assets/icons/c2.svg";
-import c3 from "../assets/icons/c3.svg";
-import c4 from "../assets/icons/c4.svg";
-import c5 from "../assets/icons/c5.svg";
+import c1 from "../assets/desktop/c1.svg";
+import c2 from "../assets/desktop/c2.svg";
+import c3 from "../assets/desktop/c3.svg";
+import c4 from "../assets/desktop/c4.svg";
+import c5 from "../assets/desktop/c5.svg";
 
 const MobileLayout = () => {
   const OPTIONS = { loop: true }

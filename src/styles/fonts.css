@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'PP Neue Montreal';
+    font-weight: 300;
+    src: url('../assets/fonts/ppneue/ppneuemontreal-thin.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'PP Neue Montreal';
+    font-weight: 400;
+    src: url('../assets/fonts/ppneue/ppneuemontreal-book.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'PP Neue Montreal';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../assets/fonts/ppneue/ppneuemontreal-italic.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'PP Neue Montreal';
+    font-weight: 500;
+    src: url('../assets/fonts/ppneue/ppneuemontreal-medium.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'PP Neue Montreal';
+    font-style: italic;
+    font-weight: 600;
+    src: url('../assets/fonts/ppneue/ppneuemontreal-semibolditalic.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'PP Neue Montreal';
+    font-weight: 700;
+    src: url('../assets/fonts/ppneue/ppneuemontreal-bold.woff') format('woff');
+  }
+  
+  /* Устанавливаем шрифт на весь сайт */
+  body {
+    font-family: 'PP Neue Montreal', sans-serif;
+  }

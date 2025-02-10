@@ -28,7 +28,7 @@ const Comments = (props) => {
                 <img
                   src={testimonial.avatar}
                   alt={testimonial.name}
-                  className="rounded-full mr-3"
+                  className="rounded-full mr-3 w-[68px] h-[68px]"
                 />
                 <div>
                   <p className="font-medium text-lg">{testimonial.name}</p>

@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+import arrowup from '../assets/mobile/arrow-up.png'
+import arrowdown from '../assets/mobile/arrow-down2.png'
 const faqData = [
   {
     question: "What are your core services as a UX and brand design studio?",
@@ -133,9 +136,9 @@ export default function FAQ() {
           >
             {item.question}
             {openIndex === index ? (
-              <img src="./images/icons/arrow-up.png" className="w-6 h-6" alt="arrowUp" />
+              <img src={arrowup} className="w-6 h-6" alt="arrowUp" />
             ) : (
-              <img src="./images/icons/arrow-down2.png" className="w-6 h-6" alt="arrowDown" />
+              <img src={arrowdown} className="w-6 h-6" alt="arrowDown" />
             )}
           </button>
           <AnimatePresence>

@@ -3,33 +3,41 @@ import { useState, useRef, useEffect } from "react";
 export default function StepOne({ onComplete, onNext }) {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [isFullNameValid, setIsFullNameValid] = useState(true);
   const [isEmailValid, setIsEmailValid] = useState(true);
-  const [isFullNameTouched, setIsFullNameTouched] = useState(false); // Флаг, нажимали ли кнопку
   const fullNameRef = useRef(null);
   const emailRef = useRef(null);
 
   useEffect(() => {
-    onComplete(fullName.trim() && email.trim());
-  }, [fullName, email, onComplete]);
+    onComplete(fullName.trim() && email.trim() && isEmailValid);
+  }, [fullName, email, isEmailValid, onComplete]);
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
   const handleNextStep = () => {
     let hasError = false;
-  
-    if (!email.trim()) {
-      setIsEmailValid(false);
-      emailRef.current.focus(); // Сразу фокусируемся на email, если пустой
-      hasError = true;
-    }
-  
+
     if (!fullName.trim()) {
-      setIsFullNameTouched(true);
-      if (!hasError) fullNameRef.current.focus(); // Фокус на fullName только если email заполнен
+      setIsFullNameValid(false);
+      fullNameRef.current.focus();
       hasError = true;
+    } else {
+      setIsFullNameValid(true);
     }
-  
-    if (hasError) return; // Останавливаем выполнение, если есть ошибки
-  
-    onNext(); // Переход к следующему шагу
+
+    if (!email.trim() || !validateEmail(email)) {
+      setIsEmailValid(false);
+      if (!hasError) emailRef.current.focus();
+      hasError = true;
+    } else {
+      setIsEmailValid(true);
+    }
+
+    if (hasError) return;
+
+    onNext();
   };
 
   return (
@@ -43,12 +51,14 @@ export default function StepOne({ onComplete, onNext }) {
           value={fullName}
           onChange={(e) => {
             setFullName(e.target.value);
+            setIsFullNameValid(true);
           }}
-          className={`mt-1 p-2 text-gray-900 bg-transparent border-b-[1px] ${
-            isFullNameTouched && !fullName.trim() ? "border-black" : "border-black border-opacity-10"
-          } outline-none`}
+          className={`mt-1 p-2 text-gray-900 bg-transparent border-b-[1px] outline-none ${
+            isFullNameValid ? "border-black border-opacity-10" : "border-red-600"
+          }`}
           placeholder="John Doe"
         />
+        {!isFullNameValid && <span className="text-red-600 text-sm mt-1">Full Name is required</span>}
       </div>
 
       {/* Email Input */}
@@ -58,7 +68,7 @@ export default function StepOne({ onComplete, onNext }) {
             Your Email*
           </label>
           <span className={`text-sm font-medium ${isEmailValid ? "text-[#9CA3AF] opacity-50" : "text-red-600"}`}>
-            *Required field
+            {isEmailValid ? "*Required field" : "Invalid email format"}
           </span>
         </div>
         <input
@@ -69,8 +79,8 @@ export default function StepOne({ onComplete, onNext }) {
             setEmail(e.target.value);
             setIsEmailValid(true);
           }}
-          className={`mt-1 p-2 text-gray-600 bg-transparent outline-none ${
-            isEmailValid ? "border-b border-gray-300" : "border-b border-red-600"
+          className={`mt-1 p-2 text-gray-900 bg-transparent outline-none ${
+            isEmailValid ? "border-b border-black border-opacity-10" : "border-b border-red-600"
           }`}
           placeholder="johndoe@example.com"
         />
@@ -79,8 +89,9 @@ export default function StepOne({ onComplete, onNext }) {
       {/* Next Step Button */}
       <button
         onClick={handleNextStep}
-        className={`font-medium mt-4 px-4 py-2 sm25:text-base sm75:text-base sm20:text-base rounded-lg mb-12 h-12 sm25:w-[345px] sm75:w-[305px] sm20:w-[260px] ${
-          fullName.trim() && email.trim()
+        disabled={!fullName.trim() || !email.trim() || !isEmailValid}
+        className={`font-medium mt-4 px-4 py-2 sm25:text-base sm75:text-base sm20:text-base rounded-lg mb-12 h-12 sm25:w-[345px] sm75:w-[305px] sm20:w-[260px] transition ${
+          fullName.trim() && email.trim() && isEmailValid
             ? "bg-[#1261FC] hover:bg-blue-600 text-white"
             : "bg-[#A3C4FD] text-white cursor-not-allowed"
         }`}

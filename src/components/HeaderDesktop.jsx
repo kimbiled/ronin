@@ -9,8 +9,9 @@ const HeaderDesktop = () => {
       </a>
 
       <nav className="hidden lg:flex gap-12 text-[#090C21] text-lg font-book cursor-pointer">
-        <a href="/" >Home</a>
+        <a href="/" className='hover:text-gray-500 ease' >Home</a>
         <a 
+        className='hover:text-gray-500 ease' 
          onClick={() => {
           const element = document.getElementById("about-us");
           if (element) {
@@ -20,6 +21,7 @@ const HeaderDesktop = () => {
           }
         }}>About Us</a>
         <a 
+        className='hover:text-gray-500 ease' 
          onClick={() => {
           const element = document.getElementById("what-we-do");
           if (element) {
@@ -29,6 +31,7 @@ const HeaderDesktop = () => {
           }
         }}>What We Do</a>
         <a href="#"
+        className='hover:text-gray-500 ease' 
          onClick={() => {
           const element = document.getElementById("recentProjects");
           if (element) {
@@ -38,6 +41,7 @@ const HeaderDesktop = () => {
           }
         }}>Our Works</a>
         <a href="#"
+        className='hover:text-gray-500 ease' 
          onClick={() => {
           const element = document.getElementById("form-section");
           if (element) {
@@ -48,7 +52,7 @@ const HeaderDesktop = () => {
         }}>Contact Us</a>
       </nav>
 
-      <a href="#contact" className="border border-[#090C21] flex items-center justify-center rounded-[12px] text-lg font-medium w-[140px] h-12">
+      <a href="#contact" className="border border-[#090C21] flex items-center justify-center rounded-[12px] text-lg font-medium w-[140px] h-12 hover:bg-gray-100">
         Let’s talk!
       </a>
     </div>

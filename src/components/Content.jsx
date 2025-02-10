@@ -2,30 +2,35 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CallModal from "./CallModal"; // Импортируем модальное окно
 
+import item1 from '../assets/mobile/item1.png'
+import item2 from '../assets/mobile/item2.png'
+import item3 from '../assets/mobile/item3.png'
+import item4 from '../assets/mobile/item4.png'
+import phone from '../assets/mobile/phone.png'
 const services = [
   {
     title: "Content Marketing",
     description:
       "Social posts, ad banners, content plans, video editing, and YouTube thumbnails — all tailored to grow your brand",
-    img: "./images/icons/item1.png",
+    img: item1,
   },
   {
     title: "Website Design",
     description:
       "Tailored websites that deliver results. From UI/UX to development, we create stunning, functional platforms that engage users and drive conversions",
-    img: "./images/icons/item2.png",
+    img: item2,
   },
   {
     title: "Branding",
     description:
       "Logotypes, brand guidelines, pitch decks, and corporate reports — we craft identities that make your business stand out",
-    img: "./images/icons/item3.png",
+    img: item3,
   },
   {
     title: "Custom Request",
     description:
       "Have a unique project in mind? Let's discuss it and create a tailored solution that meets your specific needs",
-    img: "./images/icons/item4.png",
+    img: item4,
     button: true,
   },
 ];
@@ -50,7 +55,7 @@ const Content = () => {
         <div className="flex flex-col mx-auto gap-8 w-[90%]">
           <div>
             <img
-              src="./images/icons/phone.png"
+              src={phone}
               alt="phone"
               className="w-full h-full mt-6"
             />

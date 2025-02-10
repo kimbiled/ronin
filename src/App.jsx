@@ -42,7 +42,7 @@ function App() {
 
   useEffect(() => {
     setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 1500); // Имитация загрузки при навигации
+    const timer = setTimeout(() => setLoading(false), 5300); // Имитация загрузки при навигации
 
     return () => clearTimeout(timer);
   }, [location.pathname]); // Срабатывает при изменении пути

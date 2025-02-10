@@ -45,18 +45,18 @@ const FirstNewsDesktop = () => {
                 </div>
 
                 <div className="flex flex-row gap-12 mt-16">
-                    <div className="flex flex-col max-w-[335px] w-full">
-                        {sections.map((section) => (
-                            <button
-                            key={section.id}
-                            className="w-full flex items-center justify-start py-4 text-[22px] font-medium text-[#090C21] focus:outline-none border-b border-[#090C21] border-opacity-10"
-                            onClick={() => scrollToSection(section.id)}
-                            >
-                            <img src={arrow} alt="arrow" className="mr-2" />
-                            {section.title}
-                            </button>
-                        ))}
-                    </div>
+                <div className="flex flex-col max-w-[335px] w-full sticky top-[100px] self-start h-full sticky">
+        {sections.map((section) => (
+            <button
+                key={section.id}
+                className="w-full flex items-center justify-start py-4 text-[22px] font-medium text-[#090C21] focus:outline-none border-b border-[#090C21] border-opacity-10"
+                onClick={() => scrollToSection(section.id)}
+            >
+                <img src={arrow} alt="arrow" className="mr-2" />
+                {section.title}
+            </button>
+        ))}
+    </div>
                     <div className="max-w-[985px] w-full flex flex-col gap-[68px]">
                         <div className="text-[#090C21]" ref={(el) => (sectionRefs.current["inclusive-design"] = el)}>
                             <h2 className="text-[44px] font-medium">What is Inclusive Design?</h2>

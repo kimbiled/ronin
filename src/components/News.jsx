@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import FAQ from "./Faq";
 import { useEffect } from "react";
-
-
+import b1 from '../assets/mobile/b1.png'
+import b2 from '../assets/mobile/b2.png'
+import b3 from '../assets/mobile/b3.png'
+import orange from '../assets/mobile/orangeArrow.png'
 const News = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -16,7 +18,7 @@ const News = () => {
       title: ["Inclusive Design", "Made Simple"],
       date: "Jan 1, 2025",
       readTime: "2 min read",
-      image: "./images/icons/b1.png",
+      image:b1,
     },
     {
       id: "ux-trends-2025",
@@ -24,7 +26,7 @@ const News = () => {
       title: ["The Future of UX:", "Emerging Trends to", "Watch in 2025"],
       date: "Jan 4, 2025",
       readTime: "2 min read",
-      image: "./images/icons/b2.png",
+      image: b2,
     },
     {
       id: "design-system-need",
@@ -32,7 +34,7 @@ const News = () => {
       title: ["Why You Need a", "Design System"],
       date: "Jan 22, 2025",
       readTime: "3 min read",
-      image: "./images/icons/b3.png",
+      image: b3,
     },
   ];
 
@@ -88,7 +90,7 @@ const News = () => {
                   }}
                 >
                   <p className="text-[#F9A826] text-sm font-book">Read More</p>
-                  <img src="./images/icons/orangeArrow.png" alt="Arrow" className="w-[14px] h-[10px]" />
+                  <img src={orange} alt="Arrow" className="w-[14px] h-[10px]" />
                 </div>
               </div>
             </div>

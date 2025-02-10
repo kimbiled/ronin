@@ -1,25 +1,40 @@
 import { motion } from "framer-motion";
 
+import berg from "../assets/mobile/berg.png"
+import disney from "../assets/mobile/disney.png"
+import forbes from "../assets/mobile/forbes.png"
+import gorilla from "../assets/mobile/gorilla.png"
+import bigroup from "../assets/mobile/bigroup.png"
+import jusanbank from "../assets/mobile/jusanbank.png"
+import gold from "../assets/mobile/gold.png"
+import weproject from "../assets/mobile/weproject.png"
+import capital from "../assets/mobile/capital.png"
+import motiva from "../assets/mobile/motiva.png"
+import astanahub from "../assets/mobile/astanahub.png"
+
+import first from '../assets/mobile/1.svg'
+import second from '../assets/mobile/2.svg'
+import third from '../assets/mobile/3.svg'
+import four from '../assets/mobile/4.svg'
+
+import hero from '../assets/mobile/footer.png'
+
 const logos = [
-    { src: "./images/icons/berg.png", alt: "berg", height: "h-[28px]" },
-    { src: "./images/icons/disney.png", alt: "disney", height: "h-[32px]" },
-    { src: "./images/icons/forbes.png", alt: "forbes", height: "h-[21px]" },
-    { src: "./images/icons/gorilla.png", alt: "gorilla", height: "h-[41px]" },
-    { src: "./images/icons/bigroup.png", alt: "bigroup", height: "h-[31px]" },
-    { src: "./images/icons/jusanbank.png", alt: "jusanbank", height: "h-[31px]" },
-    { src: "./images/icons/gold.png", alt: "gold", height: "h-[38px]" },
-    { src: "./images/icons/weproject.png", alt: "weproject", height: "h-9" },
-    { src: "./images/icons/capital.png", alt: "capital", height: "h-[20px]" },
-    { src: "./images/icons/motiva.png", alt: "motiva", height: "h-[38px]" },
-    { src: "./images/icons/astanahub.png", alt: "astanahub", height: "h-[27px]" },
-    { src: "./images/icons/team.png", alt: "team", height: "h-[40px]" },
+    { src: berg, alt: "berg", height: "h-[28px]" },
+    { src: disney, alt: "disney", height: "h-[32px]" },
+    { src: forbes, alt: "forbes", height: "h-[21px]" },
+    { src: gorilla, alt: "gorilla", height: "h-[41px]" },
+    { src: bigroup, alt: "bigroup", height: "h-[31px]" },
+    { src: jusanbank, alt: "jusanbank", height: "h-[31px]" },
+    { src: gold, alt: "gold", height: "h-[38px]" },
+    { src: weproject, alt: "weproject", height: "h-9" },
+    { src: capital, alt: "capital", height: "h-[20px]" },
+    { src: motiva, alt: "motiva", height: "h-[38px]" },
+    { src: astanahub, alt: "astanahub", height: "h-[27px]" },
 ];
 
 const avatars = [
-    "/images/icons/1.svg",
-    "/images/icons/3.svg",
-    "/images/icons/2.svg",
-    "/images/icons/4.svg",
+  first, second, third, four
 ];
 
 const Hero = () => {
@@ -49,7 +64,7 @@ const Hero = () => {
                 </div>
 
                 <div>
-                    <img src="./images/icons/footer.png" alt="wrapper" className="w-full h-full" />
+                    <img src={hero} alt="wrapper" className="w-full h-full" />
                 </div>
             </div>
 

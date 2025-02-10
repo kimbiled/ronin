@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import up from "../assets/desktop/arrow-up.png"
+import down from "../assets/desktop/arrow-down2.png"
 const faqData = [
   {
     question: "What are your core services as a UX and brand design studio?",
@@ -133,9 +135,9 @@ export default function FAQDesktop() {
       >
         {item.question}
         {openIndex === index ? (
-          <img src="./images/icons/arrow-up.png" className="w-8 h-7" alt="arrowUp" />
+          <img src={up} className="w-8 h-7" alt="arrowUp" />
         ) : (
-          <img src="./images/icons/arrow-down2.png" className="w-8 h-7" alt="arrowDown" />
+          <img src={down} className="w-8 h-7" alt="arrowDown" />
         )}
       </button>
       <AnimatePresence>

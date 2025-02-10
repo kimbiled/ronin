@@ -25,7 +25,7 @@ module.exports = {
         scroll: 'scroll 40s linear infinite', 
       },
       fontFamily: {
-        ppneue: ["PP Neue Montreal", "sans-serif"],
+        ppneue: ['PP Neue Montreal', 'sans-serif'],
       },
       fontWeight: {
         thin: "100",

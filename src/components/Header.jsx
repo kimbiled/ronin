@@ -191,14 +191,14 @@ const Header = () => {
       {/* Заголовок и кнопка меню */}
       {!isMenuOpen && (
    <motion.div
-   className={`fixed top-0 left-0 w-full px-6 bg-white transition-all duration-200 z-50 ${isScrolled ? 'py-3 rounded-[48px]  border-[0.5px] border-gray-400 top-6 w-[83%] inset-x-0 mx-auto' : 'py-4'}`}
+   className={`fixed top-0 left-0 w-full px-6 bg-white transition-all duration-200 z-50 ${isScrolled ? 'py-3 rounded-[48px]  border-[0.5px] border-gray-400 top-6 w-[84%] inset-x-0 mx-auto' : 'py-4'}`}
    initial={{ opacity: 0, y: -20 }}
    animate={{ opacity: 1, y: 0 }}
    transition={{ duration: 0.2, ease: "easeOut" }}
  >
    <div className="flex items-center justify-between w-full">
      {/* Логотип и бургер-меню в одном блоке */}
-     <div className="flex items-center gap-[28px]">
+     <div className="flex items-center gap-[14px]">
        <button onClick={toggleMenu}> 
          <img src={burger} alt="Menu" className="h-10 w-10" />
        </button>
@@ -211,7 +211,7 @@ const Header = () => {
 
      {/* Кнопка в отдельном блоке */}
      <button
-       className="border border-[#1261FC] text-[#1261FC] font-medium px-6 py-2 rounded-[48px]"
+       className="border border-[#1261FC] text-[#1261FC] font-medium px-6 py-2 rounded-[48px] sm20:h-12"
        onClick={() => {
          const element = document.getElementById("form-section");
          if (element) {

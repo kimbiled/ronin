@@ -2,27 +2,44 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import antix from "../assets/mobile/antix.svg"
+import disney from "../assets/mobile/disney.svg"
+import forbes from "../assets/mobile/forbes.svg"
+import gorilla from "../assets/mobile/gorilla.svg"
+import bigroup from "../assets/mobile/bigroup.svg"
+import jusanbank from "../assets/mobile/jusanbank.svg"
+import weproject from "../assets/mobile/weproject.svg"
+import capital from "../assets/mobile/capital.svg"
+import motiva from "../assets/mobile/motiva.svg"
+import astanahub from "../assets/mobile/astanahub.svg"
+
+import i1 from '../assets/mobile/1.png'
+import i2 from '../assets/mobile/2.png'
+import i3 from '../assets/mobile/3.png'
+import i4 from '../assets/mobile/4.png'
+import i5 from '../assets/mobile/5.png'
+
+import stars from '../assets/mobile/Stars.png'
 
 const avatars = [
-  "/images/icons/1.png",
-  "/images/icons/4.png",
-  "/images/icons/2.png",
-  "/images/icons/3.png",
-  "/images/icons/5.png",
+  i1,
+  i4,
+  i2,
+  i3,
+  i5,
 ];
 
 const logos = [
-    "./images/icons/antix.svg",
-    "./images/icons/drberg.svg",
-    "./images/icons/disney.svg",
-    "./images/icons/forbes.svg",
-    "./images/icons/gorilla.svg",
-    "./images/icons/bigroup.svg",
-    "./images/icons/jusanbank.svg",
-    "./images/icons/weproject.svg",
-    "./images/icons/capital.svg",
-    "./images/icons/motiva.svg",
-    "./images/icons/astanahub.svg",
+   antix,
+   disney,
+   forbes,
+   gorilla,
+   bigroup,
+   jusanbank,
+   weproject,
+   capital,
+   motiva,
+   astanahub,
   ];
 
 const Review = () => {
@@ -58,7 +75,7 @@ const Review = () => {
         <div id="reviews" className="font-ppneue flex flex-col w-[85%] mx-auto mt-8">
             <div className="flex flex-row items-center gap-4">
                 <p className="font-medium sm25:text-[38px] sm75:text-[32px] sm20:text-[24px] text-[#1261FC]">100+ 5 Star</p>
-                <img src="./images/icons/Stars.png" alt="stars" className="w-32 h-[18px]"/>
+                <img src={stars} alt="stars" className="w-32 h-[18px]"/>
             </div>
             <section id="reviews">
             <div className="flex flex-row items-center gap-4">

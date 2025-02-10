@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-
+import tick from '../assets/mobile/tick.png'
+import question from '../assets/mobile/question.svg'
+import arrowright from '../assets/mobile/arrow-right.svg'
+import magic from '../assets/mobile/magic.png'
+import star from '../assets/mobile/star.png'
 const Proposal = () => {
     const [isVisible, setIsVisible] = useState(false);
     useEffect(() => {
@@ -39,12 +42,12 @@ const Proposal = () => {
             <div className="flex flex-col items-center">
                 <div className="relative bg-white rounded-[18px] sm20:w-[260px] sm75:w-[300px] sm25:w-[340px] h-36 mt-10">
                     <div>
-                        <img src="./images/icons/star.png" alt="star"  className="w-12 h-12 absolute top-[-22px] left-5"/>
+                        <img src={star} alt="star"  className="w-12 h-12 absolute top-[-22px] left-5"/>
                     </div>
                     <div className="inline-block popup-container">
       {/* Иконка вопроса */}
       <img
-        src="./images/icons/question.svg"
+        src={question}
         alt="question"
         className="w-6 h-6 absolute top-[14px] right-[14px] opacity-50 cursor-pointer"
         onMouseEnter={() => setIsVisible(true)} // Открывает при ховере (для ПК)
@@ -93,23 +96,23 @@ const Proposal = () => {
                        </div>
                        <div className="flex flex-col gap-3 mt-3 font-book">
                             <div className="flex flex-row gap-2 rounded-2xl sm20:w-[208px] sm75:w-[238px] sm25:w-[238px] p-1 h-8 bg-[#F7F7F6] items-center">
-                                <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
+                                <img src={tick} alt="tick"  className="h-6 w-6"/>
                                 <p className="sm75:text-sm sm25:text-sm sm20:text-xs">2-3 business days delivery time</p>
                             </div>
                             <div className="flex flex-row gap-2 rounded-2xl sm20:w-[142px] sm75:w-[157px] sm25:w-[157px] p-1 h-8 bg-[#F7F7F6] items-center">
-                                <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
+                                <img src={tick} alt="tick"  className="h-6 w-6"/>
                                 <p className="sm75:text-sm sm25:text-sm sm20:text-xs">Whole team input</p>
                             </div>
                             <div className="flex flex-row gap-2 rounded-2xl sm20:w-[138px] sm75:w-[157px] sm25:w-[157px] p-1 h-8 bg-[#F7F7F6] items-center">
-                                <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
+                                <img src={tick} alt="tick"  className="h-6 w-6"/>
                                 <p className="sm75:text-sm sm25:text-sm sm20:text-xs">Unlimited brands</p>
                             </div>
                             <div className="flex flex-row gap-2 rounded-2xl sm20:w-[148px] sm75:w-[164px] sm25:w-[164px] p-1 h-8 bg-[#F7F7F6] items-center">
-                                <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
+                                <img src={tick} alt="tick"  className="h-6 w-6"/>
                                 <p className="sm75:text-sm sm25:text-sm sm20:text-xs">Unlimited revisions</p>
                             </div>
                             <div className="flex flex-row gap-2 rounded-2xl sm20:w-[166px] sm75:w-[186px] sm25:w-[186px] p-1 h-8 bg-[#F7F7F6] items-center">
-                                <img src="./images/icons/tick.png" alt="tick"  className="h-6 w-6"/>
+                                <img src={tick} alt="tick"  className="h-6 w-6"/>
                                 <p className="sm75:text-sm sm25:text-sm sm20:text-xs">Satisfaction guarantee</p>
                             </div>
 
@@ -122,7 +125,7 @@ const Proposal = () => {
                 <div className="flex flex-col gap-1 w-full ">
                     <div className=" flex flex-row justify-between items-center">
                         <h5 className="font-medium text-[25px]">No hiring fee</h5>
-                        <img src="./images/icons/magic.png" alt="magic" className="h-6 w-6 brightness-125" />
+                        <img src={magic} alt="magic" className="h-6 w-6 brightness-125" />
                     </div>
                     <div className="border-b-[1px] pb-6 border-b-[#FFFFFF2E]">
                         <p className="opacity-70 font-medium">We’re ready to get started right now,<br/>
@@ -132,7 +135,7 @@ const Proposal = () => {
                 <div className="flex flex-col gap-1 w-full mt-6">
                     <div className=" flex flex-row justify-between items-center">
                         <h5 className="font-medium text-[25px]">No interviews</h5>
-                        <img src="./images/icons/magic.png" alt="magic" className="h-6 w-6 brightness-125"/>
+                        <img src={magic} alt="magic" className="h-6 w-6 brightness-125"/>
                     </div>
                     <div className="border-b-[1px] pb-6 border-b-[#FFFFFF2E]">
                         <p className="opacity-70 font-medium">Forget the endless search for<br/>
@@ -142,7 +145,7 @@ const Proposal = () => {
                 <div className="flex flex-col gap-1 w-full mt-6">
                     <div className=" flex flex-row justify-between items-center">
                         <h5 className="font-medium text-[25px]">No extra hassle</h5>
-                        <img src="./images/icons/magic.png" alt="magic" className="h-6 w-6 brightness-125"/>
+                        <img src={magic} alt="magic" className="h-6 w-6 brightness-125"/>
                     </div>
                     <div>
                         <p className="opacity-70 font-medium">Get near in-house experience<br/>
@@ -163,7 +166,7 @@ const Proposal = () => {
 }}>
     <p className="font-medium">Get Proposal</p>
     <img
-      src="./images/icons/arrow-right.svg"
+      src={arrowright}
       alt="arrow-right"
       
     />

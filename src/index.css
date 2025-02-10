@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import '../src/styles/fonts.css';
+
 *{
   margin: 0;
   padding: 0;
@@ -80,11 +83,12 @@ details summary::-webkit-details-marker {
 .embla {
   width: 100%;
   margin: auto;
-  --slide-height: 276px; /* Высота блока */
+  --slide-height: 296px; /* Высота блока */
   --slide-spacing: 8px; /* Отступ между блоками */
   --slide-size: 345px; /* Ширина блока */
   overflow: hidden; 
   margin-bottom: 72px;
+  
 }
 
 .embla__viewport {
@@ -159,6 +163,7 @@ details summary::-webkit-details-marker {
 
 
 
+
 .emblas {
   overflow: hidden; 
   width: 100%;
@@ -167,6 +172,28 @@ details summary::-webkit-details-marker {
   --slide-height: 345px;
   --slide-spacing: 8px;
   --slide-size: 353px;
+}
+
+@media (max-width: 425px) and (min-width: 391px) { 
+  .emblas {
+    --slide-height: 330px;
+    --slide-size: 330px;
+    --slide-spacing: 6px;
+  }
+  .emblas__container {
+    margin-left: calc(var(--slide-spacing) * -10);
+  }
+}
+
+@media (max-width: 390px) and (min-width: 376px) { 
+  .emblas {
+    --slide-height: 310px;
+    --slide-size: 310px;
+    --slide-spacing: 5px;
+  }
+  .emblas__container {
+    margin-left: calc(var(--slide-spacing) * -12);
+  }
 }
 
 @media (max-width: 375px) and (min-width: 320px) {
@@ -183,11 +210,13 @@ details summary::-webkit-details-marker {
 .emblas__viewport {
   overflow: hidden;
 }
+
 .emblas__container {
   display: flex;
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * 0.5);
 }
+
 .emblas__slide {
   transform: translate3d(0, 0, 0);
   flex: 0 0 var(--slide-size); /* Фиксируем ширину */
@@ -195,6 +224,7 @@ details summary::-webkit-details-marker {
   padding-left: var(--slide-spacing);
   position: relative; /* Контейнер для фиксированного блока */
 }
+
 .emblas__slide__image {
   width: 100%;
   height: 345px;
@@ -202,6 +232,7 @@ details summary::-webkit-details-marker {
   max-height: 345px;
   box-sizing: border-box;
 }
+
 .followers-container {
   position: absolute;
   bottom: 10px;

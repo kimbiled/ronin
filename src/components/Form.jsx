@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { act, useState } from "react";
 import { motion } from "framer-motion";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 import StepFinal from "./StepFinal";
+
+import done from '../assets/mobile/done.png'
+import active from '../assets/mobile/active.svg'
+import ncompleted from '../assets/mobile/n-completed.png'
 
 const steps = [1, 2, 3, 4];
 
@@ -64,10 +68,10 @@ export default function Form() {
                     <img
                       src={
                         isCompleted
-                          ? "./images/icons/done.png"
+                          ? done
                           : isActive
-                          ? "./images/icons/active.svg"
-                          : "./images/icons/n-completed.png"
+                          ? active
+                          : ncompleted
                       }
                       alt={`Step ${step}`}
                       className="w-full h-full"

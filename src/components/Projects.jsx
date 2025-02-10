@@ -1,5 +1,40 @@
 import ProjectItem from "./ProjectItem";
 
+
+import i1 from '../assets/mobile/i1.png'
+import cat1 from "../assets/mobile/cat1.svg";
+import cat2 from "../assets/mobile/cat2.svg";
+import cat3 from "../assets/mobile/cat3.svg";
+import orb1 from "../assets/mobile/orb1.svg";
+import orb2 from "../assets/mobile/orb2.svg";
+import orb3 from "../assets/mobile/orb3.svg";
+import orb4 from "../assets/mobile/orb4.svg";
+import orb5 from "../assets/mobile/orb5.svg";
+import orb6 from "../assets/mobile/orb6.svg";
+import berg1 from "../assets/mobile/berg1.svg";
+import berg2 from "../assets/mobile/berg2.svg";
+import berg3 from "../assets/mobile/berg3.svg";
+import shar1 from "../assets/mobile/shar1.svg";
+import shar2 from "../assets/mobile/shar2.svg";
+import shar3 from "../assets/mobile/shar3.svg";
+import shar4 from "../assets/mobile/shar4.svg";
+import kz1 from "../assets/mobile/kz1.svg"
+import kz2 from "../assets/mobile/kz2.svg"
+import kz3 from "../assets/mobile/kz3.svg"
+import kz4 from "../assets/mobile/kz4.svg"
+import kz5 from "../assets/mobile/kz5.svg"
+import glen1 from "../assets/mobile/glen1.svg"
+import glen2 from "../assets/mobile/glen2.svg"
+import glen3 from "../assets/mobile/glen3.svg"
+
+import kz from "../assets/desktop/kz.svg"
+import usa from "../assets/desktop/usa.svg"
+import uk from "../assets/desktop/uk.svg"
+import australia from "../assets/desktop/australia.svg"
+import qatar from "../assets/desktop/qatar.svg"
+
+import tick from '../assets/mobile/Icon.png'
+import star from '../assets/mobile/stared.png'
 const profiles = [
     {
     id: 1,
@@ -10,12 +45,12 @@ const profiles = [
       followers: "$5.8M+ Raised",
       verified: true,
       stared:false,
-      location: "./images/icons/usa.svg",
+      location: usa,
     },
     avatars: [
-      "/images/icons/i1.png",
-      "/images/icons/i1.png",
-      "/images/icons/i1.png",
+     i1,
+     i1,
+     i1,
     ],
   },
   {
@@ -27,12 +62,10 @@ const profiles = [
       followers: "20M+ Followers",
       verified: true,
       stared: false,
-      location: "./images/icons/usa.svg",
+      location: usa,
     },
     avatars: [
-      "/images/icons/berg3.svg",
-      "/images/icons/berg1.svg",
-      "/images/icons/berg2.svg",
+      berg3, berg1, berg2
     ],
   },
   {
@@ -44,12 +77,12 @@ const profiles = [
       followers: "900.000+ Users",
       verified: true,
       stared: false,
-      location: "./images/icons/uk.svg",
+      location: uk,
     },
     avatars: [
-      "/images/icons/cat3.svg",
-      "/images/icons/cat1.svg",
-      "/images/icons/cat2.svg",
+      cat3,
+      cat1,
+      cat2,
     ],
   },
   {
@@ -61,15 +94,15 @@ const profiles = [
       followers: "100.000+ Users",
       verified: true,
       stared: false,
-      location: "./images/icons/australia.svg",
+      location: australia,
     },
     avatars: [
-      "/images/icons/orb6.svg",
-      "/images/icons/orb1.svg",
-      "/images/icons/orb2.svg",
-      "/images/icons/orb3.svg",
-      "/images/icons/orb4.svg",
-      "/images/icons/orb5.svg",
+      orb6,
+      orb1,
+      orb2,
+      orb3,
+      orb4,
+      orb5,
     ],
   },
   {
@@ -81,13 +114,13 @@ const profiles = [
       followers: false,
       verified: false,
       stared: false,
-      location: "./images/icons/qatar.svg",
+      location: qatar,
     },
     avatars: [
-      "/images/icons/shar4.svg",
-      "/images/icons/shar1.svg",
-      "/images/icons/shar2.svg",
-      "/images/icons/shar3.svg",
+      shar4,
+      shar1,
+      shar2,
+      shar3,
     ],
   },
   {
@@ -99,12 +132,12 @@ const profiles = [
       followers: "4.7 Trustpilot",
       verified: false,
       stared: true,
-      location: "./images/icons/uk.svg",
+      location: uk,
     },
     avatars: [
-      "/images/icons/glen3.svg",
-      "/images/icons/glen1.svg",
-      "/images/icons/glen2.svg",
+      glen3,
+      glen1,
+      glen2,
     ],
   },
   {
@@ -116,23 +149,23 @@ const profiles = [
       followers: false,
       verified: false,
       stared: false,
-      location: "./images/icons/kz.svg",
+      location: kz,
     },
     avatars: [
-      "/images/icons/kz5.svg",
-      "/images/icons/kz1.svg",
-      "/images/icons/kz2.svg",
-      "/images/icons/kz3.svg",
-      "/images/icons/kz4.svg",
+      kz5,
+      kz1,
+      kz2,
+      kz3,
+      kz4,
     ],
   }
 ];
 
 const Projects = () => {
     const footerIcon = profiles.verified
-    ? "./images/icons/Icon.png"
+    ? tick
     : profiles.stared
-    ? "./images/icons/stared.png"
+    ? star
     : null;
 
     return (
