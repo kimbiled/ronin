@@ -33,7 +33,7 @@ export default function Preloader({ onComplete }) {
                     ref={videoRef}
                     src={preloaderVideo}
                     autoPlay
-                    muted
+                    muted={true}
                     playsInline
                     className="w-screen h-screen object-cover"
                 />
