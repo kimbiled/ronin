@@ -169,7 +169,8 @@ const Projects = () => {
     : null;
 
     return (
-      <div className="font-ppneue flex flex-col items-center w-full mx-auto " id="recentProjects">
+      <div 
+      className="font-ppneue flex flex-col items-center w-full mx-auto " id="recentProjects">
       {/* Заголовок */}
       <div className="flex flex-col text-center mt-12 items-center">
         <p className="sm25:text-[40px] sm75:text-[40px] font-medium sm20:text-[36px]">

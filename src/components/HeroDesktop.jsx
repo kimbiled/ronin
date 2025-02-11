@@ -93,30 +93,34 @@ const HeroDesktop = () => {
                         <p>Pause or cancel any time</p>
                     </div>
                 </div>
-                <div className="flex gap-2 flex-row font-medium text-lg mt-9">
-                    <button className=" bg-[#1261FC] text-white rounded-lg w-[176px] h-12"
-                     onClick={() => {
-                        const element = document.getElementById("recentProjects");
-                        if (element) {
-                          const offset = 100;
-                          const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
-                          window.scrollTo({ top: elementPosition, behavior: "smooth" });
-                        }
-                      }}>
-                        View Portfolio
-                    </button>
-                    <button className="bg-transparent border border-[#1261FC] text-[#1261FC] rounded-lg w-[184px] h-12"
-                    onClick={() => {
-                        const element = document.getElementById("form-section");
-                        if (element) {
-                          const offset = 100;
-                          const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
-                          window.scrollTo({ top: elementPosition, behavior: "smooth" });
-                        }
-                      }}>
-                        Get a Proposal
-                    </button>
-                </div>
+                <div className="flex gap-2 flex-row justify-around font-medium mt-9">
+    <button
+        className="bg-[#1261FC] text-white rounded-lg w-48 h-12 transition-all duration-200 
+                   hover:bg-[#0F55E0] active:bg-[#0D4CC7] focus:border focus:border-[#64A3FF]"
+        onClick={() => {
+            const element = document.getElementById("recentProjects");
+            if (element) {
+                const offset = 100;
+                const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: elementPosition, behavior: "smooth" });
+            }
+        }}>
+        View Portfolio
+    </button>
+    <button
+        className="bg-transparent border border-[#1261FC] text-[#1261FC] rounded-lg w-48 h-12 transition-all duration-200 
+                   hover:bg-[#E6EEFF] active:bg-[#CCDFFF] active:border-[#0D4CC7] focus:border-[#64A3FF]"
+        onClick={() => {
+            const element = document.getElementById("form-section");
+            if (element) {
+                const offset = 100;
+                const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: elementPosition, behavior: "smooth" });
+            }
+        }}>
+        Get a Proposal
+    </button>
+</div>
                 <div>
                     <div className="flex flex-col gap-5 mt-9">
                         <h1 className="font-medium text-[34px] leading-[37px]">

@@ -25,7 +25,9 @@ const Proposal = () => {
       }, []);
 
     return (
-        <div className="font-ppneue flex flex-col w-[90%] mx-auto rounded-xl gap-8">
+        <div
+        id="what-we-do" 
+        className="font-ppneue flex flex-col w-[90%] mx-auto rounded-xl gap-8">
         {/* Заголовок */}
             <div className="flex flex-col text-center mt-12 items-center gap-2">
                 <p className="sm25:text-[40px] sm75:text-[40px] sm20:text-[36px] font-medium leading-[48px]"><span className="text-[#1261FC]">Strong team</span> of<br />

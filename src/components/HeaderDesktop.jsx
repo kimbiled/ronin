@@ -52,9 +52,10 @@ const HeaderDesktop = () => {
         }}>Contact Us</a>
       </nav>
 
-      <a href="#contact" className="border border-[#090C21] flex items-center justify-center rounded-[12px] text-lg font-medium w-[140px] h-12 hover:bg-gray-100">
-        Let’s talk!
-      </a>
+      <a href="#contact" className="border border-[#090C21] flex items-center justify-center rounded-[12px] text-lg font-medium w-[140px] h-12 transition-all duration-200 
+                   hover:bg-[#F2F6FE] active:bg-[#000000] active:text-[#FFFFFF] focus:border-dotted">
+    Let’s talk!
+</a>
     </div>
   );
 };

@@ -207,6 +207,17 @@ details summary::-webkit-details-marker {
   }
 }
 
+@media (max-width: 340px) and (min-width: 320px) {
+  .emblas {
+    --slide-height: 240px;
+    --slide-size: 260px;
+    --slide-spacing: 4px;
+  }
+  .emblas__container {
+    margin-left: calc(var(--slide-spacing) * -15);
+  }
+}
+
 .emblas__viewport {
   overflow: hidden;
 }
