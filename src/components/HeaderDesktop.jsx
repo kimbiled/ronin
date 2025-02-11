@@ -2,7 +2,7 @@ import logo from '../assets/desktop/LogoDesktop.svg';
 
 const HeaderDesktop = () => {
   return (
-    <div className="font-ppneue w-full p-8 bg-white flex justify-between items-center z-50">
+    <div className="font-ppneue w-full p-8 bg-black flex justify-between items-center z-50">
 
       <a href="/" className="flex items-center">
         <img src={logo} alt="logo" />
