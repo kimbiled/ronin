@@ -46,6 +46,7 @@ const Content = () => {
   return (
     <>
       <div
+      id="about-us"
         className="font-ppneue flex flex-col w-full rounded-3xl h-auto"
         style={{
           background:

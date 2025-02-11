@@ -128,7 +128,8 @@ const ContentDesktop = () => {
                     {service.description}
                   </p>
                   {service.button && (
-                <button className="text-[#FFFFFF] font-medium h-12 w-[232px] text-lg leading-[22px] rounded-lg bg-[#1261FC] mt-12"
+                <button className="text-[#FFFFFF] font-medium h-12 w-[232px] text-lg leading-[22px] rounded-lg bg-[#1261FC] mt-12 transition-all duration-200 
+                   hover:bg-[#0F55E0] active:bg-[#0D4CC7] focus:border focus:border-[#64A3FF]"
                 onClick={() => setIsModalOpen(true)}>
                   Book a quick session
                 </button>

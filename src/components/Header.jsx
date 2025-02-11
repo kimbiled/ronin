@@ -21,10 +21,10 @@ const Header = () => {
   ];
 
   const menuLinks = [
-    { title: "About Us", href: "#" },
-    { title: "What We Do", href: "#" },
-    { title: "Our Works", href: "#" },
-    { title: "Contact Us", href: "#" },
+    { title: "About Us", href: "#about-us" },
+    { title: "What We Do", href: "#what-we-do" },
+    { title: "Our Works", href: "#recentProjects" },
+    { title: "Contact Us", href: "#form-section" },
   ];
 
   useEffect(() => {
@@ -144,26 +144,43 @@ const Header = () => {
                     Menu
                   </motion.h2>
                   <ul className="space-y-6">
-                    {menuLinks.map((link, index) => (
-                      <motion.li
-                        key={link.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                          delay: 0.8 + index * 0.1,
-                          duration: 0.3,
-                          ease: "easeInOut",
-                        }}
-                      >
-                        <a
-                          href={link.href}
-                          className="text-[34px]  font-ppneue font-book leading-[44px]"
-                        >
-                          {link.title}
-                        </a>
-                      </motion.li>
-                    ))}
-                  </ul>
+  {menuLinks.map((link, index) => (
+    <motion.li
+      key={link.title}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.8 + index * 0.1,
+        duration: 0.3,
+        ease: "easeInOut",
+      }}
+    >
+      <a
+        href={link.href}
+        className="text-[34px] font-ppneue font-book leading-[44px]"
+        onClick={(e) => {
+          e.preventDefault(); // Останавливаем стандартный переход
+          setIsMenuOpen(false); // Закрываем меню
+
+          // Убираем символ `#`, получаем чистый ID
+          const targetId = link.href.replace("#", "");
+
+          // Добавляем небольшой таймаут, чтобы React успел обновить DOM
+          setTimeout(() => {
+            const element = document.getElementById(targetId);
+            if (element) {
+              const offset = 100; // Если у тебя фиксированный хедер, отступ
+              const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top: elementPosition, behavior: "smooth" });
+            }
+          }, 100); // 100 мс задержка
+        }}
+      >
+        {link.title}
+      </a>
+    </motion.li>
+  ))}
+</ul>
                 </div>
               </div>
 
@@ -191,7 +208,7 @@ const Header = () => {
       {/* Заголовок и кнопка меню */}
       {!isMenuOpen && (
    <motion.div
-   className={`fixed top-0 left-0 w-full px-6 bg-white transition-all duration-200 z-50 ${isScrolled ? 'py-3 rounded-[48px]  border-[0.5px] border-gray-400 top-6 w-[84%] inset-x-0 mx-auto' : 'py-4'}`}
+   className={`fixed top-0 left-0 w-full px-6 bg-white transition-all duration-200 z-50 ${isScrolled ? 'py-3 rounded-[48px]  border-[0.5px] border-gray-400 top-6 w-[83%] inset-x-0 mx-auto' : 'py-4'}`}
    initial={{ opacity: 0, y: -20 }}
    animate={{ opacity: 1, y: 0 }}
    transition={{ duration: 0.2, ease: "easeOut" }}
