@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.f6f81e03.css",
+    "main.css": "/static/css/main.3eb6565b.css",
     "main.js": "/static/js/main.4315f0bf.js",
     "static/media/n1.svg": "/static/media/n1.e3c5934db2efc30ceb971116ad70f86e.svg",
     "static/media/n3.svg": "/static/media/n3.5f31d46ec9ff7b825ecc90c94f05e700.svg",
@@ -107,14 +107,10 @@
     "static/media/jusanbank.svg": "/static/media/jusanbank.3bbf331ad013a293a1035a6b8c0a2dec.svg",
     "static/media/forbes.svg": "/static/media/forbes.bbf0e159a47f3226c6a5767acdf4cf30.svg",
     "static/media/Hero.svg": "/static/media/Hero.2508902f17fb6b8fc065c2644c7a5b6b.svg",
-    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/gorilla.svg": "/static/media/gorilla.6b2598b5bbb88051429f099ffa05438e.svg",
     "static/media/australia.svg": "/static/media/australia.fbd96f6f350869e3105e6e16afa27201.svg",
     "static/media/LogoDesktop.svg": "/static/media/LogoDesktop.56f001590bae454900a41a7bbfe9d31b.svg",
-    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/p11.svg": "/static/media/p11.69c6c336e1f9bc2493cfe15ca5dfa9bd.svg",
-    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "static/media/antix.svg": "/static/media/antix.78b2de66f684263fcdce0bc57c391bcb.svg",
     "index.html": "/index.html",
     "static/media/p77.svg": "/static/media/p77.ef17bd843028b445ef7b5af5080a688d.svg",
@@ -133,7 +129,7 @@
     "static/media/arrow-right.svg": "/static/media/arrow-right.5fb2f953363e18265c6af2c25a214c8d.svg"
   },
   "entrypoints": [
-    "static/css/main.f6f81e03.css",
+    "static/css/main.3eb6565b.css",
     "static/js/main.4315f0bf.js"
   ]
 }
