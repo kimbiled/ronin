@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import {useState, useEffect} from 'react';
 import hero from '../assets/desktop/Hero.svg'
 import tick from '../assets/desktop/Icon.png'
 import berg from "../assets/desktop/berg.png"
@@ -32,7 +31,7 @@ const logos = [
     { src: motiva, alt: "motiva", height: "h-10" },
     { src: astanahub, alt: "astanahub", height: "h-[42px]" },
   ];
-  
+
   const floatingAnimation = {
     y: [0, -5, 5, 0], // Двигаемся вверх-вниз
     x: [0, 3, -3, 0], // Немного смещаем в стороны

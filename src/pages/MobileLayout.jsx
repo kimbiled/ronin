@@ -9,7 +9,6 @@ import Comments from "../components/Comments";
 import Form from "../components/Form";
 import News from "../components/News";
 import Footer from "../components/Footer";
-import StickyBanner from "../components/StickyBanner";
 
 import c1 from "../assets/desktop/c1.svg";
 import c2 from "../assets/desktop/c2.svg";
@@ -55,129 +54,6 @@ const MobileLayout = () => {
       company: "Visionary Solutions",
       avatar: c5,
     },
-];
-
-
-const profiles = [
-    {
-    id: 1,
-    profile: {
-      name: "Antix",
-      role: "Website design and development",
-      tags: ["Web design", "Development", "WEB 3"],
-      followers: "$5.8M+ Raised",
-      verified: true,
-      stared:false,
-      location: "./images/icons/usa.svg",
-    },
-    avatars: [
-      "/images/icons/i1.png",
-      "/images/icons/i1.png",
-      "/images/icons/i1.png",
-    ],
-  },
-  {
-    id: 2,
-    profile: {
-      name: "Dr Berg",
-      role: "Social media content",
-      tags: ["SMM", "Graphic design", "Content creation"],
-      followers: "20M+ Followers",
-      verified: true,
-      stared: false,
-      location: "./images/icons/usa.svg",
-    },
-    avatars: [
-      "/images/icons/i2.png",
-      "/images/icons/i2.png",
-      "/images/icons/i2.png",
-    ],
-  },
-  {
-    id: 3,
-    profile: {
-      name: "HashCats",
-      role: "UX/UI Design",
-      tags: ["Prototyping", "Design System", "Mobile Design"],
-      followers: "900.000+ Users",
-      verified: true,
-      stared: false,
-      location: "./images/icons/uk.svg",
-    },
-    avatars: [
-      "/images/icons/i3.png",
-      "/images/icons/i3.png",
-      "/images/icons/i3.png",
-    ],
-  },
-  {
-    id: 4,
-    profile: {
-      name: "Orbital7",
-      role: "Website development",
-      tags: ["Frontend Development", "Custom Web Solutions", "Web3"],
-      followers: "100.000+ Users",
-      verified: true,
-      stared: false,
-      location: "./images/icons/australia.svg",
-    },
-    avatars: [
-      "/images/icons/i4.png",
-      "/images/icons/i4.png",
-      "/images/icons/i4.png",
-    ],
-  },
-  {
-    id: 5,
-    profile: {
-      name: "Sharique",
-      role: "Branding",
-      tags: ["Brand Strategy", "Visual Identity", "Fintech"],
-      followers: false,
-      verified: false,
-      stared: false,
-      location: "./images/icons/qatar.svg",
-    },
-    avatars: [
-      "/images/icons/i5.png",
-      "/images/icons/i5.png",
-      "/images/icons/i5.png",
-    ],
-  },
-  {
-    id: 6,
-    profile: {
-      name: "Glenbotal",
-      role: "Website development",
-      tags: ["Full-Stack Development", "UI/UX", "E-commerce"],
-      followers: "4.7 Trustpilot",
-      verified: false,
-      stared: true,
-      location: "./images/icons/uk.svg",
-    },
-    avatars: [
-      "/images/icons/i6.png",
-      "/images/icons/i6.png",
-      "/images/icons/i6.png",
-    ],
-  },
-  {
-    id: 7,
-    profile: {
-      name: "Language learning app",
-      role: "Branding",
-      tags: ["Brand Positioning", "Visual Identity", "Edutech"],
-      followers: false,
-      verified: false,
-      stared: false,
-      location: "./images/icons/kz.svg",
-    },
-    avatars: [
-      "/images/icons/i7.png",
-      "/images/icons/i7.png",
-      "/images/icons/i7.png",
-    ],
-  }
 ];
 
     return(

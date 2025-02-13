@@ -98,7 +98,7 @@ const ProposalDesktop = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute top-10 w-[340px] right-[5px] h-40 pl-[48px] pr-[48px] pt-[24px] pb-[24px] rounded-lg bg-[#090C21] text-[#FFFFFF] shadow-lg popup-container text-center text-lg font-book flex flex-row items-center justify-center"
+            className="absolute top-10 w-[340px] right-[5px] h-40 pl-[48px] pr-[48px] pt-[24px] pb-[24px] rounded-[18px] bg-[#090C21] text-[#FFFFFF] shadow-lg popup-container text-center text-lg font-book flex flex-row items-center justify-center"
             onClick={(e) => e.stopPropagation()} 
             onMouseEnter={handleMouseEnter} // Если навелись обратно – не исчезает
             onMouseLeave={handleMouseLeave} // Если убрали – начнет исчезать// Блокируем закрытие при клике внутри попапа

@@ -1,4 +1,4 @@
-import { act, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";

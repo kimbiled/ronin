@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import jedi from "../assets/desktop/jedi.svg";
-import logoPhone from "../assets/icons/logoPhone.svg";
-import stars from "../assets/icons/Stars.png";
 import closeIcon from "../assets/desktop/closeIcon.svg";
 import unverified from "../assets/desktop/unverified.svg";
 import verify from "../assets/desktop/Icon.png";

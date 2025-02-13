@@ -21,6 +21,7 @@ const HeaderDesktop = () => {
           }
         }}>About Us</a>
         <a 
+        href=""
         className='hover:text-gray-500 ease' 
          onClick={() => {
           const element = document.getElementById("what-we-do");
@@ -30,7 +31,7 @@ const HeaderDesktop = () => {
             window.scrollTo({ top: elementPosition, behavior: "smooth" });
           }
         }}>What We Do</a>
-        <a href="#"
+        <a href=""
         className='hover:text-gray-500 ease' 
          onClick={() => {
           const element = document.getElementById("recentProjects");
@@ -40,7 +41,7 @@ const HeaderDesktop = () => {
             window.scrollTo({ top: elementPosition, behavior: "smooth" });
           }
         }}>Our Works</a>
-        <a href="#"
+        <a href=""
         className='hover:text-gray-500 ease' 
          onClick={() => {
           const element = document.getElementById("form-section");

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import CallModal from "./CallModalDesktop";
 import ready from "../assets/desktop/ready.svg";
 import item1 from "../assets/desktop/item1.png"
 import item2 from "../assets/desktop/item2.png"

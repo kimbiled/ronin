@@ -1,6 +1,4 @@
-import { useRef, useEffect, useState } from "react";
-import HeaderDesktop from "../components/HeaderDesktop";
-import FooterDesktop from "../components/FooterDesktop";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import p1 from "../assets/desktop/1.svg";
@@ -127,7 +125,7 @@ const ReviewDesktop = () => {
                   key={logos[index].key}
                   src={logos[index].src}
                   alt="logo"
-                  className="absolute w-[150px] h-[58px]"
+                  className="absolute w-[150px] h-auto"
                   initial={{ y: "100%", opacity: 0 }}
                   animate={{ y: "0%", opacity: 1 }}
                   exit={{ y: "-100%", opacity: 0 }}

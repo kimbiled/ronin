@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import logo from '../assets/icons/logo.png';
 import logoBurger from '../assets/icons/LogoBurger.png';

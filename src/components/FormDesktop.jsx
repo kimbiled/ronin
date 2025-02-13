@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import StepOneDesktop from "./StepOneDesktop";
 import StepTwoDesktop from "./StepTwoDesktop";

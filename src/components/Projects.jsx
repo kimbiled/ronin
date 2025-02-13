@@ -157,12 +157,6 @@ const profiles = [
 ];
 
 const Projects = () => {
-    const footerIcon = profiles.verified
-    ? tick
-    : profiles.stared
-    ? star
-    : null;
-
     return (
       <div 
       className="font-ppneue flex flex-col items-center w-full mx-auto " id="recentProjects">

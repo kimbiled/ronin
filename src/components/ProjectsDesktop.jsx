@@ -118,18 +118,18 @@ export default function ProjectsDesktop() {
           <ProjectCard {...projects[0]} />
         </div>
 
-        <div className="flex flex-row gap-[18px] mt-7 items-center">
+        <div className="flex flex-row gap-[18px] mt-7 items-center w-full">
           <ProjectCard {...projects[1]} />
           <ProjectCard {...projects[2]} />
         </div>
 
-        <div className="flex flex-row gap-[18px] mt-7">
-          <div className="flex flex-col gap-[18px] items-center">
+        <div className="flex flex-row gap-[18px] mt-7  w-full">
+          <div className="flex flex-col gap-[18px] items-center  w-full">
             <ProjectCard {...projects[3]} />
             <ProjectCard {...projects[6]} />
             <ProjectCard {...projects[8]} />
           </div>
-          <div className="flex flex-col gap-[18px] items-center">
+          <div className="flex flex-col gap-[18px] items-center  w-full">
             <ProjectCard {...projects[4]} />
             <ProjectCard {...projects[5]} />
             <ProjectCard {...projects[7]} />

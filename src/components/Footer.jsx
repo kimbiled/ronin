@@ -20,15 +20,15 @@ export default function Footer() {
             {/* Social */}
             <div className="flex flex-col gap-6 font-book">
               <p className="text-[#637695]">Social</p>
-              <a href="#" className="hover:underline text-lg">Dribbble</a>
-              <a href="#" className="hover:underline text-lg">Behance</a>
+              <a href="" className="hover:underline text-lg">Dribbble</a>
+              <a href="" className="hover:underline text-lg">Behance</a>
               <a href="https://www.instagram.com/ronin.dsgn/" className="hover:underline text-lg">Instagram</a>
             </div>
   
             {/* Menu */}
             <div className="flex flex-col gap-4">
               <p className="text-[#637695] font-book">Menu</p>
-              <a onClick={() => {
+              <a href="" onClick={() => {
                         const element = document.getElementById("about-us");
                         if (element) {
                             const offset = 100;
@@ -36,7 +36,7 @@ export default function Footer() {
                             window.scrollTo({ top: elementPosition, behavior: "smooth" });
                         }
                     }} className="text-[34px] font-book">About Us</a>
-              <a onClick={() => {
+              <a href="" onClick={() => {
                         const element = document.getElementById("what-we-do");
                         if (element) {
                             const offset = 100;
@@ -44,7 +44,7 @@ export default function Footer() {
                             window.scrollTo({ top: elementPosition, behavior: "smooth" });
                         }
                     }} className="text-[34px] font-book">What We Do</a>
-              <a onClick={() => {
+              <a href="" onClick={() => {
                         const element = document.getElementById("recentProjects");
                         if (element) {
                             const offset = 100;
@@ -52,7 +52,7 @@ export default function Footer() {
                             window.scrollTo({ top: elementPosition, behavior: "smooth" });
                         }
                     }} className="text-[34px] font-book">Our Works</a>
-              <a onClick={() => {
+              <a href="" onClick={() => {
                         const element = document.getElementById("form-section");
                         if (element) {
                             const offset = 100;

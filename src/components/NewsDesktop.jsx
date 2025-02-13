@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import FAQDesktop from './FaqDesktop';
 
 import n1 from "../assets/desktop/b1.png";
