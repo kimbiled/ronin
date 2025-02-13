@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import arrow from '../assets/icons/45deg.svg'
 import threeD from '../assets/icons/3d.svg'
+import three from '../assets/mobile/threeD.jpg'
 import logoPhone from '../assets/icons/logoPhone.svg'
 import stars from '../assets/icons/Stars.png'
 import { motion } from "framer-motion";
@@ -87,7 +88,7 @@ const Leaders = () => {
                 <div className="w-[345px] bg-[#F7F7F6] h-[339px] p-6 rounded-3xl flex flex-col justify-between">
                     <p className="text-[80px] font-medium leading-[94px]">{counter}</p>
                     <motion.img 
-                        src={threeD} 
+                        src={three} 
                         alt="3D"
                         className="absolute -top-14 -right-10"
                         animate={{ x: [-10, 10, -10] }} // Двигаем влево и вправо

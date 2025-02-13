@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import FAQDesktop from './FaqDesktop';
 
-import n1 from "../assets/desktop/n1.svg";
-import n2 from "../assets/desktop/n2.svg";
-import n3 from "../assets/desktop/n3.svg";
+import n1 from "../assets/desktop/n2.png";
+import n2 from "../assets/desktop/n1.png";
+import n3 from "../assets/desktop/n3.png";
 import orangearrow from '../assets/desktop/orangeArrow.png'
 
 const NewsDesktop = () => {
@@ -59,6 +59,7 @@ const NewsDesktop = () => {
           <img
             src={article.image}
             alt={article.title.join(" ")}
+            className="w-[530px] h-[300px]"
           />
         </div>
 

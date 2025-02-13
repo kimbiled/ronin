@@ -12,10 +12,10 @@ import capital from "../assets/mobile/capital.png"
 import motiva from "../assets/mobile/motiva.png"
 import astanahub from "../assets/mobile/astanahub.png"
 
-import first from '../assets/mobile/1.svg'
-import second from '../assets/mobile/2.svg'
-import third from '../assets/mobile/3.svg'
-import four from '../assets/mobile/4.svg'
+import first from '../assets/mobile/h1.png'
+import second from '../assets/mobile/h2.png'
+import third from '../assets/mobile/h3.png'
+import four from '../assets/mobile/h4.png'
 
 import hero from '../assets/mobile/footer.png'
 

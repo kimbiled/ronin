@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CallModal from "./CallModalDesktop";
 import ready from "../assets/desktop/ready.svg";
-import item1 from "../assets/desktop/i1.svg"
-import item2 from "../assets/desktop/i2.svg"
-import item3 from "../assets/desktop/i3.svg"
-import item4 from "../assets/desktop/i4.svg"
+import item1 from "../assets/desktop/item1.png"
+import item2 from "../assets/desktop/item2.png"
+import item3 from "../assets/desktop/item3.png"
+import item4 from "../assets/desktop/item4.png"
 import CallModalDesktop from "./CallModalDesktop";
 const services = [
   {
@@ -76,7 +76,7 @@ const ContentDesktop = () => {
                 <motion.img
                   src={service.img}
                   alt={service.title}
-                  className="flex-shrink-0"
+                  className="flex-shrink-0 w-auto h-auto"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}

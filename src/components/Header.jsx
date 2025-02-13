@@ -193,7 +193,7 @@ const Header = () => {
               >
                 <div className="font-book">
                   <p>Get in touch</p>
-                  <p className="text-white">hi@ronindsgn.com</p>
+                  <a href="mailto:hi@ronindsgn.com" className="text-white">hi@ronindsgn.com</a>
                 </div>
                 <div className="text-xs flex flex-col gap-3 font-book mt-[2px]">
                   <p className="text-white">Privacy Policy & Cookies</p>
@@ -209,7 +209,7 @@ const Header = () => {
       {!isMenuOpen && (
    <motion.div
    className={`fixed top-0 left-0 right-0 w-full px-6 bg-white transition-all duration-200 z-50 
-    ${isScrolled ? 'py-3 rounded-[48px] border-[0.5px] border-gray-400 top-6 w-[84%] mx-auto' : 'py-4'}`}initial={{ opacity: 0, y: -20 }}
+    ${isScrolled ? 'py-3 rounded-[48px] border-[0.5px] border-gray-400 top-6 sm20:w-[300px] sm75:w-[345px] sm25:w-[400px] mx-auto' : 'py-4'}`}initial={{ opacity: 0, y: -20 }}
    animate={{ opacity: 1, y: 0 }}
    transition={{ duration: 0.2, ease: "easeOut" }}
  >

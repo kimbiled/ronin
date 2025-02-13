@@ -101,7 +101,8 @@ const Review = () => {
                 <p className="font-medium sm25:text-[38px] sm75:text-[32px]  sm20:text-[24px] text-[#090C21]">& 859 Completed</p>
             </div>
             <div className="flex flex-row items-center gap-4">
-            <button className="h-10 w-48 border border-[#090C21] rounded-md overflow-hidden flex items-center justify-center relative">
+            <button className="h-10 w-48 border border-[#090C21] rounded-md overflow-hidden flex items-center justify-center relative"
+             onClick={() => window.location.href = "https://drive.google.com/file/d/1FizTso9ZKKUooa-Rl6n0Sz6khVYuJCa1/view?usp=sharing"}>
                 <AnimatePresence mode="wait">
                     <motion.img
                     key={index}

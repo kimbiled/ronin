@@ -20,7 +20,6 @@ import star from '../assets/icons/stared.png';
 import verify from '../assets/icons/Icon.png'
 import ProjectCard from "./ProjectCard";
 
-
 import antix2 from "../assets/desktop/antix2.svg";
 import cat2 from "../assets/desktop/cat2.svg";
 import cat3 from "../assets/desktop/cat3.svg";

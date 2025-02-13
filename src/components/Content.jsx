@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CallModal from "./CallModal"; // Импортируем модальное окно
 
-import item1 from '../assets/mobile/item1.png'
-import item2 from '../assets/mobile/item2.png'
-import item3 from '../assets/mobile/item3.png'
-import item4 from '../assets/mobile/item4.png'
+import item1 from '../assets/desktop/item1.png'
+import item2 from '../assets/desktop/item2.png'
+import item3 from '../assets/desktop/item3.png'
+import item4 from '../assets/desktop/item4.png'
 import phone from '../assets/mobile/phone.png'
 const services = [
   {

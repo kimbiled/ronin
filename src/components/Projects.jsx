@@ -1,31 +1,29 @@
 import ProjectItem from "./ProjectItem";
 
-
-import i1 from '../assets/mobile/i1.png'
-import cat1 from "../assets/mobile/cat1.svg";
-import cat2 from "../assets/mobile/cat2.svg";
-import cat3 from "../assets/mobile/cat3.svg";
-import orb1 from "../assets/mobile/orb1.svg";
-import orb2 from "../assets/mobile/orb2.svg";
-import orb3 from "../assets/mobile/orb3.svg";
-import orb4 from "../assets/mobile/orb4.svg";
-import orb5 from "../assets/mobile/orb5.svg";
-import orb6 from "../assets/mobile/orb6.svg";
-import berg1 from "../assets/mobile/berg1.svg";
-import berg2 from "../assets/mobile/berg2.svg";
-import berg3 from "../assets/mobile/berg3.svg";
-import shar1 from "../assets/mobile/shar1.svg";
-import shar2 from "../assets/mobile/shar2.svg";
-import shar3 from "../assets/mobile/shar3.svg";
-import shar4 from "../assets/mobile/shar4.svg";
-import kz1 from "../assets/mobile/kz1.svg"
-import kz2 from "../assets/mobile/kz2.svg"
-import kz3 from "../assets/mobile/kz3.svg"
-import kz4 from "../assets/mobile/kz4.svg"
-import kz5 from "../assets/mobile/kz5.svg"
-import glen1 from "../assets/mobile/glen1.svg"
-import glen2 from "../assets/mobile/glen2.svg"
-import glen3 from "../assets/mobile/glen3.svg"
+import ant1 from "../assets/mobile/antix1.png";
+import ant2 from "../assets/mobile/antix2.png";
+import ant3 from "../assets/mobile/antix3.png";
+import cat1 from "../assets/mobile/cat1.png";
+import orb1 from "../assets/mobile/orb1.png";
+import orb2 from "../assets/mobile/orb2.png";
+import orb3 from "../assets/mobile/orb3.png";
+import orb4 from "../assets/mobile/orb4.png";
+import orb5 from "../assets/mobile/orb5.png";
+import orb6 from "../assets/mobile/orb6.png";
+import berg1 from "../assets/mobile/berg1.png";
+import berg2 from "../assets/mobile/berg2.png";
+import berg3 from "../assets/mobile/berg3.png";
+import shar1 from "../assets/mobile/shar1.png";
+import shar2 from "../assets/mobile/shar2.png";
+import shar3 from "../assets/mobile/shar3.png";
+import kz1 from "../assets/mobile/kz1.png"
+import kz2 from "../assets/mobile/kz2.png"
+import kz3 from "../assets/mobile/kz3.png"
+import kz4 from "../assets/mobile/kz4.png"
+import kz5 from "../assets/mobile/kz5.png"
+import glen1 from "../assets/mobile/glen1.png"
+import glen2 from "../assets/mobile/glen2.png"
+import glen3 from "../assets/mobile/glen3.png"
 
 import kz from "../assets/desktop/kz.svg"
 import usa from "../assets/desktop/usa.svg"
@@ -48,9 +46,9 @@ const profiles = [
       location: usa,
     },
     avatars: [
-     i1,
-     i1,
-     i1,
+     ant3,
+     ant2, 
+     ant1
     ],
   },
   {
@@ -65,7 +63,7 @@ const profiles = [
       location: usa,
     },
     avatars: [
-      berg3, berg1, berg2
+      berg1, berg2, berg3
     ],
   },
   {
@@ -80,9 +78,7 @@ const profiles = [
       location: uk,
     },
     avatars: [
-      cat3,
       cat1,
-      cat2,
     ],
   },
   {
@@ -97,12 +93,12 @@ const profiles = [
       location: australia,
     },
     avatars: [
-      orb6,
       orb1,
       orb2,
       orb3,
       orb4,
       orb5,
+      orb6,
     ],
   },
   {
@@ -117,10 +113,9 @@ const profiles = [
       location: qatar,
     },
     avatars: [
-      shar4,
       shar1,
-      shar2,
       shar3,
+      shar2,
     ],
   },
   {
@@ -135,9 +130,9 @@ const profiles = [
       location: uk,
     },
     avatars: [
-      glen3,
       glen1,
       glen2,
+      glen3,
     ],
   },
   {
@@ -152,11 +147,11 @@ const profiles = [
       location: kz,
     },
     avatars: [
-      kz5,
       kz1,
       kz2,
       kz3,
       kz4,
+      kz5,
     ],
   }
 ];

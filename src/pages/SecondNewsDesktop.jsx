@@ -2,7 +2,7 @@ import HeaderDesktop from "../components/HeaderDesktop";
 import FooterDesktop from "../components/FooterDesktop";
 import { useRef } from "react";
 
-import b2 from '../assets/icons/b2.png';
+import b2 from '../assets/desktop/n1.png';
 import arrow from '../assets/icons/arrow-right.svg';
 
 const sections = [
