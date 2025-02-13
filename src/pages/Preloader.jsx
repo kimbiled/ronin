@@ -10,7 +10,6 @@ export default function Preloader({ onComplete }) {
             if (videoRef.current) {
                 const { currentTime, duration } = videoRef.current;
                 if (currentTime > 0 && currentTime >= duration - 0.1) {
-                    // Если видео почти доиграло (с небольшим запасом), скрываем прелоадер
                     setIsPlaying(false);
                     if (onComplete) {
                         onComplete();
@@ -21,8 +20,18 @@ export default function Preloader({ onComplete }) {
 
         const video = videoRef.current;
         if (video) {
+           
+            video.load();
+
+            video.play().catch(() => {
+                console.log("AutoPlay blocked, will try again on user interaction");
+            });
+
             video.addEventListener("timeupdate", checkVideoProgress);
-            return () => video.removeEventListener("timeupdate", checkVideoProgress);
+
+            return () => {
+                video.removeEventListener("timeupdate", checkVideoProgress);
+            };
         }
     }, []);
 
@@ -33,8 +42,9 @@ export default function Preloader({ onComplete }) {
                     ref={videoRef}
                     src={preloaderVideo}
                     autoPlay
-                    muted={true}
+                    muted
                     playsInline
+                    preload="auto" 
                     className="w-screen h-screen object-cover"
                 />
                 <div className="absolute bottom-16 text-[#637695] text-xs font-book">
