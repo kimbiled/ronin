@@ -14,10 +14,10 @@ import capital from "../assets/desktop/capital.png"
 import motiva from "../assets/desktop/motiva.png"
 import astanahub from "../assets/desktop/astanahub.png"
 
-import r1 from "../assets/desktop/r1.svg"
-import r2 from "../assets/desktop/r2.svg"
-import r3 from "../assets/desktop/r3.svg"
-import r4 from "../assets/desktop/r4.svg"
+import r1 from "../assets/desktop/r1.png"
+import r2 from "../assets/desktop/r2.png"
+import r3 from "../assets/desktop/r3.png"
+import r4 from "../assets/desktop/r4.png"
 
 const logos = [
     { src: berg, alt: "berg", height: "h-[47px]" },
@@ -32,6 +32,7 @@ const logos = [
     { src: motiva, alt: "motiva", height: "h-10" },
     { src: astanahub, alt: "astanahub", height: "h-[42px]" },
   ];
+  
   const floatingAnimation = {
     y: [0, -5, 5, 0], // Двигаемся вверх-вниз
     x: [0, 3, -3, 0], // Немного смещаем в стороны

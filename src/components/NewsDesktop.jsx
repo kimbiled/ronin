@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import FAQDesktop from './FaqDesktop';
 
-import n1 from "../assets/desktop/n2.png";
-import n2 from "../assets/desktop/n1.png";
-import n3 from "../assets/desktop/n3.png";
+import n1 from "../assets/desktop/b1.png";
+import n2 from "../assets/desktop/b2.png";
+import n3 from "../assets/desktop/b3.png";
 import orangearrow from '../assets/desktop/orangeArrow.png'
 
 const NewsDesktop = () => {

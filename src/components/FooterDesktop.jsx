@@ -19,18 +19,46 @@ const FooterDesktop = () =>{
                 {/* Menu */}
                 <div className="flex flex-col gap-7">
                     <p className="text-[#9CA3AF] text-[22px] font-book">Menu</p>
-                    <a href="#" className="text-[22px] leading-[24px] font-book">About Us</a>
-                    <a href="#" className="text-[22px] leading-[24px] font-book">What We Do</a>
-                    <a href="#" className="text-[22px] leading-[24px] font-book">Our Works</a>
-                    <a href="#" className="text-[22px] leading-[24px] font-book">Contact Us</a>
+                    <a onClick={() => {
+                        const element = document.getElementById("about-us");
+                        if (element) {
+                            const offset = 100;
+                            const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+                            window.scrollTo({ top: elementPosition, behavior: "smooth" });
+                        }
+                    }} className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">About Us</a>
+                    <a onClick={() => {
+                        const element = document.getElementById("what-we-do");
+                        if (element) {
+                            const offset = 100;
+                            const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+                            window.scrollTo({ top: elementPosition, behavior: "smooth" });
+                        }
+                    }}  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">What We Do</a>
+                    <a onClick={() => {
+                        const element = document.getElementById("recentProjects");
+                        if (element) {
+                            const offset = 100;
+                            const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+                            window.scrollTo({ top: elementPosition, behavior: "smooth" });
+                        }
+                    }}  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">Our Works</a>
+                    <a onClick={() => {
+                        const element = document.getElementById("form-section");
+                        if (element) {
+                            const offset = 100;
+                            const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+                            window.scrollTo({ top: elementPosition, behavior: "smooth" });
+                        }
+                    }}  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">Contact Us</a>
                 </div>
         
                 {/* Social */}
                 <div className="flex flex-col gap-7">
                     <p className="text-[#9CA3AF] text-[22px] font-book">Social</p>
-                    <a href="#" className="text-[22px] leading-[24px] font-book">Dribbble</a>
-                    <a href="#" className="text-[22px] leading-[24px] font-book">Behance</a>
-                    <a href="#" className="text-[22px] leading-[24px] font-book">Instagram</a>
+                    <a href="#" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">Dribbble</a>
+                    <a href="#" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">Behance</a>
+                    <a href="https://www.instagram.com/ronin.dsgn/" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">Instagram</a>
                 </div>
                 </div>
             </div>
