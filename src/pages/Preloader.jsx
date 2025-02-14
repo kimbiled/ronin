@@ -6,45 +6,39 @@ export default function Preloader({ onComplete }) {
     const videoRef = useRef(null);
 
     useEffect(() => {
-        const checkVideoProgress = () => {
-            if (videoRef.current) {
-                const { currentTime, duration } = videoRef.current;
-                if (currentTime > 0 && currentTime >= duration - 0.1) {
-                    setIsPlaying(false);
-                    if (onComplete) {
-                        onComplete();
-                    }
-                }
-            }
-        };
-
         const video = videoRef.current;
+
         if (video) {
-           
-            video.load();
+            video.load(); // Гарантированно загружаем видео
 
-            video.play().catch(() => {
-                console.log("AutoPlay blocked, will try again on user interaction");
-            });
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => console.log("Автовоспроизведение началось"))
+                    .catch(() => {
+                        console.log("Автовоспроизведение заблокировано, ждем взаимодействия");
+                        video.muted = true;
+                        video.play();
+                    });
+            }
 
-            video.addEventListener("timeupdate", checkVideoProgress);
-
-            return () => {
-                video.removeEventListener("timeupdate", checkVideoProgress);
+            video.onended = () => {
+                setIsPlaying(false);
+                if (onComplete) onComplete();
             };
         }
     }, []);
 
     return (
         isPlaying && (
-            <div className="fixed inset-0 flex items-center justify-center bg-[#090C21] flex-col">
+            <div className="fixed inset-0 flex items-center justify-center bg-[#090C21] flex-col z-50">
                 <video
                     ref={videoRef}
                     src={preloaderVideo}
                     autoPlay
                     muted
                     playsInline
-                    preload="auto" 
+                    preload="auto"
                     className="w-screen h-screen object-cover"
                 />
                 <div className="absolute bottom-16 text-[#637695] text-xs font-book">

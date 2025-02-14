@@ -9,47 +9,26 @@ const CallModal = ({ isOpen, onClose }) => {
   const [isChecked, setIsChecked] = useState(false);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [errors, setErrors] = useState({});
+  const [isEmailValid, setIsEmailValid] = useState(true);
   const [submitted, setSubmitted] = useState(false);
 
-  // **🔒 Блокируем скролл при открытии модалки**
+  // 🔒 **Блокируем скролл при открытии модалки**
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"; // Запрещаем прокрутку
-    } else {
-      document.body.style.overflow = ""; // Разрешаем при закрытии
-    }
-    
-    return () => {
-      document.body.style.overflow = ""; // Сбрасываем при размонтировании
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => (document.body.style.overflow = "");
   }, [isOpen]);
 
   if (!isOpen) return null;
 
-  const validateForm = () => {
-    let newErrors = {};
-    if (!fullName.trim()) {
-      newErrors.fullName = "Full Name is required";
-    }
-    if (!email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = "Invalid email format";
-    }
-    if (!isChecked) {
-      newErrors.checkbox = "You must accept the terms";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      setSubmitted(true);
+    if (!email.trim() || !validateEmail(email) || !isChecked) {
+      setIsEmailValid(validateEmail(email));
+      return;
     }
+    setSubmitted(true);
   };
 
   const handleReset = () => {
@@ -57,7 +36,6 @@ const CallModal = ({ isOpen, onClose }) => {
     setFullName("");
     setEmail("");
     setIsChecked(false);
-    setErrors({});
   };
 
   return (
@@ -72,7 +50,6 @@ const CallModal = ({ isOpen, onClose }) => {
           onClick={onClose}
         />
 
-        {/* **Проверяем, отправлена ли форма** */}
         {submitted ? (
           <StepFinal onReset={handleReset} onClose={onClose} />
         ) : (
@@ -101,7 +78,6 @@ const CallModal = ({ isOpen, onClose }) => {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                 />
-                {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
               </div>
 
               <div>
@@ -110,18 +86,23 @@ const CallModal = ({ isOpen, onClose }) => {
                 </label>
                 <input
                   type="email"
-                  className="w-full border-b border-[#9CA3AF] p-2 mt-2 bg-transparent text-[#637695] focus:outline-none"
+                  className={`w-full border-b p-2 mt-2 bg-transparent text-[#637695] focus:outline-none ${
+                    isEmailValid ? "border-[#9CA3AF]" : "border-red-600"
+                  }`}
                   placeholder="johndoe@example.com"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setIsEmailValid(true);
+                  }}
                 />
-                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                {!isEmailValid && <p className="text-red-500 text-sm mt-1">Invalid email format</p>}
               </div>
 
               <button
                 type="submit"
                 className={`py-3 rounded-lg text-lg font-medium cursor-pointer mt-6 transition-all ${
-                  fullName && email && isChecked ? "bg-[#1261FC] text-white" : "bg-[#C0D6FB] text-white"
+                  email.trim() && isEmailValid && isChecked ? "bg-[#1261FC] text-white" : "bg-[#C0D6FB] text-white"
                 }`}
               >
                 Submit the request
@@ -143,18 +124,10 @@ const CallModal = ({ isOpen, onClose }) => {
   );
 };
 
-// Финальный шаг благодарности
+// 🔥 **Финальный шаг "Thank You!"**
 const StepFinal = ({ onReset, onClose }) => {
   return (
-    <div className="relative font-ppneue flex flex-col w-[95%] mx-auto gap-2 text-center items-center mb-12 h-full justify-center">
-      {/* Кнопка закрытия */}
-      <img
-        src={closeIcon}
-        alt="Close"
-        className="absolute top-5 right-4 cursor-pointer w-8 h-8"
-        onClick={onClose}
-      />
-
+    <div className="relative font-ppneue flex flex-col w-[95%] mx-auto gap-2 text-center items-center h-full justify-center">
       <div className="w-12 h-12">
         <img src={successIcon} alt="icon" />
       </div>

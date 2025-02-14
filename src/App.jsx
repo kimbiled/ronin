@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import PreloaderDesktop from "./pages/PreloaderDesktop";
 import Preloader from "./pages/Preloader";
+import PreloaderDesktop from "./pages/PreloaderDesktop";
 
 import MobileLayout from "./pages/MobileLayout";
 import DesktopLayout from "./pages/DesktopLayout";
@@ -54,58 +54,36 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // 🔹 Прелоадер только при первой загрузке вкладки (сброс при закрытии)
+  // 🔹 Прелоадер ждет загрузку контента перед стартом
   useEffect(() => {
     if (!sessionStorage.getItem("sessionStarted")) {
       setLoading(true);
 
-      const minLoadingTime = new Promise((resolve) => setTimeout(resolve, 5500));
-
-      const imagePromises = preloadImages.map((src) => new Promise((resolve) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = resolve;
-        img.onerror = resolve;
-      }));
+      const imagePromises = preloadImages.map((src) => 
+        new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = resolve;
+          img.onerror = resolve;
+        })
+      );
 
       const fontPromise = document.fonts ? document.fonts.ready : Promise.resolve();
 
-      Promise.all([
-        Promise.race([
-          Promise.all([...imagePromises, fontPromise]),
-          new Promise((resolve) => setTimeout(resolve, 5300)),
-        ]),
-        minLoadingTime,
-      ]).then(() => {
-        setLoading(false);
-        sessionStorage.setItem("sessionStarted", "true"); // ✅ Запоминаем, что вкладка уже запущена
+      Promise.all([...imagePromises, fontPromise]).then(() => {
+        console.log("Контент загружен, готов к запуску видео");
       });
     }
   }, []);
 
-  // 🔹 Скролл к нужному блоку после загрузки
-  useEffect(() => {
-    if (!loading) {
-      const scrollToId = sessionStorage.getItem("scrollTo");
-      if (scrollToId) {
-        sessionStorage.removeItem("scrollTo");
-
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            const element = document.getElementById(scrollToId);
-            if (element) {
-              const offset = 100;
-              const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
-              window.scrollTo({ top: elementPosition, behavior: "smooth" });
-            }
-          }, 500);
-        });
-      }
-    }
-  }, [loading, location.pathname]);
+  // 🔹 Функция для скрытия прелоадера после завершения видео
+  const handlePreloaderComplete = () => {
+    setLoading(false);
+    sessionStorage.setItem("sessionStarted", "true");
+  };
 
   if (loading) {
-    return isMobile ? <Preloader /> : <PreloaderDesktop />;
+    return isMobile ? <Preloader onComplete={handlePreloaderComplete} /> : <PreloaderDesktop onComplete={handlePreloaderComplete} />;
   }
 
   return (

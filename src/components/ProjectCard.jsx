@@ -1,26 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ProjectCard({ images, logo, title, description, description2, country, tags, highlight, isMain, verified, starred, badgeImage }) {
+import next from '../assets/desktop/next.png'
+import back from '../assets/desktop/back.png'
+
+export default function ProjectCard({ images, logo, title, description, description2, country, tags, highlight, isMain, verified, starred, badgeImage, leftArrowImage, rightArrowImage }) {
   const [isHovered, setIsHovered] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    let interval;
-    if (isHovered && images.length > 1) {
-      interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 2000);
-    }
-    
-    return () => clearInterval(interval);
-  }, [isHovered, images.length]);
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
-  useEffect(() => {
-    if (!isHovered) {
-      setCurrentImageIndex(0);
-    }
-  }, [isHovered]);
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
 
   const getBadgeStyles = () => {
     if (verified && (title === "p1" || title === "p2")) {
@@ -58,19 +52,46 @@ export default function ProjectCard({ images, logo, title, description, descript
             style={{ position: index === 0 ? "relative" : "absolute" }}
             animate={{
               opacity: index === currentImageIndex ? 1 : 0,
-              scale: isHovered ? 1.05 : 1, // 🔥 Увеличиваем изображение при hover
+              scale: isHovered ? 1.05 : 1, // 🔥 Увеличение при ховере
               filter: `brightness(${isHovered ? 70 : 100}%)`,
             }}
-            transition={{ duration: 0.4, ease: "easeInOut" }} // Плавная анимация
+            transition={{ duration: 0.4, ease: "easeInOut" }}
           />
         ))}
       </div>
+
+      {/* 🔥 Стрелки навигации (появляются только при hover) */}
+      {isHovered && images.length > 1 && (
+  <>
+    <motion.button
+      className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 flex items-center justify-center"
+      onClick={handlePrevImage}
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -10 }}
+      transition={{ duration: 0.3, delay: 0.3 }} // ⏳ Задержка появления
+    >
+      <img src={back} alt="Left Arrow" className="w-8 h-8" />
+    </motion.button>
+
+    <motion.button
+      className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 flex items-center justify-center"
+      onClick={handleNextImage}
+      initial={{ opacity: 0, x: 10 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 10 }}
+      transition={{ duration: 0.3, delay: 0.3 }} // ⏳ Задержка появления
+    >
+      <img src={next} alt="Right Arrow" className="w-8 h-8" />
+    </motion.button>
+  </>
+)}
 
       {/* Анимированные элементы при наведении */}
       <AnimatePresence>
         {isHovered && (
           <>
-            {/* Логотип и текст в левом верхнем углу (если есть) */}
+            {/* Логотип и текст в левом верхнем углу */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -83,7 +104,7 @@ export default function ProjectCard({ images, logo, title, description, descript
               {description2 && <p className="text-lg font-book">{description2}</p>}
             </motion.div>
             
-            {/* Флаг в правом верхнем углу (если есть) */}
+            {/* Флаг в правом верхнем углу */}
             {country && (
               <motion.img
                 initial={{ opacity: 0, x: 20 }}
@@ -96,7 +117,7 @@ export default function ProjectCard({ images, logo, title, description, descript
               />
             )}
             
-            {/* Теги и выделенный элемент (если есть) */}
+            {/* Теги */}
             {tags && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

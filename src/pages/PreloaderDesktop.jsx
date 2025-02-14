@@ -1,27 +1,45 @@
-
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import preloaderVideo from "../assets/desktop/1920_1080_.mp4";
 
-export default function Preloader({ onComplete }) {
+export default function PreloaderDesktop({ onComplete }) {
     const [isPlaying, setIsPlaying] = useState(true);
+    const videoRef = useRef(null);
 
-    const handleVideoEnd = () => {
-        setIsPlaying(false);
-        if (onComplete) {
-            onComplete(); // Можно передать callback, если нужно
+    useEffect(() => {
+        const video = videoRef.current;
+
+        if (video) {
+            video.load(); // Гарантированно загружаем видео
+
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => console.log("Автовоспроизведение началось"))
+                    .catch(() => {
+                        console.log("Автовоспроизведение заблокировано, ждем взаимодействия");
+                        video.muted = true;
+                        video.play();
+                    });
+            }
+
+            video.onended = () => {
+                setIsPlaying(false);
+                if (onComplete) onComplete();
+            };
         }
-    };
+    }, []);
 
     return (
         isPlaying && (
-            <div className="fixed inset-0 flex items-center justify-center bg-[#090C21] flex-col">
+            <div className="fixed inset-0 flex items-center justify-center bg-[#090C21] flex-col z-50">
                 <video
+                    ref={videoRef}
                     src={preloaderVideo}
                     autoPlay
                     muted
                     playsInline
+                    preload="auto"
                     className="w-screen h-screen object-cover"
-                    onEnded={handleVideoEnd} // Когда видео закончится, прелоадер исчезнет
                 />
                 <div className="absolute bottom-16 text-[#637695] text-lg font-book">
                     © Ronin Design 2025
