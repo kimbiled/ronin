@@ -36,7 +36,7 @@ const logos = [
     y: [0, -5, 5, 0], // Двигаемся вверх-вниз
     x: [0, 3, -3, 0], // Немного смещаем в стороны
     transition: {
-      duration: 24, // Очень медленная анимация (6 секунд)
+      duration: 12, // Очень медленная анимация (6 секунд)
       ease: "easeInOut",
       repeat: Infinity, // Бесконечный повтор
     }
@@ -131,20 +131,21 @@ const HeroDesktop = () => {
                         </p>
                     </div>
                     <div className="relative max-w-[478px] w-full overflow-hidden mt-10">
-                <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-white via-white/70 to-transparent z-10"></div>
-                <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-white via-white/70 to-transparent z-10"></div>
-                
-                <div className="flex items-center animate-scroll gap-6">
-                    {[...logos, ...logos].map((logo, index) => (
-                    <img
-                        key={index}
-                        src={logo.src}
-                        alt={logo.alt}
-                        className={`w-auto ${logo.height}`}
-                    />
-                    ))}
-                </div>
-                </div>
+    {/* Градиенты слева и справа */}
+    <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-white via-white/70 to-transparent z-10"></div>
+    <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-white via-white/70 to-transparent z-10"></div>
+
+    <div className="flex items-center animate-scroll gap-6">
+        {[...logos, ...logos].map(({ src, alt, height }, index) => (
+            <img
+                key={index}
+                src={src}
+                alt={alt}
+                className={`w-auto ${height} ${alt === "gorilla" ? "mx-0" : "mx-4"}`}
+            />
+        ))}
+    </div>
+</div>
                 </div>
             </div>
         </div>

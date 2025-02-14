@@ -21,16 +21,20 @@ export default function StepOne({ onComplete, onNext }) {
 
     if (!fullName.trim()) {
       setIsFullNameValid(false);
-      fullNameRef.current.focus();
-      hasError = true;
+      if (!hasError) {
+        fullNameRef.current.focus();
+        hasError = true;
+      }
     } else {
       setIsFullNameValid(true);
     }
 
     if (!email.trim() || !validateEmail(email)) {
       setIsEmailValid(false);
-      if (!hasError) emailRef.current.focus();
-      hasError = true;
+      if (!hasError) {
+        emailRef.current.focus();
+        hasError = true;
+      }
     } else {
       setIsEmailValid(true);
     }
@@ -51,7 +55,7 @@ export default function StepOne({ onComplete, onNext }) {
           value={fullName}
           onChange={(e) => {
             setFullName(e.target.value);
-            setIsFullNameValid(true);
+            if (e.target.value.trim()) setIsFullNameValid(true);
           }}
           className={`mt-1 p-2 text-gray-900 bg-transparent border-b-[1px] outline-none ${
             isFullNameValid ? "border-black border-opacity-10" : "border-red-600"
@@ -77,7 +81,7 @@ export default function StepOne({ onComplete, onNext }) {
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
-            setIsEmailValid(true);
+            if (validateEmail(e.target.value)) setIsEmailValid(true);
           }}
           className={`mt-1 p-2 text-gray-900 bg-transparent outline-none ${
             isEmailValid ? "border-b border-black border-opacity-10" : "border-b border-red-600"
@@ -89,11 +93,10 @@ export default function StepOne({ onComplete, onNext }) {
       {/* Next Step Button */}
       <button
         onClick={handleNextStep}
-        disabled={!fullName.trim() || !email.trim() || !isEmailValid}
         className={`font-medium mt-4 px-4 py-2 sm25:text-base sm75:text-base sm20:text-base rounded-lg mb-12 h-12 sm25:w-[345px] sm75:w-[305px] sm20:w-[260px] transition ${
           fullName.trim() && email.trim() && isEmailValid
             ? "bg-[#1261FC] hover:bg-blue-600 text-white"
-            : "bg-[#A3C4FD] text-white cursor-not-allowed"
+            : "bg-[#A3C4FD] text-white"
         }`}
       >
         Next step

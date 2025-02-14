@@ -106,17 +106,22 @@ const Leaders = () => {
                 </div>
             </div>
             <div className="relative w-full overflow-hidden">
+                {/* Градиенты слева и справа */}
                 <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-white via-white/70 to-transparent z-10"></div>
                 <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-white via-white/70 to-transparent z-10"></div>
-                
-                <div className="flex items-center animate-scroll gap-8">
-                    {[...logos, ...logos].map((logo, index) => (
-                    <img
-                        key={index}
-                        src={logo.src}
-                        alt={logo.alt}
-                        className={`w-auto ${logo.height}`}
-                    />
+            
+                <div className="flex items-center whitespace-nowrap">
+                    {[...Array(2)].map((_, i) => (
+                        <div className="flex items-center flex-nowrap min-w-max animate-marquee" key={i}>
+                            {logos.map(({ src, alt, height }, index) => (
+                                <div 
+                                    className={`flex-shrink-0 ${alt === "gorilla" ? "mx-0" : "mx-4"}`} 
+                                    key={`${i}-${index}`}
+                                >
+                                    <img src={src} alt={alt} className={`w-auto ${height}`} />
+                                </div>
+                            ))}
+                        </div>
                     ))}
                 </div>
             </div>

@@ -12,23 +12,20 @@ export default function StepOne({ onComplete, onNext }) {
     onComplete(fullName.trim() && email.trim() && isEmailValid);
   }, [fullName, email, isEmailValid, onComplete]);
 
-  const validateEmail = (email) => {
-    // Регулярное выражение для проверки email
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleNextStep = () => {
     let hasError = false;
 
-    if (!email.trim() || !validateEmail(email)) {
-      setIsEmailValid(false);
-      emailRef.current.focus();
+    if (!fullName.trim()) {
+      setIsFullNameValid(false);
+      fullNameRef.current.focus();
       hasError = true;
     }
 
-    if (!fullName.trim()) {
-      setIsFullNameValid(false);
-      if (!hasError) fullNameRef.current.focus();
+    if (!email.trim() || !validateEmail(email)) {
+      setIsEmailValid(false);
+      if (!hasError) emailRef.current.focus();
       hasError = true;
     }
 
@@ -42,7 +39,7 @@ export default function StepOne({ onComplete, onNext }) {
       {/* Full Name Input */}
       <div className="flex flex-col">
         <label className="font-medium text-[#090C21] text-[22px]">Full Name</label>
-        <input 
+        <input
           ref={fullNameRef}
           type="text"
           value={fullName}
@@ -86,11 +83,10 @@ export default function StepOne({ onComplete, onNext }) {
       {/* Next Step Button */}
       <button
         onClick={handleNextStep}
-        disabled={!fullName.trim() || !email.trim() || !isEmailValid}
         className={`font-medium w-[146px] mt-4 px-4 py-2 rounded-lg ml-auto mb-12 h-12 transition ${
           fullName.trim() && email.trim() && isEmailValid
             ? "bg-[#1261FC] hover:bg-blue-600 text-white"
-            : "bg-[#A3C4FD] text-white cursor-not-allowed"
+            : "bg-[#A3C4FD] text-white"
         }`}
       >
         Next step

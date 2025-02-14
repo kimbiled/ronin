@@ -20,9 +20,14 @@ module.exports = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },
         },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
       },
       animation: {
         scroll: 'scroll 40s linear infinite', 
+        marquee: "marquee 40s linear infinite",
       },
       fontFamily: {
         ppneue: ['PP Neue Montreal', 'sans-serif'],

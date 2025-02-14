@@ -14,36 +14,95 @@ import FirstNewsDesktop from "./pages/FirstNewsDesktop";
 import SecondNewsDesktop from "./pages/SecondNewsDesktop";
 import ThirdNewsDesktop from "./pages/ThirdNewsDesktop";
 
+// 🔹 Предзагрузка картинок
+import first from './assets/mobile/h1.png';
+import second from './assets/mobile/h2.png';
+import third from './assets/mobile/h3.png';
+import four from './assets/mobile/h4.png';
+import hero from './assets/mobile/footer.png';
+import item1 from './assets/desktop/item1.png';
+import item2 from './assets/desktop/item2.png';
+import item3 from './assets/desktop/item3.png';
+import item4 from './assets/desktop/item4.png';
+import phone from './assets/mobile/phone.png';
+import r1 from "./assets/desktop/r1.png";
+import r2 from "./assets/desktop/r2.png";
+import r3 from "./assets/desktop/r3.png";
+import r4 from "./assets/desktop/r4.png";
+import heros from "./assets/desktop/Hero.svg";
+
+const preloadImages = [first, second, third, four, hero, item1, item2, item3, item4, phone, r1, r2, r3, r4, heros];
+
 function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 430);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!sessionStorage.getItem("sessionStarted"));
   const location = useLocation();
 
-  // 🔹 Глобально добавляем `loading="lazy"` для всех изображений
+  // 🔹 Ленивая загрузка изображений
   useEffect(() => {
-    const images = document.querySelectorAll("img");
-    images.forEach((img) => {
+    document.querySelectorAll("img").forEach((img) => {
       if (!img.hasAttribute("loading")) {
         img.setAttribute("loading", "lazy");
       }
     });
   }, []);
 
+  // 🔹 Обновляем состояние мобильной версии при ресайзе
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 430);
-    };
-
+    const handleResize = () => setIsMobile(window.innerWidth <= 430);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // 🔹 Прелоадер только при первой загрузке вкладки (сброс при закрытии)
   useEffect(() => {
-    setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 5300); // Имитация загрузки при навигации
+    if (!sessionStorage.getItem("sessionStarted")) {
+      setLoading(true);
 
-    return () => clearTimeout(timer);
-  }, [location.pathname]); // Срабатывает при изменении пути
+      const minLoadingTime = new Promise((resolve) => setTimeout(resolve, 5500));
+
+      const imagePromises = preloadImages.map((src) => new Promise((resolve) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = resolve;
+      }));
+
+      const fontPromise = document.fonts ? document.fonts.ready : Promise.resolve();
+
+      Promise.all([
+        Promise.race([
+          Promise.all([...imagePromises, fontPromise]),
+          new Promise((resolve) => setTimeout(resolve, 5300)),
+        ]),
+        minLoadingTime,
+      ]).then(() => {
+        setLoading(false);
+        sessionStorage.setItem("sessionStarted", "true"); // ✅ Запоминаем, что вкладка уже запущена
+      });
+    }
+  }, []);
+
+  // 🔹 Скролл к нужному блоку после загрузки
+  useEffect(() => {
+    if (!loading) {
+      const scrollToId = sessionStorage.getItem("scrollTo");
+      if (scrollToId) {
+        sessionStorage.removeItem("scrollTo");
+
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            const element = document.getElementById(scrollToId);
+            if (element) {
+              const offset = 100;
+              const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top: elementPosition, behavior: "smooth" });
+            }
+          }, 500);
+        });
+      }
+    }
+  }, [loading, location.pathname]);
 
   if (loading) {
     return isMobile ? <Preloader /> : <PreloaderDesktop />;

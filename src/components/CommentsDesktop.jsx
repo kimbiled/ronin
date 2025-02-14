@@ -79,10 +79,10 @@ const Comments = () => {
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={index}
-            className="relative flex items-center justify-center cursor-pointer"
+            className="relative flex items-center justify-center cursor-pointer transition ease-in-out duration-300 hover:brightness-[80%]"
             animate={index === currentIndex ? { scale: 1.2 } : { scale: 1 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            onClick={() => handleSelect(index)} // Позволяет выбрать отзыв по клику
+            onClick={() => handleSelect(index)} 
           >
             {index === currentIndex && (
               <svg

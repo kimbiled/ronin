@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
 export default function ProjectCard({ images, logo, title, description, description2, country, tags, highlight, isMain, verified, starred, badgeImage }) {
   const [isHovered, setIsHovered] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -9,7 +10,7 @@ export default function ProjectCard({ images, logo, title, description, descript
     if (isHovered && images.length > 1) {
       interval = setInterval(() => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 2000); // Меняем картинку каждые 2 секунды
+      }, 2000);
     }
     
     return () => clearInterval(interval);
@@ -17,23 +18,24 @@ export default function ProjectCard({ images, logo, title, description, descript
 
   useEffect(() => {
     if (!isHovered) {
-      setCurrentImageIndex(0); // Сбрасываем на первую картинку
+      setCurrentImageIndex(0);
     }
   }, [isHovered]);
 
   const getBadgeStyles = () => {
     if (verified && (title === "p1" || title === "p2")) {
-      return "font-ppneue bg-[#F7F7F6] bg-opacity-[5%] text-white  border-[#FFFFFF] border-opacity-20 border-[0.5px] bg-backdrop-blur-[24px] rounded-[100px] pl-[4px] pb-[4px] pt-[4px] pr-[18px] font-book";
+      return "font-ppneue bg-[#F7F7F6] bg-opacity-[5%] text-white border-[#FFFFFF] border-opacity-20 border-[0.5px] bg-backdrop-blur-[24px] rounded-[100px] pl-[4px] pb-[4px] pt-[4px] pr-[18px] font-book";
     } else if (verified && title === "p5") {
-      return "font-ppneue bg-[#F7F7F6] bg-opacity-[70%] text-black border-[#FFFFFF] border-opacity-20 border-[0.5px] bg-backdrop-blur-[24px] rounded-[100px] pl-[4px] pb-[4px] pt-[4px] pr-[18px]  font-book";
+      return "font-ppneue bg-[#F7F7F6] bg-opacity-[70%] text-black border-[#FFFFFF] border-opacity-20 border-[0.5px] bg-backdrop-blur-[24px] rounded-[100px] pl-[4px] pb-[4px] pt-[4px] pr-[18px] font-book";
     } else if (starred && title === "p9") {
-      return "font-ppneue bg-[#F7F7F6] bg-opacity-[5%] text-white  border-[#FFFFFF] border-opacity-20 border-[0.5px] bg-backdrop-blur-[24px] rounded-[100px] pl-[4px] pb-[4px] pt-[4px] pr-[18px] font-medium";
+      return "font-ppneue bg-[#F7F7F6] bg-opacity-[5%] text-white border-[#FFFFFF] border-opacity-20 border-[0.5px] bg-backdrop-blur-[24px] rounded-[100px] pl-[4px] pb-[4px] pt-[4px] pr-[18px] font-medium";
     }
     return "";
   };
+
   return (
     <div
-      className="font-ppneue relative cursor-pointer rounded-lg overflow-hidden w-full h-auto" // h-auto позволяет контенту адаптироваться
+      className="font-ppneue relative cursor-pointer rounded-lg overflow-hidden w-full h-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -46,19 +48,20 @@ export default function ProjectCard({ images, logo, title, description, descript
       />
 
       {/* Контейнер для изображений */}
-      <div className="relative w-full h-auto">
+      <div className="relative w-full h-auto overflow-hidden rounded-[48px]">
         {images.map((image, index) => (
           <motion.img
             key={index}
             src={image}
             alt={title}
             className="absolute top-0 left-0 w-full h-full object-cover"
-            style={{ position: index === 0 ? "relative" : "absolute" }} // Первая картинка "relative", остальные "absolute"
+            style={{ position: index === 0 ? "relative" : "absolute" }}
             animate={{
               opacity: index === currentImageIndex ? 1 : 0,
+              scale: isHovered ? 1.05 : 1, // 🔥 Увеличиваем изображение при hover
               filter: `brightness(${isHovered ? 70 : 100}%)`,
             }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }} // Плавная анимация
           />
         ))}
       </div>

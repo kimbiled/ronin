@@ -101,15 +101,21 @@ const ContentDesktop = () => {
                     </div>
                     
                     <div className="relative max-w-[478px] w-full overflow-hidden mt-10">
-                        <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-white via-white/70 to-transparent z-10"></div>
-                        <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-white via-white/70 to-transparent z-10"></div>
-                    
-                        <div className="flex items-center animate-scroll gap-8">
-                            {[...logos, ...logos].map((logo, index) => (
-                                <img key={index} src={logo.src} alt={logo.alt} className={`w-auto ${logo.height}`} />
-                            ))}
-                        </div>
-                    </div>
+    {/* Градиенты слева и справа */}
+    <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-white via-white/70 to-transparent z-10"></div>
+    <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-white via-white/70 to-transparent z-10"></div>
+
+    <div className="flex items-center animate-scroll gap-2">
+        {[...logos, ...logos].map(({ src, alt, height }, index) => (
+            <img 
+                key={index} 
+                src={src} 
+                alt={alt} 
+                className={`w-auto ${height} ${alt === "gorilla" ? "mx-4" : "mx-6"}`} 
+            />
+        ))}
+    </div>
+</div>
                 </div>
                 <div className="flex flex-col justify-between">
                     <div className="flex flex-col mt-6 items-center">

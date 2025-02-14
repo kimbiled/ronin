@@ -72,6 +72,7 @@ const Header = () => {
               {/* Логотип и кнопка закрытия */}
               <div className="flex justify-between items-center">
                 <motion.div
+                  onClick={() => window.location.href = "/"}
                   className="text-2xl font-bold"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -162,18 +163,22 @@ const Header = () => {
           e.preventDefault(); // Останавливаем стандартный переход
           setIsMenuOpen(false); // Закрываем меню
 
-          // Убираем символ `#`, получаем чистый ID
-          const targetId = link.href.replace("#", "");
+          const targetId = link.href.replace("#", ""); // Получаем ID блока
+          const isHomePage = window.location.pathname === "/"; // Проверяем, находимся ли мы на главной
 
-          // Добавляем небольшой таймаут, чтобы React успел обновить DOM
-          setTimeout(() => {
-            const element = document.getElementById(targetId);
-            if (element) {
-              const offset = 100; // Если у тебя фиксированный хедер, отступ
-              const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
-              window.scrollTo({ top: elementPosition, behavior: "smooth" });
-            }
-          }, 100); // 100 мс задержка
+          if (!isHomePage) {
+            sessionStorage.setItem("scrollTo", targetId); // Сохраняем ID в sessionStorage
+            window.location.href = "/"; // Переходим на главную
+          } else {
+            setTimeout(() => {
+              const element = document.getElementById(targetId);
+              if (element) {
+                const offset = 100; // Отступ для фиксированного хедера
+                const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: elementPosition, behavior: "smooth" });
+              }
+            }, 100);
+          }
         }}
       >
         {link.title}
@@ -228,18 +233,28 @@ const Header = () => {
 
      {/* Кнопка в отдельном блоке */}
      <button
-       className="border border-[#1261FC] text-[#1261FC] font-medium px-6 py-2 rounded-[48px] sm20:h-12"
-       onClick={() => {
-         const element = document.getElementById("form-section");
-         if (element) {
-           const offset = 100;
-           const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
-           window.scrollTo({ top: elementPosition, behavior: "smooth" });
-         }
-       }}
-     >
-       Let’s chat!
-     </button>
+  className="border border-[#1261FC] text-[#1261FC] font-medium px-6 py-2 rounded-[48px] sm20:h-12"
+  onClick={(e) => {
+    e.preventDefault(); // Останавливаем стандартное поведение
+    const isHomePage = window.location.pathname === "/"; // Проверяем, на главной ли мы
+
+    if (!isHomePage) {
+      sessionStorage.setItem("scrollTo", "form-section"); // Сохраняем ID в sessionStorage
+      window.location.href = "/"; // Редирект на главную
+    } else {
+      setTimeout(() => {
+        const element = document.getElementById("form-section");
+        if (element) {
+          const offset = 100;
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: elementPosition, behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }}
+>
+  Let’s chat!
+</button>
    </div>
  </motion.div>
       )}
