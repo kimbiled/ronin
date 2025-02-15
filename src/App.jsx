@@ -75,6 +75,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 430);
   const [loading, setLoading] = useState(!sessionStorage.getItem("sessionStarted"));
   const location = useLocation();
+  const [videoEnded, setVideoEnded] = useState(false);
 
   // 🔹 Ленивая загрузка изображений
   useEffect(() => {
@@ -93,38 +94,58 @@ function App() {
   }, []);
 
   // 🔹 Прелоадер ждет загрузку контента перед стартом
- useEffect(() => {
-  if (!sessionStorage.getItem("sessionStarted")) {
-    setLoading(true);
+  useEffect(() => {
+    const checkImagesLoaded = () => {
+      return new Promise((resolve) => {
+        let checkInterval = setInterval(() => {
+          const images = document.querySelectorAll("img");
+          let allLoaded = Array.from(images).every((img) => img.complete && img.naturalHeight !== 0);
+          if (allLoaded) {
+            clearInterval(checkInterval);
+            resolve();
+          }
+        }, 500);
+      });
+    };
 
-    const imagePromises = preloadImages.map((src) => 
-      new Promise((resolve) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = resolve;
-        img.onerror = resolve;
-      })
-    );
+    if (!sessionStorage.getItem("sessionStarted")) {
+      setLoading(true);
 
-    const fontPromise = document.fonts ? document.fonts.ready : Promise.resolve();
+      Promise.all([
+        ...preloadImages.map((src) => new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = resolve;
+          img.onerror = resolve;
+        })),
+        document.fonts ? document.fonts.ready : Promise.resolve(),
+        checkImagesLoaded(),
+      ]).then(() => {
+        console.log("Контент загружен, ждём завершения видео");
+        if (videoEnded) handlePreloaderComplete(); // ✅ Ждём завершения видео
+      });
+    }
+  }, [videoEnded]); // ✅ Следим за концом видео
 
-    Promise.all([...imagePromises, fontPromise]).then(() => {
-      console.log("Контент загружен, проверяем скролл");
+  // 🔹 Функция, вызываемая, когда видео доиграет до конца
+  const handleVideoEnd = () => {
+    console.log("Видео завершено");
+    setVideoEnded(true);
+    if (!loading) handlePreloaderComplete(); // ✅ Если контент уже загружен, скрываем прелоадер
+  };
 
-      handlePreloaderComplete(); // Скрываем прелоадер
-    });
-  }
-}, []);
-
-  // 🔹 Функция для скрытия прелоадера после завершения видео
+  // 🔹 Функция скрытия прелоадера
   const handlePreloaderComplete = () => {
     setLoading(false);
     sessionStorage.setItem("sessionStarted", "true");
   };
 
   if (loading) {
-    return isMobile ? <Preloader onComplete={handlePreloaderComplete} /> : <PreloaderDesktop onComplete={handlePreloaderComplete} />;
+    return isMobile 
+      ? <Preloader onComplete={handlePreloaderComplete} onVideoEnd={handleVideoEnd} /> 
+      : <PreloaderDesktop onComplete={handlePreloaderComplete} onVideoEnd={handleVideoEnd} />;
   }
+
 
   return (
     <Routes>
