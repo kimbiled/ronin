@@ -6,7 +6,7 @@ export default function StepFourDesktop({ onPrev, onSubmit }) {
   return (
     <div className="font-ppneue flex flex-col w-full mx-auto gap-44">
       {/* Заголовок */}
-      <div>
+      <div className="max-h-[456px] h-auto">
       <p className="font-medium text-black text-[22px] mt-[25px]">Tell us more about your project</p>
 
 {/* Текстовое поле для описания */}

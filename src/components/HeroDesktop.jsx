@@ -32,15 +32,18 @@ const logos = [
     { src: astanahub, alt: "astanahub", height: "h-[42px]" },
   ];
 
-  const floatingAnimation = {
-    y: [0, -5, 5, 0], // Двигаемся вверх-вниз
-    x: [0, 3, -3, 0], // Немного смещаем в стороны
+  
+const getRandomAnimation = () => ({
+    y: [0, Math.random() * -10, Math.random() * 10, 0], // Случайные колебания по вертикали
+    x: [0, Math.random() * 6 - 3, Math.random() * -6 + 3, 0], // Хаотичные движения влево-вправо
+    rotate: [0, Math.random() * 10 - 5, Math.random() * -10 + 5, 0], // Легкое покачивание
     transition: {
-      duration: 12, // Очень медленная анимация (6 секунд)
+      duration: Math.random() * 5 + 6, // Разброс по длительности (от 6 до 11 сек)
       ease: "easeInOut",
-      repeat: Infinity, // Бесконечный повтор
+      repeat: Infinity,
+      repeatType: "reverse",
     }
-  };
+  });
 
 const HeroDesktop = () => {
     return (
@@ -51,7 +54,7 @@ const HeroDesktop = () => {
           src={r1} 
           alt="r1"
           className="absolute top-28 left-24"
-          animate={floatingAnimation}
+          animate={getRandomAnimation()}
         />
 
         {/* R2 */}
@@ -59,7 +62,7 @@ const HeroDesktop = () => {
           src={r2}
           alt="r2"
           className="absolute top-48 right-[376px]"
-          animate={floatingAnimation}
+          animate={getRandomAnimation()}
         />
 
         {/* R3 */}
@@ -67,7 +70,7 @@ const HeroDesktop = () => {
           src={r3}
           alt="r3"
           className="absolute top-14 left-[480px]"
-          animate={floatingAnimation}
+          animate={getRandomAnimation()}
         />
 
         {/* R4 */}
@@ -75,7 +78,7 @@ const HeroDesktop = () => {
           src={r4}
           alt="r4"
           className="absolute top-44 right-2"
-          animate={floatingAnimation}
+          animate={getRandomAnimation()}
         />
             </div>
             <div className="flex flex-row max-w-[1200px] w-full justify-between">

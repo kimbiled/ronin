@@ -14,7 +14,7 @@ export default function StepFour({ onPrev, onSubmit }) {
         onChange={(e) => setDescription(e.target.value)}
         className="w-full p-3 border-b border-gray-300 focus:outline-none resize-none text-lg"
         placeholder="Something about your great idea"
-        rows="1"
+        rows="2"
       />
 
       {/* Кнопки "Go Back" и "Submit" */}

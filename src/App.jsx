@@ -32,8 +32,46 @@ import r4 from "./assets/desktop/r4.png";
 import heros from "./assets/desktop/Hero.svg";
 
 const preloadImages = [first, second, third, four, hero, item1, item2, item3, item4, phone, r1, r2, r3, r4, heros];
+const scrollToFormSection = () => {
+  const scroll = () => {
+    const element = document.getElementById("form-section");
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: elementPosition, behavior: "smooth" });
+    }
+  };
+
+  // Если элемента пока нет, ждем его появления
+  let attempts = 0;
+  const interval = setInterval(() => {
+    if (document.getElementById("form-section") || attempts > 20) {
+      scroll();
+      clearInterval(interval);
+    }
+    attempts++;
+  }, 100);
+};
 
 function App() {
+  useEffect(() => {
+    const scrollTo = sessionStorage.getItem("scrollTo");
+    if (scrollTo) {
+      sessionStorage.removeItem("scrollTo");
+  
+      // Ждем появления элемента
+      let attempts = 0;
+      const interval = setInterval(() => {
+        const element = document.getElementById(scrollTo);
+        if (element || attempts > 20) {
+          scrollToFormSection();
+          clearInterval(interval);
+        }
+        attempts++;
+      }, 100);
+    }
+  }, []);
+
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 430);
   const [loading, setLoading] = useState(!sessionStorage.getItem("sessionStarted"));
   const location = useLocation();
@@ -55,26 +93,28 @@ function App() {
   }, []);
 
   // 🔹 Прелоадер ждет загрузку контента перед стартом
-  useEffect(() => {
-    if (!sessionStorage.getItem("sessionStarted")) {
-      setLoading(true);
+ useEffect(() => {
+  if (!sessionStorage.getItem("sessionStarted")) {
+    setLoading(true);
 
-      const imagePromises = preloadImages.map((src) => 
-        new Promise((resolve) => {
-          const img = new Image();
-          img.src = src;
-          img.onload = resolve;
-          img.onerror = resolve;
-        })
-      );
+    const imagePromises = preloadImages.map((src) => 
+      new Promise((resolve) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = resolve;
+      })
+    );
 
-      const fontPromise = document.fonts ? document.fonts.ready : Promise.resolve();
+    const fontPromise = document.fonts ? document.fonts.ready : Promise.resolve();
 
-      Promise.all([...imagePromises, fontPromise]).then(() => {
-        console.log("Контент загружен, готов к запуску видео");
-      });
-    }
-  }, []);
+    Promise.all([...imagePromises, fontPromise]).then(() => {
+      console.log("Контент загружен, проверяем скролл");
+
+      handlePreloaderComplete(); // Скрываем прелоадер
+    });
+  }
+}, []);
 
   // 🔹 Функция для скрытия прелоадера после завершения видео
   const handlePreloaderComplete = () => {
@@ -107,3 +147,5 @@ export default function AppWrapper() {
     </Router>
   );
 }
+
+export { scrollToFormSection };

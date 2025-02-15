@@ -124,7 +124,7 @@ export default function FAQDesktop() {
   };
 
   return (
-    <div className="font-ppneue flex flex-col w-full max-w-[1200px] text-white gap-12 mt-[80px] mb-40">
+    <div className="font-ppneue flex flex-col w-full max-w-[1200px] text-white gap-4 mt-[80px] mb-40">
       <h2 className="text-[84px] font-medium">FAQ</h2>
       <div className="flex flex-col divide-y divide-white divide-opacity-10">
   {faqData.map((item, index) => (

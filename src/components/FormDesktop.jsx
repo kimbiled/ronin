@@ -40,15 +40,15 @@ const FormDesktop = () => {
     <div id="form-section" className="font-ppneue flex flex-col w-[85%] items-center justify-center h-[800px]">
       <div className="mt-[100px] flex flex-row max-w-[1200px] w-full justify-between">
             <div className="flex flex-col gap-20">
-                <div className="flex flex-col items-center">
-                    <p className="font-medium  leading-[92px] text-[84px]"><span className="text-[#1261FC]">Let's </span>create<br />
+                <div className="flex flex-col">
+                    <p className="font-medium leading-[92px] text-[84px]"><span className="text-[#1261FC]">Let's </span>create<br />
                     together </p>
                     <p className="font-book text-[22px] leading-[30px] mt-6">Got a project? Let's bring it to life with design<br/>
                     and innovation</p>
                 </div>
                 <div className="flex flex-col mt-6 ">
                     <p className="font-book  leading-[24px] text-[22px] text-[#9CA3AF]">Contact us</p>
-                    <p className="font-book text-[22px] leading-[22px] mt-6">hi@ronindsgn.com</p>
+                    <a className="font-book text-[22px] leading-[22px] mt-3" href="mailto:hi@ronindsgn.com">hi@ronindsgn.com</a>
                 </div>
             </div>
                 <div id="form-section" className=" font-ppneue flex flex-col max-w-[550px] w-full justify-between">

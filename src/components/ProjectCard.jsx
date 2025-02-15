@@ -36,7 +36,7 @@ export default function ProjectCard({ images, logo, title, description, descript
       {/* Затемняющий слой */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: isHovered ? 0.5 : 0 }}
+        animate={{ opacity: isHovered ? 0.2 : 0 }}
         transition={{ duration: 0.3 }}
         className="absolute inset-0 bg-black rounded-[48px] z-10"
       />
@@ -53,7 +53,7 @@ export default function ProjectCard({ images, logo, title, description, descript
             animate={{
               opacity: index === currentImageIndex ? 1 : 0,
               scale: isHovered ? 1.05 : 1, // 🔥 Увеличение при ховере
-              filter: `brightness(${isHovered ? 70 : 100}%)`,
+              
             }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           />
