@@ -297,3 +297,9 @@ details summary::-webkit-details-marker {
     transform: translateX(-100%);
   }
 }
+
+
+.sticky-sidebar {
+  position: sticky;
+  top: 100px; /* Фиксированный отступ сверху */
+}

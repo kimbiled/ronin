@@ -1,6 +1,6 @@
 import HeaderDesktop from "../components/HeaderDesktop";
 import FooterDesktop from "../components/FooterDesktop";
-import { useRef } from "react";
+import { useRef, useState, useEffect} from "react";
 
 import b1 from '../assets/desktop/b1.png';
 import arrow from '../assets/icons/arrow-right.svg';
@@ -22,6 +22,29 @@ const FirstNewsDesktop = () => {
       window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
     }
   };
+
+  const sidebarRef = useRef(null);
+  const [offset, setOffset] = useState(0);
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+      const handleScroll = () => {
+          if (!sidebarRef.current) return;
+
+          const sidebarTop = sidebarRef.current.getBoundingClientRect().top;
+
+          if (sidebarTop <= 80) {
+              setIsFixed(true);
+              setOffset(window.scrollY - sidebarRef.current.offsetTop + 20);
+          } else {
+              setIsFixed(false);
+              setOffset(0);
+          }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div>
@@ -45,18 +68,25 @@ const FirstNewsDesktop = () => {
                 </div>
 
                 <div className="flex flex-row gap-12 mt-16">
-                <div className="flex flex-col max-w-[335px] w-full sticky top-[100px] self-start h-full sticky">
-        {sections.map((section) => (
-            <button
-                key={section.id}
-                className="w-full flex items-center justify-start py-4 text-[22px] font-medium text-[#090C21] focus:outline-none border-b border-[#090C21] border-opacity-10"
-                onClick={() => scrollToSection(section.id)}
-            >
-                <img src={arrow} alt="arrow" className="mr-2" />
-                {section.title}
-            </button>
-        ))}
-    </div>
+                <div
+            ref={sidebarRef}
+            className="flex flex-col max-w-[335px] w-full h-[280px]"
+            style={{
+                transform: isFixed ? `translateY(${offset}px)` : "none",
+                transition: "transform 0.2s ease-out",
+            }}
+        >
+            {sections.map((section) => (
+                <button
+                    key={section.id}
+                    className="w-full flex items-center justify-start py-4 text-[22px] font-medium text-[#090C21] focus:outline-none border-b border-[#090C21] border-opacity-10"
+                    onClick={() => scrollToSection(section.id)}
+                >
+                    <img src={arrow} alt="arrow" className="mr-2" />
+                    {section.title}
+                </button>
+            ))}
+        </div>
                     <div className="max-w-[985px] w-full flex flex-col gap-[68px]">
                         <div className="text-[#090C21]" ref={(el) => (sectionRefs.current["inclusive-design"] = el)}>
                             <h2 className="text-[44px] font-medium">What is Inclusive Design?</h2>

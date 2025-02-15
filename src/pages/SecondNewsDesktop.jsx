@@ -1,6 +1,6 @@
 import HeaderDesktop from "../components/HeaderDesktop";
 import FooterDesktop from "../components/FooterDesktop";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import b2 from '../assets/desktop/b2.png';
 import arrow from '../assets/icons/arrow-right.svg';
@@ -24,6 +24,28 @@ const SecondNewsDesktop = () => {
       window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
     }
   };
+  const sidebarRef = useRef(null);
+    const [offset, setOffset] = useState(0);
+    const [isFixed, setIsFixed] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!sidebarRef.current) return;
+
+            const sidebarTop = sidebarRef.current.getBoundingClientRect().top;
+
+            if (sidebarTop <= 80) {
+                setIsFixed(true);
+                setOffset(window.scrollY - sidebarRef.current.offsetTop + 20);
+            } else {
+                setIsFixed(false);
+                setOffset(0);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
   return (
     <div>
@@ -47,18 +69,25 @@ const SecondNewsDesktop = () => {
                 </div>
 
                 <div className="flex flex-row gap-12 mt-16">
-                <div className="flex flex-col max-w-[335px] w-full">
-    {sections.map((section) => (
-        <button
-            key={section.id}
-            className="w-full flex items-center text-left py-4 text-[22px] font-medium text-[#090C21] focus:outline-none border-b border-[#090C21] border-opacity-10"
-            onClick={() => scrollToSection(section.id)}
+                <div
+            ref={sidebarRef}
+            className="flex flex-col max-w-[335px] w-full"
+            style={{
+                transform: `translateY(${offset}px)`,
+                transition: "transform 0.2s ease-out",
+            }}
         >
-            <img src={arrow} alt="arrow" className="mr-2 flex-shrink-0" />
-            <span className="flex-1">{section.title}</span>
-        </button>
-    ))}
-</div>
+            {sections.map((section) => (
+                <button
+                    key={section.id}
+                    className="w-full flex items-center text-left py-4 text-[22px] font-medium text-[#090C21] focus:outline-none border-b border-[#090C21] border-opacity-10"
+                    onClick={() => scrollToSection(section.id)}
+                >
+                    <img src={arrow} alt="arrow" className="mr-2 flex-shrink-0" />
+                    <span className="flex-1">{section.title}</span>
+                </button>
+            ))}
+        </div>
                     <div className="max-w-[985px] w-full flex flex-col gap-[40px]">
                         <h4 className="text-[44px] font-medium mb-5 leading-[44px]">
                             As we step into 2025, here are the key UX trends that will shape the industry in the coming year:

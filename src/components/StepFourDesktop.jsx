@@ -4,7 +4,7 @@ export default function StepFourDesktop({ onPrev, onSubmit }) {
   const [description, setDescription] = useState("");
 
   return (
-    <div className="font-ppneue flex flex-col w-full mx-auto gap-44">
+    <div className="font-ppneue flex flex-col w-full mx-auto gap-28">
       {/* Заголовок */}
       <div className="max-h-[456px] h-auto">
       <p className="font-medium text-black text-[22px] mt-[25px]">Tell us more about your project</p>
@@ -13,7 +13,7 @@ export default function StepFourDesktop({ onPrev, onSubmit }) {
 <textarea
   value={description}
   onChange={(e) => setDescription(e.target.value)}
-  className="w-full p-3 border-b border-gray-300 focus:outline-none resize-none text-lg"
+  className="w-full p-3 border-b border-gray-300 focus:outline-none resize-none text-lg h-[108px]"
   placeholder="Something about your great idea"
   rows="1"
 />
