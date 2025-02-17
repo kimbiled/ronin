@@ -52,7 +52,7 @@ import p55 from "../assets/desktop/p55.svg";
 import p66 from "../assets/desktop/p66.svg";
 import p77 from "../assets/desktop/p77.svg";
 import p99 from "../assets/desktop/p99.svg";
-import metall from "../assets/desktop/metall.svg";
+import metall from "../assets/desktop/metall.png";
 import star from '../assets/icons/stared.png';
 import verify from '../assets/icons/Icon.png'
 import ProjectCard from "./ProjectCard";

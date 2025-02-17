@@ -16,11 +16,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 html, body {
   overflow-x: hidden;
   max-width: 100%;
+  background-color: #ffffff;
 }
 
 /* Исправляем контейнеры */
@@ -166,7 +168,7 @@ details summary::-webkit-details-marker {
 
 
 .emblas {
-  overflow: hidden; 
+  overflow: visible; 
   width: 100%;
   margin: auto;
   
@@ -175,10 +177,21 @@ details summary::-webkit-details-marker {
   --slide-size: 353px;
 }
 
-@media (max-width: 425px) and (min-width: 391px) { 
+@media (max-width: 425px) and (min-width: 401px) { 
   .emblas {
     --slide-height: 345px;
     --slide-size: 345px;
+    --slide-spacing: 6px;
+  }
+  .emblas__container {
+    margin-left: calc(var(--slide-spacing) * -10);
+  }
+}
+
+@media (max-width: 400px) and (min-width: 391px) { 
+  .emblas {
+    --slide-height: 330px;
+    --slide-size: 330px;
     --slide-spacing: 6px;
   }
   .emblas__container {
@@ -220,7 +233,7 @@ details summary::-webkit-details-marker {
 }
 
 .emblas__viewport {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .emblas__container {

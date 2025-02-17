@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import threeD from '../assets/desktop/3d.svg';
+import threeD from '../assets/desktop/3d.png';
 import arrow from '../assets/icons/45deg.svg';
 import logoPhone from '../assets/icons/logoPhone.svg';
 import stars from '../assets/icons/Stars.png';
@@ -86,7 +86,7 @@ const ContentDesktop = () => {
                         <motion.img 
                             src={threeD} 
                             alt="3D"
-                            className="absolute -top-36 right-1"
+                            className="absolute -top-36 right-1 w-[270px] h-[270px]"
                             animate={{ x: [-10, 10, -10] }}
                             transition={{ duration: 30, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                         />

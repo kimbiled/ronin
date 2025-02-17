@@ -19,7 +19,7 @@ const ProjectItem = ({ item }) => {
         <div className="emblas__container">
           {item.avatars.map((src, index) => (
             <div className="emblas__slide" key={index}>
-              <div className="relative">
+              <div className="relative ">
                 <img src={src} alt={`Avatar ${index}`} className="emblas__slide__image" />
 
                 {/* followers показывается только на активном слайде */}

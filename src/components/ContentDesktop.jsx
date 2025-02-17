@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ready from "../assets/desktop/ready.svg";
+import ready from "../assets/desktop/ready.png";
 import item1 from "../assets/desktop/item1.png"
 import item2 from "../assets/desktop/item2.png"
 import item3 from "../assets/desktop/item3.png"
@@ -46,7 +46,7 @@ const ContentDesktop = () => {
     <div id="about-us" className="font-ppneue flex flex-col w-[85%] items-center mt-20">
      
       <div>
-        <img src={ready} alt="ready" />
+        <img src={ready} alt="ready" width={1200} height={500}/>
       </div>
 
       

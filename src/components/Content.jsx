@@ -103,31 +103,41 @@ const Content = () => {
                   </summary>
 
                   <AnimatePresence>
-                    {openIndex === index && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="mt-3 text-white overflow-hidden max-w-[345px] w-full"
-                      >
-                        <p className="font-book">{service.description}</p>
-                        <img
-                          src={service.img}
-                          alt={service.title}
-                          className="w-36 h-36 mt-2"
-                        />
-                        {service.button && (
-                          <button
-                            className="text-[#0F55E0] font-medium h-12 w-52 rounded-lg bg-white mt-4"
-                            onClick={() => setIsModalOpen(true)}
-                          >
-                            Book a quick session
-                          </button>
-                        )}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+  {openIndex === index && (
+    <motion.div
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: "auto" }}
+      exit={{ opacity: 0, height: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="mt-3 text-white overflow-hidden max-w-[345px] w-full"
+    >
+      <p className="font-book">{service.description}</p>
+      
+      <motion.img
+        src={service.img}
+        alt={service.title}
+        className="w-36 h-36 mt-2"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      />
+
+      {service.button && (
+        <motion.button
+          className="text-[#0F55E0] font-medium h-12 w-52 rounded-lg bg-white mt-4"
+          onClick={() => setIsModalOpen(true)}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.3, ease: "easeInOut", delay: 0.1 }} // Добавляем небольшую задержку
+        >
+          Book a quick session
+        </motion.button>
+      )}
+    </motion.div>
+  )}
+</AnimatePresence>
                 </div>
               </div>
             ))}

@@ -1,7 +1,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import arrow from '../assets/icons/45deg.svg'
-import threeD from '../assets/icons/3d.svg'
+import threeD from '../assets/icons/3d.png'
 import three from '../assets/mobile/threeD.jpg'
 import logoPhone from '../assets/icons/logoPhone.svg'
 import stars from '../assets/icons/Stars.png'
@@ -90,7 +90,7 @@ const Leaders = () => {
                     <motion.img 
                         src={three} 
                         alt="3D"
-                        className="absolute -top-14 -right-10"
+                        className="absolute -top-20 -right-10"
                         animate={{ x: [-10, 10, -10] }} // Двигаем влево и вправо
                         transition={{ duration: 30, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                         />
