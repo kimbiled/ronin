@@ -125,7 +125,11 @@ const ReviewDesktop = () => {
                   key={logos[index].key}
                   src={logos[index].src}
                   alt="logo"
-                  className="absolute w-[150px] h-auto"
+                  className="absolute h-auto w-[150px]"
+                  style={{
+                    height: logos[index].key === "gorilla" ? "70px" : "auto", // Увеличиваем размер для gorilla
+                    width: logos[index].key === "gorilla" ? "120px" : "150px", // Увеличиваем размер для gorilla
+                  }}
                   initial={{ y: "100%", opacity: 0 }}
                   animate={{ y: "0%", opacity: 1 }}
                   exit={{ y: "-100%", opacity: 0 }}
