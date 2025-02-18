@@ -1,9 +1,16 @@
 import { useState } from "react";
 
-export default function StepFour({ onPrev, onSubmit }) {
+export default function StepFour({ onPrev, onSubmit, setFormData }) {
   const [description, setDescription] = useState("");
-
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
   
+    setFormData((prev) => ({
+      ...prev,
+      description: e.target.value,
+    }));
+  };
+
   return (
     <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
       {/* Заголовок */}
@@ -12,7 +19,7 @@ export default function StepFour({ onPrev, onSubmit }) {
       {/* Текстовое поле для описания */}
       <textarea
         value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        onChange={handleDescriptionChange}
         className="w-full p-3 border-b border-gray-300 focus:outline-none resize-none text-lg"
         placeholder="Something about your great idea"
         rows="2"

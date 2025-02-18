@@ -4,6 +4,7 @@ import closeIcon from "../assets/desktop/closeIcon.svg";
 import unverified from "../assets/desktop/unverified.svg";
 import verify from "../assets/desktop/Icon.png";
 import successIcon from "../assets/icons/Icon.png"; 
+import emailjs from "@emailjs/browser";
 
 const CallModal = ({ isOpen, onClose }) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -11,8 +12,36 @@ const CallModal = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+  });
 
-  // 🔒 **Блокируем скролл при открытии модалки**
+
+  const sendEmail = async () => {
+    try {
+      const templateParams = {
+        fullName: formData.fullName,
+        email: formData.email,
+        interest: formData.interest,
+        budget: formData.budget,
+        description: formData.description,
+      };
+  
+      await emailjs.send(
+        "service_ayzyi48",
+        "template_584q8rp",   
+        templateParams,
+        "RnF6odRZ4qCdyyFwC"     
+      );
+  
+    
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
+
+  
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => (document.body.style.overflow = "");
@@ -22,13 +51,24 @@ const CallModal = ({ isOpen, onClose }) => {
 
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email.trim() || !validateEmail(email) || !isChecked) {
       setIsEmailValid(validateEmail(email));
       return;
     }
     setSubmitted(true);
+    setFormData({
+      fullName,
+      email,
+    });
+  
+    try {
+      await sendEmail(); // ✅ Отправляем email
+      setSubmitted(true); // ✅ Показываем финальный экран
+    } catch (error) {
+      console.error("Ошибка отправки:", error);
+    }
   };
 
   const handleReset = () => {

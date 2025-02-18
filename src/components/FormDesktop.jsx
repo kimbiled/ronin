@@ -8,6 +8,9 @@ import StepFinalDesktop from "./StepFinalDesktop";
 import done from '../assets/desktop/done.png'
 import active from '../assets/desktop/active.svg'
 import ncompleted from '../assets/desktop/n-completed.png'
+import emailjs from "@emailjs/browser";
+
+
 const FormDesktop = () => {
     const steps = [1, 2, 3, 4];
     const [currentStep, setCurrentStep] = useState(1);
@@ -20,6 +23,29 @@ const FormDesktop = () => {
       budget: "",
       description: "",
     });
+
+    const sendEmail = async () => {
+      try {
+        const templateParams = {
+          fullName: formData.fullName,
+          email: formData.email,
+          interest: formData.interest,
+          budget: formData.budget,
+          description: formData.description,
+        };
+    
+        await emailjs.send(
+          "service_ayzyi48",   // ID сервиса из EmailJS
+          "template_dmc3j3e",   // ID шаблона письма
+          templateParams,
+          "RnF6odRZ4qCdyyFwC"     // Публичный ключ
+        );
+    
+      } catch (error) {
+        console.error("Error sending email:", error);
+      }
+    };
+
   const nextStep = () => {
     if (canProceed) {
       setCurrentStep((prev) => prev + 1);
@@ -33,8 +59,13 @@ const FormDesktop = () => {
     }
   };
 
-  const handleSubmit = () => {
-    setIsSubmitted(true); // Показываем StepFinal
+  const handleSubmit = async () => {
+    try {
+      await sendEmail(); 
+      setIsSubmitted(true); 
+    } catch (error) {
+      console.error("Ошибка отправки:", error);
+    }
   };
 
   const handleReset = () => {

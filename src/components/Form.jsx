@@ -5,6 +5,7 @@ import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 import StepFinal from "./StepFinal";
+import emailjs from "@emailjs/browser";
 
 import done from '../assets/mobile/done.png'
 import active from '../assets/mobile/active.svg'
@@ -16,6 +17,36 @@ export default function Form() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [canProceed, setCanProceed] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    interest: "",
+    budget: "",
+    description: "",
+  });
+
+  const sendEmail = async () => {
+    try {
+      const templateParams = {
+        fullName: formData.fullName,
+        email: formData.email,
+        interest: formData.interest,
+        budget: formData.budget,
+        description: formData.description,
+      };
+  
+      await emailjs.send(
+        "service_ayzyi48",   // ID сервиса из EmailJS
+        "template_dmc3j3e",   // ID шаблона письма
+        templateParams,
+        "RnF6odRZ4qCdyyFwC"     // Публичный ключ
+      );
+  
+   
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
 
   const nextStep = () => {
     if (canProceed) {
@@ -30,8 +61,13 @@ export default function Form() {
     }
   };
 
-  const handleSubmit = () => {
-    setIsSubmitted(true); // Показываем StepFinal
+  const handleSubmit = async () => {
+    try {
+      await sendEmail(); 
+      setIsSubmitted(true); 
+    } catch (error) {
+      console.error("Ошибка отправки:", error);
+    }
   };
 
   const handleReset = () => {
@@ -91,10 +127,10 @@ export default function Form() {
 
           {/* Step Content */}
           <div className="mt-5">
-            {currentStep === 1 && <StepOne onComplete={setCanProceed} onNext={nextStep} />}
-            {currentStep === 2 && <StepTwo onComplete={setCanProceed} onNext={nextStep} onPrev={prevStep} />}
-            {currentStep === 3 && <StepThree onComplete={setCanProceed} onNext={nextStep} onPrev={prevStep} />}
-            {currentStep === 4 && <StepFour onPrev={prevStep} onSubmit={handleSubmit} />}
+            {currentStep === 1 && <StepOne onComplete={setCanProceed} onNext={nextStep} setFormData={setFormData}/>}
+            {currentStep === 2 && <StepTwo onComplete={setCanProceed} onNext={nextStep} onPrev={prevStep} setFormData={setFormData}/>}
+            {currentStep === 3 && <StepThree onComplete={setCanProceed} onNext={nextStep} onPrev={prevStep} setFormData={setFormData}/>}
+            {currentStep === 4 && <StepFour onPrev={prevStep} onSubmit={handleSubmit} setFormData={setFormData}/>}
           </div>
         </>
       ) : (

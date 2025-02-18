@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-export default function StepOne({ onComplete, onNext }) {
+export default function StepOne({ onComplete, onNext, setFormData }) {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(true);
@@ -28,6 +28,13 @@ export default function StepOne({ onComplete, onNext }) {
     }
 
     if (hasError) return;
+
+    setFormData((prev) => ({
+      ...prev,
+      fullName,
+      email,
+    }));
+
     onNext();
   };
 

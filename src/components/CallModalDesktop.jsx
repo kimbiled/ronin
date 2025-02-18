@@ -6,6 +6,7 @@ import closeIcon from "../assets/desktop/closeIcon.svg";
 import unverified from "../assets/desktop/unverified.svg";
 import verify from "../assets/desktop/Icon.png";
 import successIcon from "../assets/icons/Icon.png"; // Иконка подтверждения
+import emailjs from "@emailjs/browser";
 
 const CallModalDesktop = ({ isOpen, onClose }) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -13,7 +14,10 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
-
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+  });
   if (!isOpen) return null;
 
   const validateForm = () => {
@@ -34,10 +38,40 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const sendEmail = async () => {
+    try {
+      const templateParams = {
+        fullName: formData.fullName,
+        email: formData.email,
+        interest: formData.interest,
+        budget: formData.budget,
+        description: formData.description,
+      };
+  
+      await emailjs.send(
+        "service_ayzyi48",   // ID сервиса из EmailJS
+        "template_584q8rp",   // ID шаблона письма
+        templateParams,
+        "RnF6odRZ4qCdyyFwC"     // Публичный ключ
+      );
+  
+   
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+  
     if (validateForm()) {
-      setSubmitted(true);
+      setFormData({
+        fullName,
+        email,
+      });
+  
+      await sendEmail(); // ✅ Отправляем email
+      setSubmitted(true); // ✅ Показываем финальный экран
     }
   };
 
