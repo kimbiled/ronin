@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function StepThreeDesktop({ onNext, onPrev, onComplete }) {
+export default function StepThreeDesktop({ onNext, onPrev, onComplete, setFormData }) {
   const [selectedBudget, setSelectedBudget] = useState("");
 
   const budgets = [
@@ -16,6 +16,10 @@ export default function StepThreeDesktop({ onNext, onPrev, onComplete }) {
 
   const handleSelect = (label) => {
     setSelectedBudget((prev) => (prev === label ? "" : label)); // Если уже выбрано — снимаем выделение
+    setFormData((prev) => ({
+      ...prev,
+      budget: label,
+    }));
   };
 
   return (

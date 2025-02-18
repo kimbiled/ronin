@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function StepFour({ onPrev, onSubmit }) {
   const [description, setDescription] = useState("");
 
+  
   return (
     <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
       {/* Заголовок */}

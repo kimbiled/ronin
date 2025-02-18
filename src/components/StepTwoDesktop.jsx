@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function StepTwoDesktop({ onNext, onPrev, onComplete }) {
+export default function StepTwoDesktop({ onNext, onPrev, onComplete, setFormData }) {
   const [selectedInterest, setSelectedInterest] = useState("");
 
   const interests = [
@@ -17,6 +17,10 @@ export default function StepTwoDesktop({ onNext, onPrev, onComplete }) {
 
   const handleSelect = (label) => {
     setSelectedInterest((prev) => (prev === label ? "" : label)); // Если уже выбрано — снимаем выделение
+    setFormData((prev) => ({
+      ...prev,
+      interest: label,
+    }));
   };
 
   return (

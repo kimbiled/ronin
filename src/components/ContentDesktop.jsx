@@ -91,7 +91,7 @@ const ContentDesktop = () => {
               onClick={() => handleToggle(index)}
             >
               <span
-                className={`text-[28px] font-medium transition-all leading-[125%] text-[#090C21]`}
+                className={`text-[28px] font-medium transition-all leading-[125%] text-[#090C21] hover:text-gray-500 duration-300 ease-in-out`}
               >
                 {service.title}
               </span>

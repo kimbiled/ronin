@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import FAQDesktop from './FaqDesktop';
 
+import { motion } from "framer-motion";
+
 import n1 from "../assets/desktop/b1.png";
 import n2 from "../assets/desktop/b2.png";
 import n3 from "../assets/desktop/b3.png";
@@ -55,11 +57,19 @@ const NewsDesktop = () => {
       <div className="flex flex-row gap-10">
         {/* Изображение справа */}
         <div>
-          <img
-            src={article.image}
-            alt={article.title.join(" ")}
-            className="w-[530px] h-[300px]"
-          />
+        <div>
+  <motion.img
+    src={article.image}
+    alt={article.title.join(" ")}
+    className="w-[530px] h-[300px] cursor-pointer"
+    whileHover={{ scale: 1.02 }} // 🚀 Зум при наведении
+    transition={{ duration: 0.6, ease: "easeInOut" }}
+    onClick={() => {
+      navigate(`/news/desktop/${article.id}`);
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }}
+  />
+</div>
         </div>
 
         {/* Текст слева */}
@@ -69,7 +79,10 @@ const NewsDesktop = () => {
               <p className="text-[#9CA3AF] font-book">{article.category}</p>
               <h2 className="text-white text-[44px] font-medium leading-[54px] mt-2">
                 {article.title.map((line, i) => (
-                  <span key={i} className="block">
+                  <span key={i} className="block cursor-pointer" onClick={() => {
+                    navigate(`/news/desktop/${article.id}`);
+                    window.scrollTo({ top: 0, behavior: "instant" });
+                  }}>
                     {line}
                   </span>
                 ))}

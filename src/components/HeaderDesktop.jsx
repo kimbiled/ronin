@@ -27,11 +27,11 @@ const HeaderDesktop = () => {
       </a>
 
       <nav className="hidden lg:flex gap-12 text-[#090C21] text-lg font-book cursor-pointer">
-        <a href="/" className='hover:text-gray-500 ease'>Home</a>
-        <a className='hover:text-gray-500 ease' onClick={() => handleNavigation("about-us")}>About Us</a>
-        <a className='hover:text-gray-500 ease' onClick={() => handleNavigation("what-we-do")}>What We Do</a>
-        <a className='hover:text-gray-500 ease' onClick={() => handleNavigation("recentProjects")}>Our Works</a>
-        <a className='hover:text-gray-500 ease' onClick={() => handleNavigation("form-section")}>Contact Us</a>
+        <a href="/" className='hover:text-gray-500 duration-300 ease-in-out'>Home</a>
+        <a className='hover:text-gray-500 duration-300 ease-in-out ' onClick={() => handleNavigation("about-us")}>About Us</a>
+        <a className='hover:text-gray-500 duration-300 ease-in-out' onClick={() => handleNavigation("what-we-do")}>What We Do</a>
+        <a className='hover:text-gray-500 duration-300 ease-in-out' onClick={() => handleNavigation("recentProjects")}>Our Works</a>
+        <a className='hover:text-gray-500 duration-300 ease-in-out' onClick={() => handleNavigation("form-section")}>Contact Us</a>
       </nav>
 
       <a href="#form-section"

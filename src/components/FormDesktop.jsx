@@ -13,7 +13,13 @@ const FormDesktop = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [canProceed, setCanProceed] = useState(false);
-
+    const [formData, setFormData] = useState({
+      fullName: "",
+      email: "",
+      interest: "",
+      budget: "",
+      description: "",
+    });
   const nextStep = () => {
     if (canProceed) {
       setCurrentStep((prev) => prev + 1);
@@ -95,10 +101,10 @@ const FormDesktop = () => {
                 
                           {/* Step Content */}
                           <div className="">
-                            {currentStep === 1 && <StepOneDesktop onComplete={setCanProceed} onNext={nextStep} />}
-                            {currentStep === 2 && <StepTwoDesktop onComplete={setCanProceed} onNext={nextStep} onPrev={prevStep} />}
-                            {currentStep === 3 && <StepThreeDesktop onComplete={setCanProceed} onNext={nextStep} onPrev={prevStep} />}
-                            {currentStep === 4 && <StepFourDesktop onPrev={prevStep} onSubmit={handleSubmit} />}
+                            {currentStep === 1 && <StepOneDesktop onComplete={setCanProceed} onNext={nextStep} setFormData={setFormData} />}
+                            {currentStep === 2 && <StepTwoDesktop onComplete={setCanProceed} onNext={nextStep} onPrev={prevStep}  setFormData={setFormData} />}
+                            {currentStep === 3 && <StepThreeDesktop onComplete={setCanProceed} onNext={nextStep} onPrev={prevStep}  setFormData={setFormData} />}
+                            {currentStep === 4 && <StepFourDesktop onPrev={prevStep} onSubmit={handleSubmit}  setFormData={setFormData} />}
                           </div>
                         </div>
                       ) : (

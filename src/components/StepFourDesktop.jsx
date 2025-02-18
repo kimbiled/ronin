@@ -1,8 +1,16 @@
 import { useState } from "react";
 
-export default function StepFourDesktop({ onPrev, onSubmit }) {
+export default function StepFourDesktop({ onPrev, onSubmit, setFormData}) {
   const [description, setDescription] = useState("");
-
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
+  
+    // ✅ Сохраняем описание в formData сразу после изменения
+    setFormData((prev) => ({
+      ...prev,
+      description: e.target.value,
+    }));
+  };
   return (
     <div className="font-ppneue flex flex-col w-full mx-auto gap-28">
       {/* Заголовок */}
@@ -12,7 +20,7 @@ export default function StepFourDesktop({ onPrev, onSubmit }) {
 {/* Текстовое поле для описания */}
 <textarea
   value={description}
-  onChange={(e) => setDescription(e.target.value)}
+  onChange={handleDescriptionChange}
   className="w-full p-3 border-b border-gray-300 focus:outline-none resize-none text-lg h-[108px]"
   placeholder="Something about your great idea"
   rows="1"
