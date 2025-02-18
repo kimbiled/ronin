@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import jedi from "../assets/desktop/jedi.svg";
 import closeIcon from "../assets/desktop/closeIcon.svg";
 import unverified from "../assets/desktop/unverified.svg";
 import verify from "../assets/desktop/Icon.png";
 import successIcon from "../assets/icons/Icon.png"; 
 import emailjs from "@emailjs/browser";
+import logoPhone from '../assets/icons/logoPhone.svg';
+import stars from '../assets/icons/Stars.png';
 
 const CallModalDesktop = ({ isOpen, onClose }) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -12,6 +14,7 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef(null); 
 
   if (!isOpen) return null;
 
@@ -36,18 +39,16 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
   // ✅ Отправка Email через EmailJS с использованием FormData
   const sendEmail = async () => {
     try {
-      const formData = new FormData();
-      formData.append("fullName", fullName);
-      formData.append("email", email);
+    
 
       await emailjs.sendForm(
-        "service_ayzyi48", // ID сервиса EmailJS
-        "template_584q8rp", // ID шаблона EmailJS
-        formData,
-        "RnF6odRZ4qCdyyFwC" // Публичный ключ
+       process.env.REACT_APP_EMAILJS_SERVICE_ID,
+     process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      formRef.current,
+     process.env.REACT_APP_EMAILJS_USER_ID
       );
 
-      console.log("✅ Email успешно отправлен!");
+     
     } catch (error) {
       console.error("❌ Ошибка отправки Email:", error);
     }
@@ -60,8 +61,8 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
       return;
     }
 
-    const botToken = "7355943041:AAE3_n0Z9UOHXoYnNoujt48GqRZCJ9NtJB4";
-    const chatId = "-1002469634234";
+    const botToken =process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
+  const chatId =process.env.REACT_APP_TELEGRAM_CHAT_ID;
 
     const formData = new FormData();
     formData.append("chat_id", chatId);
@@ -69,15 +70,15 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
     formData.append("parse_mode", "Markdown");
 
     try {
-      console.log("📨 Отправка в Telegram:", fullName, email);
+     
       await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
         body: formData, // Отправляем FormData
       });
 
-      console.log("✅ Сообщение отправлено в Telegram!");
+   
     } catch (error) {
-      console.error("❌ Ошибка при отправке в Telegram:", error);
+     
     }
   };
 
@@ -87,7 +88,7 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
 
     if (!validateForm()) return;
 
-    console.log("✅ Данные перед отправкой:", fullName, email);
+   
 
     try {
       await sendEmail(); // ✅ Отправляем Email
@@ -114,14 +115,33 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
         ) : (
           <>
             {/* Левая часть */}
-            <div className="max-w-[720px] w-full pb-[93px] pt-[93px] pl-[100px]">
+            <div className="max-w-[720px] w-full pb-[55px] pt-[55px] pl-[69px] flex flex-col gap-7">
               <h2 className="text-[84px] font-medium leading-[92px] mb-4 text-[#090C21]">
                 <span className="text-[#1261FC]">Let's </span>
                 Schedule
-                <div className="flex flex-row gap-6 mt-[18px]">
-                  <img src={jedi} alt="JediKuna" /> <span>a Call</span>
+                <div className="flex flex-row gap-6 mt-[18px] items-center">
+                  <img src={jedi} alt="JediKuna" className="w-[76px] h-[76px]"/> <span>a Call</span>
                 </div>
               </h2>
+              <div>
+                  <p className="text-[22px] text-[#090C21] leading-[30px] font-book">Get answers to your questions and see how Ronin can<br/> streamline your design and development</p>
+                </div>
+                                    <div className="flex flex-col items-start">
+                                        <p className="mb-6 font-book text-[22px] leading-[24px] text-[#9CA3AF]">Clients trust us</p>
+                                        <div className="flex flex-row gap-3">
+                                            <div>
+                                                <img src={logoPhone} alt="logoPhone" className="w-[60px] h-12" />
+                                            </div>
+                                            <div className="flex flex-col justify-center">
+                                                <img src={stars} alt="stars" className="w-[76px] h-3"/> 
+                                                <div className="flex flex-row justify-center gap-2 text-lg font-book">
+                                                    <p className="font-book">Rating 5</p>
+                                                    <span>/</span>
+                                                    <span>100+ reviews</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
             </div>
 
             {/* Правая часть */}
@@ -135,11 +155,12 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
               />
 
               {/* Форма */}
-              <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+              <form ref={formRef} className="flex flex-col gap-6" onSubmit={handleSubmit}>
                 <div>
                   <label className="text-[22px] font-medium text-[#090C21]">Full Name</label>
                   <input
                     type="text"
+                    name="fullName"
                     className="w-full border-b border-[#9CA3AF] p-2 mt-2 bg-transparent text-[#637695] focus:outline-none"
                     placeholder="John Doe"
                     value={fullName}
@@ -154,6 +175,7 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     className="w-full border-b border-[#9CA3AF] p-2 mt-2 bg-transparent text-[#637695] focus:outline-none"
                     placeholder="johndoe@example.com"
                     value={email}

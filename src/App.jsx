@@ -121,7 +121,7 @@ function App() {
         document.fonts ? document.fonts.ready : Promise.resolve(),
         checkImagesLoaded(),
       ]).then(() => {
-        console.log("Контент загружен, ждём завершения видео");
+       
         if (videoEnded) handlePreloaderComplete(); // ✅ Ждём завершения видео
       });
     }
@@ -129,7 +129,7 @@ function App() {
 
   // 🔹 Функция, вызываемая, когда видео доиграет до конца
   const handleVideoEnd = () => {
-    console.log("Видео завершено");
+    
     setVideoEnded(true);
     if (!loading) handlePreloaderComplete(); // ✅ Если контент уже загружен, скрываем прелоадер
   };

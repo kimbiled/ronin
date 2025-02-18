@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import jedi from "../assets/desktop/jedi.svg";
 import closeIcon from "../assets/desktop/closeIcon.svg";
 import unverified from "../assets/desktop/unverified.svg";
@@ -12,53 +12,49 @@ const CallModal = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-  });
-
+  const formRef = useRef(null); 
 
   const sendEmail = async () => {
     try {
-      const templateParams = {
-        fullName: formData.fullName,
-        email: formData.email,
-      };
-  
-      await emailjs.send(
-        "service_ayzyi48",
-        "template_584q8rp",   
-        templateParams,
-        "RnF6odRZ4qCdyyFwC"     
-      );
-  
     
+
+      await emailjs.sendForm(
+       process.env.REACT_APP_EMAILJS_SERVICE_ID,
+     process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      formRef.current,
+     process.env.REACT_APP_EMAILJS_USER_ID
+      );
+
+     
     } catch (error) {
-      console.error("Error sending email:", error);
+  
     }
   };
 
   const sendToTelegram = async () => {
-    const botToken = "7355943041:AAE3_n0Z9UOHXoYnNoujt48GqRZCJ9NtJB4"; // 🔹 Токен из BotFather
-    const chatId = "-1002469634234"; // 🔹 ID чата, куда отправлять сообщения
-  
-    const text = `🔔 Новый запрос на быстрый звонок!\n\n👤 Имя: ${formData.fullName}\n📧 Email: ${formData.email}`;
-  
-    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-  
+    if (!fullName || !email) {
+
+      return;
+    }
+
+    const botToken =process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
+  const chatId =process.env.REACT_APP_TELEGRAM_CHAT_ID;
+
+    const formData = new FormData();
+    formData.append("chat_id", chatId);
+    formData.append("text", `🔔 *Новый запрос на быстрый звонок!*\n\n👤 *Имя:* ${fullName}\n📧 *Email:* ${email}`);
+    formData.append("parse_mode", "Markdown");
+
     try {
-      await fetch(url, {
+
+      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: text,
-        }),
+        body: formData, 
       });
-  
-      console.log("Сообщение отправлено в Telegram!");
+
+   
     } catch (error) {
-      console.error("Ошибка при отправке в Telegram:", error);
+      
     }
   };
 
@@ -78,17 +74,14 @@ const CallModal = ({ isOpen, onClose }) => {
       setIsEmailValid(validateEmail(email));
       return;
     }
-    setFormData({
-      fullName,
-      email,
-    });
+    
   
     try {
-      await sendEmail(fullName, email); 
-      await sendToTelegram(fullName, email);
-      setSubmitted(true); // ✅ Показываем финальный экран
+      await sendEmail(); 
+      await sendToTelegram();
+      setSubmitted(true);
     } catch (error) {
-      console.error("Ошибка отправки:", error);
+      console.error("❌ Ошибка отправки:", error);
     }
   };
 
@@ -129,11 +122,12 @@ const CallModal = ({ isOpen, onClose }) => {
             </p>
 
             {/* Форма */}
-            <form className="flex flex-col gap-6 mt-6" onSubmit={handleSubmit}>
-              <div>
+            <form  ref={formRef} className="flex flex-col gap-6 mt-6" onSubmit={handleSubmit}>
+              <div> 
                 <label className="text-base font-medium text-[#090C21]">Full Name</label>
                 <input
                   type="text"
+                   name="fullName"
                   className="w-full border-b border-[#9CA3AF] p-2 mt-2 bg-transparent text-[#637695] focus:outline-none"
                   placeholder="John Doe"
                   value={fullName}
@@ -147,6 +141,7 @@ const CallModal = ({ isOpen, onClose }) => {
                 </label>
                 <input
                   type="email"
+                   name="email"
                   className={`w-full border-b p-2 mt-2 bg-transparent text-[#637695] focus:outline-none ${
                     isEmailValid ? "border-[#9CA3AF]" : "border-red-600"
                   }`}

@@ -33,21 +33,24 @@ const FormDesktop = () => {
           budget: formData.budget,
           description: formData.description,
         };
+
+       
     
         await emailjs.send(
-          "service_ayzyi48",   // ID сервиса из EmailJS
-          "template_dmc3j3e",   // ID шаблона письма
+          process.env.REACT_APP_EMAILJS_SERVICE_ID,
+          process.env.REACT_APP_EMAILJS_FORM_TEMPLATE_ID,
           templateParams,
-          "RnF6odRZ4qCdyyFwC"     // Публичный ключ
+          process.env.REACT_APP_EMAILJS_USER_ID
         );
     
       } catch (error) {
-        console.error("Error sending email:", error);
+      
       }
     };
     const sendToTelegram = async () => {
-      const botToken = "7355943041:AAE3_n0Z9UOHXoYnNoujt48GqRZCJ9NtJB4"; // 🔹 Токен из BotFather
-      const chatId = "-1002469634234"; // 🔹 ID чата, куда отправлять сообщения
+      const botToken = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.REACT_APP_TELEGRAM_CHAT_ID;
+
     
       const text = `📩 Новый запрос на проект!\n\n👤 Имя: ${formData.fullName}\n📧 Email: ${formData.email}\n🖼️ Interest: ${formData.interest}\n💰 Budget: ${formData.budget}\n📃 Description: ${formData.description}`;
     
@@ -63,9 +66,8 @@ const FormDesktop = () => {
           }),
         });
     
-        console.log("Сообщение отправлено в Telegram!");
       } catch (error) {
-        console.error("Ошибка при отправке в Telegram:", error);
+    
       }
     };
 

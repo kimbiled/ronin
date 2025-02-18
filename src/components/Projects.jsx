@@ -4,6 +4,8 @@ import ant1 from "../assets/mobile/antix1.png";
 import ant2 from "../assets/mobile/antix2.png";
 import ant3 from "../assets/mobile/antix3.png";
 import cat1 from "../assets/mobile/cat1.png";
+import cat2 from "../assets/mobile/cat2.png";
+import cat3 from "../assets/mobile/cat3.png";
 import orb1 from "../assets/mobile/orb1.png";
 import orb2 from "../assets/mobile/orb2.png";
 import orb3 from "../assets/mobile/orb3.png";
@@ -78,7 +80,7 @@ const profiles = [
       location: uk,
     },
     avatars: [
-      cat1,
+      cat1,cat2, cat3
     ],
   },
   {

@@ -16,7 +16,6 @@ export default function Preloader({ onComplete }) {
                 playPromise
                     .then(() => console.log("Автовоспроизведение началось"))
                     .catch(() => {
-                        console.log("Автовоспроизведение заблокировано, ждем взаимодействия");
                         video.muted = true;
                         video.play();
                     });
