@@ -198,7 +198,7 @@ const Header = () => {
               >
                 <div className="font-book">
                   <p>Get in touch</p>
-                  <a href="mailto:hi@ronindsgn.com" className="text-white">hi@ronindsgn.com</a>
+                  <a href="mailto:hi@ronindsgn.com" className="text-white ">hi@ronindsgn.com</a>
                 </div>
                 <div className="text-xs flex flex-col gap-3 font-book mt-[2px]">
                   <p className="text-white">Privacy Policy & Cookies</p>

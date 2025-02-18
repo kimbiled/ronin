@@ -108,10 +108,8 @@ export default function ProjectsDesktop() {
     <div id="recentProjects" className="font-ppneue flex flex-col w-[85%] items-center mt-[68px]">
       <div className="flex flex-col max-w-[1200px] w-full justify-between items-center">
         <h3 className="font-medium text-[84px] leading-[92px]">Recent projects</h3>
-        <p className="font-book text-[22px] leading-[30px] mt-6">
-          Custom B2C, B2B and eCommerce solutions
-          <br />
-          optimized for traffic, engagement and conversion
+        <p className="font-book text-[22px] leading-[30px] mt-6 w-[450px] text-center">
+          Custom B2C, B2B and eCommerce solutions optimized for traffic, engagement and conversion
         </p>
 
         <div className="mt-16">

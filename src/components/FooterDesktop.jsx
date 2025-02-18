@@ -31,7 +31,7 @@ const FooterDesktop = () => {
                     <div className='flex flex-row justify-between'>
                         <div className="flex flex-col gap-6">
                             <h2 className="text-[84px] font-medium leading-[92px]">Let’s Talk</h2>
-                            <a href="mailto:hi@ronindsgn.com" className="text-[34px] text-black leading-[44px] font-book">
+                            <a href="mailto:hi@ronindsgn.com" className="text-[34px] text-black leading-[44px] font-book hover:text-gray-500 duration-500 ease-in-out">
                                 hi@ronindsgn.com
                             </a>
                             <p className="text-[#9CA3AF] font-book text-[18px]">

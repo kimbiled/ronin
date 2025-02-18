@@ -111,7 +111,7 @@ const FormDesktop = () => {
                 </div>
                 <div className="flex flex-col mt-6 ">
                     <p className="font-book  leading-[24px] text-[22px] text-[#9CA3AF]">Contact us</p>
-                    <a className="font-book text-[22px] leading-[22px] mt-3" href="mailto:hi@ronindsgn.com">hi@ronindsgn.com</a>
+                    <a className="font-book text-[22px] leading-[22px] mt-3 hover:text-gray-500 duration-500 ease-in-out" href="mailto:hi@ronindsgn.com">hi@ronindsgn.com</a>
                 </div>
             </div>
                 <div id="form-section" className=" font-ppneue flex flex-col max-w-[550px] w-full justify-between">

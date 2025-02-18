@@ -4,9 +4,9 @@ import FAQDesktop from './FaqDesktop';
 
 import { motion } from "framer-motion";
 
-import n1 from "../assets/desktop/b1.png";
-import n2 from "../assets/desktop/b2.png";
-import n3 from "../assets/desktop/b3.png";
+import n1 from "../assets/desktop/bg1.png";
+import n2 from "../assets/desktop/bg2.png";
+import n3 from "../assets/desktop/bg3.png";
 import orangearrow from '../assets/desktop/orangeArrow.png'
 
 const NewsDesktop = () => {
@@ -22,7 +22,7 @@ const NewsDesktop = () => {
       title: ["Inclusive Design", "Made Simple"],
       date: "Jan 1, 2025",
       readTime: "2 min read",
-      image: n1
+      image: n3
     },
     {
       id: "ux-trends-2025",
@@ -38,7 +38,7 @@ const NewsDesktop = () => {
       title: ["Why You Need a", "Design System"],
       date: "Jan 22, 2025",
       readTime: "3 min read",
-      image: n3
+      image: n1
     },
   ];
   return (
@@ -48,29 +48,31 @@ const NewsDesktop = () => {
               <p className="text-white font-medium leading-[92px] text-[84px] ">Featured News</p>
               <div className="flex flex-col gap-16 w-full mx-auto">
   {articles.map((article, index) => (
-    <div
-      key={article.id}
-      className={`pb-8 ${
-        index !== articles.length - 1 ? "border-b border-white border-opacity-10" : ""
-      }`}
-    >
+   <motion.div
+   key={article.id}
+   className={`pb-8 ${
+     index !== articles.length - 1 ? "border-b border-white border-opacity-10" : ""
+   } block cursor-pointer` }
+   whileHover={{ scale: 1.02 }} // 🚀 Зум при наведении
+   transition={{ duration: 0.6, ease: "easeInOut" }}
+   onClick={() => {
+    navigate(`/news/desktop/${article.id}`);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }}
+ >
       <div className="flex flex-row gap-10">
         {/* Изображение справа */}
-        <div>
         <div>
   <motion.img
     src={article.image}
     alt={article.title.join(" ")}
     className="w-[530px] h-[300px] cursor-pointer"
-    whileHover={{ scale: 1.02 }} // 🚀 Зум при наведении
-    transition={{ duration: 0.6, ease: "easeInOut" }}
     onClick={() => {
       navigate(`/news/desktop/${article.id}`);
       window.scrollTo({ top: 0, behavior: "instant" });
     }}
   />
 </div>
-        </div>
 
         {/* Текст слева */}
         <div className="flex flex-col justify-between">
@@ -113,7 +115,7 @@ const NewsDesktop = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   ))}
 </div>
             </div>

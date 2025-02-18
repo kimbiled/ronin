@@ -69,7 +69,7 @@ const faqData = [
         We frequently help SaaS startups prepare for enterprise clients by revamping their brand, product, and marketing site. 
         Whether you're launching a new idea or entering new markets, we offer tailored solutions to meet your goals.
         <br /><br />
-        If you'd like to discuss your project, reach out to us at <a href="mailto:hi@ronindsgn.com" className="text-[#FFA800] font-book">hi@ronindsgn.com</a>. 
+        If you'd like to discuss your project, reach out to us at <a href="mailto:hi@ronindsgn.com" className="text-[#FFA800] font-book hover:opacity-80 duration-500 ease-in-out">hi@ronindsgn.com</a>. 
         <span className="text-[#B6E4FF] font-book"> Let’s bring your vision to life.</span>
       </>
     ),
@@ -131,7 +131,7 @@ export default function FAQDesktop() {
     <div key={index} className="py-4">
       <button
         onClick={() => toggleFAQ(index)}
-        className="w-full flex justify-between items-center text-left text-[28px] font-medium pb-12 pt-12"
+        className=" hover:text-gray-400 duration-300 ease-in-out w-full flex justify-between items-center text-left text-[28px] font-medium pb-12 pt-12"
       >
         {item.question}
         {openIndex === index ? (

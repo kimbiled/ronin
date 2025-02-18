@@ -60,7 +60,7 @@ export default function Footer() {
         {/* Контактная информация */}
         <div className="flex flex-col gap-2 font-book">
           <p className="text-[#637695]">Get in touch</p>
-          <a href="mailto:hi@ronindsgn.com">hi@ronindsgn.com</a>
+          <a href="mailto:hi@ronindsgn.com" >hi@ronindsgn.com</a>
         </div>
 
         {/* Политика и копирайт */}
