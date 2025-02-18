@@ -23,9 +23,6 @@ const CallModal = ({ isOpen, onClose }) => {
       const templateParams = {
         fullName: formData.fullName,
         email: formData.email,
-        interest: formData.interest,
-        budget: formData.budget,
-        description: formData.description,
       };
   
       await emailjs.send(
@@ -38,6 +35,30 @@ const CallModal = ({ isOpen, onClose }) => {
     
     } catch (error) {
       console.error("Error sending email:", error);
+    }
+  };
+
+  const sendToTelegram = async () => {
+    const botToken = "7355943041:AAE3_n0Z9UOHXoYnNoujt48GqRZCJ9NtJB4"; // 🔹 Токен из BotFather
+    const chatId = "-1002469634234"; // 🔹 ID чата, куда отправлять сообщения
+  
+    const text = `🔔 Новый запрос на быстрый звонок!\n\n👤 Имя: ${formData.fullName}\n📧 Email: ${formData.email}`;
+  
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+  
+    try {
+      await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text,
+        }),
+      });
+  
+      console.log("Сообщение отправлено в Telegram!");
+    } catch (error) {
+      console.error("Ошибка при отправке в Telegram:", error);
     }
   };
 
@@ -57,14 +78,14 @@ const CallModal = ({ isOpen, onClose }) => {
       setIsEmailValid(validateEmail(email));
       return;
     }
-    setSubmitted(true);
     setFormData({
       fullName,
       email,
     });
   
     try {
-      await sendEmail(); // ✅ Отправляем email
+      await sendEmail(fullName, email); 
+      await sendToTelegram(fullName, email);
       setSubmitted(true); // ✅ Показываем финальный экран
     } catch (error) {
       console.error("Ошибка отправки:", error);
@@ -99,8 +120,8 @@ const CallModal = ({ isOpen, onClose }) => {
             </h2>
 
             {/* Фото профиля */}
-            <div className="flex justify-center mt-2">
-              <img src={jedi} alt="JediKuna" className="w-12 h-12" />
+            <div className="flex justify-center mt-2 text-[40px] font-medium leading-[48px] text-center">
+              <img src={jedi} alt="JediKuna" className="w-12 h-12" /> <span className="ml-2">a Call</span>
             </div>
 
             <p className="text-[#637695] text-center text-base mt-2">

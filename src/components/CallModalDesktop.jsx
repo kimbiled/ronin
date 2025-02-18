@@ -1,11 +1,9 @@
 import { useState } from "react";
 import jedi from "../assets/desktop/jedi.svg";
-import logoPhone from "../assets/icons/logoPhone.svg";
-import stars from "../assets/icons/Stars.png";
 import closeIcon from "../assets/desktop/closeIcon.svg";
 import unverified from "../assets/desktop/unverified.svg";
 import verify from "../assets/desktop/Icon.png";
-import successIcon from "../assets/icons/Icon.png"; // Иконка подтверждения
+import successIcon from "../assets/icons/Icon.png"; 
 import emailjs from "@emailjs/browser";
 
 const CallModalDesktop = ({ isOpen, onClose }) => {
@@ -14,10 +12,7 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-  });
+
   if (!isOpen) return null;
 
   const validateForm = () => {
@@ -38,40 +33,68 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
     return Object.keys(newErrors).length === 0;
   };
 
+  // ✅ Отправка Email через EmailJS с использованием FormData
   const sendEmail = async () => {
     try {
-      const templateParams = {
-        fullName: formData.fullName,
-        email: formData.email,
-        interest: formData.interest,
-        budget: formData.budget,
-        description: formData.description,
-      };
-  
-      await emailjs.send(
-        "service_ayzyi48",   // ID сервиса из EmailJS
-        "template_584q8rp",   // ID шаблона письма
-        templateParams,
-        "RnF6odRZ4qCdyyFwC"     // Публичный ключ
+      const formData = new FormData();
+      formData.append("fullName", fullName);
+      formData.append("email", email);
+
+      await emailjs.sendForm(
+        "service_ayzyi48", // ID сервиса EmailJS
+        "template_584q8rp", // ID шаблона EmailJS
+        formData,
+        "RnF6odRZ4qCdyyFwC" // Публичный ключ
       );
-  
-   
+
+      console.log("✅ Email успешно отправлен!");
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("❌ Ошибка отправки Email:", error);
     }
   };
 
+
+  const sendToTelegram = async () => {
+    if (!fullName || !email) {
+      console.error("❌ Ошибка: Пустые данные!", fullName, email);
+      return;
+    }
+
+    const botToken = "7355943041:AAE3_n0Z9UOHXoYnNoujt48GqRZCJ9NtJB4";
+    const chatId = "-1002469634234";
+
+    const formData = new FormData();
+    formData.append("chat_id", chatId);
+    formData.append("text", `🔔 *Новый запрос на быстрый звонок!*\n\n👤 *Имя:* ${fullName}\n📧 *Email:* ${email}`);
+    formData.append("parse_mode", "Markdown");
+
+    try {
+      console.log("📨 Отправка в Telegram:", fullName, email);
+      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        body: formData, // Отправляем FormData
+      });
+
+      console.log("✅ Сообщение отправлено в Telegram!");
+    } catch (error) {
+      console.error("❌ Ошибка при отправке в Telegram:", error);
+    }
+  };
+
+  // ✅ Обработчик формы
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    if (validateForm()) {
-      setFormData({
-        fullName,
-        email,
-      });
-  
-      await sendEmail(); // ✅ Отправляем email
-      setSubmitted(true); // ✅ Показываем финальный экран
+
+    if (!validateForm()) return;
+
+    console.log("✅ Данные перед отправкой:", fullName, email);
+
+    try {
+      await sendEmail(); // ✅ Отправляем Email
+      await sendToTelegram(); // ✅ Отправляем в Telegram
+      setSubmitted(true);
+    } catch (error) {
+      console.error("❌ Ошибка отправки:", error);
     }
   };
 
@@ -86,7 +109,6 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
   return (
     <div className="font-ppneue fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white max-w-[1200px] h-[600px] w-full rounded-[48px] shadow-lg relative flex flex-row justify-between">
-        
         {submitted ? (
           <StepFinal onReset={handleReset} />
         ) : (
@@ -100,23 +122,6 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
                   <img src={jedi} alt="JediKuna" /> <span>a Call</span>
                 </div>
               </h2>
-              <p className="font-book text-[22px] leading-[30px]">
-                Get answers to your questions and see how Ronin can <br /> streamline your design and development.
-              </p>
-              <div className="flex flex-col items-start mt-7">
-                <p className="mb-6 font-book text-[22px] leading-[24px] text-[#9CA3AF]">Clients trust us</p>
-                <div className="flex flex-row gap-3">
-                  <img src={logoPhone} alt="logoPhone" className="w-[60px] h-12" />
-                  <div className="flex flex-col justify-center">
-                    <img src={stars} alt="stars" className="w-[76px] h-3" />
-                    <div className="flex flex-row justify-center gap-2 text-lg font-book">
-                      <p className="font-book">Rating 5</p>
-                      <span> · </span>
-                      <span>100+ reviews</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Правая часть */}
@@ -143,7 +148,7 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
                   {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
                 </div>
 
-                <div className="mt-8">
+                <div>
                   <label className="text-[22px] font-medium text-[#090C21] flex justify-between">
                     Your Email <span className="text-[#9CA3AF] text-sm">*Required field</span>
                   </label>
@@ -167,12 +172,11 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
                 </button>
               </form>
 
-              {/* Чекбокс с фото */}
+              {/* Чекбокс */}
               <div className="flex items-center mt-6 cursor-pointer" onClick={() => setIsChecked(!isChecked)}>
                 <img src={isChecked ? verify : unverified} alt="Checkbox" className="w-6 h-6" />
-                <p className="text-sm text-[#637695] ml-3 font-book">
+                <p className="text-sm text-[#637695] ml-3">
                   I accept the <span className="text-blue-600 underline">Terms and Conditions</span>
-                  <br /> and <span className="text-blue-600 underline">Privacy Policy</span>
                 </p>
               </div>
             </div>
@@ -183,7 +187,6 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
   );
 };
 
-// Финальный шаг благодарности
 const StepFinal = ({ onReset }) => {
   return (
     <div className="flex flex-col items-center justify-center h-full text-center w-full" >

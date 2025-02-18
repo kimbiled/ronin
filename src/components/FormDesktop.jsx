@@ -45,6 +45,29 @@ const FormDesktop = () => {
         console.error("Error sending email:", error);
       }
     };
+    const sendToTelegram = async () => {
+      const botToken = "7355943041:AAE3_n0Z9UOHXoYnNoujt48GqRZCJ9NtJB4"; // 🔹 Токен из BotFather
+      const chatId = "-1002469634234"; // 🔹 ID чата, куда отправлять сообщения
+    
+      const text = `📩 Новый запрос на проект!\n\n👤 Имя: ${formData.fullName}\n📧 Email: ${formData.email}\n🖼️ Interest: ${formData.interest}\n💰 Budget: ${formData.budget}\n📃 Description: ${formData.description}`;
+    
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    
+      try {
+        await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: text,
+          }),
+        });
+    
+        console.log("Сообщение отправлено в Telegram!");
+      } catch (error) {
+        console.error("Ошибка при отправке в Telegram:", error);
+      }
+    };
 
   const nextStep = () => {
     if (canProceed) {
@@ -62,6 +85,7 @@ const FormDesktop = () => {
   const handleSubmit = async () => {
     try {
       await sendEmail(); 
+      await sendToTelegram();
       setIsSubmitted(true); 
     } catch (error) {
       console.error("Ошибка отправки:", error);

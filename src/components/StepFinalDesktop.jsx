@@ -1,9 +1,10 @@
+import tick from '../assets/desktop/Icon.png'
 export default function StepFinal({ onReset }) {
     return (
       <div className="font-ppneue flex flex-col w-full mx-auto gap-2 text-center items-center mb-12 h-[400px] justify-center">
         {/* Иконка подтверждения */}
         <div className="w-11 h-11 mt-[60px]">
-          <img src="./images/icons/Icon.png" alt="icon" />
+          <img src={tick} alt="icon" />
         </div>
   
         {/* Заголовок */}
