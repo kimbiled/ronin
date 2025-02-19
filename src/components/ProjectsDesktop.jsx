@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import antix1 from "../assets/desktop/antix1.png";
 import antix2 from "../assets/desktop/antix2.png";
+import antix3 from "../assets/desktop/antix3.png";
 import p11 from "../assets/desktop/p11.svg";
 
 import cat1 from "../assets/desktop/cat1.png";
@@ -66,7 +67,7 @@ import qatar from "../assets/desktop/qatar.svg"
 import { motion } from "framer-motion";
 
 const projects = [
-    { images: [antix1, antix2], logo: p11,title:"p1", description: "Website design", description2: " and development", country: usa, tags: ["Web design", "Development", "WEB3"], highlight: "$5.8M+ Raised", isMain: true, verified: true, badgeImage: verify },
+    { images: [antix1, antix2, antix3], logo: p11,title:"p1", description: "Website design", description2: " and development", country: usa, tags: ["Web design", "Development", "WEB3"], highlight: "$5.8M+ Raised", isMain: true, verified: true, badgeImage: verify },
     { images: [cat1, cat2, cat3], logo: p22, title:"p2",description: "UX/UI Design", country: uk, tags: ["Prototyping", "Design System", "Mobile Design"], highlight: "900.000+ Users", verified: true, badgeImage: verify },
     { images: [orb1, orb2, orb3, orb4, orb5, orb6], logo: p33, description: "Website development", country: australia, tags: ["Frontend Development", "Custom Web Solutions", "Web3"] },
     { images: [nas1, nas2, nas3], logo: null },
