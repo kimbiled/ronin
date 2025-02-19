@@ -1,6 +1,6 @@
 import HeaderDesktop from "../components/HeaderDesktop";
 import FooterDesktop from "../components/FooterDesktop";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 
 import b2 from '../assets/desktop/b2.png';
 import arrow from '../assets/icons/arrow-right.svg';
@@ -24,28 +24,7 @@ const SecondNewsDesktop = () => {
       window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
     }
   };
-  const sidebarRef = useRef(null);
-    const [offset, setOffset] = useState(0);
-    const [isFixed, setIsFixed] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (!sidebarRef.current) return;
-
-            const sidebarTop = sidebarRef.current.getBoundingClientRect().top;
-
-            if (sidebarTop <= 80) {
-                setIsFixed(true);
-                setOffset(window.scrollY - sidebarRef.current.offsetTop + 20);
-            } else {
-                setIsFixed(false);
-                setOffset(0);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
   return (
     <div>
@@ -64,30 +43,33 @@ const SecondNewsDesktop = () => {
                     <span>•</span>
                     <span>2 min read</span>
                 </div>
-                <div className="mt-6 overflow-hidden">
-                    <img src={b2}  alt="Future of UX" className="w-full h-[400px]" />
-                </div>
+                 <div className="mt-6 overflow-hidden flex flex-row w-full gap-7">
+                                    <img src={b2} alt="Abstract Design" className="w-[840px] h-[400px]" />
+                                    <div className="flex flex-col max-w-[380px] w-full">
+                                    {sections.map((section, index) => (
+                    <button
+                        key={section.id}
+                        className={`w-full flex items-center justify-start py-4 text-[22px] font-medium text-[#090C21] focus:outline-none ${
+                            index !== sections.length - 1 ? "border-b border-[#090C21] border-opacity-10" : ""
+                        }`}
+                        onClick={() => scrollToSection(section.id)}
+                    >
+                        <img src={arrow} alt="arrow" className="mr-2" />
+                        <span className="text-left">
+            {section.title.includes(" with") ? (
+                <>
+                    {section.title.split(" with")[0]} <br /> with {section.title.split(" with")[1]}
+                </>
+            ) : (
+                section.title
+            )}
+        </span>
+                    </button>
+                ))}
+                        </div>
+                                </div>
 
                 <div className="flex flex-row gap-12 mt-16">
-                <div
-            ref={sidebarRef}
-            className="flex flex-col max-w-[335px] w-full"
-            style={{
-                transform: `translateY(${offset}px)`,
-                transition: "transform 0.2s ease-out",
-            }}
-        >
-            {sections.map((section) => (
-                <button
-                    key={section.id}
-                    className="w-full flex items-center text-left py-4 text-[22px] font-medium text-[#090C21] focus:outline-none border-b border-[#090C21] border-opacity-10"
-                    onClick={() => scrollToSection(section.id)}
-                >
-                    <img src={arrow} alt="arrow" className="mr-2 flex-shrink-0" />
-                    <span className="flex-1">{section.title}</span>
-                </button>
-            ))}
-        </div>
                     <div className="max-w-[985px] w-full flex flex-col gap-[40px]">
                         <h4 className="text-[44px] font-medium mb-5 leading-[44px]">
                             As we step into 2025, here are the key UX trends that will shape the industry in the coming year:
