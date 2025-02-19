@@ -4,9 +4,10 @@ export default function StepThree({ onNext, onPrev, onComplete,setFormData }) {
   const [selectedBudget, setSelectedBudget] = useState("");
 
   const budgets = [
-    { label: "≤ $5K", width: "w-[70px]", height: "h-[34px]" },
-    { label: "$10-20K", width: "w-[90px]", height: "h-[34px]" },
-    { label: "$30-20K", width: "w-[90px]", height: "h-[34px]" },
+    { label: "< $1K", width: "w-[70px]", height: "h-[34px]" },
+    { label: "$1-3K", width: "w-[90px]", height: "h-[34px]" },
+    { label: "$4-6K", width: "w-[90px]", height: "h-[34px]" },
+    { label: "> $6К", width: "w-[70px]", height: "h-[34px]" },
     { label: "I need a consultation", width: "w-[160px]", height: "h-[34px]" },
   ];
 

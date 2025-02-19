@@ -4,9 +4,10 @@ export default function StepThreeDesktop({ onNext, onPrev, onComplete, setFormDa
   const [selectedBudget, setSelectedBudget] = useState("");
 
   const budgets = [
-    { label: "≤ $5K", width: "w-[133px]", height: "h-[60px]" },
-    { label: "$10-20K", width: "w-[154px]", height: "h-[60px]" },
-    { label: "$30-20K", width: "w-[159px]", height: "h-[60px]" },
+    { label: "< $1K", width: "w-[133px]", height: "h-[60px]" },
+    { label: "$1-3K", width: "w-[154px]", height: "h-[60px]" },
+    { label: "$4-6K", width: "w-[159px]", height: "h-[60px]" },
+    { label: "> $6К", width: "w-[133px]", height: "h-[60px]" },
     { label: "I need a consultation", width: "w-[244px]", height: "h-[60px]" },
   ];
 
