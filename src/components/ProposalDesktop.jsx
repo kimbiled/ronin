@@ -103,7 +103,7 @@ const ProposalDesktop = () => {
       onMouseEnter={() => setIsVisible(true)} // Фиксируем показ при hover
       onMouseLeave={() => setTimeout(() => setIsVisible(false), 300)} // Добавляем задержку
     >
-      We are limited by the number of our talents. We don't chase quantity, but prefer engagement and commitment. Same as you
+     We take on only a limited number of clients to focus deeply on each project
     </motion.div>
   )}
 </AnimatePresence>

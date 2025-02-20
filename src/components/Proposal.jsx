@@ -70,7 +70,7 @@ const Proposal = () => {
             className="absolute top-10 right-4 w-[297px] h-[98px] sm20:w-[244px] sm20:right-2  sm75:w-[284px] sm25:w-[324px] sm75:right-2 p-4 rounded-[18px] bg-[#090C21] text-[#FFFFFF] shadow-lg popup-container text-center text-xs font-book flex flex-row items-center justify-center"
             onClick={(e) => e.stopPropagation()} // Блокируем закрытие при клике внутри попапа
           >
-            We are limited by the number of our talents. We don't chase quantity, but prefer engagement and commitment. Same as you
+           We take on only a limited number of clients to focus deeply on each project
           </motion.div>
         )}
       </AnimatePresence>

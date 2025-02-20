@@ -63,7 +63,7 @@ const Content = () => {
           </div>
           <div className="flex flex-col gap-3 text-white">
             <h3 className="font-medium text-[40px]">
-              Design That Drives Growth
+              Design That<br/> Drives Growth
             </h3>
             <h5 className="font-book max-w-[330px] w-full">
               With over <span className="font-medium">800 projects and 6 years of experience,</span> we deliver tailored solutions that help brands succeed
