@@ -134,7 +134,7 @@ const Leaders = () => {
                     <div className="flex flex-col justify-center">
                         <img src={stars} alt="stars" className="w-[76px] h-3"/> 
                         <div className="flex flex-row justify-center gap-2">
-                        <p className="font-book">Rating 5</p>
+                        <p className="font-book">Rating 4,7</p>
                         <span> · </span>
                         <span>100+ reviews</span>
                         </div>

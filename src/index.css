@@ -19,6 +19,7 @@ body {
   background-color: white;
 }
 
+
 html, body {
   overflow-x: hidden;
   max-width: 100%;
@@ -315,4 +316,11 @@ details summary::-webkit-details-marker {
 .sticky-sidebar {
   position: sticky;
   top: 100px; /* Фиксированный отступ сверху */
+}
+
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white;
+  }
 }
