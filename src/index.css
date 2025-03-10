@@ -324,3 +324,10 @@ details summary::-webkit-details-marker {
     background-color: white;
   }
 }
+
+
+.disabled-link {
+  color: gray; /* Серый цвет текста */
+  pointer-events: none; /* Отключает клики */
+  cursor: default; /* Курсор по умолчанию (не кликабельный) */
+}

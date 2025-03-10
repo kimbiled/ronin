@@ -15,9 +15,9 @@ const Header = () => {
   };
 
   const socialLinks = [
-    { title: "Dribbble", href: "#" },
-    { title: "Behance", href: "#" },
     { title: "Instagram", href: "https://www.instagram.com/ronin.dsgn/" },
+    { title: "Dribbble", href: "#", disabled: true }, // Добавлен флаг disabled
+    { title: "Behance", href: "#", disabled: true },  // Добавлен флаг disabled
   ];
 
   const menuLinks = [
@@ -112,26 +112,28 @@ const Header = () => {
                     Social
                   </motion.h2>
                   <ul className="space-y-6">
-                    {socialLinks.map((link, index) => (
-                      <motion.li
-                        key={link.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                          delay: 0.5 + index * 0.1,
-                          duration: 0.3,
-                          ease: "easeInOut",
-                        }}
-                      >
-                        <a
-                          href={link.href}
-                          className=" text-lg leading-[28px] font-book"
-                        >
-                          {link.title}
-                        </a>
-                      </motion.li>
-                    ))}
-                  </ul>
+  {socialLinks.map((link, index) => (
+    <motion.li
+      key={link.title}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.5 + index * 0.1,
+        duration: 0.3,
+        ease: "easeInOut",
+      }}
+    >
+      <a
+        href={link.href}
+        className={`text-lg leading-[28px] font-book ${
+          link.disabled ? "disabled-link" : ""
+        }`}
+      >
+        {link.title}
+      </a>
+    </motion.li>
+  ))}
+</ul>
                 </div>
 
                 {/* Основное меню */}
