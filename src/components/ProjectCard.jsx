@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 
 import next from '../assets/desktop/next.png'
 import back from '../assets/desktop/back.png'
 
-export default function ProjectCard({ images, logo, title, description, description2, country, tags, highlight, isMain, verified, starred, badgeImage, leftArrowImage, rightArrowImage }) {
+export default function ProjectCard({ images, logo, title, description, description2, country, tags, highlight, isMain, verified, starred, badgeImage, leftArrowImage, rightArrowImage, index}) {
   const [isHovered, setIsHovered] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
+  
 
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -39,6 +43,7 @@ export default function ProjectCard({ images, logo, title, description, descript
         animate={{ opacity: isHovered ? 0.2 : 0 }}
         transition={{ duration: 0.3 }}
         className="absolute inset-0 bg-black rounded-[48px] z-10"
+        onClick={() => navigate(`/projects/${index}`)}
       />
 
       {/* Контейнер для изображений */}

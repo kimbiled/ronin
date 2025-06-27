@@ -4,48 +4,53 @@ import { useState } from "react";
 import antix1 from "../assets/desktop/antix1.png";
 import antix2 from "../assets/desktop/antix2.png";
 import antix3 from "../assets/desktop/antix3.png";
+import antix4 from "../assets/desktop/antix4.png";
+import antix5 from "../assets/desktop/antix5.png";
+import antix6 from "../assets/desktop/antix6.png";
 import p11 from "../assets/desktop/p11.svg";
 
 import cat1 from "../assets/desktop/cat1.png";
 import cat2 from "../assets/desktop/cat2.png";
 import cat3 from "../assets/desktop/cat3.png";
-
+import cat4 from "../assets/desktop/cat4.png";
+import cat5 from "../assets/desktop/cat5.png";
 
 import orb1 from "../assets/desktop/orb1.png";
 import orb2 from "../assets/desktop/orb2.png";
 import orb3 from "../assets/desktop/orb3.png";
 import orb4 from "../assets/desktop/orb4.png";
 import orb5 from "../assets/desktop/orb5.png";
-import orb6 from "../assets/desktop/orb6.png";
 
 import nas1 from "../assets/desktop/nas1.png";
 import nas2 from "../assets/desktop/nas2.png";
 import nas3 from "../assets/desktop/nas3.png";
+import nas4 from "../assets/desktop/nas4.png";
+import nas5 from "../assets/desktop/nas5.png";
+import nas6 from "../assets/desktop/nas6.png";
 
 import berg1 from "../assets/desktop/berg1.png";
 import berg2 from "../assets/desktop/berg2.png";
 import berg3 from "../assets/desktop/berg3.png";
+import berg4 from "../assets/desktop/berg4.png";
 
-import shar1 from "../assets/desktop/shar1.png";
 import shar2 from "../assets/desktop/shar2.png";
 import shar3 from "../assets/desktop/shar3.png";
 import shar4 from "../assets/desktop/shar4.png";
 
-import degen1 from "../assets/desktop/degen1.png";
 import degen2 from "../assets/desktop/degen2.png";
 import degen3 from "../assets/desktop/degen3.png";
 import degen4 from "../assets/desktop/degen4.png";
+
 
 import kz1 from "../assets/desktop/kz1.png";
 import kz2 from "../assets/desktop/kz2.png"
 import kz3 from "../assets/desktop/kz3.png"
 import kz4 from "../assets/desktop/kz4.png"
-import kz5 from "../assets/desktop/kz5.png"
 
 import glen1 from "../assets/desktop/glen1.png";
 import glen2 from "../assets/desktop/glen2.png"
 import glen3 from "../assets/desktop/glen3.png"
-
+import glen4 from "../assets/desktop/glen4.png"
 
 import p22 from "../assets/desktop/p22.svg";
 import p33 from "../assets/desktop/p33.svg";
@@ -67,15 +72,15 @@ import qatar from "../assets/desktop/qatar.svg"
 import { motion } from "framer-motion";
 
 const projects = [
-    { images: [antix1, antix2, antix3], logo: p11,title:"p1", description: "Website design", description2: " and development", country: usa, tags: ["Web design", "Development", "WEB3"], highlight: "$5.8M+ Raised", isMain: true, verified: true, badgeImage: verify },
-    { images: [cat1, cat2, cat3], logo: p22, title:"p2",description: "UX/UI Design", country: uk, tags: ["Prototyping", "Design System", "Mobile Design"], highlight: "900.000+ Users", verified: true, badgeImage: verify },
-    { images: [orb1, orb2, orb3, orb4, orb5, orb6], logo: p33, description: "Website development", country: australia, tags: ["Frontend Development", "Custom Web Solutions", "Web3"] },
-    { images: [nas1, nas2, nas3], logo: null },
-    { images: [berg1, berg2, berg3], logo: p55,title:"p5", description: "Social media content", country: usa, tags: ["Content creation", "Graphic design", "SMM"], highlight: "20M+ Followers", verified: true, badgeImage: verify },
-    { images: [shar1, shar2, shar3, shar4], logo: p66, description: "Website development", country: qatar, tags: ["Frontend Development", "Custom Web Solutions", "Web3"] },
-    { images: [degen1, degen2, degen3, degen4], logo: p77, description: "Branding", country: australia, tags: ["Brand Strategy", "Visual Identity", "Fintech"] },
-    { images: [kz1, kz2, kz3, kz4, kz5], logo: null, description: "Branding", country: kz, tags: ["Brand Positioning", "Visual Identity", "Edutech"],},
-    { images: [glen1, glen2, glen3], logo: p99,title:"p9", description: "Website development", country: uk, tags: ["Full-Stack Development", "UI/UX", "E-commerce"], highlight: "4.7 Trustpilot", starred: true, badgeImage: star},
+    { images: [antix1, antix2, antix3, antix4, antix5, antix6], logo: p11,title:"p1", description: "Website design", description2: " and development", country: usa, tags: ["Web design", "Development", "WEB3"], highlight: "$5.8M+ Raised", isMain: true, verified: true, badgeImage: verify},
+    { images: [cat1, cat2, cat3, cat4, cat5], logo: p22, title:"p2",description: "UX/UI Design", country: uk, tags: ["Prototyping", "Design System", "Mobile Design"], highlight: "900.000+ Users", verified: true, badgeImage: verify},
+    { images: [orb1, orb2, orb3, orb4, orb5], logo: p33, description: "Website development", country: australia, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
+    { images: [nas1, nas2, nas3, nas4, nas5, nas6], logo: null},
+    { images: [berg1, berg2, berg3, berg4], logo: p55,title:"p5", description: "Social media content", country: usa, tags: ["Content creation", "Graphic design", "SMM"], highlight: "20M+ Followers", verified: true, badgeImage: verify},
+    { images: [shar3, shar2, shar4], logo: p66, description: "Website development", country: qatar, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
+    { images: [ degen2, degen3, degen4], logo: p77, description: "Branding", country: australia, tags: ["Brand Strategy", "Visual Identity", "Fintech"] },
+    { images: [kz1, kz2, kz3, kz4], logo: null, description: "Branding", country: australia, tags: ["Launchpad Design", "PitchDeck Design", "Web3"]},
+    { images: [glen1, glen2, glen3, glen4], logo: p99,title:"p9", description: "Website development", country: uk, tags: ["Full-Stack Development", "UI/UX", "E-commerce"], highlight: "4.7 Trustpilot", starred: true, badgeImage: star},
   ];
 
 export default function ProjectsDesktop() {
@@ -114,24 +119,24 @@ export default function ProjectsDesktop() {
         </p>
 
         <div className="mt-16">
-          <ProjectCard {...projects[0]} />
+          <ProjectCard {...projects[0]} index={1}/>
         </div>
 
         <div className="flex flex-row gap-[18px] mt-7 items-center w-full">
-          <ProjectCard {...projects[1]} />
-          <ProjectCard {...projects[2]} />
+          <ProjectCard {...projects[1]} index={2}/>
+          <ProjectCard {...projects[2]} index={3}/>
         </div>
 
         <div className="flex flex-row gap-[18px] mt-7  w-full">
           <div className="flex flex-col gap-[18px] items-center  w-full">
-            <ProjectCard {...projects[3]} />
-            <ProjectCard {...projects[6]} />
-            <ProjectCard {...projects[8]} />
+            <ProjectCard {...projects[3]} index={4}/>
+            <ProjectCard {...projects[6]} index={5}/>
+            <ProjectCard {...projects[8]} index={6}/>
           </div>
           <div className="flex flex-col gap-[18px] items-center  w-full">
-            <ProjectCard {...projects[4]} />
-            <ProjectCard {...projects[5]} />
-            <ProjectCard {...projects[7]} />
+            <ProjectCard {...projects[4]} index={7}/>
+            <ProjectCard {...projects[5]} index={8}/>
+            <ProjectCard {...projects[7]} index={9}/>
             <div className="relative mx-auto mt-10">
       {/* Картинка с быстрым эффектом движения */}
       <motion.img
