@@ -7,6 +7,12 @@ const ProjectPageDesktop = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projects.find(p => p.id === parseInt(id));
+  console.log(projects.find(p => p.id === parseInt(id)))
+
+  const goPages = (id) => {
+  navigate(`/projects/${id}`);
+  window.scrollTo(0, 0);
+  }
 
   const getBadgeStyles = () => {
     if (project.verified) return "bg-[#1D1D1D] rounded-[100px] pl-[18px] pr-[18px] pt-[4px] pb-[4px]";
@@ -29,12 +35,12 @@ const ProjectPageDesktop = () => {
       <div className="font-ppneue flex flex-col w-[85%] items-center mt-[68px] mx-auto">
         <div className="flex flex-col max-w-[1440px] w-full justify-between mb-[168px]">
           <div className="flex flex-col gap-7">
-            <h1 className="text-[64px] leading-[70px] font-medium text-[#090C21] w-[660px]">
+            <h1 className="text-[64px] leading-[70px] font-medium text-[#090C21]">
               {project.title ? project.title : "Без названия"}
             </h1>
 
             <p className="mt-4 text-[#090C21] font-book text-[24px] leading-[38px] w-full">
-              {project.description2 ? project.description2 : "Описание проекта отсутствует."}
+              {project.description ? project.description : "Описание проекта отсутствует."}
             </p>
           </div>
 
@@ -53,7 +59,39 @@ const ProjectPageDesktop = () => {
             <img src={project.image1} alt="image1" />
           </div>
 
-          <div className="flex flex-row justify-between w-full mt-28">
+
+          {project.isSingle ? (
+  <>
+    <div className="flex flex-row justify-between w-full mt-28">
+      <div className="w-1/2">
+        <h3 className="text-[32px] font-medium">About</h3>
+      </div>
+      <div className="w-2/3 text-[24px] leading-[38px]">
+        <p>{project.description2}</p>
+      </div>
+    </div>
+
+    <div className="flex flex-row justify-between mt-16">
+      <img src={project.image2} alt="image2" />
+    </div>
+
+    <div className="flex flex-row justify-between w-full mt-28">
+      <div className="w-1/2">
+        <h3 className="text-[32px] font-medium">The Brief</h3>
+      </div>
+      <div className="w-2/3 text-[24px] leading-[38px]">
+        <p>{project.description3}</p>
+      </div>
+    </div>
+
+    <div className="flex flex-row justify-between mt-16">
+      <img src={project.image3} alt="image3" />
+      <img src={project.image4} alt="image4" />
+    </div>
+  </>
+) : (
+  <>
+     <div className="flex flex-row justify-between w-full mt-28">
             <div className="w-1/2">
               <h3 className="text-[32px] font-medium">About</h3>
             </div>
@@ -78,6 +116,9 @@ const ProjectPageDesktop = () => {
           <div className="flex flex-row justify-between mt-16">
             <img src={project.image4} alt="image1" />
           </div>
+  </>
+)}
+
 
             <div className="flex flex-row justify-between w-full mt-28">
             <div className="w-1/2">
@@ -91,36 +132,83 @@ const ProjectPageDesktop = () => {
             <img src={project.image5} alt="image1" />
           </div>
 
+           {project.isBranding ? (
+ <>
+ <div className="flex flex-row justify-between w-full mt-28">
+        <div className="w-1/2">
+          <h3 className="text-[32px] font-medium">Branding</h3>
+        </div>
+        <div className="w-2/3 text-[24px] leading-[38px]">
+          <p>{project.description5}</p>
+          <br />
+          <p>{project.description6}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-row justify-between mt-16">
+        <img src={project.image6} alt="image1" />
+        <img src={project.image7} alt="image2" />
+      </div>
+      </>
+) : (
+  project.isUi ? (
+    <>
+      <div className="flex flex-row justify-between w-full mt-28">
+        <div className="w-1/2">
+          <h3 className="text-[32px] font-medium">UX/UI Design</h3>
+        </div>
+        <div className="w-2/3 text-[24px] leading-[38px]">
+          <p>{project.description5}</p>
+          <br />
+          <p>{project.description6}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-row justify-between mt-16">
+        <img src={project.image6} alt="image1" />
+        <img src={project.image7} alt="image2" />
+      </div>
+
+      <div className="flex flex-row justify-between w-full mt-28">
+        <div className="w-1/2">
+          <h3 className="text-[32px] font-medium">{project.isDunes? "" : "Social media"}</h3>
+        </div>
+        <div className="w-2/3 text-[24px] leading-[38px]">
+          <p>{project.description7}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-row justify-between mt-16">
+        {project.isDunes? "" : (<>
+        <img src={project.image8} alt="image1" />
+        </>)}
+      </div>
+    </>
+  ) : (
+    <>
+      <div className="flex flex-row justify-between w-full mt-28">
+        <div className="w-1/2">
+          <h3 className="text-[32px] font-medium">{project.isDunes? "" : "Social media"}</h3>
+        </div>
+        <div className="w-2/3 text-[24px] leading-[38px]">
+          <p>{project.description5}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-row justify-between mt-16">
+        <img src={project.image6} alt="image1" />
+      </div>
+    </>
+  )
+)}
+
+
+
+           {project.isAdded &&
+          <>
            <div className="flex flex-row justify-between w-full mt-28">
             <div className="w-1/2">
-              <h3 className="text-[32px] font-medium">UX/UI Design</h3>
-            </div>
-            <div className="w-2/3 text-[24px] leading-[38px]">
-                <p>{project.description5}</p>
-                <br/>
-                <p>{project.description6}</p>
-            </div>
-          </div>
-          <div className="flex flex-row justify-between mt-16">
-             <img src={project.image6} alt="image1" />
-            <img src={project.image7} alt="image2" />
-          </div>
-
-          <div className="flex flex-row justify-between w-full mt-28">
-            <div className="w-1/2">
-              <h3 className="text-[32px] font-medium">Social media</h3>
-            </div>
-            <div className="w-2/3 text-[24px] leading-[38px]">
-                <p>{project.description7}</p>
-            </div>
-          </div>
-          <div className="flex flex-row justify-between mt-16">
-             <img src={project.image8} alt="image1" />
-          </div>
-
-           <div className="flex flex-row justify-between w-full mt-28">
-            <div className="w-1/2">
-              <h3 className="text-[32px] font-medium">Digital Identity System</h3>
+              <h3 className="text-[32px] font-medium">{project.isMobile ? "Mobile Design" : "Digital Identity System"}</h3>
             </div>
             <div className="w-2/3 text-[24px] leading-[38px]">
                 <p>{project.description8}</p>
@@ -132,25 +220,33 @@ const ProjectPageDesktop = () => {
              <img src={project.image9} alt="image1" />
              <img src={project.image10} alt="image1" />
           </div>
+          </> 
+           }
 
            <div className="flex flex-row justify-between w-full mt-28">
               <h3 className="text-[44px] leading-[44px] font-medium">Other projects</h3>
           </div>
+
+         
           <div className="flex flex-row justify-between mt-16">
-             <div>
-              <div className="w-[450px] h-[450px] rounded-[24px] bg-gray-400"></div>
-              <p className="text-[24px] font-medium mt-8">Name of the project</p>
-             </div>
-              <div>
-              <div className="w-[450px] h-[450px] rounded-[24px] bg-gray-400"></div>
-              <p className="text-[24px] font-medium mt-8">Name of the project</p>
-             </div>
-              <div>
-              <div className="w-[450px] h-[450px] rounded-[24px] bg-gray-400"></div>
-              <p className="text-[24px] font-medium mt-8">Name of the project</p>
-             </div>
+            
+
+              {project.others.map((otherProject) => (
+    <div className="w-[450px] h-[450px] rounded-[24px] cursor-pointer"
+    onClick={()=>goPages(otherProject.id)}>
+      <img 
+        src={otherProject.image} 
+        alt="others"
+      />
+      <p className="text-[24px] font-medium mt-8 cursor-pointer"
+      onClick={()=>goPages(otherProject.id)}
+      >{otherProject.projectName}</p>
+    </div>
+  ))}
+            
+ 
           </div>
-          
+              
          </div>
          
         </div>

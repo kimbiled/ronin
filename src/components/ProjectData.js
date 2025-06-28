@@ -10,66 +10,99 @@ import antixpage9 from "../assets/desktop/antixpage9.png";
 import antixpage10  from "../assets/desktop/antixpage10.png";
 
 
-import p11 from "../assets/desktop/p11.svg";
+import cryptopage from "../assets/desktop/cryptopage.png";
+import cryptopage2 from "../assets/desktop/cryptopage2.png";
+import cryptopage3 from "../assets/desktop/cryptopage3.png";
+import cryptopage4 from "../assets/desktop/cryptopage4.png";
+import cryptopage5 from "../assets/desktop/cryptopage5.png";
+import cryptopage6 from "../assets/desktop/cryptopage6.png";
+import cryptopage7 from "../assets/desktop/cryptopage7.png";
+import cryptopage8 from "../assets/desktop/cryptopage8.png";
 
-import cat1 from "../assets/desktop/cat1.png";
-import cat2 from "../assets/desktop/cat2.png";
-import cat3 from "../assets/desktop/cat3.png";
+import catspage from "../assets/desktop/catspage.png";
+import catspage2 from "../assets/desktop/catspage2.png";
+import catspage3 from "../assets/desktop/catspage3.png";
+import catspage4 from "../assets/desktop/catspage4.png";
+import catspage5 from "../assets/desktop/catspage5.png";
+import catspage6 from "../assets/desktop/catspage6.png";
+import catspage7 from "../assets/desktop/catspage7.png";
+import catspage8 from "../assets/desktop/catspage8.png";
 
-import orb1 from "../assets/desktop/orb1.png";
-import orb2 from "../assets/desktop/orb2.png";
-import orb3 from "../assets/desktop/orb3.png";
-import orb4 from "../assets/desktop/orb4.png";
-import orb5 from "../assets/desktop/orb5.png";
+import dunespage from "../assets/desktop/dunespage.png";
+import dunespage2 from "../assets/desktop/dunespage2.png";
+import dunespage3 from "../assets/desktop/dunespage3.png";
+import dunespage4 from "../assets/desktop/dunespage4.png";
+import dunespage5 from "../assets/desktop/dunespage5.png";
+import dunespage6 from "../assets/desktop/dunespage6.png";
+import dunespage7 from "../assets/desktop/dunespage7.png";
+import dunespage8 from "../assets/desktop/dunespage8.png";
 
-import nas1 from "../assets/desktop/nas1.png";
-import nas2 from "../assets/desktop/nas2.png";
-import nas3 from "../assets/desktop/nas3.png";
+import orbpage from "../assets/desktop/orbpage.png";
+import orbpage2 from "../assets/desktop/orbpage2.png";
+import orbpage3 from "../assets/desktop/orbpage3.png";
+import orbpage4 from "../assets/desktop/orbpage4.png";
+import orbpage5 from "../assets/desktop/orbpage5.png";
+import orbpage6 from "../assets/desktop/orbpage6.png";
+import orbpage7 from "../assets/desktop/orbpage7.png";
+import orbpage8 from "../assets/desktop/orbpage8.png";
+import orbpage9 from "../assets/desktop/orbpage9.png";
+import orbpage10  from "../assets/desktop/orbpage10.png";
 
-import berg1 from "../assets/desktop/berg1.png";
-import berg2 from "../assets/desktop/berg2.png";
-import berg3 from "../assets/desktop/berg3.png";
-import berg4 from "../assets/desktop/berg4.png";
+import bergpage from "../assets/desktop/bergpage.png";
+import bergpage2 from "../assets/desktop/bergpage2.png";
+import bergpage3 from "../assets/desktop/bergpage3.png";
+import bergpage4 from "../assets/desktop/bergpage4.png";
+import bergpage5 from "../assets/desktop/bergpage5.png";
+import bergpage6 from "../assets/desktop/bergpage6.png";
 
-import shar2 from "../assets/desktop/shar2.png";
-import shar3 from "../assets/desktop/shar3.png";
-import shar4 from "../assets/desktop/shar4.png";
 
-import degen2 from "../assets/desktop/degen2.png";
-import degen3 from "../assets/desktop/degen3.png";
-import degen4 from "../assets/desktop/degen4.png";
+import degenpage from "../assets/desktop/degenpage.png";
+import degenpage2 from "../assets/desktop/degenpage2.png";
+import degenpage3 from "../assets/desktop/degenpage3.png";
+import degenpage4 from "../assets/desktop/degenpage4.png";
+import degenpage5 from "../assets/desktop/degenpage5.png";
+import degenpage6 from "../assets/desktop/degenpage6.png";
+import degenpage7 from "../assets/desktop/degenpage7.png";
+import degenpage8 from "../assets/desktop/degenpage8.png";
+import degenpage9 from "../assets/desktop/degenpage9.png";
+import degenpage10  from "../assets/desktop/degenpage10.png";
 
-import kz1 from "../assets/desktop/kz1.png";
-import kz2 from "../assets/desktop/kz2.png";
-import kz3 from "../assets/desktop/kz3.png";
-import kz4 from "../assets/desktop/kz4.png";
+import sharpage from "../assets/desktop/sharpage.png";
+import sharpage2 from "../assets/desktop/sharpage2.png";
+import sharpage3 from "../assets/desktop/sharpage3.png";
+import sharpage4 from "../assets/desktop/sharpage4.png";
+import sharpage5 from "../assets/desktop/sharpage5.png";
+import sharpage6 from "../assets/desktop/sharpage6.png";
+import sharpage7 from "../assets/desktop/sharpage7.png";
 
-import glen1 from "../assets/desktop/glen1.png";
-import glen2 from "../assets/desktop/glen2.png";
-import glen3 from "../assets/desktop/glen3.png";
+import glenpage from "../assets/desktop/glenpage.png";
+import glenpage2 from "../assets/desktop/glenpage2.png";
+import glenpage3 from "../assets/desktop/glenpage3.png";
+import glenpage4 from "../assets/desktop/glenpage4.png";
+import glenpage5 from "../assets/desktop/glenpage5.png";
+import glenpage6 from "../assets/desktop/glenpage6.png";
+import glenpage7 from "../assets/desktop/glenpage7.png";
+import glenpage8 from "../assets/desktop/glenpage8.png";
+import glenpage9 from "../assets/desktop/glenpage9.png";
+import glenpage10  from "../assets/desktop/glenpage10.png";
 
-import p22 from "../assets/desktop/p22.svg";
-import p33 from "../assets/desktop/p33.svg";
-import p55 from "../assets/desktop/p55.svg";
-import p66 from "../assets/desktop/p66.svg";
-import p77 from "../assets/desktop/p77.svg";
-import p99 from "../assets/desktop/p99.svg";
-import metall from "../assets/desktop/metall.png";
-import star from '../assets/icons/stared.png';
-import verify from '../assets/icons/Icon.png';
 
-import kz from "../assets/desktop/kz.svg";
-import usa from "../assets/desktop/usa.svg";
-import uk from "../assets/desktop/uk.svg";
-import australia from "../assets/desktop/australia.svg";
-import qatar from "../assets/desktop/qatar.svg";
+import otherCat from '../assets/desktop/otherCat.png';
+import otherOrb from '../assets/desktop/otherOrb.png';
+import otherCrypto from '../assets/desktop/otherCrypto.png';
+import otherBerg from '../assets/desktop/otherBerg.png'
+import otherDegen from '../assets/desktop/otherDegen.png'
+import otherShar from '../assets/desktop/otherShar.png'
+import otherGlen from '../assets/desktop/otherGlen.png'
+import otherDunes from '../assets/desktop/otherDunes.png'
+import otherAntix from '../assets/desktop/otherAntix.png'
 
 const projects = [
   {
     id: 1,
     title: "Designing for the Future of Digital Avatars",
-    description: "Antix is a next-gen platform where AI-powered digital avatars meet Web3. It connects brands, creators, and communities through hyper-realistic avatars — creating a unified ecosystem for immersive digital interaction. More than just a tool, Antix is redefining what it means to show up online.",
-    description2: "Antix is where AI meets Web3 — blending ultra-realistic digital avatars with a tokenized platform for brands, creators, and investors. Backed by $5.8M+, this project called for a sleek, high-tech interface that feels cutting-edge, but never complicated.",
+    description2: "Antix is a next-gen platform where AI-powered digital avatars meet Web3. It connects brands, creators, and communities through hyper-realistic avatars — creating a unified ecosystem for immersive digital interaction. More than just a tool, Antix is redefining what it means to show up online.",
+    description: "Antix is where AI meets Web3 — blending ultra-realistic digital avatars with a tokenized platform for brands, creators, and investors. Backed by $5.8M+, this project called for a sleek, high-tech interface that feels cutting-edge, but never complicated.",
     description3: "Design a flexible, future-ready identity and product experience for a fast-scaling Web3 platform. From UI kits to social touchpoints, our goal was to make Antix feel smart, intuitive, and investor-ready — without losing its edge.",
     description4: "We approached the product as a blend of tech and trust. Clean, modular interfaces. A visual system that feels futuristic but human. The core idea? Make cutting-edge tech feel accessible — not overwhelming.",
     description5:"We started from zero — mapping the user journey from onboarding to avatar customization. Every detail was crafted for clarity and scale.",
@@ -87,105 +120,395 @@ const projects = [
     image8: antixpage8,
     image9: antixpage9,
     image10: antixpage10,
-
-  },
-  {
-    id: 2,
-    images: [cat1, cat2, cat3],
-    logo: p22,
-    title: "Mobile Banking Experience Redefined",
-    description: "CatBank approached us to completely overhaul their mobile experience for the next generation of digital banking users.",
-    description2: "The challenge was to simplify complex financial operations while maintaining trust and security indicators.",
-    shortDescription: "UX/UI Design",
-    country: uk,
-    tags: ["Prototyping", "Design System", "Mobile Design"],
-    highlight: "900.000+ Users",
-    verified: true,
-    badgeImage: verify,
-    category: "Finance"
-  },
-  {
-    id: 3,
-    images: [orb1, orb2, orb3, orb4, orb5],
-    logo: p33,
-    title: "Orbit: Decentralized Cloud Platform",
-    description: "Building the frontend for a decentralized cloud storage solution that competes with traditional providers.",
-    shortDescription: "Website development",
-    country: australia,
-    tags: ["Frontend Development", "Custom Web Solutions", "Web3"],
-    category: "Web3"
+    isMobile:true,
+    isAdded:true,
+    isUi:true,
+     isBranding:false,
+       isDunes:false,
+    others: [
+       {
+         id:4,
+         projectName: "CryptoIndex",
+         image: otherCrypto
+       },
+        {
+         id:2,
+         projectName: "HashCats",
+         image: otherCat
+       },
+        {
+         id:3,
+         projectName: "Orbital 7",
+         image: otherOrb
+       }
+    ]
   },
   {
     id: 4,
-    images: [nas1, nas2, nas3],
-    logo: null,
-    title: "NASA Space Apps Challenge",
-    description: "Our team participated in the global hackathon with a solution for satellite data visualization.",
-    shortDescription: "Hackathon Project",
-    category: "Experimental"
+    title: "Designing for Smarter Crypto Decisions",
+    description: "CryptoIndex is where real-time analytics meets clean, intuitive design. Built for the next wave of Web3 investors, the platform turns complex index data into a smooth, modern experience. The challenge? Make something powerful feel simple — without losing depth.",
+    description2: "CryptoIndex.com is a next-gen index analytics and investing platform designed for the crypto era. It makes complex financial data more readable, trading more intuitive, and investing in Web3 more accessible to everyone — from analysts to newcomers.",
+    description3: "Design a digital experience that feels as confident as the numbers behind it. We were tasked with building a product UI and brand identity that simplifies analytics, builds trust, and feels as fluid as the market it tracks.",
+    description4: "The core idea was to turn cold data into a warm, clear experience. We balanced precision with personality — combining a dark, minimal interface with color-coded index layers, intuitive charts, and digestible microcopy. The tone is informed but never intimidating.",
+    description5:"We designed the entire journey from homepage to deep-dive index views. The interface prioritizes clarity, real-time readability, and fast decision-making. Every module was built to scale — whether it’s a landing page or an analytics dashboard.",
+    description6: "Motion is minimal and purposeful, reinforcing key actions. Data is always the hero, but the UI stays supportive and smart.",
+    description7: "To support the platform’s launch and investor updates, we created a library of social assets — from product teasers to performance snapshots. Each piece fits seamlessly into the visual system, helping CryptoIndex speak clearly across all channels.",
+    description8:"",
+    description9:"",
+    image1: cryptopage,
+    image2: cryptopage2,
+    image3: cryptopage3,
+    image4: cryptopage4,
+    image5: cryptopage5,
+    image6: cryptopage6,
+    image7: cryptopage7,
+    image8: cryptopage8,
+    image9: "",
+    image10: "",
+    isMobile:false,
+    isAdded:false,
+    isSingle:true,
+     isBranding:false,
+       isDunes:false,
+       isUi:true,
+    others: [
+        {
+         id:2,
+         projectName: "HashCats",
+         image: otherCat
+       },
+        {
+         id:3,
+         projectName: "Orbital 7",
+         image: otherOrb
+       },
+        {
+         id:7,
+         projectName: "Dr.Berg",
+         image: otherBerg
+       }
+    ]
   },
   {
-    id: 5,
-    images: [berg1, berg2, berg3],
-    logo: p55,
-    title: "Berg Fashion Social Strategy",
-    description: "Developing content strategy and visual identity for a fast-growing fashion brand targeting Gen Z audience.",
-    description2: "The campaign resulted in explosive growth across all social platforms.",
-    shortDescription: "Social media content",
-    country: usa,
-    tags: ["Content creation", "Graphic design", "SMM"],
-    highlight: "20M+ Followers",
-    verified: true,
-    badgeImage: verify,
-    category: "Social Media"
+    id:2,
+    title: "Designing a Fun Crypto Game for Mobile",
+    description: "HashCats turns Web3 into a playful world of cats, chaos, and collectibles. With 600k+ players and NFT-packed gameplay, it blends casual fun with crypto depth — making Web3 feel like game night, not a whitepaper.",
+    description2: "HashCats is a mobile-first crypto game with over 600k monthly players, thousands of NFT items, and a galaxy of cat-themed characters. It’s fast, fun, and unapologetically weird — and that’s exactly what makes it work.From skins and loot boxes to mining mechanics and social battles, HashCats blends the chaos of Web3 with the charm of mobile gaming.",
+    description3: "Design an interface that feels playful, crypto-native, and instantly familiar to casual mobile users. Build a UI system that scales across character customization, token mechanics, and fast-paced events — all without sacrificing personality.",
+    description4: "This wasn’t about being clean or minimal — it was about being loud, fun, and full of character. We leaned into a stylized 3D universe, high-contrast UI, and bold typography to match the game’s energy. Every screen is built to entertain, not just function.",
+    description5:"We created a modular UI kit built for skins, stats, timers, and in-game currency flows. Every element is designed for tap-speed logic — quick actions, visual clarity, and fun feedback.",
+    description6: "The design works across both game and meta-layer systems: player rankings, inventory, missions, and NFT drops. It’s Web3 gaming — minus the friction.",
+    description7: "To support growth and hype, we crafted visuals for feature drops, limited skins, and reward campaigns. Bold colors, punchy text, and cat attitude — everything tailored for fast scrolls and high engagement.",
+    description8:"",
+    description9:"",
+    image1: catspage,
+    image2: catspage2,
+    image3: catspage3,
+    image4: catspage4,
+    image5: catspage5,
+    image6: catspage6,
+    image7: catspage7,
+    image8: catspage8,
+    image9: "",
+    image10: "",
+    isMobile:false,
+    isAdded:false,
+    isSingle:true,
+     isBranding:false,
+       isDunes:false,
+       isUi:true,
+    others: [
+        {
+         id:3,
+         projectName: "Orbital 7",
+         image: otherOrb
+       },
+        {
+         id:7,
+         projectName: "Dr.Berg",
+         image: otherBerg
+       },
+        {
+         id:5,
+         projectName: "Degen AI",
+         image: otherDegen
+       }
+    ]
   },
   {
-    id: 6,
-    images: [shar3, shar2, shar4],
-    logo: p66,
-    title: "Sharjah Cultural Portal",
-    description: "Developing a multilingual platform to showcase the rich cultural heritage of Sharjah emirate.",
-    shortDescription: "Website development",
-    country: qatar,
-    tags: ["Frontend Development", "Custom Web Solutions", "Web3"],
-    category: "Culture"
+    id:3,
+    title: "Orbital7 — Empowering Layer‑0 Bitcoin Builders",
+    description: "Seven native‑Bitcoin tools — enabling token creation, airdrops, staking, burning, multic-sign wallets, vesting, and mint locking — all in one streamlined suite.",
+    description2: "Orbital7 is Bitcoin-first infrastructure: a modular toolkit built on Layer 0 foundations (Ordinals, BRC‑20, Taproot Assets). From Genesis (token minting) to Nexus (MPC‑secured wallets), every tool is wallet‑connected, API‑driven, and accessible even for no‑code teams.",
+    description3: "Design a unified yet flexible identity and interface for a technical, multi‑tool platform. The challenge: reflect security, speed, and modularity — while maintaining clarity, inviting developer and investor adoption, and ensuring each module feels both powerful and approachable.",
+    description4: "We envisioned Orbital7 as a tightly‑integrated mission control for Bitcoin devs. Each tool—Comet, Genesis, Nova, Nexus, Nebula, Celestial, Apex—has a clear purpose, yet works fluidly with the rest. A consistent visual language ensures users intuitively grasp each workflow while feeling the power of an end-to-end Layer‑0 ecosystem.",
+    description5:"Every screen maps a builder’s journey: mint a token via Genesis, schedule vesting through Celestial, secure assets with Nexus—each with real‑time feedback and wallet‑connect flows. The interface is dark‑mode native, emphasis on speed, with clear grids and minimal friction. Precision-crafted for both coders and non‑technical deployers.",
+    description6: "",
+    description7: "We extended Orbital7’s modular identity outward: campaign-ready visuals, highlights of “7 powerful tools”, and partnership branding (Castrum Capital, Seedify). Content consistent across pitch decks, docs, and community channels — promoting trust, clarity, and excitement for on-chain innovation.",
+    description8:"Recognizing the growing mobile‑first developer audience, Orbital7’s core flows—token minting, staking, wallet management—were reimagined for mobile. Touch‑optimized controls, slimmed dashboards, and prioritized workflows ensure devs can engage anytime, anywhere, without losing power or clarity.",
+    description9:"",
+    image1: orbpage,
+    image2: orbpage2,
+    image3: orbpage3,
+    image4: orbpage4,
+    image5: orbpage5,
+    image6: orbpage6,
+    image7: orbpage7,
+    image8: orbpage8,
+    image9: orbpage9,
+    image10: orbpage10,
+    isMobile:true,
+    isAdded:true,
+    isSingle:true,
+     isBranding:false,
+       isDunes:false,
+       isUi:true,
+    others: [
+        {
+         id:7,
+         projectName: "Dr.Berg",
+         image: otherBerg
+       },
+        {
+         id:5,
+         projectName: "Degen AI",
+         image: otherDegen
+       },
+        {
+         id:8,
+         projectName: "Sharique",
+         image: otherShar
+       }
+    ]
   },
   {
-    id: 7,
-    images: [degen2, degen3, degen4],
-    logo: p77,
-    title: "Degen Capital Brand Identity",
-    description: "Creating bold visual identity for a crypto VC fund that stands out in the crowded Web3 space.",
-    shortDescription: "Branding",
-    country: australia,
-    tags: ["Brand Strategy", "Visual Identity", "Fintech"],
-    category: "Web3"
+    id:7,
+    title: "From Science to Scroll-Stopping",
+    description: "Designing health visuals that inform, engage, and convert—12 million subscribers strong.",
+    description2: "Dr. Eric Berg’s YouTube channel is a global health powerhouse. With over 20M subscribers and daily uploads, it’s where millions go to understand their bodies, fix their diets, and trust the science. But even the smartest advice can get lost in a noisy feed—unless the design works just as hard.",
+    description3: "Make it clear. Make it credible. Make it impossible to scroll past. Our mission: translate Dr. Berg’s authority into a cohesive design system that works across YouTube banners, thumbnails, infographics, and social content—without losing the human touch.",
+    description4: "We treated health like high-impact storytelling. Every visual decision—from font weight to color tone—was made to support clarity, trust, and speed of understanding. Think: medical precision with lifestyle warmth. Static designs that move people.",
+    description5:"Thumbnails that trigger curiosity. Posts that clarify complex topics. Templates that keep it consistent. We created a full suite of graphics optimized for attention and action—from quick health tips to long-form content drops.",
+    description6: "",
+    description7: "",
+    description8:"",
+    description9:"",
+    image1: bergpage,
+    image2: bergpage2,
+    image3: bergpage3,
+    image4: bergpage4,
+    image5: bergpage5,
+    image6: bergpage6,
+    image7: "",
+    image8: "",
+    image9: "",
+    image10: "",
+    isMobile:false,
+    isAdded:false,
+    isSingle:true,
+    isUi:false,
+     isBranding:false,
+       isDunes:false,
+    others: [
+        {
+         id:5,
+         projectName: "Degen AI",
+         image: otherDegen
+       },
+        {
+         id:8,
+         projectName: "Sharique",
+         image: otherShar
+       },
+        {
+         id:6,
+         projectName: "Glenbotal",
+         image: otherGlen
+       }
+    ]
+  },{
+    id:5,
+    title: "Degen AI: Meme-verse x Autonomous Agents",
+    description: "Igniting the next-gen NFT world with smart agents, wild branding, and full-stack design — all the way from logo to launch.",
+    description2: "Degen AI reimagines ownership by merging on‑chain NFT identity with autonomous AI agents that live in your wallet and feeds. We built everything: brand strategy, visual tone, UI, identity system, social‑first collateral, even mobile flows. Starting from a fuzzily brilliant idea, we delivered a hyper‑memetic, fully functional NFT ecosystem fueled by AI-native culture.",
+    description3: "Craft a platform that feels chaotic yet credible, cheeky yet secure. The ask: launch a brand-savvy, agent-powered NFT platform that speaks to the degen crowd — heavy on memes, robust under the hood. We transformed degen energy into a design system both wild and trusted.",
+    description4: "Duality is our north star: AI logic meets meme chaos. Visuals play off glitchy randomness and crystalline structure — a perfect mirror of blockchain entropy shaped into UI clarity. This paradoxical tension echoes Degen AI’s essence: smart, sarcastic, always surprising.",
+    description5:"Click‑first, comprehend‑later interface — designed for max speed and low friction. Wallet‑connect flows, one‑tap minting, agent dashboards with real‑time data pop‑ups, dark‑mode defaults with neon highlights. We prioritized intuitive flows — no crypto-native knowledge required, just button‑bashing fun.",
+    description6: "",
+    description7: "Shitposts that build narrative gravity. We created modular assets for teasers, drops, agent reveals, and real‑time AI memetic content. Templates flex between Discord-ready visuals, X/Twitter threads, and IG carousels — all consistently echoing the glitch-tech–meme aesthetic.",
+    description8:"Built for your pocket‑powered mint spree. We crafted an ultra‑lean mobile experience — quick‑connect wallet, tappable NFTs, agent‑activity streams, in‑app notifications for new drops, and responsive card layouts. Nothing slows down the degen on the go.",
+    description9:"",
+    image1: degenpage,
+    image2: degenpage2,
+    image3: degenpage3,
+    image4: degenpage4,
+    image5: degenpage5,
+    image6: degenpage6,
+    image7: degenpage7,
+    image8: degenpage8,
+    image9: degenpage9,
+    image10: degenpage10,
+    isMobile:true,
+    isAdded:true,
+    isSingle:true,
+    isUi:true,
+    isBranding:false,
+      isDunes:false,
+    others: [
+        {
+         id:8,
+         projectName: "Sharique",
+         image: otherShar
+       },
+        {
+         id:6,
+         projectName: "Glenbotal",
+         image: otherGlen
+       },
+        {
+         id:9,
+         projectName: "Dunes",
+         image: otherDunes
+       }
+    ]
   },
   {
-    id: 8,
-    images: [kz1, kz2, kz3, kz4],
-    logo: null,
-    title: "QazCloud EdTech Platform",
-    description: "Rebranding Kazakhstan's leading educational platform with focus on modern digital learning experiences.",
-    shortDescription: "Branding",
-    country: kz,
-    tags: ["Brand Positioning", "Visual Identity", "Edutech"],
-    category: "Education"
+    id:8,
+    title: "Sharique — Where Trust Becomes Partnership",
+    description: "A reimagined identity for a Qatari fintech brand rooted in Sharia values and built for a new generation of ethical finance.",
+    description2: "Sharique, meaning \"Partner\" in Arabic, is more than a name — it's a promise. A promise to offer Sharia-compliant financial solutions that empower Qatar's working families. In a market dominated by conventional banks and emerging BNPL platforms, Sharique introduces a new way to access funding — one built on fairness, mutual growth, and spiritual alignment.",
+    description3: "Design a brand identity from the ground up. It needed to resonate with Arab audiences, speak to the values of ethical partnership, and carry the dignity of religious adherence — all while holding its own in the modern fintech space. Our challenge was to translate deep cultural and spiritual foundations into a contemporary design language that builds trust at first glance.",
+    description4: "We built the concept around the core value of “shared responsibility.” The idea of two parties walking the same path — transparent, balanced, and aligned — informed the geometric logo system, inspired by traditional Islamic patterns yet simplified for digital use. This duality — tradition and modernity — runs through every visual decision, from structure to spacing.",
+    description5:"The new identity centers on a clean, geometric symbol echoing partnership and symmetry. The color palette — earthy sand tones with deep blue accents — evokes professionalism with cultural resonance. We defined custom patterns, iconography, and bilingual typography rules to ensure consistency across touchpoints. The result is a refined, modular system ready for digital, print, and future brand growth.",
+    description6: "",
+    description7: "",
+    description8:"",
+    description9:"",
+    image1: sharpage,
+    image2: sharpage2,
+    image3: sharpage3,
+    image4: sharpage4,
+    image5: sharpage5,
+    image6: sharpage6,
+    image7: sharpage7,
+    image8: "",
+    image9: "",
+    image10: "",
+    isMobile:false,
+    isAdded:false,
+    isSingle:true,
+    isUi:false,
+    isBranding:true,
+      isDunes:false,
+    others: [
+        
+        {
+         id:6,
+         projectName: "Glenbotal",
+         image: otherGlen
+       },
+        {
+         id:9,
+         projectName: "Dunes",
+         image: otherDunes
+       },
+       {
+        id:1,
+         projectName: "Antix",
+         image: otherAntix
+       }
+    ]
   },
   {
-    id: 9,
-    images: [glen1, glen2, glen3],
-    logo: p99,
-    title: "Glenfarne Luxury E-Commerce",
-    description: "Building a premium shopping experience for high-end whiskey and spirits collector's market.",
-    description2: "The platform combines rich product storytelling with seamless checkout flow.",
-    shortDescription: "Website development",
-    country: uk,
-    tags: ["Full-Stack Development", "UI/UX", "E-commerce"],
-    highlight: "4.7 Trustpilot",
-    starred: true,
-    badgeImage: star,
-    category: "E-commerce"
+    id:6,
+    title: "Glenbotal — Sell Smarter, Sip Better",
+    description: "Unlock up to 40% more for your rare spirits by skipping the auction house drama.",
+    description2: "Selling premium spirits shouldn’t feel like a gamble. Glenbotal flips the script on traditional auctions by connecting sellers with buyers who know the true value of their bottles. With a refined user experience and bold brand voice, Glenbotal proves that smart selling is the new collecting.",
+    description3: "Design a digital product and identity that feels as confident and rare as the spirits it sells. Our challenge: educate skeptical sellers, simplify the process, and visually stand out in a market full of dusty labels and dated auctioneers.",
+    description4: "We turned the complex world of spirit valuation into a simple, empowering journey. Glenbotal isn’t about nostalgia — it’s about knowing your bottle’s worth and selling it for what it’s truly valued. The concept: intelligent luxury — a tone that’s informed, precise, and never pretentious.",
+    description5:"From first click to final payout, the design removes friction and builds trust. Key interactions — bottle uploads, valuation tracking, and buyer offers — are presented with clarity and confidence. The interface blends editorial-style layouts with intuitive controls, making every step feel premium and personal.",
+    description6: "",
+    description7: "We designed bold, no-nonsense content with a collector’s edge. Swipeable price comparisons. “Myth vs. Math” posts breaking down auction myths. Showcase reels of high-value bottles that sold above expectations. Social becomes not just a feed — but a proof point of Glenbotal’s edge.",
+    description8:"Knowing that sellers often take photos of bottles from their phones, we created a mobile-native experience: fast uploads, real-time chat with valuation experts, and bite-sized education screens. It’s luxury without lag — designed for instant trust and action.",
+    description9:"",
+    image1: glenpage,
+    image2: glenpage2,
+    image3: glenpage3,
+    image4: glenpage4,
+    image5: glenpage5,
+    image6: glenpage6,
+    image7: glenpage7,
+    image8: glenpage8,
+    image9: glenpage9,
+    image10: glenpage10,
+    isMobile:true,
+    isAdded:true,
+    isSingle:true,
+    isUi:true,
+    isBranding:false,
+    isDunes:false,
+    others: [
+        {
+         id:9,
+         projectName: "Dunes",
+         image: otherDunes
+       },
+       {
+        id:1,
+         projectName: "Antix",
+         image: otherAntix
+       },
+       {
+         id:4,
+         projectName: "CryptoIndex",
+         image: otherCrypto
+       },
+    ]
+  },
+  {
+    id:9,
+    title: "Dunes — Design That Launches Web3 Ideas",
+    description: "From zero to ecosystem: we shaped the entire visual world of the Dunes platform — logo, UI kit, website, and 3D graphics included.",
+    description2: "Dunes is a Web3 launchpad designed for projects that don’t settle for average. It gives startups the tools to fund, grow, and scale — without friction. Our job? Build a design system bold enough to match that ambition.",
+    description3: "Create the full design identity of a launchpad built to stand out in Web3. We were responsible for everything — from naming suggestions and logomark, to full interface design, 3D branding, and a high-converting website. No references. No shortcuts. Just a blank page and a bold vision.",
+    description4: "Digital dunes: a landscape in motion. The brand draws from the paradox of the desert — minimal, yet infinite. We used smooth gradients, golden sands, and sculptural 3D forms to echo movement, value, and transformation. The UI and visuals blend modular structure with cinematic flair — signaling both trust and innovation.",
+    description5:"Performance meets presence. We created a modular UI kit and full desktop experience — staking flows, launch forms, dashboards, and project pages — all built for speed, scalability, and Web3 logic. Every screen is designed to feel intuitive, yet high-end. Think product-market fit meets visual alpha.",
+    description6: "",
+    description7: "",
+    description8:"Web3 in your pocket. The mobile version isn’t a shrink-down — it’s a reimagining. Clear flows, fast access, and seamless transitions make it just as powerful as desktop. Whether you're investing, launching, or exploring, Dunes stays fluid and focused.",
+    description9:"",
+    image1: dunespage,
+    image2: dunespage2,
+    image3: dunespage3,
+    image4: dunespage4,
+    image5: dunespage5,
+    image6: dunespage6,
+    image7: dunespage7,
+    image8: "",
+    image9: dunespage8,
+    image10:"" ,
+    isMobile:true,
+    isAdded:true,
+    isSingle:true,
+    isUi:true,
+    isBranding:false,
+    isDunes:true,
+    others: [
+       {
+        id:1,
+         projectName: "Antix",
+         image: otherAntix
+       },
+       {
+         id:4,
+         projectName: "CryptoIndex",
+         image: otherCrypto
+       }, {
+         id:2,
+         projectName: "HashCats",
+         image: otherCat
+       },
+    ]
   }
 ];
 

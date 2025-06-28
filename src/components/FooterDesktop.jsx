@@ -1,8 +1,15 @@
 import foot from '../assets/icons/footer.png';
 import { useLocation } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const FooterDesktop = () => {
     const location = useLocation();
+    const navigate = useNavigate()
+
+    const goPrivacy = () => {
+        navigate("/privacy")
+         window.scrollTo(0, 0);
+    }
 
     const handleNavigation = (id, e) => {
         e.preventDefault(); // 🔹 Отключаем стандартный переход по ссылке
@@ -55,8 +62,8 @@ const FooterDesktop = () => {
                             <div className="flex flex-col gap-7">
                                 <p className="text-[#9CA3AF] text-[22px] font-book">Social</p>
                                 <a href="https://www.instagram.com/ronin.dsgn/" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">Instagram</a>
+                                <a href="/" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">Behance</a>
                                 <a href="/" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer disabled-link">Dribbble</a>
-                                <a href="/" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer disabled-link">Behance</a>
                                 
                             </div>
                         </div>
@@ -68,7 +75,8 @@ const FooterDesktop = () => {
                             <img src={foot} alt="footer" className="w-[164px]" />
                             <p className="text-[#9CA3AF] text-lg font-book">© Ronin Design 2025</p>
                         </div>
-                        <p className="text-[#9CA3AF] text-lg mt-4">Privacy Policy & Cookies</p>
+                        <p className="text-[#9CA3AF] text-lg mt-4 hover:text-black cursor-pointer"
+                        onClick={goPrivacy}>Privacy Policy & Cookies</p>
                     </div>
 
                 </div>

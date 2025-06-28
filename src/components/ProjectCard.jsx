@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
 
 import next from '../assets/desktop/next.png'
 import back from '../assets/desktop/back.png'
@@ -11,12 +10,30 @@ export default function ProjectCard({ images, logo, title, description, descript
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
   
+  const goPage = (index) =>{
+   navigate(`/projects/${index}`)
+   window.scrollTo(0, 0);
+  }
+  // Автоматическая смена фоток при наведении
+  useEffect(() => {
+    let interval;
+    if (isHovered && images.length > 1) {
+      interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => 
+          (prevIndex + 1) % images.length
+        );
+      }, 1500); // Интервал 3 секунды
+    }
+    return () => clearInterval(interval);
+  }, [isHovered, images.length]);
 
-  const handleNextImage = () => {
+  const handleNextImage = (e) => {
+    e.stopPropagation(); // Предотвращаем всплытие события
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  const handlePrevImage = () => {
+  const handlePrevImage = (e) => {
+    e.stopPropagation(); // Предотвращаем всплытие события
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
@@ -35,7 +52,10 @@ export default function ProjectCard({ images, logo, title, description, descript
     <div
       className="font-ppneue relative cursor-pointer rounded-lg overflow-hidden w-full h-auto"
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setCurrentImageIndex(0); // Сброс к первой фотке при уходе курсора
+      }}
     >
       {/* Затемняющий слой */}
       <motion.div
@@ -43,7 +63,7 @@ export default function ProjectCard({ images, logo, title, description, descript
         animate={{ opacity: isHovered ? 0.2 : 0 }}
         transition={{ duration: 0.3 }}
         className="absolute inset-0 bg-black rounded-[48px] z-10"
-        onClick={() => navigate(`/projects/${index}`)}
+        onClick={ ()=>goPage(index)}
       />
 
       {/* Контейнер для изображений */}
@@ -57,40 +77,13 @@ export default function ProjectCard({ images, logo, title, description, descript
             style={{ position: index === 0 ? "relative" : "absolute" }}
             animate={{
               opacity: index === currentImageIndex ? 1 : 0,
-              scale: isHovered ? 1.05 : 1, // 🔥 Увеличение при ховере
-              
+              scale: isHovered ? 1.05 : 1,
             }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           />
         ))}
       </div>
 
-      {/* 🔥 Стрелки навигации (появляются только при hover) */}
-      {isHovered && images.length > 1 && (
-  <>
-    <motion.button
-      className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 flex items-center justify-center"
-      onClick={handlePrevImage}
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -10 }}
-      transition={{ duration: 0.3, delay: 0.3 }} // ⏳ Задержка появления
-    >
-      <img src={back} alt="Left Arrow" className="w-8 h-8" />
-    </motion.button>
-
-    <motion.button
-      className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 flex items-center justify-center"
-      onClick={handleNextImage}
-      initial={{ opacity: 0, x: 10 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 10 }}
-      transition={{ duration: 0.3, delay: 0.3 }} // ⏳ Задержка появления
-    >
-      <img src={next} alt="Right Arrow" className="w-8 h-8" />
-    </motion.button>
-  </>
-)}
 
       {/* Анимированные элементы при наведении */}
       <AnimatePresence>
