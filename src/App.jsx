@@ -14,6 +14,7 @@ import FirstNewsDesktop from "./pages/FirstNewsDesktop";
 import SecondNewsDesktop from "./pages/SecondNewsDesktop";
 import ThirdNewsDesktop from "./pages/ThirdNewsDesktop";
 import ProjectPageDesktop from "./pages/ProjectPageDesktop";
+import ProjectPage from "./pages/ProjectPage";
 import PrivacyDesktop from "./pages/PrivacyDesktop";
 // 🔹 Предзагрузка картинок
 import first from './assets/mobile/h1.png';
@@ -157,7 +158,7 @@ function App() {
       <Route path="/news/desktop/inclusive-design" element={<FirstNewsDesktop />} />
       <Route path="/news/desktop/ux-trends-2025" element={<SecondNewsDesktop />} />
       <Route path="/news/desktop/design-system-need" element={<ThirdNewsDesktop />} />
-      <Route path="/projects/:id" element={<ProjectPageDesktop />} />
+      <Route path="/projects/:id" element={isMobile ? <ProjectPage /> : <ProjectPageDesktop />}/>
       <Route path="/privacy" element={<PrivacyDesktop />} />
       <Route path="/*" element={isMobile ? <NotFound /> : <NotFoundDesktop />} />
     </Routes>

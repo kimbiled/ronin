@@ -65,17 +65,19 @@ import ProjectCard from "./ProjectCard";
 
 
 import kz from "../assets/desktop/kz.svg"
+import cryptoInd from '../assets/desktop/cryptoInd.png'
 import usa from "../assets/desktop/usa.svg"
 import uk from "../assets/desktop/uk.svg"
 import australia from "../assets/desktop/australia.svg"
 import qatar from "../assets/desktop/qatar.svg"
+import stvincent from '../assets/desktop/stvincent.svg'
 import { motion } from "framer-motion";
 
 const projects = [
     { images: [antix1, antix2, antix3, antix4, antix5, antix6], logo: p11,title:"p1", description: "Website design", description2: " and development", country: usa, tags: ["Web design", "Development", "WEB3"], highlight: "$5.8M+ Raised", isMain: true, verified: true, badgeImage: verify},
     { images: [cat1, cat2, cat3, cat4, cat5], logo: p22, title:"p2",description: "UX/UI Design", country: uk, tags: ["Prototyping", "Design System", "Mobile Design"], highlight: "900.000+ Users", verified: true, badgeImage: verify},
     { images: [orb1, orb2, orb3, orb4, orb5], logo: p33, description: "Website development", country: australia, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
-    { images: [nas1, nas2, nas3, nas4, nas5, nas6], logo: null},
+    { images: [nas1, nas2, nas3, nas4, nas5, nas6], logo: cryptoInd, description: "Website development", country: stvincent, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
     { images: [berg1, berg2, berg3, berg4], logo: p55,title:"p5", description: "Social media content", country: usa, tags: ["Content creation", "Graphic design", "SMM"], highlight: "20M+ Followers", verified: true, badgeImage: verify},
     { images: [shar3, shar2, shar4], logo: p66, description: "Website development", country: qatar, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
     { images: [ degen2, degen3, degen4], logo: p77, description: "Branding", country: australia, tags: ["Brand Strategy", "Visual Identity", "Fintech"] },

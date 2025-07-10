@@ -20,7 +20,7 @@ const ProjectItem = ({ item }) => {
           {item.avatars.map((src, index) => (
             <div className="emblas__slide" key={index}>
               <div className="relative ">
-                <img src={src} alt={`Avatar ${index}`} className="emblas__slide__image" />
+                <img src={src} alt={`Avatar ${index}`} className="emblas__slide__image " />
 
                 {/* followers показывается только на активном слайде */}
                 {index === 0 && item.profile.followers && (
@@ -36,6 +36,7 @@ const ProjectItem = ({ item }) => {
               </div>
             </div>
           ))}
+          
         </div>
       </div>
     </section>

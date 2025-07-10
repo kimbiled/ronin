@@ -32,19 +32,21 @@ const ProjectPageDesktop = () => {
   return (
     <div className="font-ppneue flex flex-col items-center gap-3">
       <HeaderDesktop />
-      <div className="font-ppneue flex flex-col w-[85%] items-center mt-[68px] mx-auto">
-        <div className="flex flex-col max-w-[1440px] w-full justify-between mb-[168px]">
-          <div className="flex flex-col gap-7">
-            <h1 className="text-[64px] leading-[70px] font-medium text-[#090C21]">
-              {project.title ? project.title : "Без названия"}
-            </h1>
+      <div className="font-ppneue flex flex-col w-[85%] max-w-[1440px] items-center mt-[68px] mx-auto mb-[168px]">
+        
+         <div className="w-full flex flex-col items-start justify-start">
+  <div className="flex flex-col items-start justify-start gap-7">
+    <h1 className="text-[64px] leading-[70px] font-medium text-[#090C21]">
+      {project.title ? project.title : "Без названия"}
+    </h1>
+    <p className="mt-4 text-[#090C21] font-book text-[24px] leading-[38px]">
+      {project.description ? project.description : "Описание проекта отсутствует."}
+    </p>
+  </div>
+</div>
 
-            <p className="mt-4 text-[#090C21] font-book text-[24px] leading-[38px] w-full">
-              {project.description ? project.description : "Описание проекта отсутствует."}
-            </p>
-          </div>
-
-          <div className="mt-7 text-[#9CA3AF] flex items-center gap-2">
+         <div className="flex flex-col items-start w-full">
+           <div className="mt-7 text-[#9CA3AF] flex gap-2">
             <span>
               By <span className="ml-1 underline-offset-4 text-[#090C21]">Ronin</span>
             </span>
@@ -53,8 +55,9 @@ const ProjectPageDesktop = () => {
             <span>•</span>
             <span>2 min read</span>
           </div>
+         </div>
 
-         <div className="flex flex-col gap-4 mt-16">
+         <div className="flex flex-col gap-4 mt-16 w-full">
            <div>
             <img src={project.image1} alt="image1" />
           </div>
@@ -99,11 +102,18 @@ const ProjectPageDesktop = () => {
                 <p>{project.description}</p>
             </div>
           </div>
-          <div className="flex flex-row justify-between mt-16">
-            <img src={project.image2} alt="image1" />
-            <img src={project.image3} alt="image2" />
-            
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 w-full">
+  <img 
+    src={project.image2} 
+    alt="image1" 
+    className="w-full h-auto object-cover"
+  />
+  <img 
+    src={project.image3} 
+    alt="image2" 
+    className="w-full h-auto object-cover"
+  />
+</div>
 
           <div className="flex flex-row justify-between w-full mt-28">
             <div className="w-1/2">
@@ -145,9 +155,9 @@ const ProjectPageDesktop = () => {
         </div>
       </div>
 
-      <div className="flex flex-row justify-between mt-16">
-        <img src={project.image6} alt="image1" />
-        <img src={project.image7} alt="image2" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 w-full">
+        <img src={project.image6} alt="image1" className="w-full h-auto object-cover"/>
+        <img src={project.image7} alt="image2" className="w-full h-auto object-cover"/>
       </div>
       </>
 ) : (
@@ -164,9 +174,9 @@ const ProjectPageDesktop = () => {
         </div>
       </div>
 
-      <div className="flex flex-row justify-between mt-16">
-        <img src={project.image6} alt="image1" />
-        <img src={project.image7} alt="image2" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 w-full">
+        <img src={project.image6} alt="image1" className="w-full h-auto object-cover"/>
+        <img src={project.image7} alt="image2" className="w-full h-auto object-cover"/>
       </div>
 
       <div className="flex flex-row justify-between w-full mt-28">
@@ -216,10 +226,21 @@ const ProjectPageDesktop = () => {
                 <p>{project.description9}</p>
             </div>
           </div>
-          <div className="flex flex-row justify-between mt-16">
-             <img src={project.image9} alt="image1" />
-             <img src={project.image10} alt="image1" />
+          {project.id == 9 ?
+          (
+            <>
+            <div className="mt-16 w-full">
+             <img src={project.image9} alt="image1" className="w-full h-auto object-cover"/>
           </div>
+            </>
+          ) : (
+            <> 
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 w-full">
+             <img src={project.image9} alt="image1" className="w-full h-auto object-cover"/>
+             <img src={project.image10} alt="image1" className="w-full h-auto object-cover"/>
+          </div>
+            </>
+          )}
           </> 
            }
 
@@ -228,7 +249,7 @@ const ProjectPageDesktop = () => {
           </div>
 
          
-          <div className="flex flex-row justify-between mt-16">
+          {/* <div className="flex flex-row justify-between mt-16">
             
 
               {project.others.map((otherProject) => (
@@ -245,11 +266,28 @@ const ProjectPageDesktop = () => {
   ))}
             
  
-          </div>
+          </div> */}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+  {project.others.map((otherProject) => (
+    <div 
+      key={otherProject.id}
+      className="w-full aspect-square rounded-[24px] cursor-pointer "
+      onClick={() => goPages(otherProject.id)}
+    >
+      <img 
+        src={otherProject.image} alt="others"
+        className="w-full h-full object-cover"
+      />
+     <p className="text-[24px] font-medium mt-8 cursor-pointer"
+      onClick={()=>goPages(otherProject.id)}
+      >{otherProject.projectName}</p>
+    </div>
+  ))}
+</div>
               
          </div>
          
-        </div>
       </div>
       <FooterDesktop />
     </div>

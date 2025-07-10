@@ -62,7 +62,7 @@ const FooterDesktop = () => {
                             <div className="flex flex-col gap-7">
                                 <p className="text-[#9CA3AF] text-[22px] font-book">Social</p>
                                 <a href="https://www.instagram.com/ronin.dsgn/" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">Instagram</a>
-                                <a href="/" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">Behance</a>
+                                <a href="https://www.behance.net/ronindsgn" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer">Behance</a>
                                 <a href="/" className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer disabled-link">Dribbble</a>
                                 
                             </div>

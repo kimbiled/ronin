@@ -45,32 +45,19 @@ const Content = () => {
 
   return (
     <>
-      <div
-      id="about-us"
-        className="font-ppneue flex flex-col w-full rounded-3xl h-auto"
-        style={{
-          background:
-            "radial-gradient(271.63% 217.5% at 169.59% -28.68%, #22AFFF 0%, #1261FC 100%)",
-        }}
-      >
-        <div className="flex flex-col mx-auto gap-8 w-[90%]">
-          <div>
-            <img
-              src={phone}
-              alt="phone"
-              className="w-full h-full mt-6"
-            />
-          </div>
-          <div className="flex flex-col gap-3 text-white">
-            <h3 className="font-medium text-[40px]">
-              Design That<br/> Drives Growth
+
+        <div className=" font-ppneueflex flex-col mx-auto gap-8 w-[90%]"
+        id="about-us">
+          <div className="flex flex-col gap-3 ">
+            <h3 className="font-medium text-[40px] leading-[48px]">
+              <span className="text-[#1261FC]">Design </span>That<br/> Drives Growth
             </h3>
-            <h5 className="font-book max-w-[330px] w-full">
+            <h5 className="leading-[23px] max-w-[330px] w-full">
               With over <span className="font-medium">800 projects and 6 years of experience,</span> we deliver tailored solutions that help brands succeed
             </h5>
           </div>
 
-          <div className="grid text-white mb-8">
+          <div className="grid  mb-8 mt-12">
             {services.map((service, index) => (
               <div key={index} className="py-5">
                 <div className="group">
@@ -109,7 +96,7 @@ const Content = () => {
       animate={{ opacity: 1, height: "auto" }}
       exit={{ opacity: 0, height: 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="mt-3 text-white overflow-hidden max-w-[345px] w-full"
+      className="mt-3  overflow-hidden max-w-[345px] w-full"
     >
       <p className="font-book">{service.description}</p>
       
@@ -125,7 +112,7 @@ const Content = () => {
 
       {service.button && (
         <motion.button
-          className="text-[#0F55E0] font-medium h-12 w-52 rounded-lg bg-white mt-4"
+          className="text-white font-medium h-12 w-52 rounded-lg bg-[#1261FC] mt-4"
           onClick={() => setIsModalOpen(true)}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -143,7 +130,6 @@ const Content = () => {
             ))}
           </div>
         </div>
-      </div>
 
       {/* Модальное окно */}
       <CallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

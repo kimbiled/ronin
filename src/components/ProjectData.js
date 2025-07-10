@@ -10,6 +10,11 @@ import antixpage9 from "../assets/desktop/antixpage9.png";
 import antixpage10  from "../assets/desktop/antixpage10.png";
 
 
+import antixmob from "../assets/mobile/antixmob.png";
+import antixmob2 from "../assets/mobile/antixmob2.png";
+import antixmob3 from "../assets/mobile/antixmob3.png";
+import antixmob4 from "../assets/mobile/antixmob4.png";
+
 import cryptopage from "../assets/desktop/cryptopage.png";
 import cryptopage2 from "../assets/desktop/cryptopage2.png";
 import cryptopage3 from "../assets/desktop/cryptopage3.png";
@@ -19,6 +24,11 @@ import cryptopage6 from "../assets/desktop/cryptopage6.png";
 import cryptopage7 from "../assets/desktop/cryptopage7.png";
 import cryptopage8 from "../assets/desktop/cryptopage8.png";
 
+import cryptomob from "../assets/mobile/cryptomob.png";
+import cryptomob2 from "../assets/mobile/cryptomob2.png";
+import cryptomob3 from "../assets/mobile/cryptomob3.png";
+import cryptomob4 from "../assets/mobile/cryptomob4.png";
+
 import catspage from "../assets/desktop/catspage.png";
 import catspage2 from "../assets/desktop/catspage2.png";
 import catspage3 from "../assets/desktop/catspage3.png";
@@ -27,6 +37,11 @@ import catspage5 from "../assets/desktop/catspage5.png";
 import catspage6 from "../assets/desktop/catspage6.png";
 import catspage7 from "../assets/desktop/catspage7.png";
 import catspage8 from "../assets/desktop/catspage8.png";
+
+import catsmob from "../assets/mobile/catsmob.png";
+import catsmob2 from "../assets/mobile/catsmob2.png";
+import catsmob3 from "../assets/mobile/catsmob3.png";
+import catsmob4 from "../assets/mobile/catsmob4.png";
 
 import dunespage from "../assets/desktop/dunespage.png";
 import dunespage2 from "../assets/desktop/dunespage2.png";
@@ -48,12 +63,22 @@ import orbpage8 from "../assets/desktop/orbpage8.png";
 import orbpage9 from "../assets/desktop/orbpage9.png";
 import orbpage10  from "../assets/desktop/orbpage10.png";
 
+import orbmob from "../assets/mobile/orbmob.png";
+import orbmob2 from "../assets/mobile/orbmob2.png";
+import orbmob3 from "../assets/mobile/orbmob3.png";
+import orbmob4 from "../assets/mobile/orbmob4.png";
+import orbmob5 from "../assets/mobile/orbmob5.png";
+
 import bergpage from "../assets/desktop/bergpage.png";
 import bergpage2 from "../assets/desktop/bergpage2.png";
 import bergpage3 from "../assets/desktop/bergpage3.png";
 import bergpage4 from "../assets/desktop/bergpage4.png";
 import bergpage5 from "../assets/desktop/bergpage5.png";
 import bergpage6 from "../assets/desktop/bergpage6.png";
+import bergmob from "../assets/mobile/bergmob.png";
+import bergmob2 from "../assets/mobile/bergmob2.png";
+import bergmob3 from "../assets/mobile/bergmob3.png";
+import bergmob4 from "../assets/mobile/bergmob4.png";
 
 
 import degenpage from "../assets/desktop/degenpage.png";
@@ -120,6 +145,10 @@ const projects = [
     image8: antixpage8,
     image9: antixpage9,
     image10: antixpage10,
+    imageMob1: antixmob,
+    imageMob2: antixmob2,
+    imageMob3: antixmob3,
+    imageMob4: antixmob4,
     isMobile:true,
     isAdded:true,
     isUi:true,
@@ -163,6 +192,11 @@ const projects = [
     image6: cryptopage6,
     image7: cryptopage7,
     image8: cryptopage8,
+     imageMob1: orbmob,
+    imageMob2: orbmob2,
+    imageMob3: orbmob3,
+    imageMob4: orbmob4,
+     imageMob5: orbmob5,
     image9: "",
     image10: "",
     isMobile:false,
@@ -209,6 +243,10 @@ const projects = [
     image6: catspage6,
     image7: catspage7,
     image8: catspage8,
+      imageMob1: catsmob,
+    imageMob2: catsmob2,
+    imageMob3: catsmob3,
+    imageMob4: catsmob4,
     image9: "",
     image10: "",
     isMobile:false,
@@ -256,7 +294,11 @@ const projects = [
     image7: orbpage7,
     image8: orbpage8,
     image9: orbpage9,
-    image10: orbpage10,
+    image10: orbpage10,   
+    imageMob1: cryptomob,
+    imageMob2: cryptomob2,
+    imageMob3: cryptomob3,
+    imageMob4: cryptomob4,
     isMobile:true,
     isAdded:true,
     isSingle:true,
@@ -299,6 +341,10 @@ const projects = [
     image4: bergpage4,
     image5: bergpage5,
     image6: bergpage6,
+    imageMob1: bergmob,
+    imageMob2: bergmob2,
+    imageMob3: bergmob3,
+    imageMob4: bergmob4,
     image7: "",
     image8: "",
     image9: "",

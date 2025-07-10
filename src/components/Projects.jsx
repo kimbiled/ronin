@@ -1,41 +1,51 @@
 import ProjectItem from "./ProjectItem";
 
-import ant1 from "../assets/mobile/antix1.png";
-import ant2 from "../assets/mobile/antix2.png";
-import ant3 from "../assets/mobile/antix3.png";
-import ant4 from "../assets/mobile/antix4.png";
+import ant1 from "../assets/mobile/ant1.png";
+import ant2 from "../assets/mobile/ant2.png";
+import ant3 from "../assets/mobile/ant3.png";
+import ant4 from "../assets/mobile/ant4.png";
+import ant5 from "../assets/mobile/ant5.png";
+import ant6 from "../assets/mobile/ant6.png";
+
 import cat1 from "../assets/mobile/cat1.png";
 import cat2 from "../assets/mobile/cat2.png";
 import cat3 from "../assets/mobile/cat3.png";
+import cat4 from "../assets/mobile/cat4.png";
+import cat5 from "../assets/mobile/cat5.png";
+
 import orb1 from "../assets/mobile/orb1.png";
 import orb2 from "../assets/mobile/orb2.png";
 import orb3 from "../assets/mobile/orb3.png";
 import orb4 from "../assets/mobile/orb4.png";
 import orb5 from "../assets/mobile/orb5.png";
-import orb6 from "../assets/mobile/orb6.png";
+
+
 import berg1 from "../assets/mobile/berg1.png";
 import berg2 from "../assets/mobile/berg2.png";
 import berg3 from "../assets/mobile/berg3.png";
+import berg4 from "../assets/mobile/berg4.png";
+
 import shar1 from "../assets/mobile/shar1.png";
 import shar2 from "../assets/mobile/shar2.png";
 import shar3 from "../assets/mobile/shar3.png";
-import kz1 from "../assets/mobile/kz1.png"
-import kz2 from "../assets/mobile/kz2.png"
-import kz3 from "../assets/mobile/kz3.png"
-import kz4 from "../assets/mobile/kz4.png"
-import kz5 from "../assets/mobile/kz5.png"
+import shar4 from "../assets/mobile/shar4.png";
+
+import dunes1 from "../assets/mobile/dunes1.png"
+import dunes2 from "../assets/mobile/dunes2.png"
+import dunes3 from "../assets/mobile/dunes3.png"
+import dunes4 from "../assets/mobile/dunes4.png"
+
 import glen1 from "../assets/mobile/glen1.png"
 import glen2 from "../assets/mobile/glen2.png"
 import glen3 from "../assets/mobile/glen3.png"
+import glen4 from "../assets/mobile/glen4.png"
 
-import kz from "../assets/desktop/kz.svg"
 import usa from "../assets/desktop/usa.svg"
 import uk from "../assets/desktop/uk.svg"
 import australia from "../assets/desktop/australia.svg"
 import qatar from "../assets/desktop/qatar.svg"
 
-import tick from '../assets/mobile/Icon.png'
-import star from '../assets/mobile/stared.png'
+
 const profiles = [
     {
     id: 1,
@@ -49,10 +59,12 @@ const profiles = [
       location: usa,
     },
     avatars: [
-     ant3,
+     ant1,
      ant2, 
-     ant1, 
-     ant4
+     ant3, 
+     ant4,
+     ant5,
+     ant6
     ],
   },
   {
@@ -67,7 +79,7 @@ const profiles = [
       location: usa,
     },
     avatars: [
-      berg1, berg2, berg3
+      berg1, berg2, berg3, berg4
     ],
   },
   {
@@ -82,7 +94,7 @@ const profiles = [
       location: uk,
     },
     avatars: [
-      cat1,cat2, cat3
+      cat1,cat2, cat3, cat4, cat5
     ],
   },
   {
@@ -102,7 +114,6 @@ const profiles = [
       orb3,
       orb4,
       orb5,
-      orb6,
     ],
   },
   {
@@ -117,8 +128,9 @@ const profiles = [
       location: qatar,
     },
     avatars: [
-      shar1,
       shar3,
+      shar4,
+      shar1,
       shar2,
     ],
   },
@@ -137,25 +149,25 @@ const profiles = [
       glen1,
       glen2,
       glen3,
+      glen4
     ],
   },
   {
     id: 7,
     profile: {
-      name: "Language learning app",
-      role: "Branding",
-      tags: ["Brand Positioning", "Visual Identity", "Edutech"],
+      name: "Dunes",
+      role: "Website development",
+      tags: ["UI/UX", "Visual Identity", "Animations"],
       followers: false,
       verified: false,
       stared: false,
-      location: kz,
+      location: australia,
     },
     avatars: [
-      kz1,
-      kz2,
-      kz3,
-      kz4,
-      kz5,
+      dunes1,
+      dunes2,
+      dunes3,
+      dunes4
     ],
   }
 ];
@@ -177,9 +189,30 @@ const Projects = () => {
 
       {/* Список проектов */}
       {profiles.map((item, index) => (
+        <>
         <div key={item.id} className="w-full p-5 rounded-lg">
           <ProjectItem item={item} />
         </div>
+        <div className="font-ppneue flex flex-row justify-between w-[85%] text-[#090C21]">
+          <div className="flex flex-col gap-1">
+              <p className="font-medium text-[25px] leading-[30px] ">{item.profile.name}</p>
+               <p className="text-[14px] leading-[22px]">{item.profile.role}</p>
+                <div className="flex flex-row gap-2 text-xs text-[#637695]">
+                    {item.profile.tags.map((detail, i)=>(
+                     <div className="flex flex-row gap-2">
+                       {i !== 0 && <span className="text-gray-500">•</span>}
+                      <p>{detail}</p>
+                      </div>
+                    ))}
+                </div>
+          </div>
+          <div className="flex flex-col justify-start">
+              <img src={item.profile.location} alt="location" />
+          </div>
+        </div>
+         <div className="h-[1px] w-[85%] bg-[#090C21] mt-8 opacity-[8%] rounded mb-4"></div>
+        </>
+        
       ))}
 
       {/* Кнопка "View all works" */}
