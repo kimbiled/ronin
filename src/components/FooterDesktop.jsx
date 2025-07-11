@@ -1,15 +1,18 @@
 import foot from '../assets/icons/footer.png';
 import { useLocation } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
 
 const FooterDesktop = () => {
     const location = useLocation();
-    const navigate = useNavigate()
 
-    const goPrivacy = () => {
-        navigate("/privacy")
-         window.scrollTo(0, 0);
-    }
+    const links = [
+  { label: "Privacy Policy", url: "/privacy-policy" },
+  { label: "Terms and Conditions", url: "/terms-and-conditions" },
+  { label: "Cookie Policy", url: "/cookie-policy" },
+];
+
+     const handleRedirect = (url) => {
+    window.location.href = url;
+  };
 
     const handleNavigation = (id, e) => {
         e.preventDefault(); // 🔹 Отключаем стандартный переход по ссылке
@@ -70,13 +73,24 @@ const FooterDesktop = () => {
                     </div>
 
                     {/* Лого и копирайт */}
-                    <div className='flex flex-row justify-between items-center'>
+                    <div className='flex flex-row justify-between items-end'>
                         <div className="flex flex-col items-center gap-4">
                             <img src={foot} alt="footer" className="w-[164px]" />
                             <p className="text-[#9CA3AF] text-lg font-book">© Ronin Design 2025</p>
                         </div>
-                        <p className="text-[#9CA3AF] text-lg mt-4 hover:text-black cursor-pointer"
-                        onClick={goPrivacy}>Privacy Policy & Cookies</p>
+
+
+                        <div className="flex flex-row gap-12">
+      {links.map((link, index) => (
+        <p
+          key={index}
+          onClick={() => handleRedirect(link.url)}
+          className="text-[#9CA3AF] text-lg hover:text-black cursor-pointer transition duration-300"
+        >
+          {link.label}
+        </p>
+      ))}
+    </div>
                     </div>
 
                 </div>

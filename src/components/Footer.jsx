@@ -20,6 +20,15 @@ export default function Footer() {
     }
   };
 
+  const links = [
+  { label: "Privacy Policy", url: "/privacy-policy" },
+  { label: "Terms and Conditions", url: "/terms-and-conditions" },
+  { label: "Cookie Policy", url: "/cookie-policy" },
+];
+const handleRedirect = (url) => {
+    window.location.href = url;
+  };
+
   return (
     <footer className="font-ppneue flex flex-col mx-auto gap-8 w-[85%] mb-12 bg-white items-center mt-40">
       <div className="flex flex-col gap-8">
@@ -65,7 +74,17 @@ export default function Footer() {
 
         {/* Политика и копирайт */}
         <div className="flex flex-col gap-3 text-xs font-book">
-          <p>Privacy Policy & Cookies</p>
+          <div className="flex flex-col gap-3">
+      {links.map((link, index) => (
+        <p
+          key={index}
+          onClick={() => handleRedirect(link.url)}
+          className="cursor-pointer text-[#090C21] hover:text-[#1261FC] transition duration-300"
+        >
+          {link.label}
+        </p>
+      ))}
+    </div>
           <p className="text-[#637695]">©2019-2025 Ronin Design Agency</p>
         </div>
       </div>

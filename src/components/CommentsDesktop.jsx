@@ -115,7 +115,7 @@ const Comments = () => {
             <img
               src={testimonial.image}
               alt={testimonial.name}
-              className={`${index === currentIndex ? "w-[100px] h-[100px]" : "w-[68px] h-[68px] brightness-120"}`}
+              className={`${index === currentIndex ? "w-[100px] h-[100px]" : "w-[68px] h-[68px] brightness-[70%]"}`}
             />
           </motion.div>
         ))}

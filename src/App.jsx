@@ -16,6 +16,11 @@ import ThirdNewsDesktop from "./pages/ThirdNewsDesktop";
 import ProjectPageDesktop from "./pages/ProjectPageDesktop";
 import ProjectPage from "./pages/ProjectPage";
 import PrivacyDesktop from "./pages/PrivacyDesktop";
+import TermsDesktop from './pages/TermsDesktop';
+import Terms from "./pages/Terms";
+import Cookies from "./pages/Cookies";
+import Privacy from "./pages/Privacy";
+
 // 🔹 Предзагрузка картинок
 import first from './assets/mobile/h1.png';
 import second from './assets/mobile/h2.png';
@@ -32,6 +37,7 @@ import r2 from "./assets/desktop/r2.png";
 import r3 from "./assets/desktop/r3.png";
 import r4 from "./assets/desktop/r4.png";
 import heros from "./assets/desktop/Hero.svg";
+import CookiesDesktop from "./pages/CookiesDesktop";
 
 const preloadImages = [first, second, third, four, hero, item1, item2, item3, item4, phone, r1, r2, r3, r4, heros];
 const scrollToFormSection = () => {
@@ -159,7 +165,9 @@ function App() {
       <Route path="/news/desktop/ux-trends-2025" element={<SecondNewsDesktop />} />
       <Route path="/news/desktop/design-system-need" element={<ThirdNewsDesktop />} />
       <Route path="/projects/:id" element={isMobile ? <ProjectPage /> : <ProjectPageDesktop />}/>
-      <Route path="/privacy" element={<PrivacyDesktop />} />
+      <Route path="/privacy-policy"  element={isMobile ? <Privacy /> : <PrivacyDesktop />}/>
+      <Route path="/terms-and-conditions" element={isMobile ? <Terms /> : <TermsDesktop />}/>
+       <Route path="/cookie-policy" element={isMobile ? <Cookies /> : <CookiesDesktop />} />
       <Route path="/*" element={isMobile ? <NotFound /> : <NotFoundDesktop />} />
     </Routes>
   );

@@ -24,7 +24,7 @@ export default function StepTwo({ onNext, onPrev, onComplete, setFormData }) {
   };
   
   return (
-    <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
+    <div className="font-ppneue flex flex-col w-[100%] mx-auto gap-6">
       {/* Заголовок */}
       <p className="font-medium text-black">I'm interested in...</p>
 
