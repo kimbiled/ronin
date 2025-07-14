@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9167a320.css",
-    "main.js": "/static/js/main.07deac32.js",
+    "main.js": "/static/js/main.51bd0548.js",
     "static/media/catspage8.png": "/static/media/catspage8.1a3b12e4be041434bcac.png",
     "static/media/bergpage6.png": "/static/media/bergpage6.b1e9987adfe277762ac1.png",
     "static/media/cryptopage8.png": "/static/media/cryptopage8.c2986ac563c0227160c9.png",
@@ -248,6 +248,6 @@
   },
   "entrypoints": [
     "static/css/main.9167a320.css",
-    "static/js/main.07deac32.js"
+    "static/js/main.51bd0548.js"
   ]
 }
