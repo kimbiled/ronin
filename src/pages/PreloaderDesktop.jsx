@@ -14,7 +14,7 @@ export default function PreloaderDesktop({ onComplete }) {
             const playPromise = video.play();
             if (playPromise !== undefined) {
                 playPromise
-                    .then(() => console.log("Автовоспроизведение началось"))
+                    .then()
                     .catch(() => {
                         video.muted = true;
                         video.play();

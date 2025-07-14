@@ -7,7 +7,7 @@ const ProjectPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projects.find(p => p.id === parseInt(id));
-  console.log(projects.find(p => p.id === parseInt(id)))
+ 
 
   const goPages = (id) => {
   navigate(`/projects/${id}`);

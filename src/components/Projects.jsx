@@ -1,4 +1,5 @@
 import ProjectItem from "./ProjectItem";
+import { useNavigate } from "react-router-dom";
 
 import ant1 from "../assets/mobile/ant1.png";
 import ant2 from "../assets/mobile/ant2.png";
@@ -68,7 +69,7 @@ const profiles = [
     ],
   },
   {
-    id: 2,
+    id: 7,
     profile: {
       name: "Dr Berg",
       role: "Social media content",
@@ -83,7 +84,7 @@ const profiles = [
     ],
   },
   {
-    id: 3,
+    id: 2,
     profile: {
       name: "HashCats",
       role: "UX/UI Design",
@@ -117,7 +118,7 @@ const profiles = [
     ],
   },
   {
-    id: 5,
+    id: 8,
     profile: {
       name: "Sharique",
       role: "Branding",
@@ -153,7 +154,7 @@ const profiles = [
     ],
   },
   {
-    id: 7,
+    id: 9,
     profile: {
       name: "Dunes",
       role: "Website development",
@@ -173,6 +174,12 @@ const profiles = [
 ];
 
 const Projects = () => {
+  const navigate = useNavigate()
+ const goPage = (index) =>{
+   navigate(`/projects/${index}`)
+   window.scrollTo(0, 0);
+  }
+
     return (
       <div 
       className="font-ppneue flex flex-col items-center w-full mx-auto " id="recentProjects">
@@ -190,7 +197,9 @@ const Projects = () => {
       {/* Список проектов */}
       {profiles.map((item, index) => (
         <>
-        <div key={item.id} className="w-full p-5 rounded-lg">
+        <div key={item.id} className="w-full p-5 rounded-lg"
+        onClick={()=>goPage(item.id)}
+        >
           <ProjectItem item={item} />
         </div>
         <div className="font-ppneue flex flex-row justify-between w-[85%] text-[#090C21]">
