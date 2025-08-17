@@ -50,10 +50,13 @@ const Content = () => {
         id="about-us">
           <div className="flex flex-col gap-3 ">
             <h3 className="font-medium text-[40px] leading-[48px]">
-              <span className="text-[#1261FC]">Design </span>That<br/> Drives Growth
+              <span className="text-[#1261FC]">Your Design<br/>Team,</span> Built In
             </h3>
+              <div className="max-w-[255px] w-full h-[30px] rounded-lg border-[1px] border-[#1261FC] flex items-center justify-center">
+            <p className="text-sm">800+ projects and 6 years of experience</p>
+          </div>
             <h5 className="leading-[23px] max-w-[330px] w-full">
-              With over <span className="font-medium">800 projects and 6 years of experience,</span> we deliver tailored solutions that help brands succeed
+             We stay inside your workflow to deliver<br/>nonstop results without the hiring overhead
             </h5>
           </div>
 

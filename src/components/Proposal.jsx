@@ -126,7 +126,7 @@ const Proposal = () => {
             <div className="flex flex-col mt-6 items-center text-white p-8">
                 <div className="flex flex-col gap-1 w-full ">
                     <div className=" flex flex-row justify-between items-center">
-                        <h5 className="font-medium text-[25px]">No hiring fee</h5>
+                        <h5 className="font-medium text-[25px]">Start today</h5>
                         <img src={magic} alt="magic" className="h-6 w-6 brightness-125" />
                     </div>
                     <div className="border-b-[1px] pb-6 border-b-[#FFFFFF2E]">
@@ -136,22 +136,20 @@ const Proposal = () => {
                 </div>
                 <div className="flex flex-col gap-1 w-full mt-6">
                     <div className=" flex flex-row justify-between items-center">
-                        <h5 className="font-medium text-[25px]">No interviews</h5>
+                        <h5 className="font-medium text-[25px]">In-house feel</h5>
                         <img src={magic} alt="magic" className="h-6 w-6 brightness-125"/>
                     </div>
                     <div className="border-b-[1px] pb-6 border-b-[#FFFFFF2E]">
-                        <p className="opacity-70 font-medium">Forget the endless search for<br/>
-                        the best. We're already here</p>
+                        <p className="opacity-70 font-medium">Daily presence<br/> in your chats and calls</p>
                     </div>
                 </div>
                 <div className="flex flex-col gap-1 w-full mt-6">
                     <div className=" flex flex-row justify-between items-center">
-                        <h5 className="font-medium text-[25px]">No extra hassle</h5>
+                        <h5 className="font-medium text-[25px]">Nonstop delivery</h5>
                         <img src={magic} alt="magic" className="h-6 w-6 brightness-125"/>
                     </div>
                     <div>
-                        <p className="opacity-70 font-medium">Get near in-house experience<br/>
-                        without having to think of benefits when hiring employees</p>
+                        <p className="opacity-70 font-medium">No pauses, no delays,<br/>just delivery</p>
                     </div>
                 </div>    
             </div>

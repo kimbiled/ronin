@@ -48,7 +48,7 @@ const ProposalDesktop = () => {
                     <div className="w-[833px] h-[201px] bg-[#266FFF] rounded-[24px] flex items-center justify-between p-12 gap-[19px] text-white">
       {/* Первый блок */}
       <div className="flex flex-col items-start w-[240px] h-[108px] gap-2">
-        <h5 className="text-[28px] leading-[34px] font-medium">No hiring fee</h5>
+        <h5 className="text-[28px] leading-[34px] font-medium">Start today</h5>
         <p className="leading-[22x] font-book">We’re ready to get started right now, as long as we have open spots</p>
       </div>
       
@@ -57,8 +57,8 @@ const ProposalDesktop = () => {
       
       {/* Второй блок */}
       <div className="flex flex-col items-start w-[196px] h-[108px] gap-2">
-        <h5 className="text-[28px] leading-[34px] font-medium">No interviews</h5>
-        <p className="tleading-[22x] font-book">Forget the endless search for the best. We're already here</p>
+        <h5 className="text-[28px] leading-[34px] font-medium">In‑house feel</h5>
+        <p className="tleading-[22x] font-book">Daily presence in your<br/>chats and calls</p>
       </div>
       
       {/* Разделительная линия */}
@@ -66,8 +66,8 @@ const ProposalDesktop = () => {
       
       {/* Третий блок */}
       <div className="flex flex-col items-start w-[222px] h-[108px] gap-2">
-        <h5 className="text-[28px] leading-[34px] font-medium">No extra hassle</h5>
-        <p className="tleading-[22x] font-book">Get near in-house experience without having to think of benefits when hiring employees</p>
+        <h5 className="text-[28px] leading-[34px] font-medium">Nonstop delivery</h5>
+        <p className="tleading-[22x] font-book">No pauses, no delays,<br/>just delivery</p>
       </div>
     </div>
                 </div>

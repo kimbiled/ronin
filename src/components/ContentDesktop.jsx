@@ -53,14 +53,14 @@ const ContentDesktop = () => {
       <div className="mt-[100px] flex flex-row max-w-[1200px] w-full justify-between">
        
         <div className="flex flex-col gap-6">
+          <div className="w-[373px] h-11 rounded-lg border-[1px] border-[#1261FC] flex items-center justify-center">
+            <p className="text-[20px]">800+ projects and 6 years of experience</p>
+          </div>
           <h3 className="font-medium text-[84px] leading-[92px] text-[#090C21]">
-            <span className="text-[#1261FC]">Design</span> That<br />
-            Drives Growth
+            <span className="text-[#1261FC]">Your Design<br/>Team, </span>Built In
           </h3>
           <h5 className="font-book text-[22px] leading-[30px] text-[#090C21] opacity-80">
-            With over 800 projects and 6 years of experience, we
-            <br />
-            deliver tailored solutions that help brands succeed
+           We stay inside your workflow to deliver<br/>nonstop results without the hiring overhead
           </h5>
         </div>
 

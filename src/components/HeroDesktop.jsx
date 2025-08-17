@@ -127,7 +127,7 @@ const HeroDesktop = () => {
                 <div>
                     <div className="flex flex-col gap-5 mt-9">
                         <h1 className="font-medium text-[34px] leading-[37px]">
-                            Web design and Content<br /> That Skyrocket Your Business
+                            Your Full Stack Design Team<br/> for Web3, Fintech and AI
                         </h1>
                         <p className="text-[#090C21] font-book text-lg">
                             Get your first task done for free in 24 hours

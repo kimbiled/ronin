@@ -19,7 +19,6 @@ import orb1 from "../assets/desktop/orb1.png";
 import orb2 from "../assets/desktop/orb2.png";
 import orb3 from "../assets/desktop/orb3.png";
 import orb4 from "../assets/desktop/orb4.png";
-import orb5 from "../assets/desktop/orb5.png";
 
 import nas1 from "../assets/desktop/nas1.png";
 import nas2 from "../assets/desktop/nas2.png";
@@ -37,9 +36,11 @@ import shar2 from "../assets/desktop/shar2.png";
 import shar3 from "../assets/desktop/shar3.png";
 import shar4 from "../assets/desktop/shar4.png";
 
+import degen1 from "../assets/desktop/degen1.png";
 import degen2 from "../assets/desktop/degen2.png";
 import degen3 from "../assets/desktop/degen3.png";
 import degen4 from "../assets/desktop/degen4.png";
+import degen5 from "../assets/desktop/degen5.png";
 
 
 import kz1 from "../assets/desktop/kz1.png";
@@ -76,11 +77,11 @@ import { motion } from "framer-motion";
 const projects = [
     { images: [antix1, antix2, antix3, antix4, antix5, antix6], logo: p11,title:"p1", description: "Website design", description2: " and development", country: usa, tags: ["Web design", "Development", "WEB3"], highlight: "$5.8M+ Raised", isMain: true, verified: true, badgeImage: verify},
     { images: [cat1, cat2, cat3, cat4, cat5], logo: p22, title:"p2",description: "UX/UI Design", country: uk, tags: ["Prototyping", "Design System", "Mobile Design"], highlight: "900.000+ Users", verified: true, badgeImage: verify},
-    { images: [orb1, orb2, orb3, orb4, orb5], logo: p33, description: "Website development", country: australia, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
+    { images: [orb1, orb2, orb3, orb4], logo: p33, description: "Website development", country: australia, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
     { images: [nas1, nas2, nas3, nas4, nas5, nas6], logo: cryptoInd, description: "Website development", country: stvincent, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
     { images: [berg1, berg2, berg3, berg4], logo: p55,title:"p5", description: "Social media content", country: usa, tags: ["Content creation", "Graphic design", "SMM"], highlight: "20M+ Followers", verified: true, badgeImage: verify},
     { images: [shar3, shar2, shar4], logo: p66, description: "Website development", country: qatar, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
-    { images: [ degen2, degen3, degen4], logo: p77, description: "Branding", country: australia, tags: ["Brand Strategy", "Visual Identity", "Fintech"] },
+    { images: [degen1, degen2, degen3, degen4, degen5], logo: p77, description: "Branding", country: australia, tags: ["Brand Strategy", "Visual Identity", "Fintech"] },
     { images: [kz1, kz2, kz3, kz4], logo: null, description: "Branding", country: australia, tags: ["Launchpad Design", "PitchDeck Design", "Web3"]},
     { images: [glen1, glen2, glen3, glen4], logo: p99,title:"p9", description: "Website development", country: uk, tags: ["Full-Stack Development", "UI/UX", "E-commerce"], highlight: "4.7 Trustpilot", starred: true, badgeImage: star},
   ];

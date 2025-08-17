@@ -66,8 +66,8 @@ const Comments = () => {
             <div className="flex flex-col max-w-[1200px] w-full justify-between">
                 <div className='flex flex-row justify-between items-center w-full'>
                     <div className='font-medium text-[84px] leading-[92px]'>
-                        <p className='text-[#090C21]'><span className='text-[#1261FC]'>Ronin</span> – a digital<br/>
-                        agency that delivers</p>
+                        <p className='text-[#090C21]'><span className='text-[#1261FC]'>Ronin</span> – your full-<br/>
+                        stack design team</p>
                     </div>
                     <div>
                         <img src={comment} alt="comment"className="w-[340px] h-auto ml-24" />

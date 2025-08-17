@@ -5,7 +5,7 @@ import arrowup from '../assets/mobile/arrow-up.png'
 import arrowdown from '../assets/mobile/arrow-down2.png'
 const faqData = [
   {
-    question: "What are your core services as a UX and brand design studio?",
+    question: "What are your core services as a UX and brand design team?",
     answer: (
       <>
         We started as <span className="text-[#B6E4FF] font-book">a small team from Central Asia</span>, driven by a passion for crafting exceptional user experiences. Initially, our focus was on 
@@ -36,20 +36,26 @@ const faqData = [
     question: "What sets Ronin apart from other design agencies?",
     answer: (
       <>
-        <span className="text-[#B6E4FF] font-book">In a competitive market of top-tier UX and branding agencies, 
-        we stand out by prioritizing partnerships built on trust and mutual growth.</span> 
-        Your success is our success, and we go beyond delivering exceptional design to ensure long-term impact.
-        <br /><br />
-        When you work with us, you collaborate directly with a dedicated team deeply invested in your goals. 
-        Our cofounders oversee every project, while a design director ensures top-quality work through detailed reviews and hands-on involvement.
-        <br /><br />
-        We emphasize clear communication and transparency, 
-        combining the agility of startup experience with the structured management of enterprise projects.
-        <span className="text-[#B6E4FF] font-book">Unlike traditional agencies,</span> we unite branding and product expertise under one roof, 
-        delivering seamless solutions that align with your brand and provide exceptional user experiences.
-        <br /><br />
-        Our designs are built to scale with your business, offering lasting value. 
-        Many of our projects remain effective for years, demonstrating our commitment to creating future-proof products that grow with you.
+        <span className="text-[#B6E4FF] font-book">
+          We’re not an agency — we’re your embedded design department.
+        </span>{' '}
+        We work inside your business or startup, building long‑term partnerships
+        based on trust, transparency, and shared growth. Your goals become ours,
+        and every decision we make is driven by your success.
+        <br />
+        <br />
+        <span className="text-[#B6E4FF] font-book">
+          When you work with us, you collaborate directly with a dedicated team
+          invested in your product.
+        </span>
+        <br />
+        <br />
+        We combine the agility of a startup with the structure of an enterprise
+        team, uniting branding and product expertise under one roof.{' '}
+        <span className="text-[#B6E4FF] font-book">
+          This allows us to deliver cohesive solutions that not only look great
+          but also work seamlessly for your users.
+        </span>
       </>
     ),
   },
