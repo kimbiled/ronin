@@ -46,7 +46,7 @@ const Content = () => {
   return (
     <>
 
-        <div className=" font-ppneueflex flex-col mx-auto gap-8 w-[90%]"
+        <div className=" font-ppneue flex flex-col mx-auto gap-8 w-[90%]"
         id="about-us">
           <div className="flex flex-col gap-3 ">
             <h3 className="font-medium text-[40px] leading-[48px]">
