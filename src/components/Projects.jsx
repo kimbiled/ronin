@@ -89,7 +89,7 @@ const profiles = [
       name: "HashCats",
       role: "UX/UI Design",
       tags: ["Prototyping", "Design System", "Mobile Design"],
-      followers: "900.000+ Users",
+      followers: "600.000+ Users",
       verified: true,
       stared: false,
       location: uk,
@@ -227,7 +227,7 @@ const Projects = () => {
       {/* Кнопка "View all works" */}
       <div className="flex flex-col items-center">
         <button className="bg-[#1261FC] text-white rounded-lg w-40 h-12">
-          <a href="https://drive.google.com/file/d/1FizTso9ZKKUooa-Rl6n0Sz6khVYuJCa1/view?usp=sharing">
+          <a href="https://drive.google.com/file/d/15t6fMY4dYh54MsYRphr_bPqehjTpZIZC/view?pli=1">
             View all works
           </a>
         </button>

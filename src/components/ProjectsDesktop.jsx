@@ -76,7 +76,7 @@ import { motion } from "framer-motion";
 
 const projects = [
     { images: [antix1, antix2, antix3, antix4, antix5, antix6], logo: p11,title:"p1", description: "Website design", description2: " and development", country: usa, tags: ["Web design", "Development", "WEB3"], highlight: "$5.8M+ Raised", isMain: true, verified: true, badgeImage: verify},
-    { images: [cat1, cat2, cat3, cat4, cat5], logo: p22, title:"p2",description: "UX/UI Design", country: uk, tags: ["Prototyping", "Design System", "Mobile Design"], highlight: "900.000+ Users", verified: true, badgeImage: verify},
+    { images: [cat1, cat2, cat3, cat4, cat5], logo: p22, title:"p2",description: "UX/UI Design", country: uk, tags: ["Prototyping", "Design System", "Mobile Design"], highlight: "600.000+ Users", verified: true, badgeImage: verify},
     { images: [orb1, orb2, orb3, orb4], logo: p33, description: "Website development", country: australia, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
     { images: [nas1, nas2, nas3, nas4, nas5, nas6], logo: cryptoInd, description: "Website development", country: stvincent, tags: ["Frontend Development", "Custom Web Solutions", "Web3"]},
     { images: [berg1, berg2, berg3, berg4], logo: p55,title:"p5", description: "Social media content", country: usa, tags: ["Content creation", "Graphic design", "SMM"], highlight: "20M+ Followers", verified: true, badgeImage: verify},
@@ -111,7 +111,7 @@ export default function ProjectsDesktop() {
   };
 
   const handleClick = () => {
-    window.location.href = "https://drive.google.com/file/d/1FizTso9ZKKUooa-Rl6n0Sz6khVYuJCa1/view?usp=sharing"; // Вставь свою ссылку
+    window.location.href = "https://drive.google.com/file/d/15t6fMY4dYh54MsYRphr_bPqehjTpZIZC/view?pli=1"; // Вставь свою ссылку
   };
   return (
     <div id="recentProjects" className="font-ppneue flex flex-col w-[85%] items-center mt-[68px]">

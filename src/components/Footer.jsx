@@ -49,8 +49,8 @@ const handleRedirect = (url) => {
           <div className="flex flex-col gap-6 font-book">
             <p className="text-[#637695]">Social</p>
             <a href="https://www.instagram.com/ronin.dsgn/" className="hover:underline text-lg">Instagram</a>
+            <a href="https://www.behance.net/ronindsgn" className="hover:underline text-lg">Behance</a>
             <a href="" className="hover:underline text-lg disabled-link">Dribbble</a>
-            <a href="" className="hover:underline text-lg disabled-link">Behance</a>
           </div>
 
           {/* Menu */}

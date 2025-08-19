@@ -16,8 +16,8 @@ const Header = () => {
 
   const socialLinks = [
     { title: "Instagram", href: "https://www.instagram.com/ronin.dsgn/" },
+    { title: "Behance", href: "https://www.behance.net/ronindsgn"}, 
     { title: "Dribbble", href: "#", disabled: true }, // Добавлен флаг disabled
-    { title: "Behance", href: "#", disabled: true },  // Добавлен флаг disabled
   ];
 
   const menuLinks = [
