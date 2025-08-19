@@ -111,6 +111,7 @@ import sharpage7 from '../assets/desktop/sharpage7.png';
 import sharmob1 from '../assets/mobile/sharpage1.png';
 import sharmob2 from '../assets/mobile/sharpage2.png';
 import sharmob3 from '../assets/mobile/sharpage3.png';
+import sharmob4 from '../assets/mobile/sharmob4.png';
 
 import glenpage from '../assets/desktop/glenpage.png';
 import glenpage2 from '../assets/desktop/glenpage2.png';
@@ -127,6 +128,11 @@ import glenmob1 from '../assets/mobile/glenmob1.png';
 import glenmob2 from '../assets/mobile/glenmob2.png';
 import glenmob3 from '../assets/mobile/glenmob3.png';
 import glenmob4 from '../assets/mobile/glenmob4.png';
+
+import degenmob1 from '../assets/mobile/degenmob1.png';
+import degenmob2 from '../assets/mobile/degenmob2.png';
+import degenmob3 from '../assets/mobile/degenmob3.png';
+import degenmob4 from '../assets/mobile/degenmob4.png';
 
 import otherCat from '../assets/desktop/otherCat.png';
 import otherOrb from '../assets/desktop/otherOrb.png';
@@ -238,7 +244,7 @@ const projects = [
     isTitle: true,
     isMobile: false,
     isAdded: false,
-    isSingle: true,
+    isSingle: false,
     isBranding: false,
     isDunes: false,
     isUi: true,
@@ -281,21 +287,21 @@ const projects = [
     description9: '',
     image1: catspage,
     image2: catspage2,
-    image3: catspage3,
-    image4: catspage4,
-    image5: catspage5,
-    image6: catspage6,
-    image7: catspage7,
-    image8: catspage8,
+    image3: catspage4,
+    image4: catsmob7,
+    image5: catsmob7,
+    image6: catsmob6,
+    image7: catsmob7,
+    image8: catsmob8,
     imageMob1: catsmob,
     imageMob2: catsmob2,
-    imageMob3: catsmob3,
-    imageMob4: catsmob4,
+    imageMob3: catsmob4,
+    imageMob4: catsmob5,
     image9: '',
     image10: '',
     isMobile: false,
     isAdded: false,
-    isSingle: true,
+    isSingle: false,
     isBranding: false,
     isDunes: false,
     isUi: true,
@@ -346,13 +352,13 @@ const projects = [
     image8: orbpage8,
     image9: orbpage9,
     image10: orbpage10,
-    imageMob1: cryptomob,
-    imageMob2: cryptomob2,
-    imageMob3: cryptomob3,
-    imageMob4: cryptomob4,
+    imageMob1: orbmob,
+    imageMob2: orbmob2,
+    imageMob3: orbmob4,
+    imageMob4: orbmob3,
     isMobile: true,
     isAdded: true,
-    isSingle: true,
+    isSingle: false,
     isBranding: false,
     isDunes: false,
     isUi: true,
@@ -458,6 +464,10 @@ const projects = [
     image8: degenpage8,
     image9: degenpage9,
     image10: degenpage10,
+    imageMob1: degenmob1,
+    imageMob2: degenmob2,
+    imageMob3: degenmob3,
+    imageMob4: degenmob4,
     isMobile: true,
     isAdded: true,
     isSingle: true,
@@ -512,6 +522,7 @@ const projects = [
     imageMob1: sharmob1,
     imageMob2: sharmob2,
     imageMob3: sharmob3,
+     imageMob4: sharmob4,
     isMobile: false,
     isAdded: false,
     isSingle: true,
