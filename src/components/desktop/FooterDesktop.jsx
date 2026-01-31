@@ -15,10 +15,9 @@ const FooterDesktop = () => {
   };
 
   const handleNavigation = (id, e) => {
-    e.preventDefault(); // 🔹 Отключаем стандартный переход по ссылке
+    e.preventDefault();
 
     if (location.pathname === '/') {
-      // 🔹 Если уже на главной, просто скроллим
       const element = document.getElementById(id);
       if (element) {
         const offset = 100;
@@ -27,7 +26,6 @@ const FooterDesktop = () => {
         window.scrollTo({ top: elementPosition, behavior: 'smooth' });
       }
     } else {
-      // 🔹 Если на другой странице, сохраняем ID и переходим на главную
       sessionStorage.setItem('scrollTo', id);
       window.location.href = '/';
     }
@@ -61,30 +59,35 @@ const FooterDesktop = () => {
               <div className="flex flex-col gap-7">
                 <p className="text-[#9CA3AF] text-[22px] font-book">Menu</p>
                 <a
+                  href=""
                   onClick={() => handleNavigation('services')}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
                   Services
                 </a>
                 <a
+                  href=""
                   onClick={() => handleNavigation('recentProjects')}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
                   Works
                 </a>
                 <a
+                  href=""
                   onClick={() => handleNavigation('development')}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
                   Development
                 </a>
                 <a
+                  href=""
                   onClick={() => handleNavigation('about')}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
                   About
                 </a>
                 <a
+                  href=""
                   onClick={() => handleNavigation('form-section')}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >

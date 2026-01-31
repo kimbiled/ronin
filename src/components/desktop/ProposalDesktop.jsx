@@ -5,7 +5,6 @@ import tick from '../../assets/desktop/tick.png';
 import question from '../../assets/desktop/question.svg';
 const ProposalDesktop = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [timer, setTimer] = useState(null);
   useEffect(() => {
     const handleClose = (event) => {
       if (!event.target || !(event.target instanceof Element)) return;
@@ -21,18 +20,6 @@ const ProposalDesktop = () => {
       document.removeEventListener('scroll', handleClose);
     };
   }, []);
-
-  const handleMouseEnter = () => {
-    if (timer) clearTimeout(timer);
-    setIsVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    const newTimer = setTimeout(() => {
-      setIsVisible(false);
-    }, 100);
-    setTimer(newTimer);
-  };
 
   return (
     <div

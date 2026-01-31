@@ -30,30 +30,35 @@ const HeaderDesktop = () => {
 
       <nav className="hidden lg:flex gap-12 text-[#090C21] text-lg font-book cursor-pointer  bg-[#F7F7F6] rounded-lg px-[34px] py-3 h-10 items-center">
         <a
+          href=""
           onClick={() => handleNavigation('services')}
           className="hover:text-gray-500 duration-300 ease-in-out"
         >
           Services
         </a>
         <a
+          href=""
           className="hover:text-gray-500 duration-300 ease-in-out "
           onClick={() => handleNavigation('recentProjects')}
         >
           Works
         </a>
         <a
+          href=""
           className="hover:text-gray-500 duration-300 ease-in-out"
           onClick={() => handleNavigation('development')}
         >
           Development
         </a>
         <a
+          href=""
           className="hover:text-gray-500 duration-300 ease-in-out"
           onClick={() => handleNavigation('about')}
         >
           About
         </a>
         <a
+          href=""
           className="hover:text-gray-500 duration-300 ease-in-out"
           onClick={() => handleNavigation('form-section')}
         >

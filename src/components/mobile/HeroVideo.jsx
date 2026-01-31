@@ -29,7 +29,7 @@ export default function HeroVideo({ src, poster }) {
   };
 
   return (
-    <div className="flex flex-row max-w-[1200px] w-full justify-between relative bg-black rounded-[30px] overflow-hidden">
+    <div className="flex flex-row max-w-[1200px] w-full justify-between relative bg-black rounded-[30px] overflow-hidden mt-6">
       <video
         ref={videoRef}
         className="w-full h-[420px] md:h-[520px] object-cover"

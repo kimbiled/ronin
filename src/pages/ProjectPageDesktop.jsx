@@ -13,14 +13,6 @@ const ProjectPageDesktop = () => {
     window.scrollTo(0, 0);
   };
 
-  const getBadgeStyles = () => {
-    if (project.verified)
-      return 'bg-[#1D1D1D] rounded-[100px] pl-[18px] pr-[18px] pt-[4px] pb-[4px]';
-    if (project.starred)
-      return 'bg-[#FFD700] bg-opacity-20 rounded-[100px] pl-[18px] pr-[18px] pt-[4px] pb-[4px]';
-    return '';
-  };
-
   if (!project) {
     return (
       <div className="text-center mt-20">
@@ -266,7 +258,7 @@ const ProjectPageDesktop = () => {
                   <p>{project.description9}</p>
                 </div>
               </div>
-              {project.id == 9 ? (
+              {project.id === 9 ? (
                 <>
                   <div className="mt-16 w-full">
                     <img
