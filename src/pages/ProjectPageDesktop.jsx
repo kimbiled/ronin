@@ -1,5 +1,5 @@
-import HeaderDesktop from '../components/HeaderDesktop';
-import FooterDesktop from '../components/FooterDesktop';
+import HeaderDesktop from '../components/desktop/HeaderDesktop';
+import FooterDesktop from '../components/desktop/FooterDesktop';
 import { useParams, useNavigate } from 'react-router-dom';
 import projects from '../components/ProjectData';
 
@@ -97,8 +97,16 @@ const ProjectPageDesktop = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 max-w-[1440px] mx-auto">
-                <img src={project.image3} alt="image3"  className="w-full h-auto object-cover"/>
-                <img src={project.image4} alt="image4"  className="w-full h-auto object-cover"/>
+                <img
+                  src={project.image3}
+                  alt="image3"
+                  className="w-full h-auto object-cover"
+                />
+                <img
+                  src={project.image4}
+                  alt="image4"
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </>
           ) : (

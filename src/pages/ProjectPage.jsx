@@ -1,5 +1,5 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/mobile/Header';
+import Footer from '../components/mobile/Footer';
 import { useParams, useNavigate } from 'react-router-dom';
 import projects from '../components/ProjectDatamob';
 
@@ -75,7 +75,10 @@ const ProjectPage = () => {
             <>
               <div className="flex flex-col justify-between w-full mt-8">
                 <div>
-                  <h3 className="text-[24px] font-medium"> {project.isTitle? project.title2 : 'About' }</h3>
+                  <h3 className="text-[24px] font-medium">
+                    {' '}
+                    {project.isTitle ? project.title2 : 'About'}
+                  </h3>
                 </div>
                 <div className=" leading-[24px] mt-4">
                   <p>{project.description2}</p>
@@ -113,7 +116,7 @@ const ProjectPage = () => {
               <div className="flex flex-col justify-between w-full mt-8">
                 <div>
                   <h3 className="text-[24px] font-medium">
-                    {project.isTitle? project.title2 : 'About' }
+                    {project.isTitle ? project.title2 : 'About'}
                   </h3>
                 </div>
                 <div className=" leading-[24px] mt-4">

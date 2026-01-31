@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ready from '../assets/desktop/ready.png';
+
 import item1 from '../assets/desktop/item1.png';
 import item2 from '../assets/desktop/item2.png';
 import item3 from '../assets/desktop/item3.png';
 import item4 from '../assets/desktop/item4.png';
-import CallModalDesktop from './CallModalDesktop';
+import CallModalDesktop from './mobile/desktop/CallModalDesktop';
 const services = [
   {
     title: 'UX/UI + No-code',

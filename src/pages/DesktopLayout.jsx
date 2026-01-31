@@ -1,17 +1,17 @@
-import HeaderDesktop from '../components/HeaderDesktop';
-import HeroDesktop from '../components/HeroDesktop';
-import ContentDesktop from '../components/ContentDesktop';
-import CompanyDesktop from '../components/CompanyDesktop';
-import ReviewDesktop from '../components/ReviewDesktop';
-import ProjectsDesktop from '../components/ProjectsDesktop';
-import ProposalDesktop from '../components/ProposalDesktop';
-import LeadersDesktop from '../components/LeadersDesktop';
-import CommentsDesktop from '../components/CommentsDesktop';
-import FormDesktop from '../components/FormDesktop';
-import NewsDesktop from '../components/NewsDesktop';
-import FooterDesktop from '../components/FooterDesktop';
+import HeaderDesktop from '../components/desktop/HeaderDesktop';
+import HeroDesktop from '../components/desktop/HeroDesktop';
+import ContentDesktop from '../components/desktop/ContentDesktop';
+import CompanyDesktop from '../components/desktop/CompanyDesktop';
+import ReviewDesktop from '../components/desktop/ReviewDesktop';
+import ProjectsDesktop from '../components/desktop/ProjectsDesktop';
+import ProposalDesktop from '../components/desktop/ProposalDesktop';
+import LeadersDesktop from '../components/desktop/LeadersDesktop';
+import CommentsDesktop from '../components/desktop/CommentsDesktop';
+import FormDesktop from '../components/desktop/FormDesktop';
+import NewsDesktop from '../components/desktop/NewsDesktop';
+import FooterDesktop from '../components/desktop/FooterDesktop';
 import CookieBanner from '../components/CookieBanner';
-import HeroVideo from '../components/HeroVideo';
+import HeroVideo from '../components/mobile/HeroVideo';
 
 const DesktopLayout = () => {
   return (
