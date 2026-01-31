@@ -60,7 +60,7 @@ export default function Footer() {
             >
               Behance
             </a>
-            <a href="" className="hover:underline text-lg disabled-link">
+            <a href="#" className="hover:underline text-lg disabled-link">
               Dribbble
             </a>
           </div>
@@ -69,35 +69,35 @@ export default function Footer() {
           <div className="flex flex-col gap-6">
             <p className="text-[#637695] font-book">Menu</p>
             <a
-              href=""
+              href="#"
               onClick={(e) => handleScroll(e, 'services')}
               className="text-lg font-book"
             >
               Services
             </a>
             <a
-              href=""
+              href="#"
               onClick={(e) => handleScroll(e, 'recentProjects')}
               className="text-lg font-book"
             >
               Works
             </a>
             <a
-              href=""
+              href="#"
               onClick={(e) => handleScroll(e, 'development')}
               className="text-lg font-book"
             >
               Development
             </a>
             <a
-              href=""
+              href="#"
               onClick={(e) => handleScroll(e, 'about')}
               className="text-lg font-book"
             >
               About
             </a>
             <a
-              href=""
+              href="#"
               onClick={(e) => handleScroll(e, 'form-section')}
               className="text-lg font-book"
             >

@@ -59,36 +59,36 @@ const FooterDesktop = () => {
               <div className="flex flex-col gap-7">
                 <p className="text-[#9CA3AF] text-[22px] font-book">Menu</p>
                 <a
-                  href=""
-                  onClick={() => handleNavigation('services')}
+                  href="#"
+                  onClick={(e) => handleNavigation('services', e)}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
                   Services
                 </a>
                 <a
-                  href=""
-                  onClick={() => handleNavigation('recentProjects')}
+                  href="#"
+                  onClick={(e) => handleNavigation('recentProjects', e)}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
                   Works
                 </a>
                 <a
-                  href=""
-                  onClick={() => handleNavigation('development')}
+                  href="#"
+                  onClick={(e) => handleNavigation('development', e)}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
                   Development
                 </a>
                 <a
-                  href=""
-                  onClick={() => handleNavigation('about')}
+                  href="#"
+                  onClick={(e) => handleNavigation('about', e)}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
                   About
                 </a>
                 <a
-                  href=""
-                  onClick={() => handleNavigation('form-section')}
+                  href="#"
+                  onClick={(e) => handleNavigation('form-section', e)}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
                   Blog
