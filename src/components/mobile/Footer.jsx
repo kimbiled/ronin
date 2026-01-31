@@ -60,49 +60,44 @@ export default function Footer() {
             >
               Behance
             </a>
-            <a href="#" className="hover:underline text-lg disabled-link">
+            <button className="hover:underline text-lg disabled-link cursor-not-allowed">
               Dribbble
-            </a>
+            </button>
           </div>
 
           {/* Menu */}
           <div className="flex flex-col gap-6">
             <p className="text-[#637695] font-book">Menu</p>
-            <a
-              href="#"
+            <button
               onClick={(e) => handleScroll(e, 'services')}
-              className="text-lg font-book"
+              className="text-lg font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
               Services
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
               onClick={(e) => handleScroll(e, 'recentProjects')}
-              className="text-lg font-book"
+              className="text-lg font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
               Works
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
               onClick={(e) => handleScroll(e, 'development')}
-              className="text-lg font-book"
+              className="text-lg font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
               Development
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
               onClick={(e) => handleScroll(e, 'about')}
-              className="text-lg font-book"
+              className="text-lg font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
               About
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
               onClick={(e) => handleScroll(e, 'form-section')}
-              className="text-lg font-book"
+              className="text-lg font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
               Blog
-            </a>
+            </button>
           </div>
         </div>
         <hr className="border-t border-black border-opacity-10 mb-4 mt-6" />

@@ -14,9 +14,7 @@ const FooterDesktop = () => {
     window.location.href = url;
   };
 
-  const handleNavigation = (id, e) => {
-    e.preventDefault();
-
+  const handleNavigation = (id) => {
     if (location.pathname === '/') {
       const element = document.getElementById(id);
       if (element) {
@@ -58,41 +56,36 @@ const FooterDesktop = () => {
               {/* Menu */}
               <div className="flex flex-col gap-7">
                 <p className="text-[#9CA3AF] text-[22px] font-book">Menu</p>
-                <a
-                  href="#"
-                  onClick={(e) => handleNavigation('services', e)}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
+                <button
+                  onClick={() => handleNavigation('services')}
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
                 >
                   Services
-                </a>
-                <a
-                  href="#"
-                  onClick={(e) => handleNavigation('recentProjects', e)}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
+                </button>
+                <button
+                  onClick={() => handleNavigation('recentProjects')}
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
                 >
                   Works
-                </a>
-                <a
-                  href="#"
-                  onClick={(e) => handleNavigation('development', e)}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
+                </button>
+                <button
+                  onClick={() => handleNavigation('development')}
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
                 >
                   Development
-                </a>
-                <a
-                  href="#"
-                  onClick={(e) => handleNavigation('about', e)}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
+                </button>
+                <button
+                  onClick={() => handleNavigation('about')}
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
                 >
                   About
-                </a>
-                <a
-                  href="#"
-                  onClick={(e) => handleNavigation('form-section', e)}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
+                </button>
+                <button
+                  onClick={() => handleNavigation('form-section')}
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
                 >
                   Blog
-                </a>
+                </button>
               </div>
 
               {/* Social */}
@@ -110,12 +103,12 @@ const FooterDesktop = () => {
                 >
                   Behance
                 </a>
-                <a
-                  href="/"
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer disabled-link"
+                <button
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer disabled-link bg-transparent border-none"
+                  disabled
                 >
                   Dribbble
-                </a>
+                </button>
               </div>
             </div>
           </div>

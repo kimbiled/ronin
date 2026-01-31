@@ -29,56 +29,36 @@ const HeaderDesktop = () => {
       </a>
 
       <nav className="hidden lg:flex gap-12 text-[#090C21] text-lg font-book cursor-pointer  bg-[#F7F7F6] rounded-lg px-[34px] py-3 h-10 items-center">
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavigation('services');
-          }}
-          className="hover:text-gray-500 duration-300 ease-in-out"
+        <button
+          onClick={() => handleNavigation('services')}
+          className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
         >
           Services
-        </a>
-        <a
-          href="#"
-          className="hover:text-gray-500 duration-300 ease-in-out "
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavigation('recentProjects');
-          }}
+        </button>
+        <button
+          className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
+          onClick={() => handleNavigation('recentProjects')}
         >
           Works
-        </a>
-        <a
-          href="#"
-          className="hover:text-gray-500 duration-300 ease-in-out"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavigation('development');
-          }}
+        </button>
+        <button
+          className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
+          onClick={() => handleNavigation('development')}
         >
           Development
-        </a>
-        <a
-          href="#"
-          className="hover:text-gray-500 duration-300 ease-in-out"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavigation('about');
-          }}
+        </button>
+        <button
+          className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
+          onClick={() => handleNavigation('about')}
         >
           About
-        </a>
-        <a
-          href="#"
-          className="hover:text-gray-500 duration-300 ease-in-out"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavigation('form-section');
-          }}
+        </button>
+        <button
+          className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
+          onClick={() => handleNavigation('form-section')}
         >
           Blog
-        </a>
+        </button>
       </nav>
 
       <a
