@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9e47a063.css",
-    "main.js": "/static/js/main.b3a46ade.js",
+    "main.js": "/static/js/main.979fbc70.js",
     "static/media/catspage8.png": "/static/media/catspage8.1a3b12e4be041434bcac.png",
     "static/media/nas6.png": "/static/media/nas6.50ef87f6fc39ec444219.png",
     "static/media/bergpage6.png": "/static/media/bergpage6.b1e9987adfe277762ac1.png",
@@ -42,7 +42,6 @@
     "static/media/antix1.png": "/static/media/antix1.bbcfc7360be66519a082.png",
     "static/media/kz1.png": "/static/media/kz1.14aa2e9da3f8435842ab.png",
     "static/media/antix3.png": "/static/media/antix3.d9b24030c94ee3f7d0d0.png",
-    "static/media/dunespage8.png": "/static/media/dunespage8.18769c8e491a1253b5cd.png",
     "static/media/cat4.png": "/static/media/cat4.d17def3e047471750091.png",
     "static/media/antix6.png": "/static/media/antix6.a6b056c3adf69fb0d3b5.png",
     "static/media/orbpage.png": "/static/media/orbpage.635e5ed512e76ad67697.png",
@@ -116,7 +115,6 @@
     "static/media/degenpage10.png": "/static/media/degenpage10.a1dd40e82ad9cc293288.png",
     "static/media/sharpage7.png": "/static/media/sharpage7.65ff1559396b6c76fcec.png",
     "static/media/c2.svg": "/static/media/c2.4e64b79369ca469a96249da494b128d5.svg",
-    "static/media/orbmob5.png": "/static/media/orbmob5.52bc5bbc1e20f851700c.png",
     "static/media/phone.png": "/static/media/phone.fcf2b94562da64b68a46.png",
     "static/media/catspage4.png": "/static/media/catspage4.803b7fb9fe25bc0ea415.png",
     "static/media/dunes4.png": "/static/media/dunes4.3ef8778a3ea4d4971e20.png",
@@ -169,7 +167,6 @@
     "static/media/otherGlen.png": "/static/media/otherGlen.feeb52dc33effce0bfa7.png",
     "static/media/bergpage4.png": "/static/media/bergpage4.6fa54d43b4bde273382e.png",
     "static/media/ant4.png": "/static/media/ant4.0c8c6f59367c3d0ce7a3.png",
-    "static/media/dunespage7.png": "/static/media/dunespage7.9d742427bd9d29c6eeea.png",
     "static/media/c3.svg": "/static/media/c3.89ebe54da331ec6426f7dd8d2300ec50.svg",
     "static/media/dunespage6.png": "/static/media/dunespage6.bbc38cb1f3f0b80f0e78.png",
     "static/media/shar2.png": "/static/media/shar2.0da08ee10758e6c2dce0.png",
@@ -273,6 +270,6 @@
   },
   "entrypoints": [
     "static/css/main.9e47a063.css",
-    "static/js/main.b3a46ade.js"
+    "static/js/main.979fbc70.js"
   ]
 }
