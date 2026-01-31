@@ -59,7 +59,7 @@ const Content = () => {
     <>
       <div
         className=" font-ppneue flex flex-col mx-auto gap-8 w-[90%]"
-        id="about-us"
+        id="services"
       >
         <div className="flex flex-col gap-3 ">
           <div className="max-w-[95px] w-full h-[30px] rounded-lg border-[1px] border-[#1261FC] flex items-center justify-center px-2 py-1">

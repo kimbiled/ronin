@@ -61,32 +61,34 @@ const FooterDesktop = () => {
               <div className="flex flex-col gap-7">
                 <p className="text-[#9CA3AF] text-[22px] font-book">Menu</p>
                 <a
-                  href="/"
-                  onClick={(e) => handleNavigation('about-us', e)}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
+                  onClick={() => handleNavigation('services')}
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
-                  About Us
+                  Services
                 </a>
                 <a
-                  href="/"
-                  onClick={(e) => handleNavigation('what-we-do', e)}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
+                  onClick={() => handleNavigation('recentProjects')}
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
-                  What We Do
+                  Works
                 </a>
                 <a
-                  href="/"
-                  onClick={(e) => handleNavigation('recentProjects', e)}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
+                  onClick={() => handleNavigation('development')}
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
-                  Our Works
+                  Development
                 </a>
                 <a
-                  href="/"
-                  onClick={(e) => handleNavigation('form-section', e)}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
+                  onClick={() => handleNavigation('about')}
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
                 >
-                  Contact Us
+                  About
+                </a>
+                <a
+                  onClick={() => handleNavigation('form-section')}
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer"
+                >
+                  Blog
                 </a>
               </div>
 

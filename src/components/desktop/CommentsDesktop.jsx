@@ -45,19 +45,18 @@ const Comments = () => {
   const [isUserInteraction, setIsUserInteraction] = useState(false);
 
   useEffect(() => {
-    if (isUserInteraction) return; // Если пользователь выбрал вручную, не меняем автоматически
-
+    if (isUserInteraction) return;
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 15000); // 15 секунд на каждого
+    }, 15000);
 
     return () => clearInterval(interval);
-  }, [isUserInteraction, testimonials.length]);
+  }, [isUserInteraction]);
 
   const handleSelect = (index) => {
     setCurrentIndex(index);
-    setIsUserInteraction(true); // Останавливаем авто-прокрутку после выбора
-    setTimeout(() => setIsUserInteraction(false), 30000); // Возобновляем через 30 сек
+    setIsUserInteraction(true);
+    setTimeout(() => setIsUserInteraction(false), 30000);
   };
   return (
     <section className="font-ppneue w-full bg-[#EAF8FF] h-[720px] mt-[180px]">
@@ -80,7 +79,6 @@ const Comments = () => {
             </div>
           </div>
           <div className="flex flex-row justify-between mt-12 items-start">
-            {/* Аватарки */}
             <div className="flex gap-6 relative">
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -128,8 +126,6 @@ const Comments = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Текст */}
             <div className="w-1/2 font-ppneue">
               <AnimatePresence mode="wait">
                 <motion.div

@@ -20,10 +20,11 @@ const Header = () => {
   ];
 
   const menuLinks = [
-    { title: 'About Us', href: '#about-us' },
-    { title: 'What We Do', href: '#what-we-do' },
-    { title: 'Our Works', href: '#recentProjects' },
-    { title: 'Contact Us', href: '#form-section' },
+    { title: 'Services', href: '#services' },
+    { title: 'Works', href: '#recentProjects' },
+    { title: 'Development', href: '#development' },
+    { title: 'About', href: '#about' },
+    { title: 'Blog', href: '#form-section' },
   ];
 
   useEffect(() => {

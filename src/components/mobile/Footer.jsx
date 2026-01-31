@@ -66,46 +66,45 @@ export default function Footer() {
           </div>
 
           {/* Menu */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-6">
             <p className="text-[#637695] font-book">Menu</p>
             <a
-              href="/"
-              onClick={(e) => handleScroll(e, 'about-us')}
-              className="text-[34px] font-book"
+              onClick={(e) => handleScroll(e, 'services')}
+              className="text-lg font-book"
             >
-              About Us
+              Services
             </a>
             <a
-              href="/"
-              onClick={(e) => handleScroll(e, 'what-we-do')}
-              className="text-[34px] font-book"
-            >
-              What We Do
-            </a>
-            <a
-              href="/"
               onClick={(e) => handleScroll(e, 'recentProjects')}
-              className="text-[34px] font-book"
+              className="text-lg font-book"
             >
-              Our Works
+              Works
             </a>
             <a
-              href="/"
-              onClick={(e) => handleScroll(e, 'form-section')}
-              className="text-[34px] font-book"
+              onClick={(e) => handleScroll(e, 'development')}
+              className="text-lg font-book"
             >
-              Contact Us
+              Development
+            </a>
+            <a
+              onClick={(e) => handleScroll(e, 'about')}
+              className="text-lg font-book"
+            >
+              About
+            </a>
+            <a
+              onClick={(e) => handleScroll(e, 'form-section')}
+              className="text-lg font-book"
+            >
+              Blog
             </a>
           </div>
         </div>
-        {/* Разделительная линия */}
         <hr className="border-t border-black border-opacity-10 mb-4 mt-6" />
-        {/* Контактная информация */}
         <div className="flex flex-col gap-2 font-book">
           <p className="text-[#637695]">Get in touch</p>
           <a href="mailto:hi@ronindsgn.com">hi@ronindsgn.com</a>
         </div>
-        {/* Политика и копирайт */}
         <div className="flex flex-col gap-3 text-xs font-book">
           <div className="flex flex-col gap-3">
             {links.map((link, index) => (

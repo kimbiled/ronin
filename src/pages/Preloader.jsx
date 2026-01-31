@@ -9,7 +9,7 @@ export default function Preloader({ onComplete }) {
     const video = videoRef.current;
 
     if (video) {
-      video.load(); // Гарантированно загружаем видео
+      video.load();
 
       const playPromise = video.play();
       if (playPromise !== undefined) {
@@ -24,7 +24,7 @@ export default function Preloader({ onComplete }) {
         if (onComplete) onComplete();
       };
     }
-  }, []);
+  }, [onComplete]);
 
   return (
     isPlaying && (

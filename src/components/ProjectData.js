@@ -42,10 +42,10 @@ import catsmob from '../assets/mobile/catsmob.png';
 import catsmob2 from '../assets/mobile/catsmob2.png';
 import catsmob3 from '../assets/mobile/catsmob3.png';
 import catsmob4 from '../assets/mobile/catsmob4.png';
-import catsmob5 from '../assets/mobile/catsmob5.png';
-import catsmob6 from '../assets/mobile/catsmob6.png';
-import catsmob7 from '../assets/mobile/catsmob7.png';
-import catsmob8 from '../assets/mobile/catsmob8.png';
+// import catsmob5 from '../assets/mobile/catsmob5.png';
+// import catsmob6 from '../assets/mobile/catsmob6.png';
+// import catsmob7 from '../assets/mobile/catsmob7.png';
+// import catsmob8 from '../assets/mobile/catsmob8.png';
 
 import dunespage from '../assets/desktop/dunespage.png';
 import dunespage2 from '../assets/desktop/dunespage2.png';
@@ -53,8 +53,8 @@ import dunespage3 from '../assets/desktop/dunespage3.png';
 import dunespage4 from '../assets/desktop/dunespage4.png';
 import dunespage5 from '../assets/desktop/dunespage5.png';
 import dunespage6 from '../assets/desktop/dunespage6.png';
-import dunespage7 from '../assets/desktop/dunespage7.png';
-import dunespage8 from '../assets/desktop/dunespage8.png';
+// import dunespage7 from '../assets/desktop/dunespage7.png';
+// import dunespage8 from '../assets/desktop/dunespage8.png';
 
 import dunesmob1 from '../assets/mobile/dunesmob1.png';
 import dunesmob2 from '../assets/mobile/dunesmob2.png';
@@ -72,11 +72,11 @@ import orbpage8 from '../assets/desktop/orbpage8.png';
 import orbpage9 from '../assets/desktop/orbpage9.png';
 import orbpage10 from '../assets/desktop/orbpage10.png';
 
-import orbmob from '../assets/mobile/orbmob.png';
-import orbmob2 from '../assets/mobile/orbmob2.png';
-import orbmob3 from '../assets/mobile/orbmob3.png';
-import orbmob4 from '../assets/mobile/orbmob4.png';
-import orbmob5 from '../assets/mobile/orbmob5.png';
+// import orbmob from '../assets/mobile/orbmob.png';
+// import orbmob2 from '../assets/mobile/orbmob2.png';
+// import orbmob3 from '../assets/mobile/orbmob3.png';
+// import orbmob4 from '../assets/mobile/orbmob4.png';
+// import orbmob5 from '../assets/mobile/orbmob5.png';
 
 import bergpage from '../assets/desktop/bergpage.png';
 import bergpage2 from '../assets/desktop/bergpage2.png';
@@ -382,7 +382,7 @@ const projects = [
     description2:
       'Dr. Eric Berg’s YouTube channel is a global health powerhouse. With over 20M subscribers and daily uploads, it’s where millions go to understand their bodies, fix their diets, and trust the science. But even the smartest advice can get lost in a noisy feed—unless the design works just as hard.',
     description3:
-      'Make it clear. Make it credible. Make it impossible to scroll past. Our mission: translate Dr. Berg’s authority into a cohesive design system that works across YouTube banners, thumbnails, infographics, and social content—without losing the human touch.',
+      'Make it clear. Make it credible. Make it impossible to scroll past. Our mission: translate Dr. Berg’s authority into a cohesive design system that works across YouTube banners, thumbnails, infographics, and social content—without losing the human touch.',
     description4:
       'We treated health like high-impact storytelling. Every visual decision—from font weight to color tone—was made to support clarity, trust, and speed of understanding. Think: medical precision with lifestyle warmth. Static designs that move people.',
     description5:
@@ -601,7 +601,7 @@ const projects = [
     description2:
       'Dunes is a Web3 launchpad designed for projects that don’t settle for average. It gives startups the tools to fund, grow, and scale — without friction. Our job? Build a design system bold enough to match that ambition.',
     description3:
-      'Create the full design identity of a launchpad built to stand out in Web3. We were responsible for everything — from naming suggestions and logomark, to full interface design, 3D branding, and a high-converting website. No references. No shortcuts. Just a blank page and a bold vision.',
+      'Create the full design identity of a launchpad built to stand out in Web3. We were responsible for everything — from naming suggestions and logomark, to full interface design, 3D branding, and a high-converting website. No references. No shortcuts. Just a blank page and a bold vision.',
     description4:
       'Digital dunes: a landscape in motion. The brand draws from the paradox of the desert — minimal, yet infinite. We used smooth gradients, golden sands, and sculptural 3D forms to echo movement, value, and transformation. The UI and visuals blend modular structure with cinematic flair — signaling both trust and innovation.',
     description5:
