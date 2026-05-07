@@ -1,21 +1,52 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FAQDesktop from './FaqDesktop';
 
 import { motion } from 'framer-motion';
 
-import n1 from '../../assets/desktop/bg1.png';
-import n2 from '../../assets/desktop/bg2.png';
-import n3 from '../../assets/desktop/bg3.png';
+import n1 from '../../assets/desktop/n1.webp';
+import n2 from '../../assets/desktop/n2.webp';
+import n3 from '../../assets/desktop/n3.webp';
+import n4 from '../../assets/desktop/n4.svg';
+import n5 from '../../assets/desktop/n5.svg';
+import n6 from '../../assets/desktop/n6.svg';
 import orangearrow from '../../assets/desktop/orangeArrow.png';
 
 const NewsDesktop = () => {
   const navigate = useNavigate();
+  const [showAllNews, setShowAllNews] = useState(false);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' }); // Прокрутка вверх
   }, []);
 
-  const articles = [
+  const featuredArticles = [
+    {
+      id: 'ui-design-trust',
+      category: 'Trust',
+      title: ['How Good UI Design', 'Builds Trust'],
+      date: 'Jan 14, 2026',
+      readTime: '2 min read',
+      image: n4,
+    },
+    {
+      id: 'website-design-conversion',
+      category: 'Conversion',
+      title: ['Website Design That Turns', 'Visitors Into Clients'],
+      date: 'Mar 20, 2026',
+      readTime: '3 min read',
+      image: n5,
+    },
+    {
+      id: 'ux-strategy-first',
+      category: 'Strategy',
+      title: ['From Idea to Product:', 'Why UX Strategy Comes First'],
+      date: 'Apr 18, 2026',
+      readTime: '2 min read',
+      image: n6,
+    },
+  ];
+
+  const existingArticles = [
     {
       id: 'inclusive-design',
       category: 'Accessibility',
@@ -41,6 +72,16 @@ const NewsDesktop = () => {
       image: n1,
     },
   ];
+
+  const articles = showAllNews
+    ? [...featuredArticles, ...existingArticles]
+    : featuredArticles;
+
+  const openArticle = (article) => {
+    navigate(`/news/desktop/${article.id}`);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
   return (
     <section className="font-ppneue w-full bg-[#090C21] h-auto">
       <div className="flex flex-col w-[85%] items-center mt-20 mx-auto">
@@ -59,10 +100,7 @@ const NewsDesktop = () => {
                 } block cursor-pointer`}
                 whileHover={{ scale: 1.02 }} // 🚀 Зум при наведении
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
-                onClick={() => {
-                  navigate(`/news/desktop/${article.id}`);
-                  window.scrollTo({ top: 0, behavior: 'instant' });
-                }}
+                onClick={() => openArticle(article)}
               >
                 <div className="flex flex-row gap-10">
                   {/* Изображение справа */}
@@ -70,11 +108,8 @@ const NewsDesktop = () => {
                     <motion.img
                       src={article.image}
                       alt={article.title.join(' ')}
-                      className="w-[530px] h-[300px] cursor-pointer"
-                      onClick={() => {
-                        navigate(`/news/desktop/${article.id}`);
-                        window.scrollTo({ top: 0, behavior: 'instant' });
-                      }}
+                      className="w-[530px] h-[300px] cursor-pointer rounded-[16px] object-cover"
+                      onClick={() => openArticle(article)}
                     />
                   </div>
 
@@ -90,10 +125,7 @@ const NewsDesktop = () => {
                           <span
                             key={i}
                             className="block cursor-pointer"
-                            onClick={() => {
-                              navigate(`/news/desktop/${article.id}`);
-                              window.scrollTo({ top: 0, behavior: 'instant' });
-                            }}
+                            onClick={() => openArticle(article)}
                           >
                             {line}
                           </span>
@@ -110,10 +142,7 @@ const NewsDesktop = () => {
                       </div>
                       <div
                         className="flex flex-row items-center gap-2 cursor-pointer"
-                        onClick={() => {
-                          navigate(`/news/desktop/${article.id}`);
-                          window.scrollTo({ top: 0, behavior: 'instant' });
-                        }}
+                        onClick={() => openArticle(article)}
                       >
                         <p className="text-[#F9A826] font-book">Read More</p>
                         <img
@@ -128,6 +157,15 @@ const NewsDesktop = () => {
               </motion.div>
             ))}
           </div>
+          {!showAllNews && (
+            <button
+              type="button"
+              onClick={() => setShowAllNews(true)}
+              className="mx-auto flex h-[48px] w-[172px] items-center justify-center rounded-[8px] bg-white text-[18px] font-book text-[#1261FC] transition duration-300 hover:bg-white/90"
+            >
+              See all news
+            </button>
+          )}
         </div>
         <FAQDesktop />
       </div>

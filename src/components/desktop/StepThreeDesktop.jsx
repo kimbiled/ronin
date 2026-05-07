@@ -31,7 +31,7 @@ export default function StepThreeDesktop({
   return (
     <div className="font-ppneue flex flex-col w-[95%] mx-auto gap-6">
       {/* Заголовок */}
-      <p className="font-medium text-black text-[22px] mt-[55px]">
+      <p className="font-medium text-black text-[22px]">
         Project budget (USD)
       </p>
 

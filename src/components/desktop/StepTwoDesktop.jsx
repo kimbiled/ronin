@@ -31,7 +31,7 @@ export default function StepTwoDesktop({
   return (
     <div className="font-ppneue flex flex-col w-full mx-auto gap-6">
       {/* Заголовок */}
-      <p className="font-medium text-[22px] text-black mt-[55px]">
+      <p className="font-medium text-[22px] text-black">
         I'm interested in...
       </p>
 

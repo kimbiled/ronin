@@ -13,6 +13,9 @@ import NotFoundDesktop from './pages/NotFoundDesktop';
 import FirstNewsDesktop from './pages/FirstNewsDesktop';
 import SecondNewsDesktop from './pages/SecondNewsDesktop';
 import ThirdNewsDesktop from './pages/ThirdNewsDesktop';
+import UiDesignTrustDesktop from './pages/UiDesignTrustDesktop';
+import WebsiteConversionDesktop from './pages/WebsiteConversionDesktop';
+import UxStrategyFirstDesktop from './pages/UxStrategyFirstDesktop';
 import ProjectPageDesktop from './pages/ProjectPageDesktop';
 import ProjectPage from './pages/ProjectPage';
 import PrivacyDesktop from './pages/PrivacyDesktop';
@@ -194,6 +197,18 @@ function App() {
       <Route
         path="/news/desktop/design-system-need"
         element={<ThirdNewsDesktop />}
+      />
+      <Route
+        path="/news/desktop/ui-design-trust"
+        element={<UiDesignTrustDesktop />}
+      />
+      <Route
+        path="/news/desktop/website-design-conversion"
+        element={<WebsiteConversionDesktop />}
+      />
+      <Route
+        path="/news/desktop/ux-strategy-first"
+        element={<UxStrategyFirstDesktop />}
       />
       <Route
         path="/projects/:id"

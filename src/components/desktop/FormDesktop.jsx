@@ -123,84 +123,100 @@ const FormDesktop = () => {
           className=" font-ppneue flex flex-col max-w-[550px] w-full justify-between"
         >
           {!isSubmitted ? (
-            <div className="flex flex-col justify-between gap-12">
+            <div className="flex flex-col justify-between">
               {/* Step Progress Indicator */}
-              <div className="relative w-full max-w-[550px] pb-10">
-                <div className="absolute left-[22px] right-[22px] top-[22px] flex">
-                  {steps.slice(0, -1).map((step) => {
-                    const isCompleted = step < currentStep;
+              <div className="relative mb-12 h-[100px] w-full max-w-[550px] shrink-0">
+                {steps.slice(0, -1).map((step, index) => {
+                  const leftCircleSize = step === currentStep ? 44 : 28;
+                  const rightStep = step + 1;
+                  const rightCircleSize = rightStep === currentStep ? 44 : 28;
+                  const leftPosition = (index / (steps.length - 1)) * 100;
+                  const rightPosition =
+                    ((index + 1) / (steps.length - 1)) * 100;
+                  const leftEdge =
+                    index === 0
+                      ? `${leftCircleSize}px`
+                      : `calc(${leftPosition}% + ${leftCircleSize / 2}px)`;
+                  const rightEdge =
+                    index + 1 === steps.length - 1
+                      ? `calc(100% - ${rightCircleSize}px)`
+                      : `calc(${rightPosition}% - ${rightCircleSize / 2}px)`;
+                  const isCompleted = step < currentStep;
 
-                    return (
-                      <motion.div
-                        key={step}
-                        className="h-[1px] flex-1"
-                        animate={{
-                          backgroundColor: isCompleted
-                            ? '#1261FC'
-                            : '#D4E0ED',
-                        }}
-                        transition={{ duration: 0.5 }}
-                      />
-                    );
-                  })}
-                </div>
+                  return (
+                    <motion.div
+                      key={step}
+                      className="absolute top-[22px] h-[1px]"
+                      style={{
+                        left: leftEdge,
+                        width: `calc(${rightEdge} - (${leftEdge}))`,
+                      }}
+                      animate={{
+                        backgroundColor: isCompleted ? '#1261FC' : '#D4E0ED',
+                      }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  );
+                })}
 
-                <div className="relative z-10 grid grid-cols-4">
-                  {steps.map((step, index) => {
-                    const isCompleted = step < currentStep;
-                    const isActive = step === currentStep;
-                    const isPassedOrActive = isActive || isCompleted;
+                {steps.map((step, index) => {
+                  const isCompleted = step < currentStep;
+                  const isActive = step === currentStep;
+                  const isPassedOrActive = isActive || isCompleted;
+                  const position = (index / (steps.length - 1)) * 100;
 
-                    return (
-                      <div
-                        key={step}
-                        className={`flex flex-col items-center ${
+                  return (
+                    <div
+                      key={step}
+                      className="absolute top-0 flex -translate-x-1/2 flex-col items-center"
+                      style={{
+                        left: `${position}%`,
+                        transform:
                           index === 0
-                            ? 'items-start'
+                            ? 'translateX(0)'
                             : index === steps.length - 1
-                              ? 'items-end'
-                              : ''
-                        }`}
-                      >
-                        <div className="flex h-11 items-center">
-                          <motion.div
-                            className="flex items-center justify-center rounded-full bg-white"
-                            animate={{
-                              height: isActive ? 44 : 28,
-                              width: isActive ? 44 : 28,
-                            }}
-                            transition={{ type: 'spring', stiffness: 300 }}
+                              ? 'translateX(-100%)'
+                              : 'translateX(-50%)',
+                      }}
+                    >
+                      <div className="flex h-11 items-center">
+                        <motion.div
+                          className="flex items-center justify-center rounded-full bg-white"
+                          animate={{
+                            height: isActive ? 44 : 28,
+                            width: isActive ? 44 : 28,
+                          }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                        >
+                          <div
+                            className={`flex h-full w-full items-center justify-center rounded-full ${
+                              isPassedOrActive
+                                ? 'border border-[#1261FC] bg-white'
+                                : 'bg-[#D4E0ED]'
+                            }`}
                           >
                             <div
-                              className={`flex h-full w-full items-center justify-center rounded-full ${
+                              className={`rounded-full ${
                                 isPassedOrActive
-                                  ? 'border border-[#1261FC] bg-white'
-                                  : 'bg-[#D4E0ED]'
+                                  ? 'h-[11px] w-[11px] bg-[#1261FC]'
+                                  : 'h-[8px] w-[8px] bg-white'
                               }`}
-                            >
-                              <div
-                                className={`rounded-full ${
-                                  isPassedOrActive
-                                    ? 'h-[11px] w-[11px] bg-[#1261FC]'
-                                    : 'h-[8px] w-[8px] bg-white'
-                                }`}
-                              />
-                            </div>
-                          </motion.div>
-                        </div>
-                        <span
-                          className={`mt-4 text-center text-[16px] font-book ${
-                            isPassedOrActive
-                              ? 'text-[#1261FC]'
-                              : 'text-[#D4E0ED]'
-                          }`}
-                        >
-                          {stepLabels[index]}
-                        </span>
+                            />
+                          </div>
+                        </motion.div>
                       </div>
-                    );
-                  })}
-                </div>
+                      <span
+                        className={`mt-4 text-center text-[16px] font-book ${
+                          isPassedOrActive
+                            ? 'text-[#1261FC]'
+                            : 'text-[#D4E0ED]'
+                        }`}
+                      >
+                        {stepLabels[index]}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Step Content */}

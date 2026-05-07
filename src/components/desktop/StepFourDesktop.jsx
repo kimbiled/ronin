@@ -10,9 +10,9 @@ export default function StepFourDesktop({ onPrev, onSubmit, setFormData }) {
     }));
   };
   return (
-    <div className="font-ppneue flex flex-col w-full mx-auto gap-28">
+    <div className="font-ppneue flex flex-col w-full mx-auto gap-16">
       <div className="max-h-[456px] h-auto">
-        <p className="font-medium text-black text-[22px] mt-[25px]">
+        <p className="font-medium text-black text-[22px]">
           Tell us more about your project
         </p>
         <textarea
