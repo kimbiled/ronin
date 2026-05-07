@@ -5,13 +5,11 @@ import StepTwoDesktop from './StepTwoDesktop';
 import StepThreeDesktop from './StepThreeDesktop';
 import StepFourDesktop from './StepFourDesktop';
 import StepFinalDesktop from './StepFinalDesktop';
-import done from '../../assets/desktop/done.png';
-import active from '../../assets/desktop/active.svg';
-import ncompleted from '../../assets/desktop/n-completed.png';
 import emailjs from '@emailjs/browser';
 
 const FormDesktop = () => {
   const steps = [1, 2, 3, 4];
+  const stepLabels = ['Contacts', 'Service', 'Budget', 'Details'];
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [canProceed, setCanProceed] = useState(false);
@@ -127,46 +125,82 @@ const FormDesktop = () => {
           {!isSubmitted ? (
             <div className="flex flex-col justify-between gap-12">
               {/* Step Progress Indicator */}
-              <div className="flex items-center justify-between ">
-                {steps.map((step, index) => {
-                  const isCompleted = step < currentStep;
-                  const isActive = step === currentStep;
+              <div className="relative w-full max-w-[550px] pb-10">
+                <div className="absolute left-[22px] right-[22px] top-[22px] flex">
+                  {steps.slice(0, -1).map((step) => {
+                    const isCompleted = step < currentStep;
 
-                  return (
-                    <div key={step} className="flex items-center">
+                    return (
                       <motion.div
-                        className={`flex items-center justify-center rounded-full ${
-                          isActive
-                            ? 'w-11 h-11 mx-1'
-                            : isCompleted
-                              ? 'w-7 h-7'
-                              : 'w-7 h-7'
+                        key={step}
+                        className="h-[1px] flex-1"
+                        animate={{
+                          backgroundColor: isCompleted
+                            ? '#1261FC'
+                            : '#D4E0ED',
+                        }}
+                        transition={{ duration: 0.5 }}
+                      />
+                    );
+                  })}
+                </div>
+
+                <div className="relative z-10 grid grid-cols-4">
+                  {steps.map((step, index) => {
+                    const isCompleted = step < currentStep;
+                    const isActive = step === currentStep;
+                    const isPassedOrActive = isActive || isCompleted;
+
+                    return (
+                      <div
+                        key={step}
+                        className={`flex flex-col items-center ${
+                          index === 0
+                            ? 'items-start'
+                            : index === steps.length - 1
+                              ? 'items-end'
+                              : ''
                         }`}
-                        animate={{ scale: isActive ? 1.2 : 1 }}
-                        transition={{ type: 'spring', stiffness: 300 }}
                       >
-                        <img
-                          src={
-                            isCompleted ? done : isActive ? active : ncompleted
-                          }
-                          alt={`Step ${step}`}
-                          className="w-full h-full"
-                        />
-                      </motion.div>
-                      {index < steps.length - 1 && (
-                        <motion.div
-                          className="h-[1px] w-[139px]"
-                          animate={{
-                            backgroundColor: isCompleted
-                              ? '#3b82f6'
-                              : '#D4E0ED',
-                          }}
-                          transition={{ duration: 0.5 }}
-                        />
-                      )}
-                    </div>
-                  );
-                })}
+                        <div className="flex h-11 items-center">
+                          <motion.div
+                            className="flex items-center justify-center rounded-full bg-white"
+                            animate={{
+                              height: isActive ? 44 : 28,
+                              width: isActive ? 44 : 28,
+                            }}
+                            transition={{ type: 'spring', stiffness: 300 }}
+                          >
+                            <div
+                              className={`flex h-full w-full items-center justify-center rounded-full ${
+                                isPassedOrActive
+                                  ? 'border border-[#1261FC] bg-white'
+                                  : 'bg-[#D4E0ED]'
+                              }`}
+                            >
+                              <div
+                                className={`rounded-full ${
+                                  isPassedOrActive
+                                    ? 'h-[11px] w-[11px] bg-[#1261FC]'
+                                    : 'h-[8px] w-[8px] bg-white'
+                                }`}
+                              />
+                            </div>
+                          </motion.div>
+                        </div>
+                        <span
+                          className={`mt-4 text-center text-[16px] font-book ${
+                            isPassedOrActive
+                              ? 'text-[#1261FC]'
+                              : 'text-[#D4E0ED]'
+                          }`}
+                        >
+                          {stepLabels[index]}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Step Content */}

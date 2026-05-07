@@ -4,6 +4,7 @@ import ContentDesktop from '../components/desktop/ContentDesktop';
 import CompanyDesktop from '../components/desktop/CompanyDesktop';
 import ReviewDesktop from '../components/desktop/ReviewDesktop';
 import ProjectsDesktop from '../components/desktop/ProjectsDesktop';
+import ProjectsD from '../components/desktop/ProjectsD';
 import ProposalDesktop from '../components/desktop/ProposalDesktop';
 import LeadersDesktop from '../components/desktop/LeadersDesktop';
 import CommentsDesktop from '../components/desktop/CommentsDesktop';
@@ -22,9 +23,10 @@ const DesktopLayout = () => {
         <HeroVideo src="/videos/hero.mp4" poster="/images/hero-poster.jpg" />
         <ContentDesktop />
         <CompanyDesktop />
-        <ReviewDesktop />
-        <ProjectsDesktop />
-        <ProposalDesktop />
+        {/* <ReviewDesktop /> */}
+        {/* <ProjectsDesktop /> */}
+        <ProjectsD />
+        {/* <ProposalDesktop /> */}
         <LeadersDesktop />
         <CommentsDesktop />
         <FormDesktop />

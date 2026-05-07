@@ -36,13 +36,28 @@ const services = [
     img: item2,
   },
   {
-    title: 'Branding',
-    description: ['Logo', 'Brandbook', 'Illustrations', 'Mockups', 'Icons'],
+    title: 'Editing',
+    description: [
+      'Long form',
+      'Short form',
+      'Voice Over',
+      'Scenario',
+      'Product Demo',
+    ],
     img: item3,
   },
   {
-    title: 'Outdoor and other',
-    description: ['Packaging', 'Stationery', 'Trade show banners'],
+    title: 'Branding and Outdoor',
+    description: [
+      'Logo',
+      'Brandbook',
+      'Illustrations',
+      'Mockups',
+      'Icons',
+      'Packaging',
+      'Stationery',
+      'Trade show banners',
+    ],
     img: item4,
   },
 ];

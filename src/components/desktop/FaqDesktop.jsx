@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import up from '../../assets/desktop/arrow-up.png';
 import down from '../../assets/desktop/arrow-down2.png';
+import cta from '../../assets/desktop/cta.webp';
+import logoDesktop from '../../assets/desktop/LogoWDesktop.svg';
+import telegram from '../../assets/desktop/telegram.svg';
 const faqData = [
   {
     question: 'What are your core services as a UX and brand design team?',
@@ -214,37 +217,92 @@ export default function FAQDesktop() {
   };
 
   return (
-    <div className="font-ppneue flex flex-col w-full max-w-[1200px] text-white gap-4 mt-[80px] mb-40">
-      <h2 className="text-[84px] font-medium">FAQ</h2>
-      <div className="flex flex-col divide-y divide-white divide-opacity-10">
-        {faqData.map((item, index) => (
-          <div key={index} className="py-4">
-            <button
-              onClick={() => toggleFAQ(index)}
-              className=" hover:text-gray-400 duration-300 ease-in-out w-full flex justify-between items-center text-left text-[28px] font-medium pb-12 pt-12"
-            >
-              {item.question}
-              {openIndex === index ? (
-                <img src={up} className="w-8 h-7" alt="arrowUp" />
-              ) : (
-                <img src={down} className="w-8 h-7" alt="arrowDown" />
-              )}
-            </button>
-            <AnimatePresence>
-              {openIndex === index && (
-                <motion.p
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.4, ease: 'easeInOut' }}
-                  className="text-[#FFFFFF] mt-2 leading-[34px] whitespace-pre-line font-book overflow-hidden w-[743px] text-[22px]"
+    <div className="font-ppneue mt-[80px] mb-40 flex w-full max-w-[1200px] items-start gap-[60px] text-white">
+      <div className="flex w-[780px] flex-col gap-4">
+        <h2 className="text-[84px] font-medium">FAQ</h2>
+        <div className="flex flex-col divide-y divide-white divide-opacity-10">
+          {faqData.map((item, index) => (
+            <div key={index} className="py-4">
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="hover:text-gray-400 duration-300 ease-in-out w-full flex justify-between items-center text-left text-[28px] font-medium pb-12 pt-12"
+              >
+                {item.question}
+                {openIndex === index ? (
+                  <img src={up} className="w-8 h-7" alt="arrowUp" />
+                ) : (
+                  <img src={down} className="w-8 h-7" alt="arrowDown" />
+                )}
+              </button>
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                    className="text-[#FFFFFF] mt-2 leading-[34px] whitespace-pre-line font-book overflow-hidden w-[743px] text-[22px]"
+                  >
+                    {item.answer}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="sticky top-[120px] h-[370px] w-[360px] shrink-0 overflow-hidden rounded-[24px]">
+        <img src={cta} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="relative z-10 flex h-full flex-col p-[32px]">
+          <img
+            src={logoDesktop}
+            alt="Ronin"
+            className="h-[34px] w-[42px] object-contain object-left"
+          />
+
+          <h3 className="mt-[50px] text-[44px] font-medium leading-[44px] text-white">
+            Book a 15 min
+            <br />
+            intro call
+          </h3>
+
+          <a
+            href="#form-section"
+            className="mt-7 flex h-[48px] w-full items-center justify-center rounded-[8px] bg-white text-[18px] font-book text-[#1261FC] transition duration-300 hover:bg-white/90"
+          >
+            Book a call
+          </a>
+
+          <div className="mt-4 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <img
+                src={telegram}
+                alt=""
+                className="h-[24px] w-[24px] object-contain"
+              />
+              <div>
+                <p className="text-[16px] font-book leading-[20px] text-white">
+                  Prefer to email?
+                </p>
+                <a
+                  href="mailto:hi@ronindsgn.com"
+                  className="text-[14px] font-book leading-[20px] text-white/45 transition duration-300 hover:text-white"
                 >
-                  {item.answer}
-                </motion.p>
-              )}
-            </AnimatePresence>
+                  hi@ronindsgn.com
+                </a>
+              </div>
+            </div>
+
+            <a
+              href="mailto:hi@ronindsgn.com"
+              aria-label="Email Ronin"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[24px] leading-none text-[#1261FC] transition duration-300 hover:bg-white/90"
+            >
+              →
+            </a>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import comment from '../../assets/desktop/comment.svg';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import c1 from '../../assets/desktop/c1.svg';
 import c2 from '../../assets/desktop/c2.svg';
 import c3 from '../../assets/desktop/c3.svg';
 import c4 from '../../assets/desktop/c4.svg';
 import c5 from '../../assets/desktop/c5.svg';
+import comment from '../../assets/desktop/comment.svg';
 
 const testimonials = [
   {
@@ -18,7 +18,7 @@ const testimonials = [
     image: c2,
     name: 'James Patel',
     position: 'Digital Product Lead · Arcadia Insights',
-    text: 'They completely transformed our customer portal into an intuitive and beautiful platform. The team’s creativity and ability to deliver under tight deadlines were remarkable.',
+    text: 'They completely transformed our customer portal into an intuitive and beautiful platform. The team’s creativity and ability to deliver under tight deadlines were remarkable',
   },
   {
     image: c3,
@@ -40,12 +40,15 @@ const testimonials = [
   },
 ];
 
-const Comments = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function CommentsDesktop() {
+  const [currentIndex, setCurrentIndex] = useState(1);
   const [isUserInteraction, setIsUserInteraction] = useState(false);
 
   useEffect(() => {
-    if (isUserInteraction) return;
+    if (isUserInteraction) {
+      return undefined;
+    }
+
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }, 15000);
@@ -58,101 +61,75 @@ const Comments = () => {
     setIsUserInteraction(true);
     setTimeout(() => setIsUserInteraction(false), 30000);
   };
+
+  const currentTestimonial = testimonials[currentIndex];
+
   return (
-    <section className="font-ppneue w-full bg-[#EAF8FF] h-[720px] mt-[180px]">
-      <div className="font-ppneue flex flex-col w-[85%] items-center mt-20 mx-auto">
-        <div className="flex flex-col max-w-[1200px] w-full justify-between">
-          <div className="flex flex-row justify-between items-center w-full">
-            <div className="font-medium text-[84px] leading-[92px]">
-              <p className="text-[#090C21]">
-                <span className="text-[#1261FC]">Ronin</span> – your full-
-                <br />
-                stack design team
+    <section className="mt-[180px] flex h-[520px] w-full items-center bg-[#EAF8FF] font-ppneue">
+      <div className="mx-auto grid w-[85%] max-w-[1200px] grid-cols-[0.94fr_1fr] items-center gap-[92px]">
+        <h2 className="text-[84px] font-medium leading-[82px] text-[#080B1F]">
+          <span className="text-[#1261FC]">Trusted</span> by
+          <br />
+          product teams
+        </h2>
+
+        <div className="flex flex-col">
+          <img
+            src={comment}
+            alt=""
+            className="mb-5 h-[48px] w-[69px] object-contain"
+            aria-hidden="true"
+          />
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -18 }}
+              transition={{ duration: 0.35, ease: 'easeOut' }}
+            >
+              <p className="max-w-[620px] text-[24px] font-book leading-[36px] text-[#242938]">
+                {currentTestimonial.text}
               </p>
-            </div>
-            <div>
-              <img
-                src={comment}
-                alt="comment"
-                className="w-[340px] h-auto ml-24"
-              />
-            </div>
-          </div>
-          <div className="flex flex-row justify-between mt-12 items-start">
-            <div className="flex gap-6 relative">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={index}
-                  className="relative flex items-center justify-center cursor-pointer transition ease-in-out duration-300 hover:brightness-[80%]"
-                  animate={
-                    index === currentIndex ? { scale: 1.2 } : { scale: 1 }
-                  }
-                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+              <h3 className="mt-8 text-[38px] font-medium leading-[44px] text-[#080B1F]">
+                {currentTestimonial.name}
+              </h3>
+              <p className="mt-3 text-[24px] font-book leading-[30px] text-[#7588A5]">
+                {currentTestimonial.position}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-12 flex items-center gap-4">
+            {testimonials.map((testimonial, index) => {
+              const isActive = index === currentIndex;
+
+              return (
+                <button
+                  key={testimonial.name}
+                  type="button"
+                  aria-label={`Show testimonial from ${testimonial.name}`}
+                  className={`relative flex shrink-0 items-center justify-center rounded-full transition duration-300 ${
+                    isActive ? 'h-[72px] w-[72px]' : 'h-[49px] w-[49px]'
+                  }`}
                   onClick={() => handleSelect(index)}
                 >
-                  {index === currentIndex && (
-                    <svg
-                      className="absolute"
-                      width="110"
-                      height="110"
-                      viewBox="0 0 110 110"
-                    >
-                      <circle
-                        cx="55"
-                        cy="55"
-                        r="48"
-                        stroke="#1261FC"
-                        strokeWidth="4"
-                        fill="none"
-                        strokeDasharray="301.6"
-                        strokeDashoffset="301.6"
-                        strokeLinecap="round"
-                      >
-                        <animate
-                          attributeName="stroke-dashoffset"
-                          from="301.6"
-                          to="0"
-                          dur="15s"
-                          repeatCount="1"
-                        />
-                      </circle>
-                    </svg>
-                  )}
                   <img
                     src={testimonial.image}
-                    alt={testimonial.name}
-                    className={`${index === currentIndex ? 'w-[100px] h-[100px]' : 'w-[68px] h-[68px] brightness-[70%]'}`}
+                    alt=""
+                    className={`h-full w-full rounded-full object-cover transition duration-300 ${
+                      isActive
+                        ? 'ring-[4px] ring-[#1261FC]'
+                        : 'brightness-[70%] hover:brightness-100'
+                    }`}
                   />
-                </motion.div>
-              ))}
-            </div>
-            <div className="w-1/2 font-ppneue">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentIndex}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  className="w-[475px] font-ppneue"
-                >
-                  <p className="text-[24px] leading-[38px] font-book text-[#090C21] mb-12">
-                    {testimonials[currentIndex].text}
-                  </p>
-                  <h3 className="text-[38px] leading-[44px] font-medium text-[#090C21]">
-                    {testimonials[currentIndex].name}
-                  </h3>
-                  <p className="text-[24px] font-book text-[#090C21]">
-                    {testimonials[currentIndex].position}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Comments;
+}

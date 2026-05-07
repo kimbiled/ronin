@@ -31,10 +31,11 @@ import item2 from './assets/desktop/item2.png';
 import item3 from './assets/desktop/item3.png';
 import item4 from './assets/desktop/item4.png';
 import phone from './assets/mobile/phone.png';
-import r1 from './assets/desktop/r1.png';
-import r2 from './assets/desktop/r2.png';
-import r3 from './assets/desktop/r3.png';
-import r4 from './assets/desktop/r4.png';
+import r1 from './assets/desktop/r1.svg';
+import r2 from './assets/desktop/r2.svg';
+import r4 from './assets/desktop/r4.svg';
+import r5 from './assets/desktop/r5.svg';
+import r6 from './assets/desktop/r6.svg';
 import heros from './assets/desktop/Hero.svg';
 import CookiesDesktop from './pages/CookiesDesktop';
 
@@ -51,8 +52,9 @@ const preloadImages = [
   phone,
   r1,
   r2,
-  r3,
   r4,
+  r5,
+  r6,
   heros,
 ];
 const scrollToFormSection = () => {
