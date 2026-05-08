@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import up from '../../assets/desktop/arrow-up.png';
 import down from '../../assets/desktop/arrow-down2.png';
@@ -208,17 +208,101 @@ const faqData = [
     ),
   },
 ];
+const calendarUrl = 'https://calendar.app.google/nYhyEheWC7yKt57y8';
 
 export default function FAQDesktop() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [cardState, setCardState] = useState({
+    mode: 'before',
+    left: 0,
+    width: 360,
+  });
+  const sectionRef = useRef(null);
+  const cardSlotRef = useRef(null);
+  const rafRef = useRef(null);
+
+  const updateCardState = () => {
+    if (!sectionRef.current || !cardSlotRef.current) {
+      return;
+    }
+
+    const topOffset = 120;
+    const cardHeight = 370;
+    const sectionRect = sectionRef.current.getBoundingClientRect();
+    const slotRect = cardSlotRef.current.getBoundingClientRect();
+
+    let mode = 'before';
+
+    if (sectionRect.top <= topOffset) {
+      mode =
+        sectionRect.bottom - cardHeight <= topOffset ? 'after' : 'fixed';
+    }
+
+    setCardState({
+      mode,
+      left: slotRect.left,
+      width: slotRect.width || 360,
+    });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (rafRef.current) {
+        return;
+      }
+
+      rafRef.current = requestAnimationFrame(() => {
+        updateCardState();
+        rafRef.current = null;
+      });
+    };
+
+    updateCardState();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    updateCardState();
+    const timeout = setTimeout(updateCardState, 450);
+
+    return () => clearTimeout(timeout);
+  }, [openIndex]);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const cardPositionClass =
+    cardState.mode === 'fixed'
+      ? 'fixed z-30'
+      : cardState.mode === 'after'
+        ? 'absolute bottom-0 left-0'
+        : 'absolute left-0 top-0';
+  const cardStyle =
+    cardState.mode === 'fixed'
+      ? {
+          top: 120,
+          left: cardState.left,
+          width: cardState.width,
+        }
+      : undefined;
+
   return (
-    <div className="font-ppneue mt-[80px] mb-40 flex w-full max-w-[1200px] items-start gap-[60px] text-white">
-      <div className="flex w-[780px] flex-col gap-4">
+    <div
+      ref={sectionRef}
+      className="font-ppneue mt-[80px] mb-40 grid w-full max-w-[1200px] grid-cols-[780px_360px] items-stretch gap-[60px] text-white"
+    >
+      <div className="flex min-w-0 flex-col gap-4">
         <h2 className="text-[84px] font-medium">FAQ</h2>
         <div className="flex flex-col divide-y divide-white divide-opacity-10">
           {faqData.map((item, index) => (
@@ -252,55 +336,66 @@ export default function FAQDesktop() {
         </div>
       </div>
 
-      <div className="sticky top-[120px] h-[370px] w-[360px] shrink-0 overflow-hidden rounded-[24px]">
-        <img src={cta} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="relative z-10 flex h-full flex-col p-[32px]">
+      <div ref={cardSlotRef} className="relative min-h-[370px] w-[360px]">
+        <div
+          className={`${cardPositionClass} h-[370px] w-[360px] overflow-hidden rounded-[24px]`}
+          style={cardStyle}
+        >
           <img
-            src={logoDesktop}
-            alt="Ronin"
-            className="h-[34px] w-[42px] object-contain object-left"
+            src={cta}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
           />
+          <div className="relative z-10 flex h-full flex-col p-[32px]">
+            <img
+              src={logoDesktop}
+              alt="Ronin"
+              className="h-[34px] w-[42px] object-contain object-left"
+            />
 
-          <h3 className="mt-[50px] text-[44px] font-medium leading-[44px] text-white">
-            Book a 15 min
-            <br />
-            intro call
-          </h3>
-
-          <a
-            href="#form-section"
-            className="mt-7 flex h-[48px] w-full items-center justify-center rounded-[8px] bg-white text-[18px] font-book text-[#1261FC] transition duration-300 hover:bg-white/90"
-          >
-            Book a call
-          </a>
-
-          <div className="mt-4 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <img
-                src={telegram}
-                alt=""
-                className="h-[24px] w-[24px] object-contain"
-              />
-              <div>
-                <p className="text-[16px] font-book leading-[20px] text-white">
-                  Prefer to email?
-                </p>
-                <a
-                  href="mailto:hi@ronindsgn.com"
-                  className="text-[14px] font-book leading-[20px] text-white/45 transition duration-300 hover:text-white"
-                >
-                  hi@ronindsgn.com
-                </a>
-              </div>
-            </div>
+            <h3 className="mt-[50px] text-[44px] font-medium leading-[44px] text-white">
+              Book a 15 min
+              <br />
+              intro call
+            </h3>
 
             <a
-              href="mailto:hi@ronindsgn.com"
-              aria-label="Email Ronin"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[24px] leading-none text-[#1261FC] transition duration-300 hover:bg-white/90"
+              href={calendarUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-7 flex h-[48px] w-full items-center justify-center rounded-[8px] bg-white text-[18px] font-book text-[#1261FC] transition duration-300 hover:bg-white/90"
             >
-              →
+              Book a call
             </a>
+
+            <div className="mt-4 flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <img
+                  src={telegram}
+                  alt=""
+                  className="h-[24px] w-[24px] object-contain"
+                />
+                <div>
+                  <p className="text-[16px] font-book leading-[20px] text-white">
+                    Prefer to email?
+                  </p>
+                  <a
+                    href="mailto:hi@ronindsgn.com"
+                    className="text-[14px] font-book leading-[20px] text-white/45 transition duration-300 hover:text-white"
+                  >
+                    hi@ronindsgn.com
+                  </a>
+                </div>
+              </div>
+
+              <a
+                href="mailto:hi@ronindsgn.com"
+                aria-label="Email Ronin"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[24px] leading-none text-[#1261FC] transition duration-300 hover:bg-white/90"
+              >
+                →
+              </a>
+            </div>
           </div>
         </div>
       </div>

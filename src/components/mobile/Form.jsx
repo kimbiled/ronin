@@ -12,6 +12,7 @@ import active from '../../assets/mobile/active.svg';
 import ncompleted from '../../assets/mobile/n-completed.png';
 
 const steps = [1, 2, 3, 4];
+const stepLabels = ['Contacts', 'Service', 'Budget', 'Details'];
 
 export default function Form() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -113,39 +114,79 @@ export default function Form() {
           </div>
 
           {/* Step Progress Indicator */}
-          <div className="flex w-[95%] items-center justify-between ">
+          <div className="relative h-[74px] w-full">
+            {steps.slice(0, -1).map((step, index) => {
+              const leftCircleSize = step === currentStep ? 44 : 28;
+              const rightStep = step + 1;
+              const rightCircleSize = rightStep === currentStep ? 44 : 28;
+              const leftPosition = (index / (steps.length - 1)) * 100;
+              const rightPosition = ((index + 1) / (steps.length - 1)) * 100;
+              const leftEdge =
+                index === 0
+                  ? `${leftCircleSize}px`
+                  : `calc(${leftPosition}% + ${leftCircleSize / 2}px)`;
+              const rightEdge =
+                index + 1 === steps.length - 1
+                  ? `calc(100% - ${rightCircleSize}px)`
+                  : `calc(${rightPosition}% - ${rightCircleSize / 2}px)`;
+              const isCompleted = step < currentStep;
+
+              return (
+                <motion.div
+                  key={step}
+                  className="absolute top-[22px] z-0 h-[1px]"
+                  style={{
+                    left: leftEdge,
+                    width: `calc(${rightEdge} - (${leftEdge}))`,
+                  }}
+                  animate={{
+                    backgroundColor: isCompleted ? '#1261FC' : '#D4E0ED',
+                  }}
+                  transition={{ duration: 0.5 }}
+                />
+              );
+            })}
+
             {steps.map((step, index) => {
               const isCompleted = step < currentStep;
               const isActive = step === currentStep;
+              const isPassedOrActive = isActive || isCompleted;
+              const position = (index / (steps.length - 1)) * 100;
 
               return (
-                <div key={step} className="flex items-center">
+                <div
+                  key={step}
+                  className="absolute top-0 flex -translate-x-1/2 flex-col items-center"
+                  style={{
+                    left: `${position}%`,
+                    transform:
+                      index === 0
+                        ? 'translateX(0)'
+                        : index === steps.length - 1
+                          ? 'translateX(-100%)'
+                          : 'translateX(-50%)',
+                  }}
+                >
                   <motion.div
-                    className={`flex items-center justify-center rounded-full ${
-                      isActive
-                        ? 'sm25:w-11 sm25:h-11 sm75:w-10 sm75:h-10 sm20:w-8 sm20:h-8 mx-1'
-                        : isCompleted
-                          ? 'sm25:w-8 sm25:h-8 sm75:w-8 sm75:h-8 sm20:w-7 sm20:h-7'
-                          : 'sm25:w-8 sm25:h-8 sm75:w-8 sm75:h-8 sm20:w-7 sm20:h-7'
+                    className={`z-10 flex h-11 w-11 items-center justify-center rounded-full ${
+                      isActive ? 'bg-white' : ''
                     }`}
-                    animate={{ scale: isActive ? 1.2 : 1 }}
+                    animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
                     <img
                       src={isCompleted ? done : isActive ? active : ncompleted}
                       alt={`Step ${step}`}
-                      className="w-full h-full"
+                      className={isActive ? 'h-11 w-11' : 'h-7 w-7'}
                     />
                   </motion.div>
-                  {index < steps.length - 1 && (
-                    <motion.div
-                      className="h-[1px] sm25:w-[70px] sm75:w-[57px] sm20:w-[48px] sm60:w-[64px] sm80:w-[68px]"
-                      animate={{
-                        backgroundColor: isCompleted ? '#3b82f6' : '#D4E0ED',
-                      }}
-                      transition={{ duration: 0.5 }}
-                    />
-                  )}
+                  <span
+                    className={`mt-2 text-center text-[16px] font-book ${
+                      isPassedOrActive ? 'text-[#1261FC]' : 'text-[#D4E0ED]'
+                    }`}
+                  >
+                    {stepLabels[index]}
+                  </span>
                 </div>
               );
             })}

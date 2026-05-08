@@ -1,49 +1,78 @@
 import ProjectItem from './ProjectItem';
 import { useNavigate } from 'react-router-dom';
 
-import ant1 from '../../assets/mobile/ant1.png';
-import ant2 from '../../assets/mobile/ant2.png';
-import ant3 from '../../assets/mobile/ant3.png';
-import ant4 from '../../assets/mobile/ant4.png';
-import ant5 from '../../assets/mobile/ant5.png';
-import ant6 from '../../assets/mobile/ant6.png';
-
-import cat1 from '../../assets/mobile/cat1.png';
-import cat2 from '../../assets/mobile/cat2.png';
-import cat3 from '../../assets/mobile/cat3.png';
-import cat4 from '../../assets/mobile/cat4.png';
-import cat5 from '../../assets/mobile/cat5.png';
-
-import orb1 from '../../assets/mobile/orb1.png';
-import orb2 from '../../assets/mobile/orb2.png';
-import orb3 from '../../assets/mobile/orb3.png';
-import orb4 from '../../assets/mobile/orb4.png';
-import orb5 from '../../assets/mobile/orb5.png';
-
-import berg1 from '../../assets/mobile/berg1.png';
-import berg2 from '../../assets/mobile/berg2.png';
-import berg3 from '../../assets/mobile/berg3.png';
-import berg4 from '../../assets/mobile/berg4.png';
-
-import shar1 from '../../assets/mobile/shar1.png';
-import shar2 from '../../assets/mobile/shar2.png';
-import shar3 from '../../assets/mobile/shar3.png';
-import shar4 from '../../assets/mobile/shar4.png';
-
-import dunes1 from '../../assets/mobile/dunes1.png';
-import dunes2 from '../../assets/mobile/dunes2.png';
-import dunes3 from '../../assets/mobile/dunes3.png';
-import dunes4 from '../../assets/mobile/dunes4.png';
-
-import glen1 from '../../assets/mobile/glen1.png';
-import glen2 from '../../assets/mobile/glen2.png';
-import glen3 from '../../assets/mobile/glen3.png';
-import glen4 from '../../assets/mobile/glen4.png';
+import antix1 from '../../assets/mobile/1-1.webp';
+import antix2 from '../../assets/mobile/1-2.webp';
+import antix3 from '../../assets/mobile/1-3.webp';
+import antix4 from '../../assets/mobile/1-4.webp';
+import antix5 from '../../assets/mobile/1-5.webp';
+import hash1 from '../../assets/desktop/2-1.webp';
+import hash2 from '../../assets/desktop/2-2.webp';
+import hash3 from '../../assets/desktop/2-3.webp';
+import hash4 from '../../assets/desktop/2-4.webp';
+import hash5 from '../../assets/desktop/2-5.webp';
+import aqua1 from '../../assets/mobile/3-1.webp';
+import aqua2 from '../../assets/desktop/3-2.webp';
+import aqua3 from '../../assets/desktop/3-3.webp';
+import aqua4 from '../../assets/desktop/3-4.webp';
+import crypto1 from '../../assets/desktop/4-1.webp';
+import crypto2 from '../../assets/desktop/4-2.webp';
+import crypto3 from '../../assets/desktop/4-3.webp';
+import crypto4 from '../../assets/desktop/4-4.webp';
+import crypto5 from '../../assets/desktop/4-5.webp';
+import crypto6 from '../../assets/desktop/4-6.webp';
+import berg1 from '../../assets/mobile/5-1.webp';
+import berg2 from '../../assets/desktop/5-2.webp';
+import berg3 from '../../assets/desktop/5-3.webp';
+import berg4 from '../../assets/desktop/5-4.webp';
+import sharique1 from '../../assets/desktop/6-1.webp';
+import sharique2 from '../../assets/desktop/6-2.webp';
+import sharique3 from '../../assets/desktop/6-3.webp';
+import sharique4 from '../../assets/desktop/6-4.webp';
+import orbital1 from '../../assets/mobile/7-1.webp';
+import orbital2 from '../../assets/desktop/7-2.webp';
+import orbital3 from '../../assets/desktop/7-3.webp';
+import orbital4 from '../../assets/desktop/7-4.webp';
+import dunes1 from '../../assets/desktop/8-1.webp';
+import dunes2 from '../../assets/desktop/8-2.webp';
+import dunes3 from '../../assets/desktop/8-3.webp';
+import dunes4 from '../../assets/desktop/8-4.webp';
+import degen1 from '../../assets/desktop/9-1.webp';
+import degen2 from '../../assets/desktop/9-2.webp';
+import degen3 from '../../assets/desktop/9-3.webp';
+import degen4 from '../../assets/desktop/9-4.webp';
+import degen5 from '../../assets/desktop/9-5.webp';
+import one1 from '../../assets/mobile/10-1.webp';
+import one2 from '../../assets/desktop/10-2.webp';
+import one3 from '../../assets/desktop/10-3.webp';
+import one4 from '../../assets/desktop/10-4.webp';
+import glen1 from '../../assets/desktop/11-1.webp';
+import glen2 from '../../assets/desktop/11-2.webp';
+import glen3 from '../../assets/desktop/11-3.webp';
+import glen4 from '../../assets/desktop/11-4.webp';
+import motiva1 from '../../assets/desktop/12-1.webp';
+import motiva2 from '../../assets/desktop/12-2.webp';
+import motiva3 from '../../assets/desktop/12-3.webp';
+import skygen1 from '../../assets/desktop/13-1.webp';
+import skygen2 from '../../assets/desktop/13-2.webp';
+import skygen3 from '../../assets/desktop/13-3.webp';
+import skygen4 from '../../assets/desktop/13-4.webp';
+import dexe1 from '../../assets/desktop/14-1.webp';
+import dexe2 from '../../assets/desktop/14-2.webp';
+import dexe3 from '../../assets/desktop/14-3.webp';
+import dexe4 from '../../assets/desktop/14-4.webp';
+import cephla1 from '../../assets/desktop/15-1.webp';
+import cephla2 from '../../assets/desktop/15-2.webp';
+import cephla3 from '../../assets/desktop/15-3.webp';
+import school1 from '../../assets/mobile/16-1.webp';
+import school2 from '../../assets/mobile/16-2.webp';
+import school3 from '../../assets/mobile/16-3.webp';
 
 import usa from '../../assets/desktop/usa.svg';
 import uk from '../../assets/desktop/uk.svg';
 import australia from '../../assets/desktop/australia.svg';
 import qatar from '../../assets/desktop/qatar.svg';
+import kz from '../../assets/desktop/kz.svg';
 
 const profiles = [
   {
@@ -56,8 +85,75 @@ const profiles = [
       verified: true,
       stared: false,
       location: usa,
+      badgeTone: 'dark',
     },
-    avatars: [ant1, ant2, ant3, ant4, ant5, ant6],
+    avatars: [antix1, antix2, antix3, antix4, antix5],
+  },
+  {
+    id: null,
+    profile: {
+      name: 'Skygen',
+      role: 'Website development',
+      tags: ['UX/UI', 'Visual Identity', 'Animations'],
+      followers: false,
+      verified: false,
+      stared: false,
+      location: usa,
+    },
+    avatars: [skygen1, skygen2, skygen3, skygen4],
+  },
+  {
+    id: null,
+    profile: {
+      name: 'School Game',
+      role: 'UX/UI Design',
+      tags: ['UX/UI', 'Visual Identity', 'Animations'],
+      followers: false,
+      verified: false,
+      stared: false,
+      location: kz,
+    },
+    avatars: [school1, school2, school3],
+  },
+  {
+    id: 2,
+    profile: {
+      name: 'Hash Cats',
+      role: 'UX/UI Design',
+      tags: ['Prototyping', 'Design System', 'Mobile Design'],
+      followers: '900.000+ Users',
+      verified: true,
+      stared: false,
+      location: uk,
+      badgeTone: 'dark',
+    },
+    avatars: [hash1, hash2, hash3, hash4, hash5],
+  },
+  {
+    id: null,
+    profile: {
+      name: 'Aqua Hair',
+      role: 'Branding',
+      tags: ['UX/UI', 'Visual Identity', 'Animations'],
+      followers: false,
+      verified: false,
+      stared: false,
+      location: qatar,
+    },
+    avatars: [aqua1, aqua2, aqua3, aqua4],
+  },
+  {
+    id: 4,
+    profile: {
+      name: 'CryptoIndex',
+      role: 'Website development',
+      tags: ['UX/UI', 'Visual Identity', 'Animations'],
+      followers: false,
+      verified: false,
+      stared: false,
+      location: uk,
+    },
+    avatars: [crypto1, crypto2, crypto3, crypto4, crypto5, crypto6],
   },
   {
     id: 7,
@@ -69,34 +165,22 @@ const profiles = [
       verified: true,
       stared: false,
       location: usa,
+      badgeTone: 'light',
     },
     avatars: [berg1, berg2, berg3, berg4],
   },
   {
-    id: 2,
+    id: 5,
     profile: {
-      name: 'HashCats',
-      role: 'UX/UI Design',
-      tags: ['Prototyping', 'Design System', 'Mobile Design'],
-      followers: '600.000+ Users',
-      verified: true,
-      stared: false,
-      location: uk,
-    },
-    avatars: [cat1, cat2, cat3, cat4, cat5],
-  },
-  {
-    id: 4,
-    profile: {
-      name: 'Orbital7',
+      name: 'Degen AI',
       role: 'Website development',
-      tags: ['Frontend Development', 'Custom Web Solutions', 'Web3'],
-      followers: '100.000+ Users',
-      verified: true,
+      tags: ['Frontend Development', 'Web3', 'Custom Web Solutions'],
+      followers: false,
+      verified: false,
       stared: false,
       location: australia,
     },
-    avatars: [orb1, orb2, orb3, orb4, orb5],
+    avatars: [degen1, degen2, degen3, degen4, degen5],
   },
   {
     id: 8,
@@ -109,7 +193,7 @@ const profiles = [
       stared: false,
       location: qatar,
     },
-    avatars: [shar3, shar4, shar1, shar2],
+    avatars: [sharique1, sharique2, sharique3, sharique4],
   },
   {
     id: 6,
@@ -121,37 +205,39 @@ const profiles = [
       verified: false,
       stared: true,
       location: uk,
+      badgeTone: 'dark',
     },
     avatars: [glen1, glen2, glen3, glen4],
   },
   {
-    id: 9,
+    id: null,
     profile: {
-      name: 'Dunes',
-      role: 'Website development',
+      name: 'Motiva',
+      role: 'Branding',
       tags: ['UI/UX', 'Visual Identity', 'Animations'],
       followers: false,
       verified: false,
       stared: false,
-      location: australia,
+      location: usa,
     },
-    avatars: [dunes1, dunes2, dunes3, dunes4],
+    avatars: [motiva1, motiva2, motiva3],
   },
   {
-    id: 10,
+    id: 3,
     profile: {
-      name: 'Aqua Hair',
-      role: 'Branding',
-      tags: ['UX/UI', 'Visual Identity', 'Animations'],
-      followers: false,
-      verified: false,
+      name: 'Orbital 7',
+      role: 'Website development',
+      tags: ['Frontend Development', 'Custom Web Solutions', 'Web3'],
+      followers: '100.000+ Users',
+      verified: true,
       stared: false,
       location: australia,
+      badgeTone: 'dark',
     },
-    avatars: [shar3],
+    avatars: [orbital1, orbital2, orbital3, orbital4],
   },
   {
-    id: 11,
+    id: null,
     profile: {
       name: 'The One',
       role: 'Website development',
@@ -161,36 +247,10 @@ const profiles = [
       stared: false,
       location: australia,
     },
-    avatars: [shar3],
+    avatars: [one1, one2, one3, one4],
   },
   {
-    id: 12,
-    profile: {
-      name: 'SkyGen',
-      role: 'Website development',
-      tags: ['UX/UI', 'Visual Identity', 'Animations'],
-      followers: false,
-      verified: false,
-      stared: false,
-      location: australia,
-    },
-    avatars: [shar3],
-  },
-  {
-    id: 13,
-    profile: {
-      name: 'Motiva',
-      role: 'Branding',
-      tags: ['UX/UI', 'Visual Identity', 'Animations'],
-      followers: false,
-      verified: false,
-      stared: false,
-      location: australia,
-    },
-    avatars: [shar3],
-  },
-  {
-    id: 14,
+    id: null,
     profile: {
       name: 'DeXe',
       role: 'Branding',
@@ -200,13 +260,43 @@ const profiles = [
       stared: false,
       location: australia,
     },
-    avatars: [shar3],
+    avatars: [dexe1, dexe2, dexe3, dexe4],
+  },
+  {
+    id: 9,
+    profile: {
+      name: 'Dunes',
+      role: 'Website development',
+      tags: ['Launchpad Design', 'PitchDeck Design', 'Web3'],
+      followers: false,
+      verified: false,
+      stared: false,
+      location: australia,
+    },
+    avatars: [dunes1, dunes2, dunes3, dunes4],
+  },
+  {
+    id: null,
+    profile: {
+      name: 'Cephla',
+      role: 'Website development',
+      tags: ['UX/UI', 'Visual Identity', 'Animations'],
+      followers: false,
+      verified: false,
+      stared: false,
+      location: qatar,
+    },
+    avatars: [cephla1, cephla2, cephla3],
   },
 ];
 
 const Projects = () => {
   const navigate = useNavigate();
   const goPage = (index) => {
+    if (!index) {
+      return;
+    }
+
     navigate(`/projects/${index}`);
     window.scrollTo(0, 0);
   };
@@ -219,10 +309,6 @@ const Projects = () => {
       <div className="flex flex-col text-center items-center">
         <p className="sm25:text-[40px] sm75:text-[40px] font-medium sm20:text-[36px]">
           Recent projects
-        </p>
-        <p className="sm25:text-base sm75:text-[15px] sm20:text-[13px] sm75:w-[330px] sm20:w-[300px] sm25:w-[360px] text-[#090C21] font-book">
-          Custom B2C, B2B, and eCommerce solutions optimized for traffic,
-          engagement, and conversion
         </p>
       </div>
 

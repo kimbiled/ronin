@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import tick from '../../assets/desktop/Icon.png';
 import berg from '../../assets/mobile/berg.png';
 import disney from '../../assets/mobile/disney.png';
 import forbes from '../../assets/mobile/forbes.png';
@@ -12,10 +13,11 @@ import capital from '../../assets/mobile/capital.png';
 import motiva from '../../assets/mobile/motiva.png';
 import astanahub from '../../assets/mobile/astanahub.png';
 
-import first from '../../assets/mobile/h1.png';
-import second from '../../assets/mobile/h2.png';
-import third from '../../assets/mobile/h3.png';
-import four from '../../assets/mobile/h4.png';
+import r1 from '../../assets/desktop/r1.svg';
+import r2 from '../../assets/desktop/r2.svg';
+import r3 from '../../assets/desktop/r4.svg';
+import r4 from '../../assets/desktop/r5.svg';
+import r5 from '../../assets/desktop/r6.svg';
 
 import hero from '../../assets/mobile/footer.png';
 
@@ -33,7 +35,7 @@ const logos = [
   { src: astanahub, alt: 'astanahub', height: 'h-[27px]' },
 ];
 
-const avatars = [first, second, third, four];
+const avatars = [r1, r4, r2, r3, r5];
 
 const Hero = () => {
   return (
@@ -72,7 +74,7 @@ const Hero = () => {
           for Web3, Fintech and AI
         </h1>
         <p className="text-[#9CA3AF] font-book">
-          Get your first task done for free in 24 hours
+          Your Full Stack Design Team for Fintech, Games and AI
         </p>
       </div>
 
@@ -105,6 +107,21 @@ const Hero = () => {
         >
           Get a Proposal
         </button>
+      </div>
+
+      <div className="flex flex-row flex-wrap justify-center gap-x-3 gap-y-4 mt-9 font-book text-[#090C21]">
+        <div className="flex flex-row gap-3 rounded-2xl min-w-[166px] p-1 h-8 bg-[#F7F7F6] items-center">
+          <img src={tick} alt="Icon" className="h-6 w-6" />
+          <p>Unlimited requests</p>
+        </div>
+        <div className="flex flex-row gap-3 rounded-2xl min-w-[166px] p-1 h-8 bg-[#F7F7F6] items-center">
+          <img src={tick} alt="Icon" className="h-6 w-6" />
+          <p>Flat monthly fee</p>
+        </div>
+        <div className="flex flex-row gap-3 rounded-2xl min-w-[226px] p-1 h-8 bg-[#F7F7F6] items-center">
+          <img src={tick} alt="Icon" className="h-6 w-6" />
+          <p>Pause or cancel any time</p>
+        </div>
       </div>
 
       <div className="relative w-full overflow-hidden mt-7">

@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import arrowup from '../../assets/mobile/arrow-up.png';
 import arrowdown from '../../assets/mobile/arrow-down2.png';
+import cta from '../../assets/desktop/cta.webp';
+import logoDesktop from '../../assets/desktop/LogoWDesktop.svg';
+import telegram from '../../assets/desktop/telegram.svg';
 const faqData = [
   {
     question: 'What are your core services as a UX and brand design team?',
@@ -243,6 +246,59 @@ export default function FAQ() {
             </AnimatePresence>
           </div>
         ))}
+      </div>
+
+      <div className="relative mt-10 h-[472px] w-full overflow-hidden rounded-[28px]">
+        <img src={cta} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="relative z-10 flex h-full flex-col p-10">
+          <img
+            src={logoDesktop}
+            alt="Ronin"
+            className="h-[43px] w-[54px] object-contain object-left"
+          />
+
+          <h3 className="mt-16 text-[43px] font-medium leading-[56px] text-white">
+            Book a 15 min
+            <br />
+            intro call
+          </h3>
+
+          <a
+            href="#form-section"
+            className="mt-8 flex h-[62px] w-full items-center justify-center rounded-[8px] bg-white text-[20px] font-book text-[#1261FC]"
+          >
+            Book a call
+          </a>
+
+          <div className="mt-7 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <img
+                src={telegram}
+                alt=""
+                className="h-[26px] w-[26px] object-contain"
+              />
+              <div>
+                <p className="text-[20px] font-book leading-[26px] text-white">
+                  Prefer to email?
+                </p>
+                <a
+                  href="mailto:hi@ronindsgn.com"
+                  className="text-[16px] font-book leading-[24px] text-white/45"
+                >
+                  hi@ronindsgn.com
+                </a>
+              </div>
+            </div>
+
+            <a
+              href="mailto:hi@ronindsgn.com"
+              aria-label="Email Ronin"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[28px] leading-none text-[#1261FC]"
+            >
+              →
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

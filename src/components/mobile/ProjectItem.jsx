@@ -12,7 +12,7 @@ const ProjectItem = ({ item }) => {
       : null;
 
   const backgroundColor =
-    item.id === 2
+    item.profile.badgeTone === 'light'
       ? 'bg-[#F7F7F6] bg-opacity-80 text-black'
       : 'bg-black bg-opacity-80 text-white';
 

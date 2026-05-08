@@ -24,10 +24,6 @@ import Terms from './pages/Terms';
 import Cookies from './pages/Cookies';
 import Privacy from './pages/Privacy';
 
-import first from './assets/mobile/h1.png';
-import second from './assets/mobile/h2.png';
-import third from './assets/mobile/h3.png';
-import four from './assets/mobile/h4.png';
 import hero from './assets/mobile/footer.png';
 import item1 from './assets/desktop/item1.png';
 import item2 from './assets/desktop/item2.png';
@@ -43,10 +39,6 @@ import heros from './assets/desktop/Hero.svg';
 import CookiesDesktop from './pages/CookiesDesktop';
 
 const preloadImages = [
-  first,
-  second,
-  third,
-  four,
   hero,
   item1,
   item2,

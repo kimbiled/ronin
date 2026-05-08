@@ -91,7 +91,7 @@ const HeroDesktop = () => {
             All your design done for one <br /> fixed monthly fee
           </h1>
           <p className="text-[#090C21] font-book text-lg">
-            Get your first task done for free in 24 hours
+            Your Full Stack Design Team for Fintech, Games and AI
           </p>
         </div>
         <div className="flex flex-col gap-3 mt-12 font-book">
@@ -101,7 +101,7 @@ const HeroDesktop = () => {
           </div>
           <div className="flex flex-row gap-3 rounded-2xl w-[176px] p-1 h-8 bg-[#F7F7F6] items-center">
             <img src={tick} alt="Icon" className="h-6 w-6" />
-            <p>Fixed monthly fee</p>
+            <p>Flat monthly fee</p>
           </div>
           <div className="flex flex-row gap-3 rounded-2xl w-[226px] p-1 h-8 bg-[#F7F7F6] items-center">
             <img src={tick} alt="Icon" className="h-6 w-6" />

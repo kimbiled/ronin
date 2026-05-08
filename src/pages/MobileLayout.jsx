@@ -1,20 +1,19 @@
 import Header from '../components/mobile/Header';
 import Hero from '../components/mobile/Hero';
+import HeroVideo from '../components/mobile/HeroVideo';
 import Content from '../components/mobile/Content';
-import Review from '../components/mobile/Review';
 import Projects from '../components/mobile/Projects';
-import Proposal from '../components/mobile/Proposal';
 import Leaders from '../components/mobile/Leaders';
 import Comments from '../components/mobile/Comments';
 import Form from '../components/mobile/Form';
 import News from '../components/mobile/News';
 import Footer from '../components/mobile/Footer';
 
-import c1 from '../assets/desktop/c1.svg';
-import c2 from '../assets/desktop/c2.svg';
-import c3 from '../assets/desktop/c3.svg';
-import c4 from '../assets/desktop/c4.svg';
-import c5 from '../assets/desktop/c5.svg';
+import c1 from '../assets/desktop/c1.webp';
+import c2 from '../assets/desktop/c2.webp';
+import c3 from '../assets/desktop/c3.webp';
+import c4 from '../assets/desktop/c4.webp';
+import c5 from '../assets/desktop/c5.webp';
 
 const MobileLayout = () => {
   const OPTIONS = { loop: true };
@@ -60,10 +59,9 @@ const MobileLayout = () => {
     <div className="flex flex-col items-center gap-8">
       <Header />
       <Hero />
+      <HeroVideo src="/videos/hero.mp4" poster="/images/hero-poster.jpg" />
       <Content />
       <Projects />
-      <Review />
-      <Proposal />
       <Leaders />
       <Comments slides={testimonials} options={OPTIONS} />
       {/* <StickyBanner /> */}

@@ -69,12 +69,6 @@ const FooterDesktop = () => {
                   Works
                 </button>
                 <button
-                  onClick={() => handleNavigation('development')}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
-                >
-                  Development
-                </button>
-                <button
                   onClick={() => handleNavigation('about')}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
                 >
@@ -98,17 +92,23 @@ const FooterDesktop = () => {
                   Instagram
                 </a>
                 <a
+                  href="https://t.me/jedikuna"
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
+                >
+                  Telegram
+                </a>
+                <a
+                  href="https://wa.me/77052771150"
+                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
+                >
+                  WhatsApp
+                </a>
+                <a
                   href="https://www.behance.net/ronindsgn"
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
                 >
                   Behance
                 </a>
-                <button
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer disabled-link bg-transparent border-none"
-                  disabled
-                >
-                  Dribbble
-                </button>
               </div>
             </div>
           </div>

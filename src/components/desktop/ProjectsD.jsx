@@ -54,7 +54,6 @@ import glen4 from '../../assets/desktop/11-4.webp';
 import motiva1 from '../../assets/desktop/12-1.webp';
 import motiva2 from '../../assets/desktop/12-2.webp';
 import motiva3 from '../../assets/desktop/12-3.webp';
-import motiva4 from '../../assets/desktop/12-4.webp';
 import skygen1 from '../../assets/desktop/13-1.webp';
 import skygen2 from '../../assets/desktop/13-2.webp';
 import skygen3 from '../../assets/desktop/13-3.webp';
@@ -224,7 +223,7 @@ const projects = [
   },
   {
     id: null,
-    images: [motiva1, motiva2, motiva3, motiva4],
+    images: [motiva1, motiva2, motiva3],
     logo: motivaLogo,
     title: 'Motiva',
     flag: usa,
@@ -293,10 +292,10 @@ function ProjectTile({ project }) {
   };
 
   const heightClass = project.isWide
-    ? 'h-[520px]'
+    ? 'h-[416px]'
     : project.isTall
-      ? 'h-[790px]'
-      : 'h-[530px]';
+      ? 'h-[632px]'
+      : 'h-[424px]';
   const tagClass =
     project.tagTone === 'light'
       ? 'border-white/50 bg-[rgba(255,255,255,0.68)] text-black'
@@ -365,7 +364,7 @@ function ProjectTile({ project }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="absolute inset-0 z-10 bg-black/35"
+            className="absolute inset-0 z-10"
           >
             <div className="absolute left-[38px] top-[34px] right-[38px]">
               <div className="flex min-w-0 flex-col gap-4">
@@ -398,23 +397,23 @@ function ProjectTile({ project }) {
                   className="flex flex-wrap items-center gap-2"
                 >
                   {row.map((badge) => (
-                  <span
-                    key={`${project.title}-${badge.label}`}
-                    className={`inline-flex w-fit items-center rounded-full border ${
-                      badge.type === 'highlight'
-                        ? 'py-[4px] pl-[4px] pr-[18px]'
-                        : 'px-[18px] py-[5px]'
-                    } text-[20px] leading-[24px] backdrop-blur-xl ${tagClass}`}
-                  >
-                    {badge.type === 'highlight' && (
-                      <img
-                        src={project.badgeImage}
-                        alt=""
-                        className="mr-2 h-8 w-8 shrink-0"
-                      />
-                    )}
-                    {badge.label}
-                  </span>
+                    <span
+                      key={`${project.title}-${badge.label}`}
+                      className={`inline-flex w-fit items-center rounded-full border ${
+                        badge.type === 'highlight'
+                          ? 'py-[4px] pl-[4px] pr-[18px]'
+                          : 'px-[18px] py-[5px]'
+                      } text-[20px] leading-[24px] backdrop-blur-xl ${tagClass}`}
+                    >
+                      {badge.type === 'highlight' && (
+                        <img
+                          src={project.badgeImage}
+                          alt=""
+                          className="mr-2 h-8 w-8 shrink-0"
+                        />
+                      )}
+                      {badge.label}
+                    </span>
                   ))}
                 </div>
               ))}
@@ -467,7 +466,7 @@ export default function ProjectsD() {
 
   const handleClick = () => {
     window.location.href =
-      'https://drive.google.com/file/d/15t6fMY4dYh54MsYRphr_bPqehjTpZIZC/view?pli=1';
+      'https://drive.google.com/file/d/1FizTso9ZKKUooa-Rl6n0Sz6khVYuJCa1/view';
   };
 
   return (

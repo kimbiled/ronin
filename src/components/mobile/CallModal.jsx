@@ -10,6 +10,7 @@ const CallModal = ({ isOpen, onClose }) => {
   const [isChecked, setIsChecked] = useState(false);
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
+  const [isFullNameValid, setIsFullNameValid] = useState(true);
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [submitted, setSubmitted] = useState(false);
   const formRef = useRef(null);
@@ -60,8 +61,13 @@ const CallModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email.trim() || !validateEmail(email) || !isChecked) {
-      setIsEmailValid(validateEmail(email));
+    const fullNameIsValid = Boolean(fullName.trim());
+    const emailIsValid = validateEmail(email);
+
+    setIsFullNameValid(fullNameIsValid);
+    setIsEmailValid(emailIsValid);
+
+    if (!fullNameIsValid || !email.trim() || !emailIsValid || !isChecked) {
       return;
     }
 
@@ -78,6 +84,8 @@ const CallModal = ({ isOpen, onClose }) => {
     setSubmitted(false);
     setFullName('');
     setEmail('');
+    setIsFullNameValid(true);
+    setIsEmailValid(true);
     setIsChecked(false);
   };
 
@@ -118,16 +126,32 @@ const CallModal = ({ isOpen, onClose }) => {
               onSubmit={handleSubmit}
             >
               <div>
-                <label className="text-base font-medium text-[#090C21]">
-                  Full Name
+                <label
+                  className={`text-base font-medium flex justify-between ${
+                    isFullNameValid ? 'text-[#090C21]' : 'text-red-600'
+                  }`}
+                >
+                  Full Name{' '}
+                  <span
+                    className={`text-sm ${
+                      isFullNameValid ? 'text-[#9CA3AF]' : 'text-red-600'
+                    }`}
+                  >
+                    *Required field
+                  </span>
                 </label>
                 <input
                   type="text"
                   name="fullName"
-                  className="w-full border-b border-[#9CA3AF] p-2 mt-2 bg-transparent text-[#637695] focus:outline-none"
+                  className={`w-full border-b p-2 mt-2 bg-transparent text-[#637695] focus:outline-none ${
+                    isFullNameValid ? 'border-[#9CA3AF]' : 'border-red-600'
+                  }`}
                   placeholder="John Doe"
                   value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
+                  onChange={(e) => {
+                    setFullName(e.target.value);
+                    if (e.target.value.trim()) setIsFullNameValid(true);
+                  }}
                 />
               </div>
 

@@ -1,8 +1,32 @@
+import { useEffect, useRef, useState } from 'react';
 import logo from '../../assets/desktop/LogoDesktop.svg';
 import { useLocation } from 'react-router-dom';
-import { scrollToFormSection } from '../../App';
+
+const calendarUrl = 'https://calendar.app.google/nYhyEheWC7yKt57y8';
+
 const HeaderDesktop = () => {
   const location = useLocation();
+  const lastScrollY = useRef(0);
+  const [isCompact, setIsCompact] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 20) {
+        setIsCompact(false);
+      } else if (currentScrollY > lastScrollY.current) {
+        setIsCompact(true);
+      } else if (currentScrollY < lastScrollY.current) {
+        setIsCompact(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavigation = (id) => {
     if (location.pathname === '/') {
@@ -20,64 +44,57 @@ const HeaderDesktop = () => {
   };
 
   return (
-    <div className="font-ppneue w-[60%] p-8 bg-white flex justify-center items-center z-50 gap-[10px]">
-      <a
-        href="/"
-        className="flex items-center justify-center w-10 h-10 bg-[#F7F7F6] rounded-lg p-2"
-      >
-        <img src={logo} alt="logo" />
-      </a>
+    <div className="h-[120px] w-full">
+      <div className="fixed left-0 right-0 top-0 z-50 flex justify-center font-ppneue">
+        <div
+          className={`flex w-full max-w-[790px] origin-top items-center justify-center gap-[11px] px-4 py-[39px] transition-all duration-300 ease-out ${
+            isCompact ? 'scale-[0.9]' : 'scale-100'
+          }`}
+        >
+          <a
+            href="/"
+            className="flex h-[43px] w-[43px] items-center justify-center rounded-lg bg-[#F7F7F6] p-[11px]"
+          >
+            <img src={logo} alt="logo" />
+          </a>
 
-      <nav className="hidden lg:flex gap-12 text-[#090C21] text-lg font-book cursor-pointer  bg-[#F7F7F6] rounded-lg px-[34px] py-3 h-10 items-center">
-        <button
-          onClick={() => handleNavigation('services')}
-          className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
-        >
-          Services
-        </button>
-        <button
-          className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
-          onClick={() => handleNavigation('recentProjects')}
-        >
-          Works
-        </button>
-        <button
-          className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
-          onClick={() => handleNavigation('development')}
-        >
-          Development
-        </button>
-        <button
-          className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
-          onClick={() => handleNavigation('about')}
-        >
-          About
-        </button>
-        <button
-          className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
-          onClick={() => handleNavigation('form-section')}
-        >
-          Blog
-        </button>
-      </nav>
+          <nav className="hidden h-[43px] flex-1 cursor-pointer items-center justify-around rounded-lg bg-[#F7F7F6] px-[55px] text-[16px] font-book text-[#090C21] lg:flex">
+            <button
+              onClick={() => handleNavigation('services')}
+              className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
+            >
+              Services
+            </button>
+            <button
+              className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
+              onClick={() => handleNavigation('recentProjects')}
+            >
+              Works
+            </button>
+            <button
+              className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
+              onClick={() => handleNavigation('about')}
+            >
+              About
+            </button>
+            <button
+              className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
+              onClick={() => handleNavigation('form-section')}
+            >
+              Blog
+            </button>
+          </nav>
 
-      <a
-        href="#form-section"
-        className="bg-[#3B6DFF] text-white rounded-lg px-[34px] py-3 h-10 inline-flex items-center justify-center hover:brightness-95 active:brightness-90 transition"
-        onClick={(e) => {
-          e.preventDefault();
-          const isHomePage = window.location.pathname === '/';
-
-          if (!isHomePage) {
-            sessionStorage.setItem('scrollTo', 'form-section');
-            window.location.href = '/';
-          } else {
-            scrollToFormSection();
-          }
-        }}
-      >
-        Book a call
-      </a>
+          <a
+            href={calendarUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-[43px] w-[135px] items-center justify-center rounded-lg bg-[#3B6DFF] text-[16px] text-white transition hover:brightness-95 active:brightness-90"
+          >
+            Book a call
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

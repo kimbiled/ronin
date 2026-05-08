@@ -17,7 +17,11 @@ const DesktopLayout = () => {
       <div className="flex flex-col items-center gap-8">
         <HeaderDesktop />
         <HeroDesktop />
-        <HeroVideo src="/videos/hero.mp4" poster="/images/hero-poster.jpg" />
+        <HeroVideo
+          src="/videos/hero.mp4"
+          poster="/images/hero-poster.jpg"
+          animateOnScroll
+        />
         <ContentDesktop />
         <CompanyDesktop />
         {/* <ReviewDesktop /> */}

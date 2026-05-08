@@ -36,13 +36,28 @@ const services = [
     img: item2,
   },
   {
-    title: 'Branding',
-    description: ['Logo', 'Brandbook', 'Illustrations', 'Mockups', 'Icons'],
+    title: 'Editing',
+    description: [
+      'Long form',
+      'Short form',
+      'Voice Over',
+      'Scenario',
+      'Product Demo',
+    ],
     img: item3,
   },
   {
-    title: 'Outdoor and other',
-    description: ['Packaging', 'Stationery', 'Trade show banners'],
+    title: 'Branding and Outdoor',
+    description: [
+      'Logo',
+      'Brandbook',
+      'Illustrations',
+      'Mockups',
+      'Icons',
+      'Packaging',
+      'Stationery',
+      'Trade show banners',
+    ],
     img: item4,
   },
 ];
@@ -79,9 +94,12 @@ const Content = () => {
         </div>
 
         <div>
-          {services.map((service, index) => (
-            <div key={index} className="py-5">
-              <div className="group">
+          {services.map((service, index) => {
+            const isOpen = openIndex === index;
+
+            return (
+              <div key={index} className="py-5">
+                <div className="group">
                 <summary
                   className="flex cursor-pointer list-none items-center gap-2 font-medium"
                   onClick={() => handleToggle(index)}
@@ -101,7 +119,7 @@ const Content = () => {
                   </span>
                   <span
                     className={`transition-transform duration-300 ${
-                      openIndex === index ? 'rotate-180' : ''
+                      isOpen ? 'rotate-180' : ''
                     }`}
                   >
                     <svg
@@ -121,7 +139,7 @@ const Content = () => {
                 </summary>
 
                 <AnimatePresence>
-                  {openIndex === index && (
+                  {isOpen && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
@@ -171,9 +189,10 @@ const Content = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
       {/* <CallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}

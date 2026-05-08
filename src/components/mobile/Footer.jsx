@@ -32,79 +32,80 @@ export default function Footer() {
 
   return (
     <footer className="font-ppneue flex flex-col mx-auto gap-8 w-[85%] mb-12 bg-white items-center mt-40">
-      <div className="flex flex-col gap-8">
+      <div className="flex w-full flex-col gap-8">
         {/* Логотип */}
-        <div className="mx-auto">
-          <img src={foot} alt="footer" className="" />
+        <div>
+          <img src={foot} alt="footer" className="w-full" />
         </div>{' '}
         {/* Место для лого */}
         {/* Заголовок и описание */}
         <div>
           <h2 className="text-[40px] font-medium">Let’s Talk</h2>
-          <p className="font-book">Global web design agency</p>
+          <a href="mailto:hi@ronindsgn.com" className="font-book text-[18px]">
+            hi@ronindsgn.com
+          </a>
         </div>
         {/* Социальные сети и меню */}
-        <div className="flex justify-between mt-8">
+        <div className="mt-8 grid grid-cols-2 gap-12">
           {/* Social */}
-          <div className="flex flex-col gap-6 font-book">
-            <p className="text-[#637695]">Social</p>
+          <div className="flex flex-col gap-8 font-book">
+            <p className="text-[18px] text-[#637695]">Social</p>
             <a
               href="https://www.instagram.com/ronin.dsgn/"
-              className="hover:underline text-lg"
+              className="hover:text-gray-500 text-[18px] leading-[22px]"
             >
               Instagram
             </a>
             <a
+              href="https://t.me/jedikuna"
+              className="hover:text-gray-500 text-[18px] leading-[22px]"
+            >
+              Telegram
+            </a>
+            <a
+              href="https://wa.me/77052771150"
+              className="hover:text-gray-500 text-[18px] leading-[22px]"
+            >
+              WhatsApp
+            </a>
+            <a
               href="https://www.behance.net/ronindsgn"
-              className="hover:underline text-lg"
+              className="hover:text-gray-500 text-[18px] leading-[22px]"
             >
               Behance
             </a>
-            <button className="hover:underline text-lg disabled-link cursor-not-allowed">
-              Dribbble
-            </button>
           </div>
 
           {/* Menu */}
-          <div className="flex flex-col gap-6">
-            <p className="text-[#637695] font-book">Menu</p>
+          <div className="flex flex-col gap-8">
+            <p className="text-[18px] text-[#637695] font-book">Menu</p>
+            <button
+              onClick={(e) => handleScroll(e, 'about')}
+              className="text-[18px] leading-[22px] font-book hover:text-gray-500 transition cursor-pointer text-left"
+            >
+              About Us
+            </button>
             <button
               onClick={(e) => handleScroll(e, 'services')}
-              className="text-lg font-book hover:text-gray-500 transition cursor-pointer text-left"
+              className="text-[18px] leading-[22px] font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
-              Services
+              What We Do
             </button>
             <button
               onClick={(e) => handleScroll(e, 'recentProjects')}
-              className="text-lg font-book hover:text-gray-500 transition cursor-pointer text-left"
+              className="text-[18px] leading-[22px] font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
-              Works
-            </button>
-            <button
-              onClick={(e) => handleScroll(e, 'development')}
-              className="text-lg font-book hover:text-gray-500 transition cursor-pointer text-left"
-            >
-              Development
-            </button>
-            <button
-              onClick={(e) => handleScroll(e, 'about')}
-              className="text-lg font-book hover:text-gray-500 transition cursor-pointer text-left"
-            >
-              About
+              Our Works
             </button>
             <button
               onClick={(e) => handleScroll(e, 'form-section')}
-              className="text-lg font-book hover:text-gray-500 transition cursor-pointer text-left"
+              className="text-[18px] leading-[22px] font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
-              Blog
+              Contact Us
             </button>
           </div>
         </div>
         <hr className="border-t border-black border-opacity-10 mb-4 mt-6" />
-        <div className="flex flex-col gap-2 font-book">
-          <p className="text-[#637695]">Get in touch</p>
-          <a href="mailto:hi@ronindsgn.com">hi@ronindsgn.com</a>
-        </div>
         <div className="flex flex-col gap-3 text-xs font-book">
           <div className="flex flex-col gap-3">
             {links.map((link, index) => (

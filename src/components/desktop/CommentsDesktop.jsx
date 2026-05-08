@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import c1 from '../../assets/desktop/c1.svg';
-import c2 from '../../assets/desktop/c2.svg';
-import c3 from '../../assets/desktop/c3.svg';
-import c4 from '../../assets/desktop/c4.svg';
-import c5 from '../../assets/desktop/c5.svg';
+import c1 from '../../assets/desktop/c1.webp';
+import c2 from '../../assets/desktop/c2.webp';
+import c3 from '../../assets/desktop/c3.webp';
+import c4 from '../../assets/desktop/c4.webp';
+import c5 from '../../assets/desktop/c5.webp';
 import comment from '../../assets/desktop/comment.svg';
 
 const testimonials = [
@@ -40,9 +40,13 @@ const testimonials = [
   },
 ];
 
+const AUTO_ROTATE_SECONDS = 15;
+const USER_ROTATE_SECONDS = 30;
+
 export default function CommentsDesktop() {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isUserInteraction, setIsUserInteraction] = useState(false);
+  const userTimerRef = useRef(null);
 
   useEffect(() => {
     if (isUserInteraction) {
@@ -51,23 +55,39 @@ export default function CommentsDesktop() {
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 15000);
+    }, AUTO_ROTATE_SECONDS * 1000);
 
     return () => clearInterval(interval);
   }, [isUserInteraction]);
 
+  useEffect(
+    () => () => {
+      if (userTimerRef.current) {
+        clearTimeout(userTimerRef.current);
+      }
+    },
+    [],
+  );
+
   const handleSelect = (index) => {
     setCurrentIndex(index);
     setIsUserInteraction(true);
-    setTimeout(() => setIsUserInteraction(false), 30000);
+
+    if (userTimerRef.current) {
+      clearTimeout(userTimerRef.current);
+    }
+
+    userTimerRef.current = setTimeout(() => {
+      setIsUserInteraction(false);
+    }, USER_ROTATE_SECONDS * 1000);
   };
 
   const currentTestimonial = testimonials[currentIndex];
 
   return (
     <section className="mt-[180px] flex h-[520px] w-full items-center bg-[#EAF8FF] font-ppneue">
-      <div className="mx-auto grid w-[85%] max-w-[1200px] grid-cols-[0.94fr_1fr] items-center gap-[92px]">
-        <h2 className="text-[84px] font-medium leading-[82px] text-[#080B1F]">
+      <div className="mx-auto grid w-[85%] max-w-[1200px] grid-cols-[0.94fr_1fr] items-start gap-[92px]">
+        <h2 className="pt-[68px] text-[84px] font-medium leading-[82px] text-[#080B1F]">
           <span className="text-[#1261FC]">Trusted</span> by
           <br />
           product teams
@@ -104,6 +124,9 @@ export default function CommentsDesktop() {
           <div className="mt-12 flex items-center gap-4">
             {testimonials.map((testimonial, index) => {
               const isActive = index === currentIndex;
+              const progressDuration = isUserInteraction
+                ? USER_ROTATE_SECONDS
+                : AUTO_ROTATE_SECONDS;
 
               return (
                 <button
@@ -115,13 +138,35 @@ export default function CommentsDesktop() {
                   }`}
                   onClick={() => handleSelect(index)}
                 >
+                  {isActive && (
+                    <svg
+                      className="pointer-events-none absolute inset-[-5px] h-[82px] w-[82px] -rotate-90"
+                      viewBox="0 0 82 82"
+                      aria-hidden="true"
+                    >
+                      <motion.circle
+                        key={`${currentIndex}-${isUserInteraction ? 'manual' : 'auto'}`}
+                        cx="41"
+                        cy="41"
+                        r="38"
+                        fill="none"
+                        stroke="#1261FC"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{
+                          duration: progressDuration,
+                          ease: 'linear',
+                        }}
+                      />
+                    </svg>
+                  )}
                   <img
                     src={testimonial.image}
                     alt=""
                     className={`h-full w-full rounded-full object-cover transition duration-300 ${
-                      isActive
-                        ? 'ring-[4px] ring-[#1261FC]'
-                        : 'brightness-[70%] hover:brightness-100'
+                      isActive ? '' : 'brightness-[70%] hover:brightness-100'
                     }`}
                   />
                 </button>

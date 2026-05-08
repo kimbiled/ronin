@@ -1,8 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
-import arrow from '../../assets/icons/45deg.svg';
-import three from '../../assets/mobile/threeD.jpg';
-import logoPhone from '../../assets/icons/logoPhone.svg';
-import stars from '../../assets/icons/Stars.png';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import berg from '../../assets/mobile/berg.png';
@@ -16,149 +12,206 @@ import weproject from '../../assets/mobile/weproject.png';
 import capital from '../../assets/mobile/capital.png';
 import motiva from '../../assets/mobile/motiva.png';
 import astanahub from '../../assets/mobile/astanahub.png';
+import bgCard from '../../assets/desktop/bgCard.webp';
+import doneIcon from '../../assets/desktop/doneIcon.svg';
+import groupIcon from '../../assets/desktop/groupIcon.svg';
+import workIcon from '../../assets/desktop/workIcon.svg';
+
 const logos = [
-  { src: berg, alt: 'berg', height: 'h-[28px]' },
-  { src: disney, alt: 'disney', height: 'h-[32px]' },
-  { src: forbes, alt: 'forbes', height: 'h-[21px]' },
-  { src: gorilla, alt: 'gorilla', height: 'h-[41px]' },
-  { src: bigroup, alt: 'bigroup', height: 'h-[31px]' },
-  { src: jusanbank, alt: 'jusanbank', height: 'h-[31px]' },
-  { src: gold, alt: 'gold', height: 'h-[38px]' },
-  { src: weproject, alt: 'weporject', height: 'h-9' },
-  { src: capital, alt: 'capital', height: 'h-[20px]' },
-  { src: motiva, alt: 'motiva', height: 'h-[38px]' },
-  { src: astanahub, alt: 'astanahub', height: 'h-[27px]' },
+  { src: berg, alt: 'berg', height: 'h-[24px]' },
+  { src: disney, alt: 'disney', height: 'h-[25px]' },
+  { src: forbes, alt: 'forbes', height: 'h-[20px]' },
+  { src: gorilla, alt: 'gorilla', height: 'h-[34px]' },
+  { src: bigroup, alt: 'bigroup', height: 'h-[25px]' },
+  { src: jusanbank, alt: 'jusanbank', height: 'h-[25px]' },
+  { src: gold, alt: 'gold', height: 'h-[31px]' },
+  { src: weproject, alt: 'weproject', height: 'h-[25px]' },
+  { src: capital, alt: 'capital', height: 'h-[22px]' },
+  { src: motiva, alt: 'motiva', height: 'h-[31px]' },
+  { src: astanahub, alt: 'astanahub', height: 'h-[26px]' },
 ];
 
+const feeItems = [
+  'Unlimited brands & revisions',
+  '2-3 business days delivery time',
+  'Whole team input',
+  'Satisfaction guarantee',
+  'Daily presence in your chats and calls',
+  'No pauses, no delays, just delivery',
+];
+
+function IconSlot({ src, alt }) {
+  return (
+    <div className="flex h-[58px] w-[58px] shrink-0 items-center justify-center rounded-[18px] border border-[#E5E7EB] bg-white shadow-[0_4px_18px_rgba(15,23,42,0.06)]">
+      <div className="flex h-10 w-10 items-center justify-center rounded-[13px] border border-[#EEF0F3] bg-white">
+        <img src={src} alt={alt} className="h-5 w-5 object-contain" />
+      </div>
+    </div>
+  );
+}
+
 const Leaders = () => {
-  const [counter, setCounter] = useState(829);
-  const [isCounting, setIsCounting] = useState(false);
-  const counterRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+  const targetProgress = 2 / 5;
+  const progressRadius = 46;
+  const progressCircumference = 2 * Math.PI * progressRadius;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsCounting(true);
-          observer.disconnect(); // Отключаем после первого появления
+          setIsVisible(true);
+          observer.disconnect();
         }
       },
-      { threshold: 0.5 }, // Запускаем, когда 50% блока в зоне видимости
+      { threshold: 0.25 },
     );
 
-    if (counterRef.current) {
-      observer.observe(counterRef.current);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
 
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!isCounting) return;
-
-    const start = 829;
-    const end = 859;
-    let currentValue = start;
-
-    const updateCounter = () => {
-      if (currentValue < end) {
-        currentValue++;
-        setCounter(currentValue);
-
-        const delay = 50 + Math.pow(currentValue - start, 2);
-        setTimeout(updateCounter, delay);
-      }
-    };
-
-    updateCounter();
-  }, [isCounting]);
-
   return (
-    <div
-      ref={counterRef}
-      className="font-ppneue flex flex-col w-[85%] mx-auto gap-8 mb-16"
+    <section
+      ref={sectionRef}
+      className="font-ppneue flex w-[88%] flex-col items-center gap-5"
     >
-      <div className="flex flex-col text-center mt-12 items-center">
-        <p className="sm25:text-[40px] sm75:text-[40px] sm20:text-[36px] font-medium leading-[48px]">
-          <span className="text-[#1261FC]">Trusted </span>by
-          <br />
-          Industry Leaders{' '}
-        </p>
-      </div>
-      <div className="relative flex flex-col mt-[26px] items-center">
-        <div className="w-[345px] bg-[#F7F7F6] h-[339px] p-6 rounded-3xl flex flex-col justify-between">
-          <p className="text-[80px] font-medium leading-[94px]">{counter}</p>
-          <motion.img
-            src={three}
-            alt="3D"
-            className="absolute -top-20 -right-10"
-            animate={{ x: [-10, 10, -10] }} // Двигаем влево и вправо
-            transition={{
-              duration: 30,
-              repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'easeInOut',
-            }}
-          />
-          <div className="flex justify-end items-center gap-3 mt-auto">
-            <p className="text-right font-medium uppercase leading-tight text-[14px]">
-              Projects completed
-              <br /> successfully
+      <h2 className="text-center text-[40px] font-medium leading-[44px] text-[#080B1F]">
+        Why teams
+        <br />
+        <span className="text-[#1261FC]">choose us?</span>
+      </h2>
+
+      <div className="relative flex h-[199px] w-full flex-col overflow-hidden rounded-[22px] bg-[#F4F4F5] p-[30px]">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-[42px] font-medium leading-[46px] text-[#080B1F]">
+              100+
             </p>
-            <div
-              className="h-12 w-12 bg-[#1261FC] rounded-lg flex justify-center items-center"
-              onClick={() =>
-                (window.location.href =
-                  'https://drive.google.com/file/d/1FizTso9ZKKUooa-Rl6n0Sz6khVYuJCa1/view?usp=sharing')
-              }
-            >
-              <img src={arrow} alt="arrow-45deg" />
-            </div>
+            <p className="mt-2 text-[18px] font-book leading-[24px] text-[#080B1F]">
+              5-star reviews
+            </p>
+          </div>
+          <IconSlot src={groupIcon} alt="Group" />
+        </div>
+
+        <div className="absolute bottom-[28px] left-0 right-0 overflow-hidden">
+          <div className="flex w-max items-center gap-10 opacity-40 animate-scroll">
+            {[...logos, ...logos].map(({ src, alt, height }, index) => (
+              <img
+                key={`${alt}-${index}`}
+                src={src}
+                alt={alt}
+                className={`w-auto shrink-0 ${height}`}
+              />
+            ))}
           </div>
         </div>
       </div>
-      <div className="relative w-full overflow-hidden">
-        {/* Градиенты слева и справа */}
-        <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-white via-white/70 to-transparent z-10"></div>
-        <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-white via-white/70 to-transparent z-10"></div>
 
-        <div className="flex items-center whitespace-nowrap">
-          {[...Array(2)].map((_, i) => (
-            <div
-              className="flex items-center flex-nowrap min-w-max animate-marquee"
-              key={i}
+      <div className="relative h-[clamp(410px,132vw,475px)] w-full overflow-hidden rounded-[22px] bg-[#1261FC] p-[clamp(24px,8vw,30px)] text-white">
+        <img
+          src={bgCard}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-[56%_bottom] min-[375px]:object-center"
+        />
+        <div className="relative z-10">
+          <h3 className="text-[clamp(34px,10.5vw,39px)] font-medium leading-[1.05]">
+            Strong team
+            <br />
+            of A-tier
+            <br />
+            specialists
+          </h3>
+          <p className="mt-3 max-w-[clamp(240px,78vw,280px)] text-[clamp(16px,4.8vw,18px)] font-book leading-[1.4]">
+            Hire a team of pros, pay the cost of one employee
+          </p>
+        </div>
+      </div>
+
+      <div className="flex h-[129px] w-full items-center justify-between rounded-[22px] bg-[#F4F4F5] p-[30px]">
+        <div>
+          <p className="text-[42px] font-medium leading-[46px] text-[#080B1F]">
+            859
+          </p>
+          <p className="mt-2 text-[18px] font-book leading-[24px] text-[#080B1F]">
+            Completed projects
+          </p>
+        </div>
+        <IconSlot src={doneIcon} alt="Done" />
+      </div>
+
+      <div className="relative flex h-[258px] w-full flex-col justify-between rounded-[22px] bg-[#F4F4F5] p-[30px]">
+        <div className="relative h-[100px] w-[100px]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="100"
+            height="100"
+            viewBox="0 0 100 100"
+            fill="none"
+            className="aspect-square h-[100px] w-[100px]"
+          >
+            <path
+              d="M100 50C100 77.6142 77.6142 100 50 100C22.3858 100 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50ZM8 50C8 73.196 26.804 92 50 92C73.196 92 92 73.196 92 50C92 26.804 73.196 8 50 8C26.804 8 8 26.804 8 50Z"
+              fill="white"
+            />
+            <motion.circle
+              cx="50"
+              cy="50"
+              r={progressRadius}
+              fill="none"
+              stroke="#1261FC"
+              strokeLinecap="round"
+              strokeWidth="8"
+              strokeDasharray={progressCircumference}
+              initial={{ strokeDashoffset: progressCircumference }}
+              animate={{
+                strokeDashoffset: isVisible
+                  ? progressCircumference * (1 - targetProgress)
+                  : progressCircumference,
+              }}
+              style={{
+                rotate: -90,
+                transformOrigin: '50% 50%',
+              }}
+              transition={{ duration: 1.25, ease: 'easeOut' }}
+            />
+          </svg>
+        </div>
+
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="text-[42px] font-medium leading-[46px] text-[#080B1F]">
+              2/5
+            </p>
+            <p className="mt-2 text-[18px] font-book leading-[24px] text-[#080B1F]">
+              Client slots available
+            </p>
+          </div>
+          <IconSlot src={workIcon} alt="Work" />
+        </div>
+      </div>
+
+      <div className="flex w-full flex-col rounded-[22px] bg-[#F4F4F5] p-[30px]">
+        <h3 className="text-[26px] font-medium leading-[34px] text-[#080B1F]">
+          Fixed monthly fee
+        </h3>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {feeItems.map((item) => (
+            <span
+              key={item}
+              className="rounded-full bg-white px-2 py-[4px] text-[14px] font-book leading-[20px] text-[#272B3A] shadow-[inset_0_0_0_1px_rgba(8,11,31,0.04)]"
             >
-              {logos.map(({ src, alt, height }, index) => (
-                <div
-                  className={`flex-shrink-0 ${alt === 'gorilla' ? 'mx-0' : 'mx-4'}`}
-                  key={`${i}-${index}`}
-                >
-                  <img src={src} alt={alt} className={`w-auto ${height}`} />
-                </div>
-              ))}
-            </div>
+              {item}
+            </span>
           ))}
         </div>
       </div>
-      <div className="flex flex-col mt-7">
-        <p className="mb-4 font-book text-lg text-[#9CA3AF]">
-          Clients trust us
-        </p>
-        <div className="flex flex-row gap-3">
-          <div>
-            <img src={logoPhone} alt="logoPhone" />
-          </div>
-          <div className="flex flex-col justify-center">
-            <img src={stars} alt="stars" className="w-[76px] h-3" />
-            <div className="flex flex-row justify-center gap-2">
-              <p className="font-book">Rating 4,7</p>
-              <span> · </span>
-              <span>100+ reviews</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 

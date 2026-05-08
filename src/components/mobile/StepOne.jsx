@@ -3,7 +3,9 @@ import { useState, useRef, useEffect } from 'react';
 export default function StepOne({ onComplete, onNext, setFormData }) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
+  const [isFullNameValid, setIsFullNameValid] = useState(true);
   const [isEmailValid, setIsEmailValid] = useState(true);
+  const fullNameRef = useRef(null);
   const emailRef = useRef(null);
 
   useEffect(() => {
@@ -16,6 +18,14 @@ export default function StepOne({ onComplete, onNext, setFormData }) {
 
   const handleNextStep = () => {
     let hasError = false;
+
+    if (!fullName.trim()) {
+      setIsFullNameValid(false);
+      fullNameRef.current.focus();
+      hasError = true;
+    } else {
+      setIsFullNameValid(true);
+    }
 
     if (!email.trim() || !validateEmail(email)) {
       setIsEmailValid(false);
@@ -41,12 +51,29 @@ export default function StepOne({ onComplete, onNext, setFormData }) {
   return (
     <div className="font-ppneue flex flex-col w-[100%] mx-auto gap-6">
       <div className="flex flex-col">
-        <label className="font-medium text-black">Full Name</label>
+        <div className="flex justify-between">
+          <label
+            className={`font-medium ${isFullNameValid ? 'text-black' : 'text-red-600'}`}
+          >
+            Full Name
+          </label>
+          <span
+            className={`text-sm font-medium ${isFullNameValid ? 'text-[#9CA3AF] opacity-50' : 'text-red-600'}`}
+          >
+            *Required field
+          </span>
+        </div>
         <input
+          ref={fullNameRef}
           type="text"
           value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-          className="mt-1 p-2 text-gray-900 bg-transparent border-b border-black border-opacity-10 outline-none"
+          onChange={(e) => {
+            setFullName(e.target.value);
+            if (e.target.value.trim()) setIsFullNameValid(true);
+          }}
+          className={`mt-1 p-2 text-gray-900 bg-transparent border-b outline-none ${
+            isFullNameValid ? 'border-black border-opacity-10' : 'border-red-600'
+          }`}
           placeholder="John Doe"
         />
       </div>
@@ -80,7 +107,7 @@ export default function StepOne({ onComplete, onNext, setFormData }) {
       <button
         onClick={handleNextStep}
         className={`font-medium mt-4 px-4 py-2 sm25:text-base sm75:text-base sm20:text-base rounded-lg mb-12 h-12 sm25:w-[345px] sm75:w-[305px] sm20:w-[260px] transition ${
-          email.trim() && isEmailValid
+          fullName.trim() && email.trim() && isEmailValid
             ? 'bg-[#1261FC] hover:bg-blue-600 text-white'
             : 'bg-[#A3C4FD] text-white'
         }`}

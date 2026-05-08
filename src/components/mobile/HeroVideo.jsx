@@ -1,11 +1,19 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import serviceBg from '../../assets/desktop/serviceBg.webp';
 
-export default function HeroVideo({ src, poster }) {
+export default function HeroVideo({ src, poster, animateOnScroll = false }) {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
   const buttonRef = useRef(null);
-  const [isHovering, setIsHovering] = useState(false);
+  const frameRef = useRef(null);
+  const pointerRef = useRef({ x: 24, y: 0 });
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start 100%', 'start 42%'],
+  });
+  const scale = useTransform(scrollYProgress, [0, 1], [0.52, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [210, 0]);
 
   const openFullscreenFromStart = async () => {
     const v = videoRef.current;
@@ -36,28 +44,45 @@ export default function HeroVideo({ src, poster }) {
     if (!containerRef.current || !buttonRef.current) return;
 
     const rect = containerRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left - 31; // 31 is half of button width (62px)
-    const y = e.clientY - rect.top - 31;
+    pointerRef.current = {
+      x: e.clientX - rect.left - 55,
+      y: e.clientY - rect.top - rect.height + 55,
+    };
 
-    buttonRef.current.style.left = `${x}px`;
-    buttonRef.current.style.top = `${y}px`;
+    if (frameRef.current) return;
+
+    frameRef.current = requestAnimationFrame(() => {
+      if (buttonRef.current) {
+        buttonRef.current.style.transform = `translate3d(${pointerRef.current.x}px, ${pointerRef.current.y}px, 0)`;
+      }
+      frameRef.current = null;
+    });
   };
 
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-  };
+  const resetButtonPosition = () => {
+    if (!buttonRef.current) return;
 
-  const handleMouseLeave = () => {
-    setIsHovering(false);
+    buttonRef.current.style.transform = 'translate3d(0, 0, 0)';
   };
 
   return (
-    <div
+    <motion.div
       ref={containerRef}
-      className="flex flex-row max-w-[1200px] w-full justify-between relative bg-[#080B1F] rounded-[30px] overflow-hidden mt-24"
+      className={`flex flex-row w-[90%] max-w-[1200px] justify-between relative bg-[#080B1F] rounded-[30px] overflow-hidden mt-8 ${
+        animateOnScroll ? 'md:mt-[40px]' : 'md:mt-24'
+      }`}
+      style={
+        animateOnScroll
+          ? {
+              scale,
+              y,
+              transformOrigin: 'top center',
+              willChange: 'transform',
+            }
+          : undefined
+      }
       onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseLeave={resetButtonPosition}
     >
       <img
         src={serviceBg}
@@ -66,7 +91,7 @@ export default function HeroVideo({ src, poster }) {
       />
       <video
         ref={videoRef}
-        className="relative z-10 w-full h-[420px] md:h-[520px] object-cover"
+        className="relative z-10 w-full h-[210px] min-[430px]:h-[260px] sm:h-[340px] md:h-[520px] object-cover"
         src={src}
         poster={poster}
         autoPlay
@@ -77,23 +102,6 @@ export default function HeroVideo({ src, poster }) {
       />
       <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
 
-      {/* Hover overlay with fade */}
-      <div
-        className={`pointer-events-none absolute inset-0 z-30 transition-opacity duration-300 flex items-center justify-center ${
-          isHovering ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        <img
-          src={serviceBg}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/80" />
-        <span className="relative z-10 font-ppneue text-[34px] font-book leading-[44px] text-white">
-          Watch our demo
-        </span>
-      </div>
-
       {/* Play button that follows cursor */}
       <button
         ref={buttonRef}
@@ -103,10 +111,11 @@ export default function HeroVideo({ src, poster }) {
                    shadow-lg hover:scale-[1.03] active:scale-[0.98]"
         style={{
           left: '24px',
-          top: 'calc(100% - 86px)',
+          bottom: '24px',
+          transform: 'translate3d(0, 0, 0)',
           transition:
-            'left 0.05s cubic-bezier(0.25, 0.46, 0.45, 0.94), top 0.05s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-          willChange: 'left, top',
+            'transform 0.12s cubic-bezier(0.22, 1, 0.36, 1)',
+          willChange: 'transform',
         }}
         aria-label="Play video"
       >
@@ -119,6 +128,6 @@ export default function HeroVideo({ src, poster }) {
           }}
         />
       </button>
-    </div>
+    </motion.div>
   );
 }

@@ -36,19 +36,34 @@ const services = [
     img: item2,
   },
   {
-    title: 'Branding',
-    description: ['Logo', 'Brandbook', 'Illustrations', 'Mockups', 'Icons'],
+    title: 'Editing',
+    description: [
+      'Long form',
+      'Short form',
+      'Voice Over',
+      'Scenario',
+      'Product Demo',
+    ],
     img: item3,
   },
   {
-    title: 'Outdoor and other',
-    description: ['Packaging', 'Stationery', 'Trade show banners'],
+    title: 'Branding and Outdoor',
+    description: [
+      'Logo',
+      'Brandbook',
+      'Illustrations',
+      'Mockups',
+      'Icons',
+      'Packaging',
+      'Stationery',
+      'Trade show banners',
+    ],
     img: item4,
   },
 ];
 
 const ContentDesktop = () => {
-  const [openIndex, setOpenIndex] = useState();
+  const [openIndex, setOpenIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleToggle = (index) => {
@@ -84,11 +99,14 @@ const ContentDesktop = () => {
         </div>
 
         <div className=" space-y-4">
-          {services.map((service, index) => (
+          {services.map((service, index) => {
+            const isOpen = openIndex === index;
+
+            return (
             <div key={index} className="flex py-5 gap-8">
               <div className="w-28 flex items-start justify-center">
                 <AnimatePresence>
-                  {openIndex === index && (
+                  {isOpen && (
                     <motion.img
                       src={service.img}
                       alt={service.title}
@@ -122,7 +140,7 @@ const ContentDesktop = () => {
                   </span>
                   <motion.span
                     className="transition-transform"
-                    animate={{ rotate: openIndex === index ? 180 : 0 }}
+                    animate={{ rotate: isOpen ? 180 : 0 }}
                   >
                     <svg
                       fill="none"
@@ -140,7 +158,7 @@ const ContentDesktop = () => {
                 </div>
 
                 <AnimatePresence>
-                  {openIndex === index && (
+                  {isOpen && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
@@ -163,7 +181,8 @@ const ContentDesktop = () => {
                 </AnimatePresence>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
       <CallModalDesktop

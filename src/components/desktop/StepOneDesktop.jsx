@@ -42,9 +42,22 @@ export default function StepOne({ onComplete, onNext, setFormData }) {
     <div className="font-ppneue flex flex-col w-full gap-12">
       {/* Full Name Input */}
       <div className="flex flex-col">
-        <label className="font-medium text-[#090C21] text-[22px]">
-          Full Name
-        </label>
+        <div className="flex justify-between">
+          <label
+            className={`font-medium text-[22px] ${
+              isFullNameValid ? 'text-[#090C21]' : 'text-red-600'
+            }`}
+          >
+            Full Name
+          </label>
+          <span
+            className={`text-sm font-medium ${
+              isFullNameValid ? 'text-[#9CA3AF] opacity-50' : 'text-red-600'
+            }`}
+          >
+            *Required field
+          </span>
+        </div>
         <input
           ref={fullNameRef}
           type="text"
@@ -60,11 +73,6 @@ export default function StepOne({ onComplete, onNext, setFormData }) {
           }`}
           placeholder="John Doe"
         />
-        {!isFullNameValid && (
-          <span className="text-red-600 text-sm mt-1">
-            Full Name is required
-          </span>
-        )}
       </div>
 
       <div className="flex flex-col">

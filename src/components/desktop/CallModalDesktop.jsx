@@ -166,22 +166,33 @@ const CallModalDesktop = ({ isOpen, onClose }) => {
                 onSubmit={handleSubmit}
               >
                 <div>
-                  <label className="text-[22px] font-medium text-[#090C21]">
-                    Full Name
+                  <label
+                    className={`text-[22px] font-medium flex justify-between ${
+                      errors.fullName ? 'text-red-600' : 'text-[#090C21]'
+                    }`}
+                  >
+                    Full Name{' '}
+                    <span
+                      className={`text-sm ${
+                        errors.fullName ? 'text-red-600' : 'text-[#9CA3AF]'
+                      }`}
+                    >
+                      *Required field
+                    </span>
                   </label>
                   <input
                     type="text"
                     name="fullName"
-                    className="w-full border-b border-[#9CA3AF] p-2 mt-2 bg-transparent text-[#637695] focus:outline-none"
+                    className={`w-full border-b p-2 mt-2 bg-transparent text-[#637695] focus:outline-none ${
+                      errors.fullName ? 'border-red-600' : 'border-[#9CA3AF]'
+                    }`}
                     placeholder="John Doe"
                     value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
+                    onChange={(e) => {
+                      setFullName(e.target.value);
+                      setErrors((prev) => ({ ...prev, fullName: undefined }));
+                    }}
                   />
-                  {errors.fullName && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.fullName}
-                    </p>
-                  )}
                 </div>
 
                 <div>

@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import berg from '../../assets/desktop/berg.png';
 import disney from '../../assets/desktop/disney.png';
 import forbes from '../../assets/desktop/forbes.png';
@@ -38,31 +40,88 @@ const logos = [
   { src: kazakhtourism, alt: 'kazakhtourism', height: 'h-[78px]' },
 ];
 
+const sectionVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const titleVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+};
+
+const logoVariants = {
+  hidden: { opacity: 0, y: 26, scale: 0.96, filter: 'blur(8px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.65, ease: 'easeOut' },
+  },
+};
+
 const ContentDesktop = () => {
   return (
     <div className="font-ppneue flex flex-col w-[85%] items-center mt-36">
-      <div className="justify-center items-center max-w-[1200px] w-full flex flex-col gap-12">
-        <div className="w-full flex items-center gap-6 my-20 mb-4">
-          <div className="flex-1 h-px bg-[#A4B0C2]" />
+      <motion.div
+        className="justify-center items-center max-w-[1200px] w-full flex flex-col gap-12"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+      >
+        <motion.div
+          className="w-full flex items-center gap-6 my-20 mb-4"
+          variants={titleVariants}
+        >
+          <motion.div
+            className="flex-1 h-px bg-[#A4B0C2]"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            style={{ transformOrigin: 'right' }}
+          />
           <span className="text-[#A4B0C2] text-[22px] font-medium">
             Trusted by 129 clients in 7 countries
           </span>
-          <div className="flex-1 h-px bg-[#A4B0C2]" />
-        </div>
+          <motion.div
+            className="flex-1 h-px bg-[#A4B0C2]"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            style={{ transformOrigin: 'left' }}
+          />
+        </motion.div>
 
         <div className="grid grid-cols-6 gap-12 ">
           {logos.map((logo, index) => (
-            <div className="h-[105px]">
+            <motion.div
+              key={logo.alt + index}
+              className="h-[105px]"
+              variants={logoVariants}
+            >
               <img
-                key={index}
                 src={logo.src}
                 alt={logo.alt}
                 className={`mx-auto ${logo.height} opacity-80 hover:opacity-100 transition-opacity duration-300`}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

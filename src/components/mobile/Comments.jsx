@@ -12,7 +12,7 @@ const Comments = (props) => {
 
   return (
     <section className="font-ppneue embla">
-      <div className="embla__viewport" ref={emblaRef}>
+      <div className="embla__viewport mt-12" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((testimonial, index) => (
             <div className="embla__slide" key={index}>
