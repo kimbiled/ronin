@@ -39,7 +39,7 @@ export default function PreloaderDesktop({ onComplete }) {
           className="w-screen h-screen object-cover"
         />
         <div className="absolute bottom-16 text-[#637695] text-lg font-book">
-          © Ronin Design 2025
+          © Ronin Design 2026
         </div>
       </div>
     )

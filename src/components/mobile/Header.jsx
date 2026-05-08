@@ -209,7 +209,7 @@ const Header = () => {
                 </div>
                 <div className="text-xs flex flex-col gap-3 font-book mt-[2px]">
                   <p className="text-white">Privacy Policy & Cookies</p>
-                  <p>© Ronin Design 2025</p>
+                  <p>© Ronin Design 2026</p>
                 </div>
               </motion.div>
             </div>

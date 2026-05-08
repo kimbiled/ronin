@@ -118,7 +118,7 @@ export default function Footer() {
               </p>
             ))}
           </div>
-          <p className="text-[#637695]">©2019-2025 Ronin Design Agency</p>
+          <p className="text-[#637695]">©2019-2026 Ronin Design Agency</p>
         </div>
       </div>
     </footer>

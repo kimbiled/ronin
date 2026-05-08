@@ -118,7 +118,7 @@ const FooterDesktop = () => {
             <div className="flex flex-col items-center gap-4">
               <img src={foot} alt="footer" className="w-[164px]" />
               <p className="text-[#9CA3AF] text-lg font-book">
-                © Ronin Design 2025
+                © Ronin Design 2026
               </p>
             </div>
 
