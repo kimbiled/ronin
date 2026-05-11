@@ -1,4 +1,4 @@
-import NewsArticleDesktopTemplate from '../components/desktop/NewsArticleDesktopTemplate';
+import NewsArticleMobileTemplate from '../components/mobile/NewsArticleMobileTemplate';
 import n2 from '../assets/desktop/n2.webp';
 
 const article = {
@@ -41,13 +41,8 @@ const article = {
       ],
     },
   ],
-  ctaTitle: 'Ready to turn your website into a client-winning tool?',
-  ctaText:
-    'Build a website that clearly explains your value, guides visitors, and makes taking action simple.',
 };
 
-const WebsiteConversionDesktop = () => (
-  <NewsArticleDesktopTemplate article={article} />
-);
-
-export default WebsiteConversionDesktop;
+export default function WebsiteConversion() {
+  return <NewsArticleMobileTemplate article={article} />;
+}

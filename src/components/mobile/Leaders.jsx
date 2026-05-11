@@ -79,6 +79,7 @@ const Leaders = () => {
     <section
       ref={sectionRef}
       className="font-ppneue flex w-[88%] flex-col items-center gap-5"
+      id="about"
     >
       <h2 className="text-center text-[40px] font-medium leading-[44px] text-[#080B1F]">
         Why teams

@@ -15,16 +15,16 @@ const Header = () => {
 
   const socialLinks = [
     { title: 'Instagram', href: 'https://www.instagram.com/ronin.dsgn/' },
+    { title: 'Telegram', href: 'https://t.me/jedikuna', disabled: false },
+    { title: 'WhatsApp', href: 'https://wa.me/77052771150', disabled: false },
     { title: 'Behance', href: 'https://www.behance.net/ronindsgn' },
-    { title: 'Dribbble', href: '#', disabled: true },
   ];
 
   const menuLinks = [
     { title: 'Services', href: '#services' },
     { title: 'Works', href: '#recentProjects' },
-    { title: 'Development', href: '#development' },
     { title: 'About', href: '#about' },
-    { title: 'Blog', href: '#form-section' },
+    { title: 'Blog', href: '#blog' },
   ];
 
   useEffect(() => {

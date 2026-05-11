@@ -75,7 +75,7 @@ const FooterDesktop = () => {
                   About
                 </button>
                 <button
-                  onClick={() => handleNavigation('form-section')}
+                  onClick={() => handleNavigation('blog')}
                   className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
                 >
                   Blog

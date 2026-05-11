@@ -2,7 +2,7 @@ import Header from '../components/mobile/Header';
 import Footer from '../components/mobile/Footer';
 import { useRef } from 'react';
 
-import b3 from '../assets/icons/b3.png';
+import n6 from '../assets/desktop/n6.svg';
 import arrow from '../assets/icons/arrow-right.svg';
 
 const sections = [
@@ -56,7 +56,7 @@ const ThirdNews = () => {
 
         {/* Картинка */}
         <div className="mt-6 bg-gray-100 rounded-xl overflow-hidden">
-          <img src={b3} alt="Why You Need a Design System" className="w-full" />
+          <img src={n6} alt="Why You Need a Design System" className="w-full" />
         </div>
 
         {/* Навигация по секциям */}

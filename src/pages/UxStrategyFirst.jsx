@@ -1,4 +1,4 @@
-import NewsArticleDesktopTemplate from '../components/desktop/NewsArticleDesktopTemplate';
+import NewsArticleMobileTemplate from '../components/mobile/NewsArticleMobileTemplate';
 import n1 from '../assets/desktop/n1.webp';
 
 const article = {
@@ -41,13 +41,8 @@ const article = {
       ],
     },
   ],
-  ctaTitle: 'Ready to turn your idea into a clear product?',
-  ctaText:
-    'Start with a strong UX strategy that connects your business goals with real user needs.',
 };
 
-const UxStrategyFirstDesktop = () => (
-  <NewsArticleDesktopTemplate article={article} />
-);
-
-export default UxStrategyFirstDesktop;
+export default function UxStrategyFirst() {
+  return <NewsArticleMobileTemplate article={article} />;
+}

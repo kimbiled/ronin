@@ -1,5 +1,5 @@
 import NewsArticleDesktopTemplate from '../components/desktop/NewsArticleDesktopTemplate';
-import b1 from '../assets/desktop/b1.png';
+import n4 from '../assets/desktop/n4.svg';
 
 const article = {
   title: 'Inclusive Design Made Simple',
@@ -7,7 +7,7 @@ const article = {
     'Inclusive design isn’t just a buzzword; it’s a necessity in today’s digital-first world. By ensuring your designs are accessible, you create products that work for everyone, regardless of their abilities or limitations. But what does "inclusive design" really mean? Let’s break it down',
   date: 'Jan 1, 2025',
   readTime: '2 min read',
-  image: b1,
+  image: n4,
   showSectionNumbers: false,
   sections: [
     {

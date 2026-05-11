@@ -2,7 +2,7 @@ import Header from '../components/mobile/Header';
 import Footer from '../components/mobile/Footer';
 import { useRef } from 'react';
 
-import b1 from '../assets/icons/b1.png';
+import n4 from '../assets/desktop/n4.svg';
 import arrow from '../assets/icons/arrow-right.svg';
 
 const sections = [
@@ -48,7 +48,7 @@ const FirstNews = () => {
           <span>• 2 min read</span>
         </div>
         <div className="mt-6 bg-gray-100 rounded-xl overflow-hidden">
-          <img src={b1} alt="Abstract Design" className="w-full" />
+          <img src={n4} alt="Abstract Design" className="w-full" />
         </div>
 
         {/* Навигация */}

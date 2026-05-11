@@ -2,7 +2,7 @@ import Header from '../components/mobile/Header';
 import Footer from '../components/mobile/Footer';
 import { useRef } from 'react';
 
-import b2 from '../assets/icons/b2.png';
+import n5 from '../assets/desktop/n5.svg';
 import arrow from '../assets/icons/arrow-right.svg';
 
 const sections = [
@@ -56,7 +56,7 @@ const SecondNews = () => {
 
         {/* Картинка */}
         <div className="mt-6 bg-gray-100 rounded-xl overflow-hidden">
-          <img src={b2} alt="Future of UX" className="w-full" />
+          <img src={n5} alt="Future of UX" className="w-full" />
         </div>
 
         {/* Навигация по секциям */}

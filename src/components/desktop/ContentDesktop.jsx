@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import item1 from '../../assets/desktop/item1.png';
 import item2 from '../../assets/desktop/item2.png';
@@ -62,6 +62,8 @@ const services = [
   },
 ];
 
+const expandTransition = { duration: 0.32, ease: [0.4, 0, 0.2, 1] };
+
 const ContentDesktop = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -98,26 +100,30 @@ const ContentDesktop = () => {
           </h5>
         </div>
 
-        <div className=" space-y-4">
+        <div className="flex flex-col gap-9">
           {services.map((service, index) => {
             const isOpen = openIndex === index;
 
             return (
-            <div key={index} className="flex py-5 gap-8">
-              <div className="w-28 flex items-start justify-center">
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.img
-                      src={service.img}
-                      alt={service.title}
-                      className="flex-shrink-0 w-auto h-auto"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.4, ease: 'easeInOut' }}
-                    />
-                  )}
-                </AnimatePresence>
+            <motion.div
+              key={index}
+              layout
+              animate={{ minHeight: isOpen ? 112 : 35 }}
+              transition={expandTransition}
+              className="flex items-start gap-8"
+            >
+              <div className="relative w-28 shrink-0">
+                <motion.img
+                  src={service.img}
+                  alt={service.title}
+                  className="absolute left-0 top-0 max-h-[112px] max-w-[112px] shrink-0 object-contain"
+                  animate={{
+                    opacity: isOpen ? 1 : 0,
+                    x: isOpen ? 0 : -14,
+                    scale: isOpen ? 1 : 0.96,
+                  }}
+                  transition={expandTransition}
+                />
               </div>
 
               <div className="w-[373px]">
@@ -141,6 +147,7 @@ const ContentDesktop = () => {
                   <motion.span
                     className="transition-transform"
                     animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={expandTransition}
                   >
                     <svg
                       fill="none"
@@ -157,30 +164,30 @@ const ContentDesktop = () => {
                   </motion.span>
                 </div>
 
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.5, ease: 'easeInOut' }}
-                      className="mt-3 overflow-hidden"
-                    >
-                      <div className="flex flex-wrap gap-2">
-                        {service.description.map((item, idx) => (
-                          <div
-                            key={idx}
-                            className="h-8 bg-[#F7F7F6] px-[15px] py-[5px] rounded flex items-center rounded-full"
-                          >
-                            <p className="text-[#090C21] font-book">{item}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <motion.div
+                  className="grid overflow-hidden"
+                  animate={{
+                    gridTemplateRows: isOpen ? '1fr' : '0fr',
+                    opacity: isOpen ? 1 : 0,
+                    marginTop: isOpen ? 12 : 0,
+                  }}
+                  transition={expandTransition}
+                >
+                  <div className="min-h-0">
+                    <div className="flex flex-wrap gap-2">
+                      {service.description.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="flex h-8 items-center rounded-full bg-[#F7F7F6] px-[15px] py-[5px]"
+                        >
+                          <p className="font-book text-[#090C21]">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
             );
           })}
         </div>

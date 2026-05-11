@@ -21,12 +21,12 @@ const NewsDesktop = () => {
 
   const featuredArticles = [
     {
-      id: 'ui-design-trust',
-      category: 'Trust',
-      title: ['How Good UI Design', 'Builds Trust'],
-      date: 'Jan 14, 2026',
+      id: 'ux-strategy-first',
+      category: 'Strategy',
+      title: ['From Idea to Product:', 'Why UX Strategy Comes First'],
+      date: 'Apr 18, 2026',
       readTime: '2 min read',
-      image: n4,
+      image: n1,
     },
     {
       id: 'website-design-conversion',
@@ -34,26 +34,26 @@ const NewsDesktop = () => {
       title: ['Website Design That Turns', 'Visitors Into Clients'],
       date: 'Mar 20, 2026',
       readTime: '3 min read',
-      image: n5,
+      image: n2,
     },
     {
-      id: 'ux-strategy-first',
-      category: 'Strategy',
-      title: ['From Idea to Product:', 'Why UX Strategy Comes First'],
-      date: 'Apr 18, 2026',
+      id: 'ui-design-trust',
+      category: 'Trust',
+      title: ['How Good UI Design', 'Builds Trust'],
+      date: 'Jan 14, 2026',
       readTime: '2 min read',
-      image: n6,
+      image: n3,
     },
   ];
 
   const existingArticles = [
     {
-      id: 'inclusive-design',
-      category: 'Accessibility',
-      title: ['Inclusive Design', 'Made Simple'],
-      date: 'Jan 1, 2025',
-      readTime: '2 min read',
-      image: n3,
+      id: 'design-system-need',
+      category: 'Scalable Design',
+      title: ['Why You Need a', 'Design System'],
+      date: 'Jan 22, 2025',
+      readTime: '3 min read',
+      image: n6,
     },
     {
       id: 'ux-trends-2025',
@@ -61,15 +61,15 @@ const NewsDesktop = () => {
       title: ['The Future of UX: Emerging', ' Trends to Watch in 2025'],
       date: 'Jan 4, 2025',
       readTime: '2 min read',
-      image: n2,
+      image: n5,
     },
     {
-      id: 'design-system-need',
-      category: 'Scalable Design',
-      title: ['Why You Need a', 'Design System'],
-      date: 'Jan 22, 2025',
-      readTime: '3 min read',
-      image: n1,
+      id: 'inclusive-design',
+      category: 'Accessibility',
+      title: ['Inclusive Design', 'Made Simple'],
+      date: 'Jan 1, 2025',
+      readTime: '2 min read',
+      image: n4,
     },
   ];
 
@@ -83,7 +83,7 @@ const NewsDesktop = () => {
   };
 
   return (
-    <section className="font-ppneue w-full bg-[#090C21] h-auto">
+    <section className="font-ppneue w-full bg-[#090C21] h-auto" id="blog">
       <div className="flex flex-col w-[85%] items-center mt-20 mx-auto">
         <div className="mt-[100px] flex flex-col max-w-[1200px] w-full justify-between gap-12">
           <p className="text-white font-medium leading-[92px] text-[84px] ">

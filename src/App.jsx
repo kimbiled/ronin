@@ -8,6 +8,9 @@ import DesktopLayout from './pages/DesktopLayout';
 import FirstNews from './pages/FirstNews';
 import SecondNews from './pages/SecondNews';
 import ThirdNews from './pages/ThirdNews';
+import UiDesignTrust from './pages/UiDesignTrust';
+import WebsiteConversion from './pages/WebsiteConversion';
+import UxStrategyFirst from './pages/UxStrategyFirst';
 import NotFound from './pages/NotFound';
 import NotFoundDesktop from './pages/NotFoundDesktop';
 import FirstNewsDesktop from './pages/FirstNewsDesktop';
@@ -178,6 +181,12 @@ function App() {
       <Route path="/news/inclusive-design" element={<FirstNews />} />
       <Route path="/news/ux-trends-2025" element={<SecondNews />} />
       <Route path="/news/design-system-need" element={<ThirdNews />} />
+      <Route path="/news/ui-design-trust" element={<UiDesignTrust />} />
+      <Route
+        path="/news/website-design-conversion"
+        element={<WebsiteConversion />}
+      />
+      <Route path="/news/ux-strategy-first" element={<UxStrategyFirst />} />
       <Route
         path="/news/desktop/inclusive-design"
         element={<FirstNewsDesktop />}

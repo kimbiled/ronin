@@ -79,7 +79,7 @@ const HeaderDesktop = () => {
             </button>
             <button
               className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
-              onClick={() => handleNavigation('form-section')}
+              onClick={() => handleNavigation('blog')}
             >
               Blog
             </button>

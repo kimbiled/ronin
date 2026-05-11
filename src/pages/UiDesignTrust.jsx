@@ -1,4 +1,4 @@
-import NewsArticleDesktopTemplate from '../components/desktop/NewsArticleDesktopTemplate';
+import NewsArticleMobileTemplate from '../components/mobile/NewsArticleMobileTemplate';
 import n3 from '../assets/desktop/n3.webp';
 
 const article = {
@@ -42,13 +42,8 @@ const article = {
       ],
     },
   ],
-  ctaTitle: 'Ready to create an interface users can trust?',
-  ctaText:
-    'Start with clear, consistent UI design that helps people feel confident from the first click.',
 };
 
-const UiDesignTrustDesktop = () => (
-  <NewsArticleDesktopTemplate article={article} />
-);
-
-export default UiDesignTrustDesktop;
+export default function UiDesignTrust() {
+  return <NewsArticleMobileTemplate article={article} />;
+}

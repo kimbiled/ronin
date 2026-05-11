@@ -78,6 +78,7 @@ export default function LeadersDesktop() {
   return (
     <section
       ref={sectionRef}
+      id="about"
       className="font-ppneue flex w-[85%] flex-col items-center"
     >
       <div className="flex w-full max-w-[1200px] flex-col items-center">

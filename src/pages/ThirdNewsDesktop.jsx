@@ -1,5 +1,5 @@
 import NewsArticleDesktopTemplate from '../components/desktop/NewsArticleDesktopTemplate';
-import b3 from '../assets/desktop/b3.png';
+import n6 from '../assets/desktop/n6.svg';
 
 const article = {
   title: 'Why You Need a Design System',
@@ -7,7 +7,7 @@ const article = {
     'Ever find yourself re-creating the same buttons, colors, and layouts for every project? That’s where a design system comes in. It’s a game-changer for teams looking to streamline workflows, save time, and deliver consistent results',
   date: 'Jan 22, 2025',
   readTime: '3 min read',
-  image: b3,
+  image: n6,
   showSectionNumbers: false,
   sections: [
     {

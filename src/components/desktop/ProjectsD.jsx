@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
@@ -72,9 +72,7 @@ import p11 from '../../assets/desktop/p11.svg';
 import p22 from '../../assets/desktop/p22.svg';
 import p33 from '../../assets/desktop/p33.svg';
 import p55 from '../../assets/desktop/p55.svg';
-import p66 from '../../assets/desktop/p66.svg';
 import p77 from '../../assets/desktop/p77.svg';
-import p99 from '../../assets/desktop/p99.svg';
 
 //logos
 import aqua from '../../assets/desktop/aquaLogo.svg';
@@ -86,6 +84,8 @@ import motivaLogo from '../../assets/desktop/motivaLogo.svg';
 import skygenLogo from '../../assets/desktop/skygenLogo.svg';
 import theoneLogo from '../../assets/desktop/oneLogo.svg';
 import schoolGame from '../../assets/desktop/schoolGameLogo.svg';
+import sharique from '../../assets/desktop/shariqueLogo.svg';
+import glenbotal from '../../assets/desktop/glenbotalLogo.svg';
 
 //flags
 import australia from '../../assets/desktop/australia.svg';
@@ -106,7 +106,7 @@ const projects = [
     logo: p11,
     title: 'Antix',
     flag: uae,
-    tags: ['Web design', 'Development', 'WEB3'],
+    tags: ['Web Design'],
     highlight: '$5.8M+ Raised',
     badgeImage: verify,
     isWide: true,
@@ -119,7 +119,7 @@ const projects = [
     logo: skygenLogo,
     title: 'Skygen',
     flag: usa,
-    tags: ['UX/UI', 'Visual Identity', 'Animations'],
+    tags: ['UX/UI', 'Animations'],
     tagTone: 'light',
     badgeRows: [3],
   },
@@ -129,7 +129,7 @@ const projects = [
     logo: p22,
     title: 'Hash Cats',
     flag: uk,
-    tags: ['Prototyping', 'Design System', 'Mobile Design'],
+    tags: ['Mobile Design'],
     highlight: '900.000+ Users',
     badgeImage: verify,
     badgeRows: [2, 2],
@@ -139,7 +139,7 @@ const projects = [
     images: [crypto1, crypto2, crypto3, crypto4, crypto5, crypto6],
     logo: cryptoIndex,
     title: 'CryptoIndex',
-    tags: ['UX/UI', 'Visual Identity', 'Animations'],
+    tags: ['UX/UI', 'Animations'],
     badgeRows: [3],
     isTall: true,
   },
@@ -149,7 +149,7 @@ const projects = [
     logo: schoolGame,
     title: 'School Game',
     flag: kz,
-    tags: ['UX/UI', 'Visual Identity', 'Animations'],
+    tags: ['UX/UI', 'Animations'],
     tagTone: 'light',
     badgeRows: [3],
     isTall: true,
@@ -159,7 +159,7 @@ const projects = [
     images: [aqua1, aqua2, aqua3, aqua4],
     logo: aqua,
     title: 'Aqua Hair',
-    tags: ['UX/UI', 'Visual Identity', 'Animations'],
+    tags: ['UX/UI', 'Animations'],
     tagTone: 'light',
     badgeRows: [3],
   },
@@ -169,11 +169,11 @@ const projects = [
     logo: p55,
     title: 'Dr. Berg',
     flag: usa,
-    tags: ['Content creation', 'Graphic design', 'SMM'],
+    tags: ['SMM'],
     highlight: '20M+ Followers',
     badgeImage: verify,
     tagTone: 'light',
-    badgeRows: [3, 1],
+    badgeRows: [3],
   },
   {
     id: 5,
@@ -181,24 +181,24 @@ const projects = [
     logo: p77,
     title: 'Degen AI',
     flag: australia,
-    tags: ['Frontend Development', 'Web3', 'Custom Web Solutions'],
-    badgeRows: [2, 1],
+    tags: ['Frontend Development'],
+    badgeRows: [2],
   },
   {
     id: 8,
     images: [sharique1, sharique2, sharique3, sharique4],
-    logo: p66,
+    logo: sharique,
     title: 'Sharique',
-    tags: ['Brand Strategy', 'Visual Identity', 'Fintech'],
+    tags: ['Visual Identity'],
     tagTone: 'light',
     badgeRows: [3],
   },
   {
     id: 6,
     images: [glen1, glen2, glen3, glen4],
-    logo: p99,
+    logo: glenbotal,
     title: 'Glenbotal',
-    tags: ['Full-Stack Development', 'UI/UX', 'E-commerce'],
+    tags: ['UX/UI'],
     highlight: '4.7 Trustpilot',
     badgeImage: star,
     tagTone: 'light',
@@ -210,15 +210,15 @@ const projects = [
     logo: p33,
     title: 'Orbital 7',
     flag: australia,
-    tags: ['Frontend Development', 'Web3', 'Custom Web Solutions'],
-    badgeRows: [2, 1],
+    tags: ['Frontend Development'],
+    badgeRows: [2],
   },
   {
     id: null,
     images: [dexe1, dexe2, dexe3, dexe4],
     logo: dexe,
     title: 'Dexe',
-    tags: ['UX/UI', 'Visual Identity', 'Animations'],
+    tags: ['UX/UI', 'Visual Identity'],
     badgeRows: [3],
   },
   {
@@ -227,7 +227,7 @@ const projects = [
     logo: motivaLogo,
     title: 'Motiva',
     flag: usa,
-    tags: ['UX/UI', 'Visual Identity', 'Animations'],
+    tags: ['UX/UI', 'Visual Identity'],
     tagTone: 'light',
     badgeRows: [3],
     isTall: true,
@@ -238,7 +238,7 @@ const projects = [
     logo: theoneLogo,
     title: 'The One',
     flag: australia,
-    tags: ['UX/UI', 'Visual Identity', 'Animations'],
+    tags: ['UX/UI', 'Visual Identity'],
     badgeRows: [3],
   },
   {
@@ -247,15 +247,15 @@ const projects = [
     logo: dunes,
     title: 'Dunes',
     flag: australia,
-    tags: ['Launchpad Design', 'PitchDeck Design', 'Web3'],
-    badgeRows: [2, 1],
+    tags: ['Launchpad & Pitcheck Design'],
+    badgeRows: [2],
   },
   {
     id: null,
     images: [cephla1, cephla2, cephla3],
     logo: cephla,
     title: 'Cephla',
-    tags: ['UX/UI', 'Visual Identity', 'Animations'],
+    tags: ['UX/UI', 'Visual Identity'],
     badgeRows: [3],
   },
 ];
@@ -292,44 +292,23 @@ function ProjectTile({ project }) {
   };
 
   const heightClass = project.isWide
-    ? 'h-[416px]'
+    ? 'h-[520px]'
     : project.isTall
-      ? 'h-[632px]'
-      : 'h-[424px]';
+      ? 'h-[790px]'
+      : 'h-[530px]';
   const tagClass =
     project.tagTone === 'light'
       ? 'border-white/50 bg-[rgba(255,255,255,0.68)] text-black'
       : 'border-white/20 bg-black/30 text-white';
   const badges = [
-    ...project.tags.map((tag) => ({ type: 'tag', label: tag })),
+    ...(project.logo
+      ? [{ type: 'logo', label: project.title, image: project.logo }]
+      : [{ type: 'logoText', label: project.title }]),
     ...(project.highlight
       ? [{ type: 'highlight', label: project.highlight }]
       : []),
+    ...project.tags.map((tag) => ({ type: 'tag', label: tag })),
   ];
-  const leftBadges =
-    project.highlightAlign === 'right'
-      ? badges.filter((badge) => badge.type !== 'highlight')
-      : badges;
-  const rightBadge = badges.find((badge) => badge.type === 'highlight');
-  const badgeRows = project.badgeRows || [2];
-  const groupedBadges = badgeRows.reduce(
-    (rows, rowSize) => {
-      if (rows.nextIndex >= leftBadges.length) {
-        return rows;
-      }
-
-      rows.items.push(
-        leftBadges.slice(rows.nextIndex, rows.nextIndex + rowSize),
-      );
-      rows.nextIndex += rowSize;
-      return rows;
-    },
-    { items: [], nextIndex: 0 },
-  ).items;
-
-  if (groupedBadges.flat().length < leftBadges.length) {
-    groupedBadges.push(leftBadges.slice(groupedBadges.flat().length));
-  }
 
   return (
     <div
@@ -366,45 +345,28 @@ function ProjectTile({ project }) {
             transition={{ duration: 0.25 }}
             className="absolute inset-0 z-10"
           >
-            <div className="absolute left-[38px] top-[34px] right-[38px]">
-              <div className="flex min-w-0 flex-col gap-4">
-                {project.logo ? (
-                  <img
-                    src={project.logo}
-                    alt={project.title}
-                    className="max-h-[48px] max-w-[220px] object-contain object-left"
-                  />
-                ) : (
-                  <span className="text-[30px] font-medium leading-none text-white">
-                    {project.title}
-                  </span>
-                )}
-              </div>
-            </div>
-
-            {project.flag && (
-              <img
-                src={project.flag}
-                alt=""
-                className="absolute right-[38px] top-[34px] h-[31px] w-[46px] rounded-[4px] object-cover shadow-sm"
-              />
-            )}
-
-            <div className="absolute bottom-[36px] left-[38px] right-[38px] flex flex-col items-start gap-2">
-              {groupedBadges.map((row, rowIndex) => (
-                <div
-                  key={`${project.title}-row-${rowIndex}`}
-                  className="flex flex-wrap items-center gap-2"
-                >
-                  {row.map((badge) => (
+            <div className="absolute bottom-[36px] left-[38px] right-[38px] flex min-w-0 items-center gap-2 overflow-hidden">
+                  {badges.map((badge) => (
                     <span
                       key={`${project.title}-${badge.label}`}
-                      className={`inline-flex w-fit items-center rounded-full border ${
+                      className={`inline-flex min-w-0 shrink items-center rounded-full border ${
                         badge.type === 'highlight'
-                          ? 'py-[4px] pl-[4px] pr-[18px]'
-                          : 'px-[18px] py-[5px]'
-                      } text-[20px] leading-[24px] backdrop-blur-xl ${tagClass}`}
+                          ? 'h-8 py-0 pl-0 pr-[18px]'
+                          : badge.type === 'logo' || badge.type === 'logoText'
+                            ? 'h-8 px-[14px] py-0'
+                        : 'h-8 px-[18px] py-0'
+                      } whitespace-nowrap text-[18px] leading-[22px] backdrop-blur-xl ${tagClass}`}
                     >
+                      {badge.type === 'logo' && (
+                        <img
+                          src={badge.image}
+                          alt={badge.label}
+                          className="max-h-[26px] max-w-[130px] shrink object-contain"
+                        />
+                      )}
+                      {badge.type === 'logoText' && (
+                        <span className="truncate">{badge.label}</span>
+                      )}
                       {badge.type === 'highlight' && (
                         <img
                           src={project.badgeImage}
@@ -412,27 +374,12 @@ function ProjectTile({ project }) {
                           className="mr-2 h-8 w-8 shrink-0"
                         />
                       )}
-                      {badge.label}
+                      {badge.type !== 'logo' &&
+                        badge.type !== 'logoText' &&
+                        badge.label}
                     </span>
                   ))}
-                </div>
-              ))}
             </div>
-
-            {project.highlightAlign === 'right' && rightBadge && (
-              <div className="absolute bottom-[36px] right-[38px]">
-                <span
-                  className={`inline-flex w-fit items-center rounded-full border py-[4px] pl-[4px] pr-[18px] text-[20px] leading-[24px] backdrop-blur-xl ${tagClass}`}
-                >
-                  <img
-                    src={project.badgeImage}
-                    alt=""
-                    className="mr-2 h-8 w-8 shrink-0"
-                  />
-                  {rightBadge.label}
-                </span>
-              </div>
-            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -444,22 +391,25 @@ export default function ProjectsD() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [moveDirection, setMoveDirection] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
+  const metallRef = useRef(null);
 
   const handleMouseMove = (e) => {
-    const { left, top, width, height } =
-      e.currentTarget.getBoundingClientRect();
-    const centerX = width / 2;
-    const centerY = height / 2;
-    const mouseX = e.clientX - left;
-    const mouseY = e.clientY - top;
+    const containerRect = e.currentTarget.getBoundingClientRect();
+    const metallRect = metallRef.current?.getBoundingClientRect();
+    const mouseX = e.clientX - containerRect.left;
+    const mouseY = e.clientY - containerRect.top;
 
-    const offsetX = (mouseX - centerX) / centerX;
-    const offsetY = (mouseY - centerY) / centerY;
+    if (metallRect) {
+      const centerX = metallRect.left + metallRect.width / 2;
+      const centerY = metallRect.top + metallRect.height / 2;
+      const offsetX = (e.clientX - centerX) / (metallRect.width / 2);
+      const offsetY = (e.clientY - centerY) / (metallRect.height / 2);
 
-    setMoveDirection({
-      x: -offsetX * 40,
-      y: -offsetY * 40,
-    });
+      setMoveDirection({
+        x: -offsetX * 40,
+        y: -offsetY * 40,
+      });
+    }
 
     setPosition({ x: mouseX, y: mouseY });
   };
@@ -501,14 +451,17 @@ export default function ProjectsD() {
               />
             ))}
 
-            <div className="relative mx-auto py-24">
+            <div
+              className="relative mx-auto py-24"
+              onMouseEnter={() => setVisible(true)}
+              onMouseLeave={() => setVisible(false)}
+              onMouseMove={handleMouseMove}
+            >
               <motion.img
+                ref={metallRef}
                 src={metall}
                 alt="View all works"
                 className="relative h-[400px] w-[400px] cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110"
-                onMouseEnter={() => setVisible(true)}
-                onMouseLeave={() => setVisible(false)}
-                onMouseMove={handleMouseMove}
                 onClick={handleClick}
                 animate={{
                   x: moveDirection.x,

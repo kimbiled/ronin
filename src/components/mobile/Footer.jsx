@@ -80,28 +80,28 @@ export default function Footer() {
           <div className="flex flex-col gap-8">
             <p className="text-[18px] text-[#637695] font-book">Menu</p>
             <button
-              onClick={(e) => handleScroll(e, 'about')}
-              className="text-[18px] leading-[22px] font-book hover:text-gray-500 transition cursor-pointer text-left"
-            >
-              About Us
-            </button>
-            <button
               onClick={(e) => handleScroll(e, 'services')}
               className="text-[18px] leading-[22px] font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
-              What We Do
+              Services
             </button>
             <button
               onClick={(e) => handleScroll(e, 'recentProjects')}
               className="text-[18px] leading-[22px] font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
-              Our Works
+              Works
             </button>
             <button
-              onClick={(e) => handleScroll(e, 'form-section')}
+              onClick={(e) => handleScroll(e, 'about')}
               className="text-[18px] leading-[22px] font-book hover:text-gray-500 transition cursor-pointer text-left"
             >
-              Contact Us
+              About
+            </button>
+            <button
+              onClick={(e) => handleScroll(e, 'blog')}
+              className="text-[18px] leading-[22px] font-book hover:text-gray-500 transition cursor-pointer text-left"
+            >
+              Blog
             </button>
           </div>
         </div>

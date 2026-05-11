@@ -17,42 +17,42 @@ const News = () => {
 
   const featuredArticles = [
     {
-      id: 'ui-design-trust',
-      route: '/news/desktop/ui-design-trust',
-      category: 'Trust',
-      title: ['How Good UI Design', 'Builds Trust'],
-      date: 'Jan 14, 2026',
-      readTime: '2 min read',
-      image: n4,
-    },
-    {
-      id: 'website-design-conversion',
-      route: '/news/desktop/website-design-conversion',
-      category: 'Conversion',
-      title: ['Website Design That Turns', 'Visitors Into Clients'],
-      date: 'Mar 20, 2026',
-      readTime: '3 min read',
-      image: n5,
-    },
-    {
       id: 'ux-strategy-first',
-      route: '/news/desktop/ux-strategy-first',
+      route: '/news/ux-strategy-first',
       category: 'Strategy',
       title: ['From Idea to Product:', 'Why UX Strategy Comes First'],
       date: 'Apr 18, 2026',
       readTime: '2 min read',
-      image: n6,
+      image: n1,
+    },
+    {
+      id: 'website-design-conversion',
+      route: '/news/website-design-conversion',
+      category: 'Conversion',
+      title: ['Website Design That Turns', 'Visitors Into Clients'],
+      date: 'Mar 20, 2026',
+      readTime: '3 min read',
+      image: n2,
+    },
+    {
+      id: 'ui-design-trust',
+      route: '/news/ui-design-trust',
+      category: 'Trust',
+      title: ['How Good UI Design', 'Builds Trust'],
+      date: 'Jan 14, 2026',
+      readTime: '2 min read',
+      image: n3,
     },
   ];
 
   const existingArticles = [
     {
-      id: 'inclusive-design',
-      category: 'Accessibility',
-      title: ['Inclusive Design', 'Made Simple'],
-      date: 'Jan 1, 2025',
-      readTime: '2 min read',
-      image: n3,
+      id: 'design-system-need',
+      category: 'Scalable Design',
+      title: ['Why You Need a', 'Design System'],
+      date: 'Jan 22, 2025',
+      readTime: '3 min read',
+      image: n6,
     },
     {
       id: 'ux-trends-2025',
@@ -60,15 +60,15 @@ const News = () => {
       title: ['The Future of UX:', 'Emerging Trends to Watch in 2025'],
       date: 'Jan 4, 2025',
       readTime: '2 min read',
-      image: n2,
+      image: n5,
     },
     {
-      id: 'design-system-need',
-      category: 'Scalable Design',
-      title: ['Why You Need a', 'Design System'],
-      date: 'Jan 22, 2025',
-      readTime: '3 min read',
-      image: n1,
+      id: 'inclusive-design',
+      category: 'Accessibility',
+      title: ['Inclusive Design', 'Made Simple'],
+      date: 'Jan 1, 2025',
+      readTime: '2 min read',
+      image: n4,
     },
   ];
 
@@ -82,7 +82,7 @@ const News = () => {
   };
 
   return (
-    <div className="font-ppneue flex flex-col w-full rounded-3xl h-auto bg-[#090C21]">
+    <div className="font-ppneue flex flex-col w-full rounded-3xl h-auto bg-[#090C21]" id="blog">
       <div className="flex flex-col mx-auto gap-8 w-[85%] mb-12">
         <p className="text-white font-medium text-[40px] mt-16">
           Featured News

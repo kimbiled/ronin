@@ -1,5 +1,5 @@
 import NewsArticleDesktopTemplate from '../components/desktop/NewsArticleDesktopTemplate';
-import b2 from '../assets/desktop/b2.png';
+import n5 from '../assets/desktop/n5.svg';
 
 const article = {
   title: 'The Future of UX: Emerging Trends to Watch in 2025',
@@ -7,7 +7,7 @@ const article = {
     'The world of UX design is ever-evolving, and staying ahead of the curve is essential for creating impactful user experiences.',
   date: 'Jan 4, 2025',
   readTime: '2 min read',
-  image: b2,
+  image: n5,
   showSectionNumbers: false,
   intro: {
     title:
