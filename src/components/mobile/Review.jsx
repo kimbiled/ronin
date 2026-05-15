@@ -12,6 +12,7 @@ import weproject from '../../assets/mobile/weproject.svg';
 import capital from '../../assets/mobile/capital.svg';
 import motiva from '../../assets/mobile/motiva.svg';
 import astanahub from '../../assets/mobile/astanahub.svg';
+import pocketbroker from '../../assets/mobile/pocketbroker.svg';
 
 import i1 from '../../assets/mobile/1.png';
 import i2 from '../../assets/mobile/2.png';
@@ -34,6 +35,7 @@ const logos = [
   capital,
   motiva,
   astanahub,
+  pocketbroker,
 ];
 
 const Review = () => {

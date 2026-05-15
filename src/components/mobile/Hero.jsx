@@ -13,11 +13,11 @@ import capital from '../../assets/mobile/capital.png';
 import motiva from '../../assets/mobile/motiva.png';
 import astanahub from '../../assets/mobile/astanahub.png';
 
-import r1 from '../../assets/desktop/r1.svg';
-import r2 from '../../assets/desktop/r2.svg';
-import r3 from '../../assets/desktop/r4.svg';
-import r4 from '../../assets/desktop/r5.svg';
-import r5 from '../../assets/desktop/r6.svg';
+import r1 from '../../assets/desktop/r1.webp';
+import r2 from '../../assets/desktop/r2.webp';
+import r3 from '../../assets/desktop/r4.webp';
+import r4 from '../../assets/desktop/r5.webp';
+import r5 from '../../assets/desktop/r6.webp';
 
 import hero from '../../assets/mobile/footer.png';
 
@@ -48,7 +48,7 @@ const Hero = () => {
               key={index}
               src={src}
               alt={`Avatar${index + 1}`}
-              className="-ml-2 w-16 h-16"
+              className="-ml-2 w-16 h-16 rounded-full"
               animate={{
                 y: [0, -10, 0],
               }}
@@ -58,7 +58,7 @@ const Hero = () => {
                 repeatType: 'reverse',
                 ease: 'easeInOut',
                 delay: index * 0.3,
-              }}
+              }}pfrb
             />
           ))}
         </div>

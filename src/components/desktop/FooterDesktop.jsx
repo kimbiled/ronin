@@ -1,8 +1,11 @@
 import foot from '../../assets/icons/footer.png';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const FooterDesktop = () => {
   const location = useLocation();
+  const [hoveredMenu, setHoveredMenu] = useState(null);
+  const [hoveredSocial, setHoveredSocial] = useState(null);
 
   const links = [
     { label: 'Privacy Policy', url: '/privacy-policy' },
@@ -28,6 +31,13 @@ const FooterDesktop = () => {
       window.location.href = '/';
     }
   };
+
+  const getFooterLinkClass = (hoveredItem, currentItem) =>
+    `text-[22px] leading-[24px] font-book cursor-pointer transition-colors duration-300 ease-in-out ${
+      hoveredItem && hoveredItem !== currentItem
+        ? 'text-[#8B8E98]'
+        : 'text-[#090C21]'
+    }`;
 
   return (
     <footer className="font-ppneue flex flex-col w-[85%] items-center mt-[70px] mb-20">
@@ -58,25 +68,45 @@ const FooterDesktop = () => {
                 <p className="text-[#9CA3AF] text-[22px] font-book">Menu</p>
                 <button
                   onClick={() => handleNavigation('services')}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
+                  onMouseEnter={() => setHoveredMenu('services')}
+                  onMouseLeave={() => setHoveredMenu(null)}
+                  className={`${getFooterLinkClass(
+                    hoveredMenu,
+                    'services',
+                  )} bg-transparent border-none text-left`}
                 >
                   Services
                 </button>
                 <button
                   onClick={() => handleNavigation('recentProjects')}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
+                  onMouseEnter={() => setHoveredMenu('works')}
+                  onMouseLeave={() => setHoveredMenu(null)}
+                  className={`${getFooterLinkClass(
+                    hoveredMenu,
+                    'works',
+                  )} bg-transparent border-none text-left`}
                 >
                   Works
                 </button>
                 <button
                   onClick={() => handleNavigation('about')}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
+                  onMouseEnter={() => setHoveredMenu('about')}
+                  onMouseLeave={() => setHoveredMenu(null)}
+                  className={`${getFooterLinkClass(
+                    hoveredMenu,
+                    'about',
+                  )} bg-transparent border-none text-left`}
                 >
                   About
                 </button>
                 <button
                   onClick={() => handleNavigation('blog')}
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none text-left"
+                  onMouseEnter={() => setHoveredMenu('blog')}
+                  onMouseLeave={() => setHoveredMenu(null)}
+                  className={`${getFooterLinkClass(
+                    hoveredMenu,
+                    'blog',
+                  )} bg-transparent border-none text-left`}
                 >
                   Blog
                 </button>
@@ -87,25 +117,33 @@ const FooterDesktop = () => {
                 <p className="text-[#9CA3AF] text-[22px] font-book">Social</p>
                 <a
                   href="https://www.instagram.com/ronin.dsgn/"
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
+                  onMouseEnter={() => setHoveredSocial('instagram')}
+                  onMouseLeave={() => setHoveredSocial(null)}
+                  className={getFooterLinkClass(hoveredSocial, 'instagram')}
                 >
                   Instagram
                 </a>
                 <a
                   href="https://t.me/jedikuna"
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
+                  onMouseEnter={() => setHoveredSocial('telegram')}
+                  onMouseLeave={() => setHoveredSocial(null)}
+                  className={getFooterLinkClass(hoveredSocial, 'telegram')}
                 >
                   Telegram
                 </a>
                 <a
                   href="https://wa.me/77052771150"
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
+                  onMouseEnter={() => setHoveredSocial('whatsapp')}
+                  onMouseLeave={() => setHoveredSocial(null)}
+                  className={getFooterLinkClass(hoveredSocial, 'whatsapp')}
                 >
                   WhatsApp
                 </a>
                 <a
                   href="https://www.behance.net/ronindsgn"
-                  className="text-[22px] leading-[24px] font-book hover:text-gray-500 cursor-pointer"
+                  onMouseEnter={() => setHoveredSocial('behance')}
+                  onMouseLeave={() => setHoveredSocial(null)}
+                  className={getFooterLinkClass(hoveredSocial, 'behance')}
                 >
                   Behance
                 </a>

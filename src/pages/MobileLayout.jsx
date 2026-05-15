@@ -1,6 +1,6 @@
 import Header from '../components/mobile/Header';
 import Hero from '../components/mobile/Hero';
-import HeroVideo from '../components/mobile/HeroVideo';
+// import HeroVideo from '../components/mobile/HeroVideo';
 import Content from '../components/mobile/Content';
 import Projects from '../components/mobile/Projects';
 import Leaders from '../components/mobile/Leaders';
@@ -59,7 +59,7 @@ const MobileLayout = () => {
     <div className="flex flex-col items-center gap-8">
       <Header />
       <Hero />
-      <HeroVideo src="/videos/hero.mp4" poster="/images/hero-poster.jpg" />
+      {/* <HeroVideo src="/videos/hero.mp4" poster="/images/hero-poster.jpg" /> */}
       <Content />
       <Projects />
       <Leaders />

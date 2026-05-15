@@ -18,6 +18,7 @@ import weproject from '../../assets/desktop/weproject.svg';
 import capital from '../../assets/desktop/capital.svg';
 import motiva from '../../assets/desktop/motiva.svg';
 import astanahub from '../../assets/desktop/astanahub.svg';
+import pocketbroker from '../../assets/desktop/pocketbroker.svg';
 
 const avatars = [p1, p2, p3, p4, p5];
 
@@ -33,6 +34,7 @@ const logos = [
   { key: 'capital', src: capital },
   { key: 'motiva', src: motiva },
   { key: 'astanahub', src: astanahub },
+  { key: 'pocketbroker', src: pocketbroker },
 ];
 
 const ReviewDesktop = () => {

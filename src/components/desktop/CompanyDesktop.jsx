@@ -18,26 +18,36 @@ import skygen from '../../assets/desktop/skygen.svg';
 import alltrust from '../../assets/desktop/alltrust.svg';
 import theone from '../../assets/desktop/theone.svg';
 import kazakhtourism from '../../assets/desktop/kazakhtourism.svg';
+import pocketbroker from '../../assets/desktop/pocketbroker.svg';
 
-const logos = [
-  { src: berg, alt: 'berg', height: 'h-[47px]' },
-  { src: disney, alt: 'disney', height: 'h-[38px]' },
-  { src: forbes, alt: 'forbes', height: 'h-[25px]' },
-  { src: gorilla, alt: 'gorilla', height: 'h-[63px]' },
-  { src: bigroup, alt: 'bigroup', height: 'h-[40px]' },
-  { src: jusanbank, alt: 'jusanbank', height: 'h-[38px]' },
-  { src: gold, alt: 'gold', height: 'h-[56px]' },
-  { src: weproject, alt: 'weporject', height: 'h-10' },
-  { src: capital, alt: 'capital', height: 'h-[32px]' },
-  { src: motiva, alt: 'motiva', height: 'h-10' },
-  { src: astanahub, alt: 'astanahub', height: 'h-[42px]' },
-  { src: team, alt: 'astanahub', height: 'h-[53px]' },
-  { src: cephla, alt: 'cephla', height: 'h-9' },
-  { src: aqua, alt: 'aqua', height: 'h-9' },
-  { src: skygen, alt: 'skygen', height: 'h-11' },
-  { src: alltrust, alt: 'alltrust', height: 'h-9' },
-  { src: theone, alt: 'theone', height: 'h-9' },
-  { src: kazakhtourism, alt: 'kazakhtourism', height: 'h-[78px]' },
+const logoRows = [
+  [
+    { src: berg, alt: 'berg', className: 'h-[47px]' },
+    { src: disney, alt: 'disney', className: 'h-[38px]' },
+    { src: forbes, alt: 'forbes', className: 'h-[25px]' },
+    { src: gorilla, alt: 'gorilla', className: 'h-[63px]' },
+    { src: pocketbroker, alt: 'pocketbroker', className: 'h-[72px]' },
+  ],
+  [
+    { src: jusanbank, alt: 'jusanbank', className: 'h-[38px]' },
+    { src: gold, alt: 'gold', className: 'h-[56px]' },
+    { src: weproject, alt: 'weproject', className: 'h-10' },
+    { src: capital, alt: 'capital', className: 'h-[32px]' },
+    { src: motiva, alt: 'motiva', className: 'h-10' },
+  ],
+  [
+    { src: astanahub, alt: 'astanahub', className: 'h-[42px]' },
+    { src: team, alt: 'team', className: 'h-[53px]' },
+    { src: cephla, alt: 'cephla', className: 'h-9' },
+    { src: aqua, alt: 'aqua', className: 'h-9' },
+    { src: skygen, alt: 'skygen', className: 'h-11' },
+  ],
+  [
+    { src: alltrust, alt: 'alltrust', className: 'h-9' },
+    { src: theone, alt: 'theone', className: 'h-9' },
+    { src: kazakhtourism, alt: 'kazakhtourism', className: 'h-[78px]' },
+    { src: bigroup, alt: 'bigroup', className: 'h-[40px]' },
+  ],
 ];
 
 const sectionVariants = {
@@ -73,9 +83,9 @@ const logoVariants = {
 
 const ContentDesktop = () => {
   return (
-    <div className="font-ppneue flex flex-col w-[85%] items-center mt-36">
+    <div className="font-ppneue mt-36 flex w-full flex-col items-center">
       <motion.div
-        className="justify-center items-center max-w-[1200px] w-full flex flex-col gap-12"
+        className="flex w-[85%] max-w-[1420px] flex-col items-center justify-center"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -86,18 +96,18 @@ const ContentDesktop = () => {
           variants={titleVariants}
         >
           <motion.div
-            className="flex-1 h-px bg-[#A4B0C2]"
+            className="h-px flex-1 bg-[#A4B0C2]"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             style={{ transformOrigin: 'right' }}
           />
-          <span className="text-[#A4B0C2] text-[22px] font-medium">
+          <span className="shrink-0 text-[22px] font-medium text-[#A4B0C2]">
             Trusted by 129 clients in 7 countries
           </span>
           <motion.div
-            className="flex-1 h-px bg-[#A4B0C2]"
+            className="h-px flex-1 bg-[#A4B0C2]"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, amount: 0.6 }}
@@ -106,19 +116,28 @@ const ContentDesktop = () => {
           />
         </motion.div>
 
-        <div className="grid grid-cols-6 gap-12 ">
-          {logos.map((logo, index) => (
-            <motion.div
-              key={logo.alt + index}
-              className="h-[105px]"
-              variants={logoVariants}
+        <div className="flex w-full flex-col gap-[74px] pt-[82px]">
+          {logoRows.map((row, rowIndex) => (
+            <div
+              key={`logo-row-${rowIndex}`}
+              className={`mx-auto flex w-full items-center justify-between ${
+                row.length === 4 ? 'max-w-[960px]' : ''
+              }`}
             >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className={`mx-auto ${logo.height} opacity-80 hover:opacity-100 transition-opacity duration-300`}
-              />
-            </motion.div>
+              {row.map((logo) => (
+                <motion.div
+                  key={logo.alt}
+                  className="flex h-[78px] min-w-[160px] items-center justify-center"
+                  variants={logoVariants}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className={`${logo.className} max-w-[190px] object-contain opacity-55 grayscale transition duration-300 hover:opacity-80`}
+                  />
+                </motion.div>
+              ))}
+            </div>
           ))}
         </div>
       </motion.div>

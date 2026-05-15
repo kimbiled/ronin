@@ -8,6 +8,14 @@ const HeaderDesktop = () => {
   const location = useLocation();
   const lastScrollY = useRef(0);
   const [isCompact, setIsCompact] = useState(false);
+  const [hoveredNav, setHoveredNav] = useState(null);
+
+  const navItems = [
+    { label: 'Services', target: 'services' },
+    { label: 'Works', target: 'recentProjects' },
+    { label: 'About', target: 'about' },
+    { label: 'Blog', target: 'blog' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,52 +52,44 @@ const HeaderDesktop = () => {
   };
 
   return (
-    <div className="h-[120px] w-full">
+    <div className="h-[80px] w-full">
       <div className="fixed left-0 right-0 top-0 z-50 flex justify-center font-ppneue">
         <div
-          className={`flex w-full max-w-[790px] origin-top items-center justify-center gap-[11px] px-4 py-[39px] transition-all duration-300 ease-out ${
+          className={`flex w-fit origin-top items-center justify-center gap-2 px-4 py-[20px] transition-all duration-300 ease-out ${
             isCompact ? 'scale-[0.9]' : 'scale-100'
           }`}
         >
           <a
             href="/"
-            className="flex h-[43px] w-[43px] items-center justify-center rounded-lg bg-[#F7F7F6] p-[11px]"
+            className="flex h-10 w-9 items-center justify-center rounded-lg bg-[#F7F7F6] p-[10px]"
           >
             <img src={logo} alt="logo" />
           </a>
 
-          <nav className="hidden h-[43px] flex-1 cursor-pointer items-center justify-around rounded-lg bg-[#F7F7F6] px-[55px] text-[16px] font-book text-[#090C21] lg:flex">
-            <button
-              onClick={() => handleNavigation('services')}
-              className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
-            >
-              Services
-            </button>
-            <button
-              className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
-              onClick={() => handleNavigation('recentProjects')}
-            >
-              Works
-            </button>
-            <button
-              className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
-              onClick={() => handleNavigation('about')}
-            >
-              About
-            </button>
-            <button
-              className="hover:text-gray-500 duration-300 ease-in-out cursor-pointer bg-transparent border-none"
-              onClick={() => handleNavigation('blog')}
-            >
-              Blog
-            </button>
+          <nav
+            className="hidden h-10 w-[387px] cursor-pointer items-center justify-between rounded-lg bg-[#F7F7F6] px-[34px] text-[16px] font-book text-[#090C21] lg:flex"
+            onMouseLeave={() => setHoveredNav(null)}
+          >
+            {navItems.map((item) => (
+              <button
+                key={item.target}
+                onMouseEnter={() => setHoveredNav(item.target)}
+                onClick={() => handleNavigation(item.target)}
+                className={`cursor-pointer border-none bg-transparent transition-colors duration-300 ease-in-out ${
+                  hoveredNav && hoveredNav !== item.target
+                    ? 'text-[#7F828C]'
+                    : 'text-[#090C21]'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
           </nav>
-
           <a
             href={calendarUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex h-[43px] w-[135px] items-center justify-center rounded-lg bg-[#3B6DFF] text-[16px] text-white transition hover:brightness-95 active:brightness-90"
+            className="inline-flex h-10 w-[135px] items-center justify-center rounded-lg bg-[#3B6DFF] text-[16px] text-white transition hover:brightness-95 active:brightness-90"
           >
             Book a call
           </a>

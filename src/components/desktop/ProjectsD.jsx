@@ -68,6 +68,7 @@ import cephla3 from '../../assets/desktop/15-3.webp';
 import school1 from '../../assets/desktop/16-1.webp';
 import school2 from '../../assets/desktop/16-2.webp';
 import school3 from '../../assets/desktop/16-3.webp';
+import pocketbroker1 from '../../assets/desktop/17-1.webp';
 import p11 from '../../assets/desktop/p11.svg';
 import p22 from '../../assets/desktop/p22.svg';
 import p33 from '../../assets/desktop/p33.svg';
@@ -86,6 +87,7 @@ import theoneLogo from '../../assets/desktop/oneLogo.svg';
 import schoolGame from '../../assets/desktop/schoolGameLogo.svg';
 import sharique from '../../assets/desktop/shariqueLogo.svg';
 import glenbotal from '../../assets/desktop/glenbotalLogo.svg';
+import pocketbroker from '../../assets/desktop/pocketbrokerLogo.svg';
 
 //flags
 import australia from '../../assets/desktop/australia.svg';
@@ -152,12 +154,13 @@ const projects = [
     tags: ['UX/UI', 'Animations'],
     tagTone: 'light',
     badgeRows: [3],
-    isTall: true,
+    badgesPosition: 'top',
   },
   {
     id: null,
     images: [aqua1, aqua2, aqua3, aqua4],
     logo: aqua,
+    logoBadgeClass: 'h-4 w-[83px]',
     title: 'Aqua Hair',
     tags: ['UX/UI', 'Animations'],
     tagTone: 'light',
@@ -210,7 +213,7 @@ const projects = [
     logo: p33,
     title: 'Orbital 7',
     flag: australia,
-    tags: ['Frontend Development'],
+    tags: ['Frontend Dev', 'Branding'],
     badgeRows: [2],
   },
   {
@@ -225,6 +228,7 @@ const projects = [
     id: null,
     images: [motiva1, motiva2, motiva3],
     logo: motivaLogo,
+    logoBadgeClass: 'max-h-[22px] max-w-[94px]',
     title: 'Motiva',
     flag: usa,
     tags: ['UX/UI', 'Visual Identity'],
@@ -240,6 +244,15 @@ const projects = [
     flag: australia,
     tags: ['UX/UI', 'Visual Identity'],
     badgeRows: [3],
+  },
+  {
+    id: null,
+    images: [pocketbroker1],
+    logo: pocketbroker,
+    title: 'PocketBroker',
+    tags: ['Landing Page'],
+    badgeRows: [2],
+    isTall: true,
   },
   {
     id: 9,
@@ -260,8 +273,25 @@ const projects = [
   },
 ];
 
-const leftColumn = [1, 2, 3, 7, 9, 10, 11, 15];
-const rightColumn = [4, 5, 6, 8, 12, 13, 14];
+const topRow = ['Skygen', 'School Game'];
+const leftColumn = [
+  'Hash Cats',
+  'CryptoIndex',
+  'Aqua Hair',
+  'PocketBroker',
+  'Degen AI',
+  'Orbital 7',
+  'Dexe',
+];
+const rightColumn = [
+  'The One',
+  'Dr. Berg',
+  'Sharique',
+  'Motiva',
+  'Glenbotal',
+  'Dunes',
+  'Cephla',
+];
 
 function ProjectTile({ project }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -296,13 +326,22 @@ function ProjectTile({ project }) {
     : project.isTall
       ? 'h-[790px]'
       : 'h-[530px]';
+  const badgesPositionClass =
+    project.badgesPosition === 'top' ? 'top-[36px]' : 'bottom-[36px]';
   const tagClass =
     project.tagTone === 'light'
       ? 'border-white/50 bg-[rgba(255,255,255,0.68)] text-black'
       : 'border-white/20 bg-black/30 text-white';
   const badges = [
     ...(project.logo
-      ? [{ type: 'logo', label: project.title, image: project.logo }]
+      ? [
+          {
+            type: 'logo',
+            label: project.title,
+            image: project.logo,
+            className: project.logoBadgeClass,
+          },
+        ]
       : [{ type: 'logoText', label: project.title }]),
     ...(project.highlight
       ? [{ type: 'highlight', label: project.highlight }]
@@ -312,9 +351,10 @@ function ProjectTile({ project }) {
 
   return (
     <div
-      className={`group relative w-full overflow-hidden rounded-[48px] bg-[#111] ${heightClass} ${
+      className={`group relative w-full overflow-hidden rounded-[48px] bg-transparent ${heightClass} ${
         project.id ? 'cursor-pointer' : ''
       }`}
+      style={{ clipPath: 'inset(0 round 48px)' }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
@@ -327,10 +367,10 @@ function ProjectTile({ project }) {
           key={`${project.title}-${imageIndex}`}
           src={image}
           alt={project.title}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute -inset-[3px] h-[calc(100%+6px)] w-[calc(100%+6px)] transform-gpu object-cover"
           animate={{
             opacity: imageIndex === currentImageIndex ? 1 : 0,
-            scale: isHovered ? 1.045 : 1,
+            scale: isHovered ? 1.055 : 1.012,
           }}
           transition={{ duration: 0.45, ease: 'easeInOut' }}
         />
@@ -345,40 +385,36 @@ function ProjectTile({ project }) {
             transition={{ duration: 0.25 }}
             className="absolute inset-0 z-10"
           >
-            <div className="absolute bottom-[36px] left-[38px] right-[38px] flex min-w-0 items-center gap-2 overflow-hidden">
-                  {badges.map((badge) => (
-                    <span
-                      key={`${project.title}-${badge.label}`}
-                      className={`inline-flex min-w-0 shrink items-center rounded-full border ${
-                        badge.type === 'highlight'
-                          ? 'h-8 py-0 pl-0 pr-[18px]'
-                          : badge.type === 'logo' || badge.type === 'logoText'
-                            ? 'h-8 px-[14px] py-0'
-                        : 'h-8 px-[18px] py-0'
-                      } whitespace-nowrap text-[18px] leading-[22px] backdrop-blur-xl ${tagClass}`}
-                    >
-                      {badge.type === 'logo' && (
-                        <img
-                          src={badge.image}
-                          alt={badge.label}
-                          className="max-h-[26px] max-w-[130px] shrink object-contain"
-                        />
-                      )}
-                      {badge.type === 'logoText' && (
-                        <span className="truncate">{badge.label}</span>
-                      )}
-                      {badge.type === 'highlight' && (
-                        <img
-                          src={project.badgeImage}
-                          alt=""
-                          className="mr-2 h-8 w-8 shrink-0"
-                        />
-                      )}
-                      {badge.type !== 'logo' &&
-                        badge.type !== 'logoText' &&
-                        badge.label}
-                    </span>
-                  ))}
+            <div
+              className={`absolute left-[38px] right-[38px] flex min-w-0 items-center gap-2 ${badgesPositionClass}`}
+            >
+              {badges.map((badge) => (
+                <span
+                  key={`${project.title}-${badge.label}`}
+                  className={`inline-flex h-10 shrink-0 items-center rounded-full border px-[18px] py-[4px] whitespace-nowrap text-[18px] leading-[22px] backdrop-blur-xl ${tagClass}`}
+                >
+                  {badge.type === 'logo' && (
+                    <img
+                      src={badge.image}
+                      alt={badge.label}
+                      className={`shrink-0 object-contain ${
+                        badge.className || 'max-h-[26px] max-w-[130px]'
+                      }`}
+                    />
+                  )}
+                  {badge.type === 'logoText' && badge.label}
+                  {badge.type === 'highlight' && (
+                    <img
+                      src={project.badgeImage}
+                      alt=""
+                      className="-ml-[12px] mr-2 h-8 w-8 shrink-0"
+                    />
+                  )}
+                  {badge.type !== 'logo' &&
+                    badge.type !== 'logoText' &&
+                    badge.label}
+                </span>
+              ))}
             </div>
           </motion.div>
         )}
@@ -392,6 +428,9 @@ export default function ProjectsD() {
   const [moveDirection, setMoveDirection] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
   const metallRef = useRef(null);
+  const projectByTitle = Object.fromEntries(
+    projects.map((project) => [project.title, project]),
+  );
 
   const handleMouseMove = (e) => {
     const containerRect = e.currentTarget.getBoundingClientRect();
@@ -429,25 +468,34 @@ export default function ProjectsD() {
           Recent projects
         </h3>
 
-        <div className="mt-16 w-full">
-          <ProjectTile project={projects[0]} />
+        <div className="mt-16 grid w-full grid-cols-2 gap-[18px]">
+          {topRow.map((projectTitle) => (
+            <ProjectTile
+              key={projectTitle}
+              project={projectByTitle[projectTitle]}
+            />
+          ))}
+        </div>
+
+        <div className="mt-[18px] w-full">
+          <ProjectTile project={projectByTitle.Antix} />
         </div>
 
         <div className="mt-[18px] grid w-full grid-cols-2 gap-[18px]">
           <div className="flex flex-col gap-[18px]">
-            {leftColumn.map((projectNumber) => (
+            {leftColumn.map((projectTitle) => (
               <ProjectTile
-                key={projectNumber}
-                project={projects[projectNumber]}
+                key={projectTitle}
+                project={projectByTitle[projectTitle]}
               />
             ))}
           </div>
 
           <div className="flex flex-col gap-[18px]">
-            {rightColumn.map((projectNumber) => (
+            {rightColumn.map((projectTitle) => (
               <ProjectTile
-                key={projectNumber}
-                project={projects[projectNumber]}
+                key={projectTitle}
+                project={projectByTitle[projectTitle]}
               />
             ))}
 

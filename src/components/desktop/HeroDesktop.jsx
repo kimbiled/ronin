@@ -12,14 +12,16 @@ import weproject from '../../assets/desktop/weproject.png';
 import capital from '../../assets/desktop/capital.png';
 import motiva from '../../assets/desktop/motiva.png';
 import astanahub from '../../assets/desktop/astanahub.png';
+import pocketbroker from '../../assets/desktop/pocketbroker.svg';
 
-import r1 from '../../assets/desktop/r1.svg';
-import r2 from '../../assets/desktop/r2.svg';
-import r4 from '../../assets/desktop/r4.svg';
-import r5 from '../../assets/desktop/r5.svg';
-import r6 from '../../assets/desktop/r6.svg';
+import r1 from '../../assets/desktop/r1.webp';
+import r2 from '../../assets/desktop/r2.webp';
+import r4 from '../../assets/desktop/r4.webp';
+import r5 from '../../assets/desktop/r5.webp';
+import r6 from '../../assets/desktop/r6.webp';
 
 const logos = [
+  { src: pocketbroker, alt: 'pocketbroker', height: 'h-16' },
   { src: berg, alt: 'berg', height: 'h-[47px]' },
   { src: disney, alt: 'disney', height: 'h-[38px]' },
   { src: forbes, alt: 'forbes', height: 'h-[25px]' },
@@ -53,35 +55,35 @@ const HeroDesktop = () => {
         <motion.img
           src={r1}
           alt="r1"
-          className="absolute top-28 left-24"
+          className="absolute top-28 left-24 w-[108px] h-[108px] rounded-full"
           animate={getRandomAnimation()}
         />
 
         <motion.img
           src={r2}
           alt="r2"
-          className="absolute top-48 right-[376px]"
+          className="absolute top-48 right-[376px] w-[92px] h-[92px] rounded-full"
           animate={getRandomAnimation()}
         />
 
         <motion.img
           src={r5}
           alt="r5"
-          className="absolute top-14 left-[480px]"
+          className="absolute top-14 left-[480px] w-[68px] h-[68px] rounded-full"
           animate={getRandomAnimation()}
         />
 
         <motion.img
           src={r6}
           alt="r6"
-          className="absolute top-20 right-52"
+          className="absolute top-20 right-52 w-[68px] h-[68px] rounded-full"
           animate={getRandomAnimation()}
         />
 
         <motion.img
           src={r4}
           alt="r4"
-          className="absolute top-44 right-2"
+          className="absolute top-44 right-2 w-[68px] h-[68px] rounded-full"
           animate={getRandomAnimation()}
         />
       </div>
@@ -153,7 +155,7 @@ const HeroDesktop = () => {
               </button>
             </div>
 
-            <div className=' relative flex flex-col'>
+            <div className=" relative flex flex-col">
               <div className="absolute bottom-0 left-0 h-16 w-20 bg-gradient-to-r from-white via-white/70 to-transparent z-10"></div>
               <div className="absolute bottom-0 right-0 h-16 w-20 bg-gradient-to-l from-white via-white/70 to-transparent z-10"></div>
 

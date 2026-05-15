@@ -67,6 +67,7 @@ import cephla3 from '../../assets/desktop/15-3.webp';
 import school1 from '../../assets/mobile/16-1.webp';
 import school2 from '../../assets/mobile/16-2.webp';
 import school3 from '../../assets/mobile/16-3.webp';
+import pocketbroker1 from '../../assets/desktop/17-1.webp';
 
 import usa from '../../assets/desktop/usa.svg';
 import uk from '../../assets/desktop/uk.svg';
@@ -223,6 +224,18 @@ const profiles = [
     avatars: [motiva1, motiva2, motiva3],
   },
   {
+    id: null,
+    profile: {
+      name: 'Pocket Broker',
+      role: 'Website development',
+      tags: ['UX/UI', 'Visual Identity', 'Animations'],
+      followers: false,
+      verified: false,
+      stared: false,
+    },
+    avatars: [pocketbroker1],
+  },
+  {
     id: 3,
     profile: {
       name: 'Orbital 7',
@@ -336,9 +349,11 @@ const Projects = () => {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col justify-start">
-              <img src={item.profile.location} alt="location" />
-            </div>
+            {item.profile.location && (
+              <div className="flex flex-col justify-start">
+                <img src={item.profile.location} alt="location" />
+              </div>
+            )}
           </div>
           {index !== profiles.length - 1 && (
             <div className="h-[1px] w-[85%] bg-[#090C21] mt-8 opacity-[8%] rounded mb-4"></div>

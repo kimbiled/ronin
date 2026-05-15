@@ -9,7 +9,7 @@ import FormDesktop from '../components/desktop/FormDesktop';
 import NewsDesktop from '../components/desktop/NewsDesktop';
 import FooterDesktop from '../components/desktop/FooterDesktop';
 import CookieBanner from '../components/CookieBanner';
-import HeroVideo from '../components/mobile/HeroVideo';
+// import HeroVideo from '../components/mobile/HeroVideo';
 
 const DesktopLayout = () => {
   return (
@@ -17,11 +17,11 @@ const DesktopLayout = () => {
       <div className="flex flex-col items-center gap-8">
         <HeaderDesktop />
         <HeroDesktop />
-        <HeroVideo
+        {/* <HeroVideo
           src="/videos/hero.mp4"
           poster="/images/hero-poster.jpg"
           animateOnScroll
-        />
+        /> */}
         <ContentDesktop />
         <CompanyDesktop />
         {/* <ReviewDesktop /> */}
