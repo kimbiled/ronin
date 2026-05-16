@@ -294,6 +294,45 @@ const rightColumn = [
   'Cephla',
 ];
 
+const preloadImage = (src) => {
+  if (!src) {
+    return;
+  }
+
+  const image = new Image();
+  image.decoding = 'async';
+  image.src = src;
+};
+
+const preloadVideo = (src) => {
+  if (!src) {
+    return;
+  }
+
+  const video = document.createElement('video');
+  video.preload = 'auto';
+  video.muted = true;
+  video.src = src;
+  video.load();
+};
+
+const preloadProjectAssets = () => {
+  const imageUrls = new Set();
+
+  projects.forEach((project) => {
+    project.images.forEach((image) => imageUrls.add(image));
+    imageUrls.add(project.logo);
+    imageUrls.add(project.badgeImage);
+    imageUrls.add(project.flag);
+
+    if (project.coverVideo) {
+      preloadVideo(project.coverVideo);
+    }
+  });
+
+  imageUrls.forEach(preloadImage);
+};
+
 function ProjectTile({ project }) {
   const [isHovered, setIsHovered] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -454,6 +493,18 @@ export default function ProjectsD() {
   const projectByTitle = Object.fromEntries(
     projects.map((project) => [project.title, project]),
   );
+
+  useEffect(() => {
+    const preload = () => preloadProjectAssets();
+
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(preload);
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(preload, 250);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
 
   const handleMouseMove = (e) => {
     const containerRect = e.currentTarget.getBoundingClientRect();

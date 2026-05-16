@@ -1,4 +1,5 @@
 import ProjectItem from './ProjectItem';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import antix1 from '../../assets/mobile/1-1.webp';
@@ -303,8 +304,42 @@ const profiles = [
   },
 ];
 
+const preloadImage = (src) => {
+  if (!src) {
+    return;
+  }
+
+  const image = new Image();
+  image.decoding = 'async';
+  image.src = src;
+};
+
+const preloadProjectAssets = () => {
+  const imageUrls = new Set();
+
+  profiles.forEach((item) => {
+    item.avatars.forEach((avatar) => imageUrls.add(avatar));
+    imageUrls.add(item.profile.location);
+  });
+
+  imageUrls.forEach(preloadImage);
+};
+
 const Projects = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const preload = () => preloadProjectAssets();
+
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(preload);
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(preload, 250);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
   const goPage = (index) => {
     if (!index) {
       return;
