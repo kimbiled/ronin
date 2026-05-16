@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Preloader from './pages/Preloader';
 import PreloaderDesktop from './pages/PreloaderDesktop';
 
@@ -173,65 +174,68 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={isMobile ? <MobileLayout /> : <DesktopLayout />}
-      />
-      <Route path="/news/inclusive-design" element={<FirstNews />} />
-      <Route path="/news/ux-trends-2025" element={<SecondNews />} />
-      <Route path="/news/design-system-need" element={<ThirdNews />} />
-      <Route path="/news/ui-design-trust" element={<UiDesignTrust />} />
-      <Route
-        path="/news/website-design-conversion"
-        element={<WebsiteConversion />}
-      />
-      <Route path="/news/ux-strategy-first" element={<UxStrategyFirst />} />
-      <Route
-        path="/news/desktop/inclusive-design"
-        element={<FirstNewsDesktop />}
-      />
-      <Route
-        path="/news/desktop/ux-trends-2025"
-        element={<SecondNewsDesktop />}
-      />
-      <Route
-        path="/news/desktop/design-system-need"
-        element={<ThirdNewsDesktop />}
-      />
-      <Route
-        path="/news/desktop/ui-design-trust"
-        element={<UiDesignTrustDesktop />}
-      />
-      <Route
-        path="/news/desktop/website-design-conversion"
-        element={<WebsiteConversionDesktop />}
-      />
-      <Route
-        path="/news/desktop/ux-strategy-first"
-        element={<UxStrategyFirstDesktop />}
-      />
-      <Route
-        path="/projects/:id"
-        element={isMobile ? <ProjectPage /> : <ProjectPageDesktop />}
-      />
-      <Route
-        path="/privacy-policy"
-        element={isMobile ? <Privacy /> : <PrivacyDesktop />}
-      />
-      <Route
-        path="/terms-and-conditions"
-        element={isMobile ? <Terms /> : <TermsDesktop />}
-      />
-      <Route
-        path="/cookie-policy"
-        element={isMobile ? <Cookies /> : <CookiesDesktop />}
-      />
-      <Route
-        path="/*"
-        element={isMobile ? <NotFound /> : <NotFoundDesktop />}
-      />
-    </Routes>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={isMobile ? <MobileLayout /> : <DesktopLayout />}
+        />
+        <Route path="/news/inclusive-design" element={<FirstNews />} />
+        <Route path="/news/ux-trends-2025" element={<SecondNews />} />
+        <Route path="/news/design-system-need" element={<ThirdNews />} />
+        <Route path="/news/ui-design-trust" element={<UiDesignTrust />} />
+        <Route
+          path="/news/website-design-conversion"
+          element={<WebsiteConversion />}
+        />
+        <Route path="/news/ux-strategy-first" element={<UxStrategyFirst />} />
+        <Route
+          path="/news/desktop/inclusive-design"
+          element={<FirstNewsDesktop />}
+        />
+        <Route
+          path="/news/desktop/ux-trends-2025"
+          element={<SecondNewsDesktop />}
+        />
+        <Route
+          path="/news/desktop/design-system-need"
+          element={<ThirdNewsDesktop />}
+        />
+        <Route
+          path="/news/desktop/ui-design-trust"
+          element={<UiDesignTrustDesktop />}
+        />
+        <Route
+          path="/news/desktop/website-design-conversion"
+          element={<WebsiteConversionDesktop />}
+        />
+        <Route
+          path="/news/desktop/ux-strategy-first"
+          element={<UxStrategyFirstDesktop />}
+        />
+        <Route
+          path="/projects/:id"
+          element={isMobile ? <ProjectPage /> : <ProjectPageDesktop />}
+        />
+        <Route
+          path="/privacy-policy"
+          element={isMobile ? <Privacy /> : <PrivacyDesktop />}
+        />
+        <Route
+          path="/terms-and-conditions"
+          element={isMobile ? <Terms /> : <TermsDesktop />}
+        />
+        <Route
+          path="/cookie-policy"
+          element={isMobile ? <Cookies /> : <CookiesDesktop />}
+        />
+        <Route
+          path="/*"
+          element={isMobile ? <NotFound /> : <NotFoundDesktop />}
+        />
+      </Routes>
+      <SpeedInsights />
+    </>
   );
 }
 
