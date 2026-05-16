@@ -7,6 +7,7 @@ import antix2 from '../../assets/desktop/1-2.webp';
 import antix3 from '../../assets/desktop/1-3.webp';
 import antix4 from '../../assets/desktop/1-4.webp';
 import antix5 from '../../assets/desktop/1-5.webp';
+import antixVideo from '../../assets/desktop/antixVideo.mp4';
 import hash1 from '../../assets/desktop/2-1.webp';
 import hash2 from '../../assets/desktop/2-2.webp';
 import hash3 from '../../assets/desktop/2-3.webp';
@@ -71,7 +72,6 @@ import school3 from '../../assets/desktop/16-3.webp';
 import pocketbroker1 from '../../assets/desktop/17-1.webp';
 import p11 from '../../assets/desktop/p11.svg';
 import p22 from '../../assets/desktop/p22.svg';
-import p33 from '../../assets/desktop/p33.svg';
 import p55 from '../../assets/desktop/p55.svg';
 import p77 from '../../assets/desktop/p77.svg';
 
@@ -88,6 +88,7 @@ import schoolGame from '../../assets/desktop/schoolGameLogo.svg';
 import sharique from '../../assets/desktop/shariqueLogo.svg';
 import glenbotal from '../../assets/desktop/glenbotalLogo.svg';
 import pocketbroker from '../../assets/desktop/pocketbrokerLogo.svg';
+import orbitalLogo from '../../assets/desktop/orbitalLogo.png';
 
 //flags
 import australia from '../../assets/desktop/australia.svg';
@@ -105,6 +106,7 @@ const projects = [
   {
     id: 1,
     images: [antix1, antix2, antix3, antix4, antix5],
+    coverVideo: antixVideo,
     logo: p11,
     title: 'Antix',
     flag: uae,
@@ -210,7 +212,7 @@ const projects = [
   {
     id: 3,
     images: [orbital1, orbital2, orbital3, orbital4],
-    logo: p33,
+    logo: orbitalLogo,
     title: 'Orbital 7',
     flag: australia,
     tags: ['Frontend Dev', 'Branding'],
@@ -228,7 +230,6 @@ const projects = [
     id: null,
     images: [motiva1, motiva2, motiva3],
     logo: motivaLogo,
-    logoBadgeClass: 'max-h-[22px] max-w-[94px]',
     title: 'Motiva',
     flag: usa,
     tags: ['UX/UI', 'Visual Identity'],
@@ -362,6 +363,24 @@ function ProjectTile({ project }) {
       }}
       onClick={openProject}
     >
+      {project.coverVideo && (
+        <motion.video
+          src={project.coverVideo}
+          className="absolute -inset-[3px] h-[calc(100%+6px)] w-[calc(100%+6px)] transform-gpu object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          controls={false}
+          animate={{
+            opacity: isHovered ? 0 : 1,
+            scale: isHovered ? 1.055 : 1.012,
+          }}
+          transition={{ duration: 0.45, ease: 'easeInOut' }}
+        />
+      )}
+
       {project.images.map((image, imageIndex) => (
         <motion.img
           key={`${project.title}-${imageIndex}`}
@@ -369,7 +388,11 @@ function ProjectTile({ project }) {
           alt={project.title}
           className="absolute -inset-[3px] h-[calc(100%+6px)] w-[calc(100%+6px)] transform-gpu object-cover"
           animate={{
-            opacity: imageIndex === currentImageIndex ? 1 : 0,
+            opacity:
+              imageIndex === currentImageIndex &&
+              (!project.coverVideo || isHovered)
+                ? 1
+                : 0,
             scale: isHovered ? 1.055 : 1.012,
           }}
           transition={{ duration: 0.45, ease: 'easeInOut' }}

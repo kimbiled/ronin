@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.7e1f83bf.css",
-    "main.js": "/static/js/main.5fec19f4.js",
+    "main.css": "/static/css/main.76dae7df.css",
+    "main.js": "/static/js/main.560bc2cc.js",
     "static/media/catspage8.png": "/static/media/catspage8.1a3b12e4be041434bcac.png",
     "static/media/bergpage6.png": "/static/media/bergpage6.b1e9987adfe277762ac1.png",
     "static/media/cryptopage8.png": "/static/media/cryptopage8.c2986ac563c0227160c9.png",
@@ -73,6 +73,7 @@
     "static/media/cryptomob3.png": "/static/media/cryptomob3.e2c9d50af7d64e727331.png",
     "static/media/10-1.webp": "/static/media/10-1.084672fcc198d32086dd.webp",
     "static/media/catsmob3.png": "/static/media/catsmob3.97cd449f2c80e0157c3b.png",
+    "static/media/antixVideo.mp4": "/static/media/antixVideo.64db18bebcb221404d1d.mp4",
     "static/media/catspage6.png": "/static/media/catspage6.27c32682b8a1de557752.png",
     "static/media/catspage3.png": "/static/media/catspage3.70333c44025f7eb1748c.png",
     "static/media/degenpage10.png": "/static/media/degenpage10.a1dd40e82ad9cc293288.png",
@@ -243,7 +244,6 @@
     "static/media/pocketbroker.svg": "/static/media/pocketbroker.bf9b8b9e9f1435c3984891f1eda9c650.svg",
     "static/media/c5.webp": "/static/media/c5.2737175ca13f7465eb21.webp",
     "static/media/c3.webp": "/static/media/c3.e69a432e26b7a5b5f528.webp",
-    "static/media/p33.svg": "/static/media/p33.096cc661f97a13c211535769ac709968.svg",
     "static/media/r6.webp": "/static/media/r6.75cde31391e6a9ec0ffa.webp",
     "static/media/r1.webp": "/static/media/r1.4eecdf183168af07a8ff.webp",
     "static/media/r5.webp": "/static/media/r5.c923134dec6706408875.webp",
@@ -260,6 +260,7 @@
     "static/media/p11.svg": "/static/media/p11.69c6c336e1f9bc2493cfe15ca5dfa9bd.svg",
     "index.html": "/index.html",
     "static/media/uk.svg": "/static/media/uk.6072958a827f2ae10af98d05f8fe641f.svg",
+    "static/media/orbitalLogo.svg": "/static/media/orbitalLogo.9f903c4d0e00dd5c68a3afc1fb310e8c.svg",
     "static/media/LogoDesktop.svg": "/static/media/LogoDesktop.1b71a29f513e9af3725c22c324637f1d.svg",
     "static/media/LogoWDesktop.svg": "/static/media/LogoWDesktop.596fab0a166e1172d89157d9fca38ecd.svg",
     "static/media/workIcon.svg": "/static/media/workIcon.4c618a6cc838ef6e7717b080dfebb62e.svg",
@@ -275,7 +276,7 @@
     "static/media/arrow-right.svg": "/static/media/arrow-right.5fb2f953363e18265c6af2c25a214c8d.svg"
   },
   "entrypoints": [
-    "static/css/main.7e1f83bf.css",
-    "static/js/main.5fec19f4.js"
+    "static/css/main.76dae7df.css",
+    "static/js/main.560bc2cc.js"
   ]
 }
