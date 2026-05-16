@@ -1,9 +1,17 @@
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import foot from '../../assets/icons/footer.png';
 import { scrollToFormSection } from '../../App';
 
 const NewsArticleHeaderDesktop = () => {
   const location = useLocation();
+  const [hoveredNav, setHoveredNav] = useState(null);
+  const navItems = [
+    { label: 'Services', target: 'services' },
+    { label: 'Works', target: 'recentProjects' },
+    { label: 'About', target: 'about' },
+    { label: 'Blog', target: 'blog' },
+  ];
 
   const handleNavigation = (id) => {
     if (location.pathname === '/') {
@@ -27,38 +35,25 @@ const NewsArticleHeaderDesktop = () => {
           <img src={foot} alt="Ronin" className="w-[96px]" />
         </a>
 
-        <nav className="flex items-center gap-10 text-[16px] font-book text-[#090C21]">
-          <a href="/" className="transition duration-300 hover:text-[#1261FC]">
-            Home
-          </a>
-          <button
-            type="button"
-            onClick={() => handleNavigation('about')}
-            className="bg-transparent transition duration-300 hover:text-[#1261FC]"
-          >
-            About Us
-          </button>
-          <button
-            type="button"
-            onClick={() => handleNavigation('services')}
-            className="bg-transparent transition duration-300 hover:text-[#1261FC]"
-          >
-            What We Do
-          </button>
-          <button
-            type="button"
-            onClick={() => handleNavigation('recentProjects')}
-            className="bg-transparent transition duration-300 hover:text-[#1261FC]"
-          >
-            Our Works
-          </button>
-          <button
-            type="button"
-            onClick={() => handleNavigation('form-section')}
-            className="bg-transparent transition duration-300 hover:text-[#1261FC]"
-          >
-            Contact Us
-          </button>
+        <nav
+          className="flex items-center gap-10 text-[16px] font-book text-[#090C21]"
+          onMouseLeave={() => setHoveredNav(null)}
+        >
+          {navItems.map((item) => (
+            <button
+              key={item.target}
+              type="button"
+              onMouseEnter={() => setHoveredNav(item.target)}
+              onClick={() => handleNavigation(item.target)}
+              className={`bg-transparent transition-colors duration-300 ease-in-out ${
+                hoveredNav && hoveredNav !== item.target
+                  ? 'text-[#8B8E98]'
+                  : 'text-[#090C21]'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </nav>
 
         <a
